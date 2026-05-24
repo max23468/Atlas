@@ -4,16 +4,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Usare i pilot GLM e TRAM come feedback reale sul metodo di allineamento Atlas.
+- Usare i pilot GLM, TRAM e SyncBay come feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Scegliere la prossima repo da trattare dopo GLM/TRAM solo con conferma esplicita.
+- Scegliere la prossima repo da trattare dopo GLM/TRAM/SyncBay solo con conferma esplicita.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
-- Valutare se i pattern emersi da GLM e TRAM meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
+- Valutare se i pattern emersi da GLM, TRAM e SyncBay meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
 
 ## Più avanti
 
@@ -43,6 +43,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Completato il primo allineamento GLM: documenti canonici, baseline GitHub e roadmap/backlog più maturi, con merge della PR `max23468/Gare-Lotti-Milanesi#7`.
 - Promossa in Atlas la regola di discovery degli extra repo-specifici prima di applicare standard o template.
 - Completato l'allineamento TRAM: roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR con basename unico, con merge della PR `max23468/TRAM#7`.
+- Completato l'allineamento SyncBay: documenti canonici in `docs/`, Codex inbox pulita, Docker Node allineato a engine e merge delle PR `max23468/SyncBay#27` e `#28`.
 
 ## Regole
 
