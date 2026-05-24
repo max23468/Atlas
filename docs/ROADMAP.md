@@ -4,16 +4,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Usare il pilot GLM come primo feedback reale sul metodo di allineamento Atlas.
+- Usare i pilot GLM e TRAM come feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Scegliere la prossima repo da trattare dopo GLM solo con conferma esplicita.
+- Scegliere la prossima repo da trattare dopo GLM/TRAM solo con conferma esplicita.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
-- Valutare se i pattern emersi da GLM meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
+- Valutare se i pattern emersi da GLM e TRAM meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
 
 ## Più avanti
 
@@ -24,7 +24,6 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Bloccato
 
-- Sentinel: dipende dalla decisione su scaffold iniziale, primo commit, remote GitHub e workflow operativo.
 - FiscalBay upgrade Python completo: dipende dall'allineamento di manifest, CI e policy al runtime documentato.
 
 ## Fatto recente
@@ -38,11 +37,12 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata repository GitHub privata `https://github.com/max23468/Atlas`.
 - Aggiunta baseline GitHub leggera: PR template, issue template minima e PR title check.
 - Verificato che SendChimp ha runtime Next.js/Vercel/Neon e non va più trattato come docs-only.
-- Verificato che Sentinel è ora una repo Git locale iniziale, senza commit/remote e con scaffold Node/TypeScript non tracciato.
+- Verificato che Sentinel è ora una repo GitHub privata operativa `max23468/Sentinel`, con `main`, workflow schedulato/dispatch e output applicativi committabili.
 - Creato `docs/PROJECTS.md` come registro vivo dei progetti coordinati.
-- Rivalutato l'ordine iniziale: GLM è stato scelto come primo pilot su repo esistente pulita; Sentinel va trattata come baseline iniziale separata.
+- Rivalutato l'ordine iniziale: GLM e TRAM sono stati completati come primi pilot; Sentinel va trattata come baseline runtime separata.
 - Completato il primo allineamento GLM: documenti canonici, baseline GitHub e roadmap/backlog più maturi, con merge della PR `max23468/Gare-Lotti-Milanesi#7`.
 - Promossa in Atlas la regola di discovery degli extra repo-specifici prima di applicare standard o template.
+- Completato l'allineamento TRAM: roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR con basename unico, con merge della PR `max23468/TRAM#7`.
 
 ## Regole
 

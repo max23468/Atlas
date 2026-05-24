@@ -27,7 +27,7 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo pilot GLM, scegliendo una sola prossima repo alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
+Obiettivo corrente: usare Atlas come cabina di regia dopo i pilot GLM e TRAM, scegliendo una sola prossima repo alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 
@@ -37,8 +37,9 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 - DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Nel checkout attivo non risulta il vecchio file locale non tracciato `deploy/install-python313 2.sh`; non toccare comunque ambienti o file ignorati senza scope.
 - FiscalBay: repo Git su `main`; runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
 - GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
+- TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title e Codex sync passati; nessun deploy o release.
 - SendChimp: non è più solo documentazione; ha scaffold runtime Next.js/React su Vercel, Neon Free/Postgres 17 e Neon Auth. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
-- Sentinel: progetto nascente in `/Users/Matteo/Progetti/Sentinel`; repo Git locale su `main`, senza commit e senza remote; scaffold Node.js/TypeScript non tracciato con `AGENTS.md`, `package.json`, `sentinel.config.yml`, `src/` e `tsconfig.json`. Va trattata come baseline iniziale separata, non come normale allineamento di repo esistente.
+- Sentinel: repo GitHub privata `max23468/Sentinel`, branch `main`, commit ultimo verificato `e1de497 chore: update sentinel outputs`; workflow `Sentinel` schedulato/dispatch con Node 22, test, build, scan e commit degli output `data/`, `snapshots/`, `reports/`. Ultimo run manuale visto: `26367301441`, fallito sul commit `785808b` nello step `Fail on scan errors` dopo test, build, scan e commit output; il report `reports/ortix-20260524T165908Z.md` registra 8 cambiamenti, 34 problemi e fatale `SENTINEL_EMAIL_FROM` mancante. Trattarlo come operativo ma non verde.
 
 ## Vincoli specifici
 
@@ -86,5 +87,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Scegliere esplicitamente la prossima repo dopo GLM.
+- Scegliere esplicitamente la prossima repo dopo GLM/TRAM.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

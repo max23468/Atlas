@@ -109,9 +109,9 @@ Novità recepite:
 - SendChimp non è più solo documentazione: ha scaffold runtime Next.js/React con Vercel, Neon Free/Postgres 17 e Neon Auth. Resta però MVP manuale, senza invii WhatsApp automatici produttivi e con vincolo free-tier.
 - DocMolder usa Python `>=3.11` nel manifest, testa anche Python `3.13` in CI e documenta Python `3.13` come runtime preferito per sviluppo operativo/VPS. Non trattarlo come progetto `>=3.10`.
 - FiscalBay è in stato misto: la documentazione runtime/VPS indica Python `3.13`, ma `pyproject.toml`, ruff, mypy e GitHub Actions restano su Python `3.10`. Finché manifest e CI non sono aggiornati, non usare sintassi o dipendenze che richiedono Python `>3.10`.
-- Sentinel non è più descrivibile come sola cache locale: al ricontrollo del 2026-05-24 esiste `/Users/Matteo/Progetti/Sentinel`, repo Git locale su `main` senza commit e senza remote, con scaffold Node.js/TypeScript non tracciato (`AGENTS.md`, `package.json`, `sentinel.config.yml`, `src/`, `tsconfig.json`).
+- Sentinel non è più descrivibile come sola cache locale: al ricontrollo del 2026-05-24 esiste `/Users/Matteo/Progetti/Sentinel`, repo GitHub privata `max23468/Sentinel` su `main`, con CLI Node.js/TypeScript, workflow schedulato/dispatch e output applicativi committabili.
 
-Conseguenza: l'ordine operativo va rivalutato prima di ogni applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only. GLM è stato usato come primo pilot di allineamento su repo esistente pulita; Sentinel va invece trattata come baseline iniziale separata, da confermare prima di qualunque commit o GitHub setup.
+Conseguenza: l'ordine operativo va rivalutato prima di ogni applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only. GLM e TRAM sono stati usati come primi pilot di allineamento su repo esistenti; Sentinel va invece trattata come baseline runtime separata, non più come repo senza remote.
 
 Tabella decisionale approvata:
 
@@ -408,7 +408,7 @@ Adattatori repo-specifici:
 | SyncBay | PR/merge GitHub | `npm run release` locale quando previsto | non production finché non deciso |
 | TRAM | PR/merge GitHub | non applicabile finché policy assente | non applicabile finché policy assente |
 | Atlas | push/PR verso repository privata GitHub | non applicabile | non applicabile |
-| Sentinel | primo commit e GitHub da decidere | `0.1.0` locale da confermare | GitHub Actions schedulata da definire |
+| Sentinel | GitHub privata `max23468/Sentinel`, commit su `main` | `0.1.0` in `package.json` | GitHub Actions schedulata/dispatch attiva |
 
 Regola: il protocollo è comune; cambiano solo comandi, provider e target.
 
@@ -729,12 +729,12 @@ La baseline di avvio deve chiarire subito:
 | Pratix | Produzione SaaS | Molto strutturata: ADR, guide, memoria, roadmap, glossario | SemVer locale con `npm run release`, `src/lib/version.ts` | GitHub + Vercel production; `publish:finish` | Inbox Codex, Quality, Dependabot, template | Build, lint, test, smoke a11y, React Doctor dopo release minor | Media: già matura, rifinire standard comune |
 | DocMolder | Produzione operativa Telegram/VPS | Molto strutturata ma con schema diverso: docs governanti in maiuscolo | Release Please primario | PR + Release PR + GitHub Release + VPS/webhook | GitHub molto completo, manutenzione, VPS workflows | `ci_verify`, make, smoke Telegram quando serve | Bassa/media: non forzare Pratix-style |
 | FiscalBay | Operativo Telegram/eBay/VPS | Buona, con release/operations forti | `scripts/release_now.sh`, no Release Please | Deploy locale/VPS; release esplicita | Workflow allowlist, inbox Codex, PR title | `ci_verify`, build package quando serve | Media: uniformare docs/GitHub template e roadmap |
-| GLM | Web app Cloudflare Pages | Minima, concentrata su logica gara e deploy | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, manca PR template | Test, build, smoke, deploy doctor | Alta: catalogo docs e GitHub più deboli |
+| GLM | Web app Cloudflare Pages | Allineata ad Atlas con documenti canonici | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, PR template, issue template, PR title | Test, build, smoke, deploy doctor | Completata prima passata: resta scelta debito reale |
 | SendChimp | Runtime Next.js iniziale / MVP manuale | Molto strutturata, ma alcuni path sono ancora pre-standard Atlas | SemVer locale previsto; release runtime da governare prima di uso produttivo | GitHub + Vercel previsto/protetto; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title | `npm run verify`; React Doctor dopo release minor applicabile | Alta: uniformare senza perdere decisioni runtime e vincolo free-tier |
 | SyncBay | Scaffold runtime / MVP Shopify | Strutturata con ADR e guide | `npm run release`, `app/lib/version.ts` | Pubblicazione GitHub; no deploy production deciso | Inbox, template, Dependabot; CI minima | typecheck, lint, build, smoke UI, db verify | Alta: GitHub/CI e publish policy da completare |
-| TRAM | MVP iniziale interno | Documenti governanti pochi ma chiari | Non ancora policy SemVer reale | GitHub al massimo; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Alta: roadmap/versioning/catalogo da consolidare |
+| TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | Non ancora policy SemVer reale | GitHub privata; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
 | Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check | controllo documenti/link, `git status --short` | Bassa: base già pronta |
-| Sentinel | Progetto nascente | Scaffold Node.js/TypeScript non tracciato; documentazione canonica assente | `package.json` indica `0.1.0`, ma non ci sono commit | Git locale senza remote/GitHub | Nessuna baseline GitHub | `npm test`, `npm run build` da usare dopo conferma dello scaffold | Alta: prima serve decisione su primo commit, remote e baseline |
+| Sentinel | Monitor operativo Ortix | Scaffold runtime tracciato; documentazione canonica `docs/` assente | `package.json` indica `0.1.0` | GitHub privata e workflow schedulato/dispatch | Workflow `Sentinel`; nessuna Codex inbox vista | `npm test`, `npm run build`, workflow Actions da osservare con report e output committati | Separata: consolidare baseline runtime, docs e configurazione email dopo run rosso post-fix |
 
 ## Source of truth per repo
 
@@ -745,12 +745,12 @@ Questa tabella serve a sapere dove guardare per orientarsi in ogni progetto. Le 
 | Pratix | Da migrare a `docs/ROADMAP.md`; `docs/memory/roadmap.md` resta memoria operativa | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare o estrarre dai piani | `docs/memory/README.md` e `docs/memory/*.md` | `docs/decisions/` | `docs/guides/versioning-e-release.md`, `docs/guides/deploy.md` |
 | DocMolder | `docs/ROADMAP.md`, `docs/MILESTONE_BOARD.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare o collegare a milestone board | `docs/CONTEXT.md`, `docs/CODEX_TASK_PACKET.md` | da migrare verso `docs/decisions/`; `docs/DECISIONS.md` e `docs/DECISIONS_PENDING.md` come riepilogo temporaneo | `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` |
 | FiscalBay | `docs/ROADMAP.md`, `docs/MILESTONE_BOARD.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare o collegare a milestone board | `docs/CONTEXT.md` | `docs/decisions/` da creare; `docs/DECISIONS_PENDING.md` come pending temporaneo | `docs/RELEASE_POLICY.md`, `docs/OPERATIONS.md`, `docs/RUNBOOK.md` |
-| GLM | `docs/ROADMAP.md` da creare | `docs/INDEX.md` da creare | `docs/BACKLOG.md` da creare | Da creare | Da creare o concentrare in documento decisioni | `docs/guides/versioning-e-release.md`, `docs/guides/cloudflare-pages.md` |
+| GLM | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | `docs/TOOLCHAIN.md`, `docs/guides/versioning-e-release.md`, `docs/guides/cloudflare-pages.md` |
 | SendChimp | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md` |
 | SyncBay | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md`, `docs/guides/provisioning-runtime.md` |
-| TRAM | Da migrare a `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/CONTEXT.md` | usare `docs/decisions/`; `docs/DECISIONS.md` come riepilogo temporaneo | `docs/OPERATIONS.md`; release policy da definire |
+| TRAM | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/DECISIONS.md` come registro; `docs/decisions/` per ADR puntuali | `docs/TOOLCHAIN.md`, `docs/OPERATIONS.md`; release policy da definire |
 | Atlas | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | GitHub privata; release/deploy non applicabili |
-| Sentinel | da creare | da creare | da creare | da creare | da creare | da definire insieme a GitHub Actions/schedule |
+| Sentinel | da creare | da creare | da creare | da creare | da creare | `package.json`, `.github/workflows/sentinel.yml`; docs canonici da definire |
 
 Regole:
 
@@ -1197,7 +1197,7 @@ I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiara
 | SyncBay | Shopify app con eBay come sorgente catalogo | Perimetro prodotto specifico | non allargarla a marketplace generico bidirezionale |
 | TRAM | Evidence-first e AI governata/free-first | Documenti gara e output sensibili | non anticipare V2/V3 o inviare dati a provider senza policy |
 | Atlas | Meta-progetto docs-first su GitHub privata | Coordinamento, non prodotto applicativo | non trasformarlo in runtime o dashboard senza decisione |
-| Sentinel | Progetto nascente, monitor siti pubblici con primo profilo Ortix | Repo locale senza commit; output applicativi e credenziali email richiedono policy chiara | non applicare standard repo-per-repo finché non viene confermato cosa tracciare, dove pubblicare e quali workflow attivare |
+| Sentinel | Monitor siti pubblici con primo profilo Ortix | Output applicativi committabili dal workflow; credenziali email via secret; HTML completo vietato | non trattare output `data/`, `snapshots/`, `reports/` come rumore da ignorare o segreti da copiare |
 
 ## Vincoli specifici per repo
 
@@ -1292,14 +1292,18 @@ Non applicare ancora il piano come se fosse una repo esistente già pronta.
 
 Standard specifico:
 
-- repo Git locale su `main`, senza commit e senza remote;
-- scaffold Node.js/TypeScript non tracciato;
+- repo GitHub privata `max23468/Sentinel` su `main`;
+- runtime Node.js/TypeScript tracciato;
 - CLI `sentinel`, configurazione YAML e test Vitest;
 - primo monitor Ortix;
+- output `data/`, `snapshots/` e `reports/` applicativi e committabili dal workflow;
+- ultimo stato verificato: commit `e1de497 chore: update sentinel outputs`;
+- ultimo run manuale visto: `26367301441`, fallito dopo test, build, scan e commit output per `Fail on scan errors`;
+- report `reports/ortix-20260524T165908Z.md`: 8 cambiamenti, 34 problemi e fatale `SENTINEL_EMAIL_FROM` mancante;
 - rispettare `robots.txt`;
 - non committare segreti o password email;
 - non salvare HTML completo;
-- prima azione: decidere se e come trasformare lo scaffold in baseline iniziale con commit, GitHub e workflow schedulato.
+- prima azione: consolidare documenti canonici, baseline GitHub minima, eventuale Codex inbox e configurazione email/severità scansione.
 
 ### SyncBay
 
@@ -1361,7 +1365,7 @@ Correzione: sulle repo mature si rifinisce, non si ricostruisce.
 
 Rischio: creare processi di release/deploy artificiali su progetti che non sono ancora pronti.
 
-Correzione: su GLM, TRAM, SyncBay, SendChimp e Sentinel va dichiarata la maturità operativa senza trattare nessuna repo come fuori perimetro. SendChimp ha già runtime iniziale; Sentinel invece va prima censita.
+Correzione: su GLM, TRAM, SyncBay, SendChimp e Sentinel va dichiarata la maturità operativa senza trattare nessuna repo come fuori perimetro. SendChimp ha già runtime iniziale; Sentinel va consolidata come baseline runtime operativa, non più censita come scaffold senza remote.
 
 ## Criteri di completamento del piano
 
@@ -1402,11 +1406,11 @@ Azioni:
 
 Priorità:
 
-1. GLM: catalogo docs, PR template, GitHub baseline, roadmap.
-2. TRAM: versioning futuro, roadmap/backlog, catalogo docs, policy release assente.
+1. GLM: completato primo allineamento Atlas; scegliere solo debiti prodotto/tecnici reali.
+2. TRAM: completato primo allineamento Atlas; scegliere solo debiti prodotto/tecnici reali.
 3. SyncBay: GitHub/CI minima, pubblicazione, roadmap/backlog.
 4. SendChimp: uniformare senza perdere runtime iniziale, decisioni MVP manuale e vincolo free-tier.
-5. Sentinel: trattare come baseline iniziale separata; confermare scaffold, primo commit, remote e workflow prima di qualunque intervento operativo.
+5. Sentinel: trattare come baseline runtime separata; GitHub/workflow esistono, ora serve consolidare docs canonici, configurazione email e gestione dei run rossi post-fix.
 
 ### Fase 3 - Repo mature
 
@@ -1450,10 +1454,10 @@ Regole comuni per ogni intervento:
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
 | GLM | completata | Primo allineamento completato con `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | PR template, issue template minima e `pr-title.yml` aggiunti con PR `max23468/Gare-Lotti-Milanesi#7`; Codex inbox verificata senza thread actionable | Per il pilot documentale: `git diff --check` e CI GitHub passata; test/build/smoke restano per cambi runtime | Cloudflare Pages; non introdurre Vercel/Supabase; non perdere pattern GLM maturi come logica simulatore, changelog frontend e runbook Cloudflare |
-| TRAM | 2 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; usare `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Allineare baseline GitHub; confermare PR template/title check/quality | `npm run verify` | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
+| TRAM | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, template ADR con basename unico; mantenuto `docs/DECISIONS.md` come registro | Baseline GitHub già presente; PR `max23468/TRAM#7` mergiata | `npm run verify`; Quality, Repo Hygiene, PR Title e Codex sync passati | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
 | SyncBay | 3 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Rafforzare GitHub/CI minima; confermare PR template, issue template e title check | `npm run typecheck`, `npm run lint`, `npm run build`, `npm run smoke:ui`, `npm run db:verify` quando pertinente | Shopify app; no marketplace generico; no production deploy finché non deciso; React Doctor prima della prima release minor applicabile |
 | SendChimp | 4 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Allineare baseline GitHub già presente; rispettare runtime Next.js/Vercel/Neon e vincolo free-tier | `npm run verify`, `npm run verify:docs`, `npm run verify:language`; React Doctor dopo release minor applicabile | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold |
-| Sentinel | separata | Confermare scaffold iniziale e poi creare `README.md`, `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md` | Decidere primo commit, remote GitHub, PR template, issue template, `pr-title.yml` e workflow schedulato | `npm test`, `npm run build` dopo conferma scaffold | Repo Git locale senza commit; non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo |
+| Sentinel | separata | Creare documenti canonici Atlas se confermato: `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md` | GitHub privata e workflow schedulato già presenti; decidere PR template, issue template, `pr-title.yml` e Codex inbox | `npm test`, `npm run build`, workflow Actions da osservare distinguendo errore tecnico, scan errors e output committati | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
 
 ### Seconda ondata
 

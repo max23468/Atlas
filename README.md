@@ -52,4 +52,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: scegliere la prossima repo dopo il pilot GLM, usando `docs/PROJECTS.md` e la discovery repo-specifica.
+- Prossimo passo: scegliere la prossima repo dopo i pilot GLM e TRAM, usando `docs/PROJECTS.md` e la discovery repo-specifica.
