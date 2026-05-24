@@ -27,7 +27,7 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come progetto stabile prima di applicare il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo pilot GLM, scegliendo una sola prossima repo alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 
@@ -36,6 +36,7 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 - Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera.
 - DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Nel checkout attivo non risulta il vecchio file locale non tracciato `deploy/install-python313 2.sh`; non toccare comunque ambienti o file ignorati senza scope.
 - FiscalBay: repo Git su `main`; runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
+- GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
 - SendChimp: non è più solo documentazione; ha scaffold runtime Next.js/React su Vercel, Neon Free/Postgres 17 e Neon Auth. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
 - Sentinel: progetto nascente in `/Users/Matteo/Progetti/Sentinel`; repo Git locale su `main`, senza commit e senza remote; scaffold Node.js/TypeScript non tracciato con `AGENTS.md`, `package.json`, `sentinel.config.yml`, `src/` e `tsconfig.json`. Va trattata come baseline iniziale separata, non come normale allineamento di repo esistente.
 
@@ -46,6 +47,7 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 - Non introdurre release o deploy finché non c'è decisione esplicita.
 - Non confondere i template con i documenti canonici reali.
 - Non perdere contenuti durante migrazioni o uniformazioni.
+- Prima di applicare template Atlas a una repo, censire funzioni, documenti, runbook, workflow e regole già mature; classificare ogni extra prima di mantenerlo, promuoverlo, sostituirlo, metterlo in backlog o rimuoverlo.
 - Rispettare sempre l'`AGENTS.md` della repo bersaglio prima di qualunque intervento fuori da Atlas.
 - Se la repo bersaglio non ha ancora `AGENTS.md` o non è una repo Git, fermarsi alla ricognizione e creare prima una baseline.
 - Usare i subagent solo nella fase implementativa, con coordinamento centrale, prima passata read-only e una sola repo per volta in scrittura.
@@ -79,9 +81,10 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 - Creare documenti doppi con stesso scopo.
 - Rendere Atlas troppo pesante rispetto al suo ruolo di cabina di regia.
 - Trasformare vincoli repo-specifici in standard generici sbagliati.
+- Perdere comportamenti o documenti maturi di una repo perché non erano previsti nel template minimo Atlas.
 - Confondere publish, deploy e release nelle repo coordinate.
 
 ## Prossimo passo
 
-- Scegliere esplicitamente la prima repo per un'applicazione controllata del piano.
+- Scegliere esplicitamente la prossima repo dopo GLM.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

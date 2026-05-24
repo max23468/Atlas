@@ -8,9 +8,19 @@ Usare questa checklist prima di applicare il piano a una repository.
 2. Eseguire `git status --short`.
 3. Identificare modifiche non proprie.
 4. Leggere `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`.
-5. Controllare `Codex feedback inbox`.
-6. Identificare verifiche proporzionate.
-7. Dichiarare se publish, deploy o release sono fuori scope.
+5. Censire funzioni, documenti, workflow, runbook, policy e comportamenti repo-specifici non previsti dal piano Atlas.
+6. Classificare gli extra: mantenere specifico, promuovere ad Atlas, sostituire con pattern più maturo, mettere in backlog o rimuovere solo se duplicato/superato.
+7. Controllare `Codex feedback inbox`.
+8. Identificare verifiche proporzionate.
+9. Dichiarare se publish, deploy o release sono fuori scope.
+
+## Discovery repo-specifica
+
+1. Non copiare template Atlas alla cieca sopra documenti o funzioni già maturi.
+2. Segnalare gli extra rilevanti prima di normalizzarli.
+3. Promuovere un pattern ad Atlas solo dopo verifica almeno su un'altra repo comparabile o decisione esplicita.
+4. Mantenere in backlog ciò che è promettente ma non ancora standard.
+5. Non rimuovere contenuti solo per uniformità.
 
 ## Migrazioni documentali
 

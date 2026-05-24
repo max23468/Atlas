@@ -111,7 +111,7 @@ Novità recepite:
 - FiscalBay è in stato misto: la documentazione runtime/VPS indica Python `3.13`, ma `pyproject.toml`, ruff, mypy e GitHub Actions restano su Python `3.10`. Finché manifest e CI non sono aggiornati, non usare sintassi o dipendenze che richiedono Python `>3.10`.
 - Sentinel non è più descrivibile come sola cache locale: al ricontrollo del 2026-05-24 esiste `/Users/Matteo/Progetti/Sentinel`, repo Git locale su `main` senza commit e senza remote, con scaffold Node.js/TypeScript non tracciato (`AGENTS.md`, `package.json`, `sentinel.config.yml`, `src/`, `tsconfig.json`).
 
-Conseguenza: l'ordine operativo va rivalutato prima della prima applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only. GLM resta la prima candidata per un allineamento su repo esistente pulita; Sentinel va invece trattata come baseline iniziale separata, da confermare prima di qualunque commit o GitHub setup.
+Conseguenza: l'ordine operativo va rivalutato prima di ogni applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only. GLM è stato usato come primo pilot di allineamento su repo esistente pulita; Sentinel va invece trattata come baseline iniziale separata, da confermare prima di qualunque commit o GitHub setup.
 
 Tabella decisionale approvata:
 
@@ -1133,11 +1133,13 @@ Checklist minima:
 1. eseguire `git status --short`;
 2. leggere `AGENTS.md`;
 3. leggere i documenti canonici indicati dalla source of truth;
-4. cercare commenti Codex/PR review actionable;
-5. identificare test/verifiche proporzionati;
-6. dichiarare se publish, deploy o release sono fuori scope;
-7. non toccare modifiche non proprie;
-8. chiudere con riepilogo, verifiche e rischi residui.
+4. censire funzioni, documenti, runbook, workflow, policy e comportamenti repo-specifici non previsti dal piano Atlas;
+5. classificare gli extra: mantenere specifici, promuovere ad Atlas, sostituire con pattern più maturo, mettere in backlog o rimuovere solo se duplicati/superati;
+6. cercare commenti Codex/PR review actionable;
+7. identificare test/verifiche proporzionati;
+8. dichiarare se publish, deploy o release sono fuori scope;
+9. non toccare modifiche non proprie;
+10. chiudere con riepilogo, verifiche e rischi residui.
 
 Se uno di questi punti è ambiguo e l’ambiguità può cambiare scope, rischio o pubblicazione, bisogna chiedere chiarimento prima di procedere.
 
@@ -1433,19 +1435,21 @@ Regole comuni per ogni intervento:
 1. leggere `AGENTS.md`;
 2. controllare stato Git e modifiche non proprie;
 3. aggiornare link da `README.md` e `AGENTS.md` verso i documenti canonici;
-4. fare inventario dei contenuti da migrare prima di spostare o fondere documenti;
-5. evitare duplicati con stesso ruolo;
-6. non eliminare contenuti salvo decisione esplicita o assorbimento verificato;
-7. mantenere rinvii temporanei quando serve preservare tracciabilità;
-8. controllare `Codex feedback inbox`;
-9. eseguire verifiche proporzionate;
-10. chiudere con riepilogo, verifiche, contenuti migrati/rimossi e rischi residui.
+4. fare discovery degli extra repo-specifici già maturi: funzioni, documenti, runbook, workflow, policy e comportamenti;
+5. classificare gli extra prima di normalizzare: mantenere, promuovere ad Atlas, sostituire, mettere in backlog o rimuovere solo se duplicati/superati;
+6. fare inventario dei contenuti da migrare prima di spostare o fondere documenti;
+7. evitare duplicati con stesso ruolo;
+8. non eliminare contenuti salvo decisione esplicita o assorbimento verificato;
+9. mantenere rinvii temporanei quando serve preservare tracciabilità;
+10. controllare `Codex feedback inbox`;
+11. eseguire verifiche proporzionate;
+12. chiudere con riepilogo, verifiche, contenuti migrati/rimossi e rischi residui.
 
 ### Prima ondata
 
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
-| GLM | 1 | Creare `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | Aggiungere PR template, issue template minima, `pr-title.yml` o equivalente; verificare Codex inbox/workflow | `npm run test`, `npm run build`, `npm run smoke`, `npm run deploy:doctor` quando pertinente | Cloudflare Pages; non introdurre Vercel/Supabase; React Doctor prima della prima release minor applicabile |
+| GLM | completata | Primo allineamento completato con `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | PR template, issue template minima e `pr-title.yml` aggiunti con PR `max23468/Gare-Lotti-Milanesi#7`; Codex inbox verificata senza thread actionable | Per il pilot documentale: `git diff --check` e CI GitHub passata; test/build/smoke restano per cambi runtime | Cloudflare Pages; non introdurre Vercel/Supabase; non perdere pattern GLM maturi come logica simulatore, changelog frontend e runbook Cloudflare |
 | TRAM | 2 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; usare `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Allineare baseline GitHub; confermare PR template/title check/quality | `npm run verify` | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
 | SyncBay | 3 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Rafforzare GitHub/CI minima; confermare PR template, issue template e title check | `npm run typecheck`, `npm run lint`, `npm run build`, `npm run smoke:ui`, `npm run db:verify` quando pertinente | Shopify app; no marketplace generico; no production deploy finché non deciso; React Doctor prima della prima release minor applicabile |
 | SendChimp | 4 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Allineare baseline GitHub già presente; rispettare runtime Next.js/Vercel/Neon e vincolo free-tier | `npm run verify`, `npm run verify:docs`, `npm run verify:language`; React Doctor dopo release minor applicabile | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold |

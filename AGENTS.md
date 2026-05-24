@@ -65,8 +65,10 @@ Prima di lavorare su una repo coordinata da Atlas:
 1. leggere l'`AGENTS.md` della repo;
 2. controllare `git status --short`;
 3. leggere i documenti canonici della repo;
-4. controllare Codex feedback inbox se la repo ha GitHub configurato;
-5. applicare il piano solo dentro lo scope autorizzato.
+4. fare una ricognizione read-only degli elementi repo-specifici già maturi: funzioni, documenti, runbook, checklist, workflow, regole, policy e comportamenti non previsti dal piano Atlas;
+5. classificare questi elementi prima di applicare template o standard: mantenere specifico, promuovere come possibile standard Atlas, sostituire con pattern più maturo, parcheggiare in backlog o rimuovere solo se duplicato/superato e assorbito senza perdita;
+6. controllare Codex feedback inbox se la repo ha GitHub configurato;
+7. applicare il piano solo dentro lo scope autorizzato.
 
 ## Documentazione
 
@@ -141,6 +143,7 @@ Regole:
 
 - coordinamento centrale in Atlas;
 - prima passata read-only;
+- discovery esplicita di contenuti e comportamenti extra rispetto al piano Atlas;
 - una sola repo per volta in scrittura;
 - nessuna rimozione di contenuti senza decisione esplicita;
 - riepilogo finale con file toccati, contenuti migrati e verifiche;

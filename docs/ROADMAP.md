@@ -4,14 +4,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Usare Atlas come base stabile prima di applicare il piano alla prima repo coordinata.
+- Usare il pilot GLM come primo feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
+- Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Preparare la prima applicazione controllata del piano a una sola repo, scegliendo il target solo dopo conferma esplicita.
+- Scegliere la prossima repo da trattare dopo GLM solo con conferma esplicita.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
+- Valutare se i pattern emersi da GLM meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
 
 ## Più avanti
 
@@ -32,13 +34,15 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creati template e checklist per AGENTS, documentazione, roadmap, backlog, toolchain, contesto, decisioni, implementazione e manutenzione.
 - Creati i documenti canonici reali di Atlas: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md` e `docs/decisions/README.md`.
 - Inizializzato Git locale su branch `main`.
-- Estratte due ADR fondative: identità/perimetro di Atlas e struttura canonica root/docs.
+- Estratte tre ADR fondative: identità/perimetro di Atlas, struttura canonica root/docs e repository GitHub privata.
 - Creata repository GitHub privata `https://github.com/max23468/Atlas`.
 - Aggiunta baseline GitHub leggera: PR template, issue template minima e PR title check.
 - Verificato che SendChimp ha runtime Next.js/Vercel/Neon e non va più trattato come docs-only.
 - Verificato che Sentinel è ora una repo Git locale iniziale, senza commit/remote e con scaffold Node/TypeScript non tracciato.
 - Creato `docs/PROJECTS.md` come registro vivo dei progetti coordinati.
-- Rivalutato l'ordine iniziale: GLM resta la prima candidata per allineamento di una repo esistente pulita; Sentinel va trattata come baseline iniziale separata.
+- Rivalutato l'ordine iniziale: GLM è stato scelto come primo pilot su repo esistente pulita; Sentinel va trattata come baseline iniziale separata.
+- Completato il primo allineamento GLM: documenti canonici, baseline GitHub e roadmap/backlog più maturi, con merge della PR `max23468/Gare-Lotti-Milanesi#7`.
+- Promossa in Atlas la regola di discovery degli extra repo-specifici prima di applicare standard o template.
 
 ## Regole
 

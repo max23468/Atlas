@@ -39,11 +39,12 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 
 1. Prima di applicare i template a una repo, leggere il suo `AGENTS.md`.
 2. Non sovrascrivere documenti esistenti senza inventario dei contenuti.
-3. Migrare, collegare o dichiarare superato ogni contenuto utile.
-4. Non creare documenti doppi con stesso titolo o stesso scopo.
-5. Adattare comandi, release, deploy e verifiche alla repo reale.
-6. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release minor `X.Y.Z`.
-7. Pulire `.DS_Store` se compare nel working tree o risulta tracciato per errore; mantenerlo ignorato.
+3. Censire funzioni, documenti, runbook, workflow e regole repo-specifiche già mature prima di applicare uno standard Atlas.
+4. Migrare, collegare o dichiarare superato ogni contenuto utile.
+5. Non creare documenti doppi con stesso titolo o stesso scopo.
+6. Adattare comandi, release, deploy e verifiche alla repo reale.
+7. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release minor `X.Y.Z`.
+8. Pulire `.DS_Store` se compare nel working tree o risulta tracciato per errore; mantenerlo ignorato.
 
 ## Stato operativo
 
@@ -51,4 +52,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: usare Atlas come base stabile prima di applicare il piano alla prima repo coordinata.
+- Prossimo passo: scegliere la prossima repo dopo il pilot GLM, usando `docs/PROJECTS.md` e la discovery repo-specifica.
