@@ -19,8 +19,8 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 
 | Stato | Progetti | Motivo |
 | --- | --- | --- |
-| Verde | Atlas, Pratix, DocMolder, GLM, SyncBay | Allineamento completato e nessun blocco operativo noto nello snapshot Atlas |
-| Attenzione | FiscalBay, SendChimp, TRAM, Sentinel | Esistono vincoli o osservazioni da rispettare prima del prossimo lavoro |
+| Verde | Atlas, Pratix, DocMolder, FiscalBay, GLM, SyncBay, TRAM | Allineamento completato e nessun blocco operativo noto nello snapshot Atlas |
+| Attenzione | SendChimp, Sentinel | Esistono vincoli o osservazioni da rispettare prima del prossimo lavoro |
 | Bloccato | Nessuno | Nessun blocco trasversale aperto dopo il consolidamento Sentinel |
 
 ## Matrice
@@ -30,12 +30,12 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 | Atlas | Verde | `main` pubblicato dopo la chiusura delle ondate e il consolidamento Sentinel | Non trasformare Atlas in runtime o dashboard applicativa | Aggiornare `docs/HEALTH.md` quando cambia stato di una repo |
 | Pratix | Verde | PR `max23468/Pratix#156` mergiata, release patch `1.11.15`, Vercel production verificata con `publish:finish` | Repo già matura: non appesantire processi o UI; React Doctor dopo release minor | Scegliere solo debiti prodotto/tecnici reali con nuova conferma |
 | DocMolder | Verde | PR `max23468/DocMolder#166` mergiata; publish docs-only completato senza release/deploy | Mantenere Release Please, VPS e policy repo-specifica; documenti utente sensibili | Prossimo intervento solo su debito reale o manutenzione GitHub/VPS |
-| FiscalBay | Attenzione | PR `max23468/FiscalBay#78` mergiata; `ci_verify` e check GitHub passati | Upgrade Python misto: runtime VPS `3.13`, manifest/ruff/mypy/CI ancora `3.10` | Decidere upgrade Python solo aggiornando manifest, CI, toolchain e policy insieme |
+| FiscalBay | Verde | PR `max23468/FiscalBay#78` mergiata; inbox Codex `#69` senza actionable; toolchain dichiara supporto `>=3.10` e VPS `3.13` compatibile | Non rompere supporto `>=3.10` solo per uniformità | Valutare upgrade Python completo solo con decisione repo-specifica |
 | GLM | Verde | Primo allineamento Atlas completato con PR `max23468/Gare-Lotti-Milanesi#7` | Non perdere pattern maturi: simulatore, allegati Git LFS, runbook Cloudflare | Scegliere un debito reale: fonti pubbliche, import/export o ADR Cloudflare-only |
-| SendChimp | Attenzione | PR `max23468/SendChimp#20` mergiata; Docs hygiene, Codex inbox e Vercel automatico passati | MVP manuale e vincolo free-tier; nessun invio reale o provider nuovo senza piano | Verificare capienza free-tier prima di cambiare provider, billing o invii |
+| SendChimp | Attenzione | PR `max23468/SendChimp#21` mergiata; Vercel production `Ready`; `/api/health` OK con database raggiungibile e Neon Auth configurato | MVP manuale e vincolo free-tier; nessun invio reale o provider nuovo senza piano | Verificare capienza free-tier prima di cambiare provider, billing o invii |
 | SyncBay | Verde | PR `max23468/SyncBay#27`, `#28`, `#29` mergiate; release locale `0.6.0`; Vercel automatico passato | No tag/GitHub Release/App Store production finché la policy non cambia | Scegliere un debito reale: keyset/OAuth eBay o import listing live |
-| TRAM | Attenzione | PR `max23468/TRAM#6` e `#7` mergiate; React Doctor `100 / 100`, Quality, hygiene, PR title e Codex sync passati | Release/deploy policy non definita | Scegliere tra pilot Fase 7, policy release, provider/data policy o hardening T1/T2/T3 |
-| Sentinel | Attenzione | PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde; output commit `4b9d151` | Ortix ha 33 avvisi 404 ma 0 cambiamenti; retention output da valutare se cresce | Osservare il prossimo run schedulato e promuovere solo problemi reali da report/log |
+| TRAM | Verde | PR `max23468/TRAM#6` e `#7` mergiate; React Doctor `100 / 100`; policy SemVer/release definita con commit `783b783` | Nessun target deploy approvato: release e deploy restano distinti | Scegliere tra pilot Fase 7, provider/data policy o hardening T1/T2/T3 |
+| Sentinel | Attenzione | PR `max23468/Sentinel#1` e `#2` mergiate; workflow manuale `26369906474` verde; workflow runtime `Sentinel` ora disabilitato manualmente | Monitor schedulato sospeso per budget Actions; Ortix ha 33 avvisi 404 ma 0 cambiamenti | Riabilitare il workflow solo quando i minuti Actions tornano disponibili o quando esiste runtime alternativo |
 
 ## Regole di aggiornamento
 

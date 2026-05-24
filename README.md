@@ -55,4 +55,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: standard Atlas censiti e uniformazioni sicure pubblicate; chiudere solo i gap dichiarati quando tornano disponibili Actions o quando una policy repo lo richiede.
+- Prossimo passo: standard Atlas censiti e uniformazioni sicure pubblicate; riabilitare workflow sospesi solo quando tornano disponibili Actions o quando una policy repo lo richiede.
