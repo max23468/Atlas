@@ -22,7 +22,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Bloccato
 
-- Sentinel: dipende da baseline reale, Git/GitHub e `AGENTS.md`.
+- Sentinel: dipende dalla decisione su scaffold iniziale, primo commit, remote GitHub e workflow operativo.
 - FiscalBay upgrade Python completo: dipende dall'allineamento di manifest, CI e policy al runtime documentato.
 
 ## Fatto recente
@@ -36,8 +36,9 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata repository GitHub privata `https://github.com/max23468/Atlas`.
 - Aggiunta baseline GitHub leggera: PR template, issue template minima e PR title check.
 - Verificato che SendChimp ha runtime Next.js/Vercel/Neon e non va più trattato come docs-only.
-- Verificato che Sentinel esiste localmente ma non è ancora una repo Git/GitHub utilizzabile.
+- Verificato che Sentinel è ora una repo Git locale iniziale, senza commit/remote e con scaffold Node/TypeScript non tracciato.
 - Creato `docs/PROJECTS.md` come registro vivo dei progetti coordinati.
+- Rivalutato l'ordine iniziale: GLM resta la prima candidata per allineamento di una repo esistente pulita; Sentinel va trattata come baseline iniziale separata.
 
 ## Regole
 

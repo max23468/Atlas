@@ -34,10 +34,10 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 ## Snapshot aggiornato 2026-05-24
 
 - Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera.
-- DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Al controllo esisteva un file locale non tracciato `deploy/install-python313 2.sh`, da non toccare senza scope.
+- DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Nel checkout attivo non risulta il vecchio file locale non tracciato `deploy/install-python313 2.sh`; non toccare comunque ambienti o file ignorati senza scope.
 - FiscalBay: repo Git su `main`; runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
 - SendChimp: non è più solo documentazione; ha scaffold runtime Next.js/React su Vercel, Neon Free/Postgres 17 e Neon Auth. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
-- Sentinel: cartella locale presente, ma non è una repo Git locale e non risulta repository GitHub `max23468/Sentinel`; contiene solo cache `.wrangler`. Va censita o inizializzata prima di entrare nella matrice operativa.
+- Sentinel: progetto nascente in `/Users/Matteo/Progetti/Sentinel`; repo Git locale su `main`, senza commit e senza remote; scaffold Node.js/TypeScript non tracciato con `AGENTS.md`, `package.json`, `sentinel.config.yml`, `src/` e `tsconfig.json`. Va trattata come baseline iniziale separata, non come normale allineamento di repo esistente.
 
 ## Vincoli specifici
 

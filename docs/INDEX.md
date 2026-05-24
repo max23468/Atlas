@@ -67,7 +67,7 @@ Atlas coordina, senza modificare automaticamente:
 - SendChimp
 - SyncBay
 - TRAM
-- Sentinel, da censire: al controllo locale del 2026-05-24 esiste solo `/Users/Matteo/Documents/Sentinel` con cache `.wrangler`, senza repository Git, `AGENTS.md` o sorgenti visibili.
+- Sentinel: progetto nascente in `/Users/Matteo/Progetti/Sentinel`, repo Git locale senza commit e senza remote, con scaffold Node/TypeScript non tracciato da confermare prima della baseline.
 
 Prima di intervenire su una di queste repo, leggere il suo `AGENTS.md`, controllare `git status --short` e applicare le regole specifiche della repo.
 
