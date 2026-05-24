@@ -1,0 +1,1468 @@
+# Atlas - piano di coordinamento operativo dei progetti
+
+Data: 2026-05-23
+
+Stato: piano decisionale approvato, pronto per trasformazione in interventi repo-per-repo.
+
+## Obiettivo
+
+Costruire un coordinamento pieno tra i progetti locali:
+
+- Pratix
+- DocMolder
+- FiscalBay
+- GLM
+- SendChimp
+- SyncBay
+- TRAM
+
+L’obiettivo non è rendere le repository identiche. L’obiettivo è renderle coerenti con lo stile operativo, le aspettative e il modo di lavorare del maintainer, mantenendo le differenze tecniche reali di ciascun progetto.
+
+Principio guida:
+
+> Standardizzare governance, linguaggio, decisioni, verifiche, GitHub, pubblicazione, roadmap e handoff; lasciare repo-specifici solo runtime, target tecnici e comandi concreti.
+
+## Ambito e metodo
+
+Questo piano è una base di governo operativo, non un intervento di refactor.
+
+Include:
+
+- regole comuni per lavorare nelle repo;
+- struttura minima dei documenti governanti;
+- criteri comuni per roadmap, backlog, ADR e handoff;
+- semantica comune dei comandi operativi;
+- criteri per test, verifiche, GitHub, Codex inbox, release e deploy;
+- differenze da rispettare tra progetti;
+- sequenza operativa di intervento.
+
+Non include:
+
+- modifiche funzionali ai prodotti;
+- migrazioni di stack;
+- cambio di provider o runtime;
+- normalizzazione forzata di provider, runtime o comandi tecnici;
+- sostituzione delle policy specifiche già mature;
+- eliminazione di differenze tecniche motivate.
+
+Metodo:
+
+1. leggere la repo reale prima di applicare qualsiasi standard;
+2. distinguere standard comune e policy repo-specifica;
+3. introdurre prima documenti e regole di coordinamento;
+4. applicare poi i cambiamenti repository per repository;
+5. verificare ogni intervento con i comandi previsti dalla repo, non con una checklist generica.
+
+## Stato ricognizione
+
+Ricognizione eseguita sulle repository locali in `~/Documents`.
+
+Risultati principali:
+
+- tutte le repo hanno `AGENTS.md`;
+- tutte le repo sono su `main` allineato a `origin/main`;
+- non risultano worktree temporanei attivi;
+- non risultano PR aperte su GitHub;
+- tutte le repo hanno una `Codex feedback inbox`;
+- tutte le inbox Codex risultavano senza thread actionable al momento della ricognizione;
+- il workflow `Codex PR comments` e lo script `.github/scripts/handle-codex-pr-comments.mjs` sono già uniformi in tutte le repo.
+
+## Decisioni approvate prima dell’esecuzione
+
+Prima di aprire interventi sulle singole repo sono fissate queste scelte:
+
+1. posizione canonica della roadmap: `docs/ROADMAP.md`;
+2. posizione canonica dell’indice documentale: `docs/INDEX.md`;
+3. posizione canonica del backlog: `docs/BACKLOG.md`;
+4. formato ADR minimo: cartella, naming, stati e template;
+5. livello minimo GitHub per tutte le repo: PR template, issue template, branch protection, title check;
+6. regola comune per commenti Codex: inbox obbligatoria prima di PR/pubblicazione;
+7. definizione condivisa di “pubblica”, “deploya” e “rilascia”;
+8. frequenza della manutenzione periodica;
+9. perimetro operativo dei subagent nella fase di implementazione;
+10. applicabilità obbligatoria di React Doctor nelle app React dopo release minor `X.Y.Z`.
+11. baseline obbligatoria per nuovi progetti, così ogni nuova repo nasce già coordinata.
+12. confine generale tra ciò che resta in root e ciò che deve stare in `docs/`.
+13. baseline toolchain e versioni minime per nuovi progetti.
+
+Queste decisioni non sono tutte complesse. Sono però esplicite, così il piano non trasferisce ambiguità da una repo all’altra.
+
+Regole di partenza approvate:
+
+- non rinominare documenti già maturi solo per uniformare i path, con eccezione della roadmap;
+- standardizzare prima la reperibilità: `README.md` e `AGENTS.md` devono indicare sempre i documenti canonici;
+- usare `docs/ROADMAP.md` come unica posizione canonica della roadmap;
+- usare `docs/INDEX.md` come indice documentale unico;
+- usare `docs/decisions/` come standard unico per nuove ADR; `docs/DECISIONS.md` può restare solo come indice/riepilogo temporaneo dove già esiste;
+- mantenere `Codex PR comments` e `Codex feedback inbox` come standard comune già acquisito;
+- rendere React Doctor obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`;
+
+Tabella decisionale approvata:
+
+| Area | Decisione | Stato |
+| --- | --- | --- |
+| Roadmap | Usare `docs/ROADMAP.md` come unica roadmap canonica; eventuali `ROADMAP.md` in root vanno migrati o sostituiti con rinvio temporaneo | Approvato |
+| Indice documentale | Usare `docs/INDEX.md` come indice documentale unico; eventuali `docs/README.md` vanno migrati o sostituiti con rinvio temporaneo | Approvato |
+| Backlog | Usare `docs/BACKLOG.md` come backlog unico separato dalla roadmap | Approvato |
+| ADR | Usare `docs/decisions/` come standard unico per nuove ADR; `docs/DECISIONS.md` solo come indice/riepilogo temporaneo nelle repo che lo usano già | Approvato |
+| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot solo con dipendenze runtime reali; branch protection solo per repo operative/condivise | Approvato |
+| Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
+| Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
+| Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
+| React Doctor | Obbligatorio nelle app React dopo ogni release minor `X.Y.Z`; applicabile anche a SendChimp quando avrà runtime React | Approvato |
+| Nuovi progetti | Avviare ogni nuova repo da una baseline completa: governance, docs, GitHub, verifiche, release/deploy policy e handoff | Approvato |
+| Root vs docs | Root solo per ingresso, istruzioni agenti, configurazione/tooling e sorgente; `docs/` per governance, roadmap, decisioni, contesto e approfondimenti | Approvato |
+| Subagent | Usarli solo nella fase di implementazione, con coordinamento centrale, scope read-only iniziale e una repo per volta in scrittura | Approvato |
+| Toolchain/versioni | Ogni repo deve dichiarare runtime, package manager, engines, lockfile e versioni minime in configurazione più `docs/TOOLCHAIN.md`; baseline: latest LTS per Node, latest stable compatibile per Python, guardrail repo-specifici dove esistono | Approvato |
+
+Elementi recepiti nel piano:
+
+- separare standard di coordinamento e template operativo per nuovi progetti;
+- aggiungere una mappa `source of truth` per ogni repo;
+- rafforzare la classificazione di maturità con requisiti minimi e limiti;
+- aggiungere una definizione di “pronto per intervenire” su una repo;
+- aggiungere un registro dei vincoli repo-specifici;
+- trasformare la baseline nuovi progetti in un kit di avvio riusabile;
+- applicare una cadenza di manutenzione leggera mensile e obbligatoria prima di publish/deploy/release.
+
+## Lista aggiornata dei punti da uniformare
+
+### 1. AGENTS.md
+
+Uniformare struttura e contenuto minimo:
+
+- priorità delle istruzioni;
+- identità del progetto;
+- perimetro e non-obiettivi;
+- fonti primarie da leggere;
+- workflow operativo minimo;
+- gestione modifiche non proprie;
+- test e verifiche proporzionate;
+- pubblicazione, deploy e release;
+- gestione commenti Codex;
+- GitHub, PR e merge;
+- documentazione e roadmap;
+- sicurezza, dati e privacy;
+- stile di risposta finale;
+- prossimi passi;
+- definizione di completamento.
+
+### 2. Catalogo documentazione
+
+Ogni repo deve avere un catalogo documentale leggibile e prevedibile.
+
+Regola generale:
+
+- la root deve restare il punto di ingresso e di esecuzione;
+- `docs/` deve contenere governance, decisioni, roadmap, contesto, guide e approfondimenti;
+- un file resta in root solo se serve subito a orientare, avviare, configurare o far funzionare il progetto;
+- un documento va in `docs/` se serve a spiegare, governare, decidere, ricordare o approfondire.
+
+Struttura minima approvata:
+
+- `README.md`: ingresso rapido;
+- `AGENTS.md`: regole operative per Codex e agenti;
+- `CHANGELOG.md`: solo se la repo ha versioning o release;
+- `docs/ROADMAP.md`;
+- `docs/INDEX.md`;
+- `docs/BACKLOG.md`;
+- `docs/TOOLCHAIN.md`;
+- `docs/CONTEXT.md` oppure `docs/context.md`;
+- guida Git/pubblicazione;
+- guida versioning/release se applicabile;
+- guida deploy/operations se esiste runtime;
+- ADR o documento decisioni;
+- guida sicurezza/privacy/dati quando il progetto tratta dati reali o provider esterni.
+
+Regola anti-duplicati:
+
+- non devono esistere due documenti con lo stesso titolo, scopo o ruolo canonico;
+- se due documenti coprono la stessa funzione, va scelto un solo source of truth;
+- il documento non canonico va migrato, archiviato o trasformato in rinvio temporaneo;
+- i rinvii temporanei devono indicare chiaramente il documento canonico;
+- evitare coppie come `docs/README.md` e `docs/INDEX.md` con contenuto equivalente.
+
+Regola anti-perdita:
+
+- nessun contenuto va perso durante migrazioni, merge documentali o rinomini;
+- prima di eliminare, archiviare o sostituire un documento bisogna verificare che ogni informazione utile sia stata migrata, collegata o dichiarata superata;
+- se un contenuto viene rimosso per uniformità, la rimozione deve essere esplicita nel riepilogo dell’intervento;
+- i rinvii temporanei sono preferibili alla cancellazione quando non è certo che tutto il contenuto sia stato assorbito;
+- le migrazioni devono preservare link, riferimenti operativi, comandi, vincoli, decisioni e contesto storico utile;
+- i tool o i subagent non devono perdere pezzi: la perdita di contenuto è ammessa solo su decisione esplicita.
+
+### 2.1 Root e docs
+
+La root non deve diventare un archivio documentale.
+
+In root devono stare:
+
+- `README.md`: porta d’ingresso del progetto;
+- `AGENTS.md`: regole operative per Codex e agenti;
+- `CHANGELOG.md`: storico release, se la repo ha versioning o release;
+- `LICENSE`, se applicabile;
+- file di configurazione richiesti dagli strumenti;
+- lockfile e manifest runtime;
+- `.env.example` o equivalenti, se utili al setup;
+- `.github/`, perché è configurazione GitHub;
+- directory sorgente, test, script e asset runtime;
+- configurazioni deploy richieste dalla piattaforma.
+
+In `docs/` devono stare:
+
+- `docs/ROADMAP.md`;
+- `docs/INDEX.md`;
+- `docs/BACKLOG.md`;
+- contesto e handoff;
+- ADR e decisioni pending;
+- backlog, piani e milestone;
+- architettura;
+- data model;
+- guide operative;
+- versioning e release policy estese;
+- toolchain, runtime e versioni minime;
+- deploy, operations, runbook, health e rollback;
+- sicurezza, privacy, segreti, provider e API;
+- brand, glossario, tono e posizionamento;
+- ricerche, benchmark, report e analisi;
+- allegati documentali non runtime.
+
+Eccezioni ammesse:
+
+- file richiesti in root da framework, package manager, deploy platform o GitHub;
+- `CHANGELOG.md` in root, perché è uno standard riconoscibile e spesso collegato alla release;
+- documenti brevissimi nel `README.md`, purché rimandino alla fonte completa in `docs/`;
+- template GitHub dentro `.github/`, perché sono configurazione operativa, non documentazione di prodotto.
+
+Regola pratica: se un contenuto serve a “usare o avviare” la repo, può stare in root; se serve a “capire, decidere o governare” la repo, sta in `docs/`.
+
+### 3. Roadmap
+
+La gestione della roadmap va inserita esplicitamente.
+
+Standard approvato:
+
+- una sola roadmap canonica per repo, sempre in `docs/ROADMAP.md`;
+- distinguere `Ora`, `Prossimo`, `Più avanti`, `Bloccato`, `Fatto`;
+- non lasciare lunghe checklist completate come archivio;
+- spostare decisioni stabili in ADR o documentazione;
+- usare la roadmap per priorità e stato, non per dettagli di implementazione;
+- aggiornare la roadmap quando cambia direzione, priorità, fase o backlog;
+- non aggiornarla per micro-decisioni già chiuse nello stesso intervento;
+- indicare sempre il prossimo passo operativo reale.
+
+### 4. Backlog
+
+Separare roadmap e backlog.
+
+Standard approvato:
+
+- una sola backlog canonica per repo, sempre in `docs/BACKLOG.md`;
+- la roadmap descrive direzione, priorità e fase;
+- il backlog raccoglie idee, debiti, bug, ipotesi, attività non ancora scelte;
+- un elemento nel backlog non è scope approvato;
+- quando un elemento diventa prioritario, viene promosso in roadmap;
+- quando una decisione diventa stabile, viene spostata o collegata ad ADR/documentazione.
+
+Categorie standard:
+
+- idee prodotto;
+- backlog tecnico;
+- bug;
+- debiti;
+- idee future;
+- decisioni sospese;
+- attività operative ricorrenti.
+
+Regola: un’idea non decisa non deve diventare scope implicito.
+
+### 5. ADR e lifecycle decisionale
+
+Uniformare quando serve una decisione formale.
+
+Standard approvato:
+
+- le nuove ADR vanno in `docs/decisions/`;
+- naming standard: `NNNN-slug-breve.md`;
+- `docs/decisions/template.md` deve esistere in ogni repo con governance viva;
+- `docs/decisions/README.md` o `docs/INDEX.md` devono indicizzare le decisioni;
+- `docs/DECISIONS.md`, dove già esiste, va trattato come indice/riepilogo temporaneo e non come luogo per nuove decisioni strutturate;
+- `docs/DECISIONS_PENDING.md` o `docs/decisions-pending.md` può restare per decisioni non ancora approvate;
+- non creare documenti duplicati con stesso titolo o stessa decisione.
+
+Serve ADR quando cambia stabilmente:
+
+- architettura;
+- stack;
+- deploy;
+- dati;
+- sicurezza/privacy;
+- AI/provider;
+- versioning;
+- processo operativo;
+- perimetro prodotto;
+- brand strutturale.
+
+Stati standard:
+
+- `Proposta`;
+- `Accettata`;
+- `Superata`;
+- `Sospesa`;
+- `Respinta`.
+
+Quando non serve ADR:
+
+- fix piccolo;
+- microcopy;
+- chiarimento già coerente con documenti esistenti;
+- task operativo senza decisione durevole.
+
+### 6. Handoff e contesto
+
+Ogni repo deve avere un punto di handoff.
+
+Contenuti minimi:
+
+- stato progetto;
+- fase corrente;
+- ultimo deploy/release rilevante;
+- prossima azione reale;
+- blocchi aperti;
+- rischi noti;
+- documenti da leggere per una nuova chat;
+- policy specifiche da non dimenticare.
+
+Per repo mature usare `docs/CONTEXT.md`.
+Per repo docs-first può bastare `docs/context.md`.
+
+### 7. Versioning
+
+Uniformare la semantica, non necessariamente gli strumenti.
+
+Classificazione comune:
+
+- `MAJOR`: breaking change visibile o contrattuale;
+- `MINOR`: nuova funzionalità retrocompatibile;
+- `PATCH`: fix, hardening, UI/copy, manutenzione runtime compatibile;
+- `Non versionato`: docs interne, piani, ADR, regole agenti, test-only, formattazione isolata, note locali.
+
+Regole comuni:
+
+- valutare sempre impatto versioning prima di chiudere;
+- non bumpare per docs interne non operative;
+- non mescolare `Non versionato` e voci versionate nello stesso rilascio, se lo script non lo supporta;
+- distinguere changelog utente da note interne;
+- non fare version bump manuali fuori dal flusso previsto dalla repo.
+
+### 8. Pubblicazione, deploy e release
+
+Uniformare parole chiave, protocollo e gate.
+
+Definizioni comuni:
+
+- `pubblica`: porta il lavoro nel canale canonico della repo, normalmente PR/merge verso branch principale o pubblicazione documentale GitHub;
+- `deploya`: aggiorna il runtime o l’ambiente operativo dichiarato dalla repo;
+- `rilascia`: crea o chiude una versione, con changelog/tag/release secondo la policy della repo;
+- `pubblica tutto`: esegue, nell’ordine corretto, pubblicazione GitHub, eventuale release, eventuale deploy, verifica finale e cleanup.
+
+Standard comune approvato:
+
+1. leggere `AGENTS.md` e source of truth;
+2. controllare `git status --short`;
+3. controllare `Codex feedback inbox`;
+4. eseguire verifiche proporzionate richieste dalla repo;
+5. aggiornare docs/versioning/changelog quando previsto;
+6. pubblicare tramite PR/merge o canale GitHub previsto;
+7. rilasciare solo se la repo ha release policy o se il comando utente lo richiede;
+8. deployare solo se esistono target, runbook e verifiche;
+9. verificare il risultato nel canale finale;
+10. fare cleanup branch/worktree quando previsto;
+11. chiudere con stato, versione, canale, verifiche e rischi residui.
+
+Adattatori repo-specifici:
+
+| Repo | `pubblica` | `rilascia` | `deploya` |
+| --- | --- | --- | --- |
+| Pratix | PR/merge GitHub verso main | `npm run release` secondo policy | Vercel production quando previsto |
+| DocMolder | PR/merge GitHub | Release Please/GitHub Release quando rilasciabile | VPS/runbook quando previsto |
+| FiscalBay | PR/merge GitHub o flusso repo | `scripts/release_now.sh` quando previsto | `scripts/deploy_now.sh`/VPS quando previsto |
+| GLM | PR/merge GitHub | `npm run release` quando previsto | Cloudflare Pages solo su richiesta/target dichiarato |
+| SendChimp | PR/merge GitHub/documentazione | release locale se prevista | non applicabile finché non esiste runtime |
+| SyncBay | PR/merge GitHub | `npm run release` locale quando previsto | non production finché non deciso |
+| TRAM | PR/merge GitHub | non applicabile finché policy assente | non applicabile finché policy assente |
+
+Regola: il protocollo è comune; cambiano solo comandi, provider e target.
+
+### 9. Commenti Codex
+
+Infrastruttura già uniforme:
+
+- workflow `Codex PR comments`;
+- issue `Codex feedback inbox`;
+- handler `.github/scripts/handle-codex-pr-comments.mjs`.
+
+Standard approvato:
+
+- controllare la `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release;
+- se ci sono thread actionable, risolverli o dichiarare perché restano fuori scope;
+- non usare file Markdown/JSON committati come inbox alternativa;
+- ricontrollare i commenti prima del merge quando il flusso è non banale o ha ricevuto nuovi commenti;
+- per repo mature, avere anche uno script/report locale di manutenzione GitHub.
+
+Output minimo quando restano thread aperti:
+
+- thread o tema rimasto aperto;
+- motivo per cui non viene risolto ora;
+- impatto sul merge/pubblicazione/deploy/release;
+- prossimo passo o owner.
+
+### 10. GitHub
+
+Uniformare funzionalità e policy, con peso diverso per repo.
+
+Baseline approvata:
+
+- PR template coerente;
+- issue template minima;
+- `Codex feedback inbox`;
+- workflow `Codex PR comments`;
+- workflow `pr-title.yml` o controllo equivalente del titolo PR;
+- workflow quality/CI proporzionato alla repo;
+- `dependabot.yml` solo dove ci sono dipendenze runtime reali;
+- branch protection solo quando il progetto è operativo, condiviso o ha release/deploy sensibili;
+- `CODEOWNERS` solo dove aggiunge reale controllo, non come burocrazia;
+- squash merge con Conventional Commit quando collegato a changelog/release;
+- cleanup branch dopo merge.
+
+Regole:
+
+- GitHub baseline non significa stessi workflow ovunque;
+- i workflow devono rispettare la policy della repo e il suo stack;
+- non introdurre Actions generiche in repo che hanno allowlist o deploy fuori GitHub Actions;
+- i template GitHub vivono in `.github/`, non in `docs/`;
+- la inbox Codex resta un canale operativo GitHub, non un documento committato;
+- ogni repo deve dichiarare la policy su PR draft se diversa dal default;
+- la gestione commenti Codex deve seguire la sezione dedicata;
+- manutenzione periodica di PR, release e workflow.
+
+### 11. Test e verifiche
+
+Uniformare la classificazione del rischio.
+
+Categorie:
+
+- nessuna modifica / sola analisi;
+- docs-only;
+- documenti operativi critici;
+- test-only;
+- runtime piccolo;
+- runtime condiviso;
+- UI localizzata;
+- UI sostanziale;
+- database/dati;
+- provider/API;
+- deploy/config;
+- release/versioning.
+
+Regola comune:
+
+- eseguire solo verifiche proporzionate;
+- non inventare test non eseguiti;
+- dichiarare limiti e rischi residui;
+- evitare footer rituali;
+- indicare comandi falliti, impatto e prossimo passo.
+
+### 12. React Doctor e qualità React
+
+Standard approvato:
+
+- React Doctor è obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`, cioè quando cambia `Y`;
+- non è obbligatorio dopo ogni patch `X.Y.Z` quando cambia solo `Z`, salvo modifiche React trasversali o rischiose;
+- è obbligatorio prima di considerare chiusa una release minor React;
+- se il comando React Doctor manca, va aggiunto prima della prima release minor a cui si applica;
+- il risultato va citato nel riepilogo di release o nella verifica finale;
+- eventuali failure vanno risolte o dichiarate come blocker.
+
+Applicabilità:
+
+- Pratix: obbligatorio, già presente come `quality:react-doctor`;
+- GLM: obbligatorio quando consolidato come app React con release minor;
+- TRAM: obbligatorio quando consolidato come app React con release minor;
+- SyncBay: obbligatorio quando consolidato come app React con release minor;
+- SendChimp: obbligatorio quando avrà runtime React e release minor;
+- DocMolder e FiscalBay: non applicabile finché restano repo Python/Telegram-first senza app React.
+
+### 13. Stile, tono e lingua
+
+Uniformare aspettative:
+
+- italiano pratico, diretto, operativo;
+- accenti e apostrofi corretti;
+- no risposte compiacenti senza verifica;
+- no risultati inventati;
+- no footer rituali sui test;
+- prossimi passi concreti;
+- UI italiana dove il prodotto è italiano;
+- tono coerente con progetto e pubblico.
+
+### 14. Sicurezza, dati e privacy
+
+Regole comuni:
+
+- mai committare segreti;
+- mai stampare token o credenziali;
+- niente dati reali in fixture, screenshot, log o PR;
+- host VPS corretti per progetto;
+- credenziali solo da canali previsti;
+- provider/API verificati da fonti ufficiali;
+- dati sensibili minimizzati;
+- documenti reali trattati come riservati;
+- verifiche privacy prima di invii a provider esterni o AI.
+
+### 15. Documenti reali e dati sensibili
+
+Da esplicitare in tutte le repo che trattano dati reali.
+
+Esempi:
+
+- GLM: allegati gara e dati di gara;
+- TRAM: pacchetti documentali gara e output AI;
+- DocMolder: documenti caricati dagli utenti;
+- FiscalBay: ordini e dati fiscali eBay;
+- SendChimp: campagne, telefoni, consenso;
+- SyncBay: shop, listing, clienti, ordini;
+- Pratix: dati clienti, pratiche, fatture.
+
+Regola: ciò che serve al test deve essere sintetico o anonimizzato.
+
+### 16. Provider, API e dati variabili
+
+Inserire regola comune:
+
+- usare fonti ufficiali aggiornate;
+- verificare policy, prezzi, limiti, API, privacy;
+- non basarsi su memoria quando il dato può essere cambiato;
+- documentare data di verifica quando il dato entra in prodotto o docs;
+- distinguere fonte ufficiale, fonte pubblica, assunzione e decisione interna.
+
+### 17. Operatività produzione
+
+Per repo con runtime:
+
+- healthcheck;
+- log recenti;
+- smoke post-deploy;
+- rollback;
+- host corretti;
+- canale deploy canonico;
+- verifica versione live;
+- cleanup branch/worktree;
+- dichiarazione di cosa è davvero pubblicato.
+
+### 18. Manutenzione periodica
+
+Standard approvato:
+
+- check leggero mensile per tutte le repo;
+- check obbligatorio prima di `publish`, `deploy` o `release`;
+- check proporzionato alla maturità della repo;
+- nessuna release/deploy va considerata chiusa senza controllo dei punti canonici della repo.
+
+Creare o uniformare una checklist ricorrente:
+
+- `git status`;
+- branch/worktree stale;
+- PR aperte;
+- inbox Codex;
+- workflow falliti;
+- Dependabot;
+- release aperte;
+- deploy/runtime health;
+- documentazione obsoleta;
+- roadmap/backlog;
+- toolchain/versioni;
+- vincoli repo-specifici.
+
+Output minimo del check:
+
+- stato repo;
+- anomalie o blocchi;
+- azioni da eseguire;
+- verifiche eseguite;
+- prossima manutenzione o prossimo intervento.
+- security/dependency audit dove pertinente.
+
+### 19. Coordinamento tra progetti
+
+Creare uno standard personale comune.
+
+Contenuti:
+
+- come Codex deve leggere una repo;
+- come rispondere alle richieste `pubblica`, `deploya`, `rilascia`;
+- come gestire commenti bot;
+- come fare handoff;
+- come distinguere analisi, piano, codice e pubblicazione;
+- come non mescolare worktree sporchi;
+- come decidere quando chiedere chiarimento.
+
+### 20. Maturità del progetto
+
+Ogni repo va classificata per fase.
+
+Fasi standard:
+
+- `docs-first`;
+- `MVP locale`;
+- `runtime attivo`;
+- `produzione`;
+- `operativo con release`;
+- `manutenzione/stabilizzazione`.
+
+La fase determina:
+
+- test minimi;
+- necessità changelog;
+- deploy;
+- release;
+- GitHub workflow;
+- severità dei gate.
+
+Requisiti e limiti standard:
+
+| Fase | Requisiti minimi | Non introdurre ancora |
+| --- | --- | --- |
+| `docs-first` | `README.md`, `AGENTS.md`, roadmap, indice docs, prima decisione | deploy, release automatiche, branch protection pesante |
+| `MVP locale` | comandi dev/verifica, backlog, dati e non-obiettivi chiari | produzione, rollback, processi release complessi |
+| `runtime attivo` | build, smoke minimo, env documentate, security/privacy | release pubblica se non serve |
+| `produzione` | deploy, health, segreti, rollback, runbook | cambi non verificati, publish ambiguo |
+| `operativo con release` | versioning, changelog, release policy, CI verde | bypass dei gate release |
+| `manutenzione/stabilizzazione` | check periodico, debiti tracciati, documenti aggiornati | nuove funzionalità senza roadmap |
+
+### 21. Glossario, brand e prodotto
+
+Uniformare processo, non contenuti.
+
+Ogni repo deve chiarire:
+
+- termini canonici;
+- termini vietati;
+- tono UI;
+- posizionamento;
+- non-obiettivi;
+- brand o naming;
+- quando aggiornare glossario/brand.
+
+### 22. Artefatti generati e file temporanei
+
+Regola comune:
+
+- non committare output generati non previsti;
+- non toccare file generati a mano;
+- pulire `.DS_Store` quando compaiono nel working tree o risultano tracciati per errore, mantenendoli ignorati per il futuro;
+- non trattare `.DS_Store` come contenuto progettuale da eliminare o discutere repo per repo;
+- controllare `dist`, `.next`, `.output`, `.venv`, `node_modules`, cache e duplicati locali;
+- dichiarare se restano file temporanei.
+
+### 23. Lavoro parallelo, branch e worktree
+
+Uniformare:
+
+- controllo `git status` iniziale;
+- branch/worktree dedicati per lavori non banali;
+- non spostare modifiche non proprie su nuova branch;
+- non sovrascrivere diff altrui;
+- cleanup dopo merge/pubblicazione;
+- handoff se più chat/agent lavorano sullo stesso progetto.
+
+### 24. Nuovi progetti e baseline di avvio
+
+Ogni nuovo progetto deve nascere già con il set minimo di coordinamento.
+
+Obiettivo: non dover recuperare dopo mesi regole, documenti, roadmap, GitHub, verifiche e publish policy.
+
+La baseline di avvio deve chiarire subito:
+
+- identità del progetto;
+- problema che risolve;
+- perimetro e non-obiettivi;
+- fase iniziale;
+- stack e motivazione;
+- dati trattati;
+- provider/API previsti;
+- livello GitHub minimo;
+- verifiche minime;
+- roadmap iniziale;
+- backlog separato o sezione backlog;
+- ADR iniziali;
+- regola versioning;
+- significato di pubblicazione, deploy e release;
+- handoff per nuove chat;
+- gestione Codex inbox e commenti PR;
+- regole su sicurezza, privacy e segreti;
+- criterio per passare da docs-first a MVP/runtime/produzione.
+
+## Matrice repo
+
+| Repo | Fase attuale | Documentazione | Versioning | Pubblicazione/deploy | GitHub | Verifiche | Priorità allineamento |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Pratix | Produzione SaaS | Molto strutturata: ADR, guide, memoria, roadmap, glossario | SemVer locale con `npm run release`, `src/lib/version.ts` | GitHub + Vercel production; `publish:finish` | Inbox Codex, Quality, Dependabot, template | Build, lint, test, smoke a11y, React Doctor dopo release minor | Media: già matura, rifinire standard comune |
+| DocMolder | Produzione operativa Telegram/VPS | Molto strutturata ma con schema diverso: docs governanti in maiuscolo | Release Please primario | PR + Release PR + GitHub Release + VPS/webhook | GitHub molto completo, manutenzione, VPS workflows | `ci_verify`, make, smoke Telegram quando serve | Bassa/media: non forzare Pratix-style |
+| FiscalBay | Operativo Telegram/eBay/VPS | Buona, con release/operations forti | `scripts/release_now.sh`, no Release Please | Deploy locale/VPS; release esplicita | Workflow allowlist, inbox Codex, PR title | `ci_verify`, build package quando serve | Media: uniformare docs/GitHub template e roadmap |
+| GLM | Web app Cloudflare Pages | Minima, concentrata su logica gara e deploy | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, manca PR template | Test, build, smoke, deploy doctor | Alta: catalogo docs e GitHub più deboli |
+| SendChimp | Docs-first / MVP manuale, futuro runtime React | Molto strutturata | SemVer locale previsto ma niente runtime release | Pubblicazione GitHub, no deploy produttivo | Inbox, docs hygiene, PR title | `npm run verify`, docs/language; React Doctor quando avrà runtime React | Alta: uniformare senza perdere docs-first |
+| SyncBay | Scaffold runtime / MVP Shopify | Strutturata con ADR e guide | `npm run release`, `app/lib/version.ts` | Pubblicazione GitHub; no deploy production deciso | Inbox, template, Dependabot; CI minima | typecheck, lint, build, smoke UI, db verify | Alta: GitHub/CI e publish policy da completare |
+| TRAM | MVP iniziale interno | Documenti governanti pochi ma chiari | Non ancora policy SemVer reale | GitHub al massimo; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Alta: roadmap/versioning/catalogo da consolidare |
+
+## Source of truth per repo
+
+Questa tabella serve a sapere dove guardare per orientarsi in ogni progetto. Le migrazioni di path sono ammesse solo quando derivano da decisioni approvate, come `docs/ROADMAP.md` e `docs/INDEX.md`.
+
+| Repo | Roadmap | Catalogo docs | Backlog | Contesto/handoff | Decisioni | Release/pubblicazione/deploy |
+| --- | --- | --- | --- | --- | --- | --- |
+| Pratix | Da migrare a `docs/ROADMAP.md`; `docs/memory/roadmap.md` resta memoria operativa | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare o estrarre dai piani | `docs/memory/README.md` e `docs/memory/*.md` | `docs/decisions/` | `docs/guides/versioning-e-release.md`, `docs/guides/deploy.md` |
+| DocMolder | `docs/ROADMAP.md`, `docs/MILESTONE_BOARD.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare o collegare a milestone board | `docs/CONTEXT.md`, `docs/CODEX_TASK_PACKET.md` | da migrare verso `docs/decisions/`; `docs/DECISIONS.md` e `docs/DECISIONS_PENDING.md` come riepilogo temporaneo | `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` |
+| FiscalBay | `docs/ROADMAP.md`, `docs/MILESTONE_BOARD.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare o collegare a milestone board | `docs/CONTEXT.md` | `docs/decisions/` da creare; `docs/DECISIONS_PENDING.md` come pending temporaneo | `docs/RELEASE_POLICY.md`, `docs/OPERATIONS.md`, `docs/RUNBOOK.md` |
+| GLM | `docs/ROADMAP.md` da creare | `docs/INDEX.md` da creare | `docs/BACKLOG.md` da creare | Da creare | Da creare o concentrare in documento decisioni | `docs/guides/versioning-e-release.md`, `docs/guides/cloudflare-pages.md` |
+| SendChimp | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md` |
+| SyncBay | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md`, `docs/guides/provisioning-runtime.md` |
+| TRAM | Da migrare a `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/CONTEXT.md` | usare `docs/decisions/`; `docs/DECISIONS.md` come riepilogo temporaneo | `docs/OPERATIONS.md`; release policy da definire |
+
+Regole:
+
+- `README.md` e `AGENTS.md` devono sempre puntare ai documenti canonici della repo;
+- una repo può usare path diversi solo per eccezioni tecniche motivate; roadmap e indice hanno path unico;
+- se manca una fonte canonica, il primo intervento documentale deve crearla o dichiararla;
+- la migrazione della roadmap a `docs/ROADMAP.md` è una scelta di governance, non una migrazione estetica;
+- la migrazione dell’indice a `docs/INDEX.md` è una scelta di governance, non una migrazione estetica;
+- la creazione del backlog in `docs/BACKLOG.md` è una scelta di governance, non un archivio di scope implicito;
+- le nuove decisioni stabili devono andare in `docs/decisions/`;
+- non vanno fatte altre migrazioni di path solo estetiche.
+
+## Standard comune approvato
+
+### A. Blocco comune per AGENTS.md
+
+Ogni `AGENTS.md` deve contenere, nello stesso ordine:
+
+1. Scopo.
+2. Priorità delle istruzioni.
+3. Identità del progetto.
+4. Perimetro e non-obiettivi.
+5. Fonti primarie.
+6. Stato/maturità della repo.
+7. Workflow operativo prima di lavorare.
+8. Regole su modifiche non proprie.
+9. Codice/stile/qualità.
+10. Documentazione, roadmap e ADR.
+11. Versioning.
+12. Pubblicazione, deploy e release.
+13. GitHub e commenti Codex.
+14. Test e verifiche proporzionate.
+15. Sicurezza, privacy e dati.
+16. Risposte finali e prossimi passi.
+17. Definizione di completamento.
+
+Le sezioni possono essere più brevi nelle repo docs-first.
+
+### A.1 Root e docs
+
+Standard approvato:
+
+| Posizione | Deve contenere | Non deve contenere |
+| --- | --- | --- |
+| Root | ingresso, istruzioni agenti, configurazioni, manifest, lockfile, codice, script, test, config deploy | roadmap, ADR, backlog, piani, report, guide lunghe, runbook estesi |
+| `docs/` | roadmap, indice, contesto, decisioni, guide, governance, runbook, sicurezza, privacy, brand, glossario, report | configurazioni richieste dai tool, sorgente runtime, lockfile |
+| `.github/` | workflow, template, automazioni GitHub | documentazione prodotto generale |
+
+La root deve essere leggibile in pochi secondi. `docs/` deve essere il luogo in cui il progetto conserva memoria, decisioni e profondità.
+
+### B. Catalogo documentale minimo
+
+| Tipo documento | Scopo | Obbligo |
+| --- | --- | --- |
+| `README.md` | ingresso rapido | sempre |
+| `AGENTS.md` | regole operative Codex | sempre |
+| `CHANGELOG.md` | storico release o cambi rilevanti | se c’è versioning |
+| `docs/ROADMAP.md` | priorità e prossimi passi | sempre |
+| `docs/INDEX.md` | catalogo documenti | sempre |
+| `docs/BACKLOG.md` | idee, debiti, bug e attività non ancora promosse | sempre |
+| `docs/TOOLCHAIN.md` | runtime, package manager, versioni minime e lockfile | sempre se ci sono tool o dipendenze |
+| `docs/CONTEXT.md` | handoff per nuove chat | sempre |
+| `docs/decisions/` | decisioni stabili | se il progetto ha governance viva |
+| guida Git/pubblicazione | cosa significa pubblicare | sempre se repo GitHub |
+| guida versioning/release | come si rilascia | se c’è release |
+| guida deploy/operations | runtime, health, rollback | se c’è produzione |
+| security/privacy | dati, segreti, provider | se tratta dati o API |
+
+### C. Semantica comune dei comandi utente
+
+| Formula utente | Significato comune | Eccezioni |
+| --- | --- | --- |
+| `procedi` | continua nel perimetro già concordato | se rischioso, chiedere chiarimento |
+| `pubblica` | porta il lavoro nel canale GitHub/canonico previsto, con verifiche e inbox Codex | target e comando dipendono dalla repo |
+| `deploya` | aggiorna il runtime dichiarato dalla repo, con runbook e verifica finale | non applicabile se la repo non ha runtime |
+| `rilascia` | crea/chiude versione secondo policy, con changelog/tag/release se previsti | non applicabile se la repo non ha release policy |
+| `pubblica tutto` | esegue protocollo completo: publish, eventuale release, eventuale deploy, verifica e cleanup | non inventa runtime o release se assenti |
+| `chiudi la fase` | verifica stato, docs, release/deploy se previsti | non inventare produzione se repo non la ha |
+| `solo analisi` | nessuna modifica codice | ok documenti se richiesti esplicitamente |
+
+### D. Roadmap standard
+
+Formato standard:
+
+| Stato | Significato |
+| --- | --- |
+| `Ora` | lavoro attuale o immediatamente successivo |
+| `Prossimo` | backlog prioritario |
+| `Più avanti` | futuro reale ma non attuale |
+| `Bloccato` | dipende da decisione, accesso, provider o dato esterno |
+| `Fatto` | completato, da tenere solo se serve storico breve |
+
+Regole:
+
+- non usare la roadmap come changelog;
+- non usare la roadmap come dump di idee;
+- rimuovere o archiviare completati vecchi;
+- collegare decisioni stabili ad ADR;
+- collegare lavori pubblicati a changelog/release quando pertinente.
+
+### E. Manutenzione periodica
+
+Frequenza approvata:
+
+- mensile, per controllo leggero di tutte le repo;
+- obbligatoria prima di `publish`, `deploy` o `release`.
+
+Checklist comune:
+
+1. Stato Git locale.
+2. Worktree e branch stale.
+3. PR aperte.
+4. Codex feedback inbox, obbligatoria prima di PR ready/merge/publish/deploy/release.
+5. Workflow falliti.
+6. Dependabot e security alerts.
+7. Changelog/release pendenti.
+8. Stato deploy/runtime.
+9. Roadmap/backlog obsoleti.
+10. Docs di contesto aggiornate.
+11. Toolchain/versioni.
+12. Vincoli repo-specifici.
+
+## Baseline per nuovi progetti
+
+Questa sezione vale per ogni nuova repository.
+
+Quando parte un nuovo progetto, non deve nascere solo con codice o appunti sparsi. Deve nascere con un set minimo completo, proporzionato alla fase, che permetta a Codex e al maintainer di capire subito cosa fare, cosa non fare, come verificare e come pubblicare.
+
+### Principio
+
+Un nuovo progetto può essere minimale, ma non deve essere ambiguo.
+
+Minimale significa:
+
+- pochi documenti;
+- regole brevi;
+- test proporzionati;
+- nessun processo di release artificiale;
+- nessun deploy inventato.
+
+Non ambiguo significa:
+
+- perimetro dichiarato;
+- prossimo passo visibile;
+- decisioni stabili tracciate;
+- regole GitHub presenti;
+- verifiche minime definite;
+- publish, deploy e release distinti;
+- dati e segreti gestiti consapevolmente.
+
+### Starter kit obbligatorio
+
+Ogni nuova repo deve partire almeno con:
+
+| File/area | Scopo | Note |
+| --- | --- | --- |
+| `README.md` | ingresso umano al progetto | deve spiegare cosa fa, stato, stack e comandi base |
+| `AGENTS.md` | regole operative per Codex | deve essere letto prima di modifiche non banali |
+| `docs/ROADMAP.md` | direzione e prossimi passi | con sezioni `Ora`, `Prossimo`, `Più avanti`, `Bloccato` |
+| `docs/INDEX.md` | catalogo documentale | deve linkare i documenti canonici |
+| `docs/BACKLOG.md` | idee, debiti e attività non ancora scelte | non deve sostituire la roadmap |
+| `docs/TOOLCHAIN.md` | runtime, tool, package manager, versioni minime | deve distinguere baseline ed eccezioni |
+| `docs/CONTEXT.md` o equivalente | handoff per nuove chat | utile anche se breve |
+| `docs/decisions/0001-*.md` | prima decisione stabile | stack, perimetro o modello operativo |
+| guida Git/pubblicazione | cosa significa pubblicare | anche solo una sezione nel README all’inizio |
+| guida versioning/release | come si gestiscono versioni | può dichiarare “non ancora applicabile” |
+| security/privacy | dati, segreti, provider | obbligatorio se tratta dati reali o API |
+| `.github/` baseline | PR/commenti/qualità | proporzionata alla fase |
+
+### Domande iniziali da fissare
+
+Prima o durante la creazione della repo, il progetto deve rispondere a queste domande:
+
+1. Qual è il problema concreto che risolve?
+2. Qual è il non-obiettivo più importante?
+3. È docs-first, MVP locale, runtime attivo o produzione?
+4. Qual è lo stack iniziale e perché?
+5. Quali dati tratta?
+6. Usa provider esterni o API variabili?
+7. Cosa significa “pubblica” in questa repo?
+8. Esiste un deploy? Se sì, dove e con quale runbook?
+9. Esiste una release? Se sì, con quale versioning?
+10. Quali controlli minimi devono passare prima di considerare chiuso un lavoro?
+11. Quale documento deve leggere Codex per orientarsi?
+12. Qual è il prossimo passo operativo reale?
+
+### Baseline GitHub
+
+Per una nuova repo, il livello minimo approvato è:
+
+- repository su GitHub fin dall’inizio se il progetto non è solo bozza locale;
+- branch principale dichiarato;
+- PR template;
+- issue template minima;
+- issue o inbox per commenti Codex;
+- workflow `Codex PR comments`;
+- workflow `pr-title.yml` o controllo equivalente del titolo PR;
+- Dependabot solo quando ci sono dipendenze runtime reali;
+- branch protection solo quando il progetto diventa operativo o condiviso.
+
+### Baseline verifiche
+
+Le verifiche devono nascere proporzionate alla fase.
+
+| Fase | Verifiche minime |
+| --- | --- |
+| docs-first | controllo link/lingua/struttura se disponibile |
+| MVP locale | lint/typecheck/test essenziali |
+| runtime attivo | build più smoke minimo |
+| produzione | build, test, smoke, health, rollback/runbook |
+| operativo con release | controlli release, changelog/versioning, CI verde |
+
+Regola: non introdurre test simbolici solo per dire che esistono. Meglio pochi check reali e mantenibili.
+
+### Baseline toolchain e versioni
+
+Ogni nuova repo deve dichiarare la propria toolchain in modo esplicito.
+
+File e campi obbligatori quando applicabili:
+
+- `docs/TOOLCHAIN.md`: fonte leggibile per runtime, tool, versioni minime, package manager, lockfile ed eccezioni;
+- `package.json` con `engines` e `packageManager` per progetti Node/npm;
+- `.node-version` per progetti Node;
+- `package-lock.json` per progetti npm;
+- `pyproject.toml` con `requires-python` per progetti Python;
+- `.python-version` per progetti Python quando utile al setup locale;
+- lockfile Python se il gestore scelto lo prevede;
+- note su tool esterni richiesti, per esempio Vercel CLI, Wrangler, gh, Supabase CLI, Docker o Make.
+
+Il criterio approvato è usare la versione più nuova ragionevolmente supportata dal progetto, non una versione vecchia per prudenza generica.
+
+Distinzione:
+
+- per runtime con linea LTS, usare la latest LTS supportata dallo stack;
+- per runtime senza LTS equivalente, usare la latest stable compatibile con dipendenze, deploy e strumenti;
+- non usare una release Current/preview solo perché è la più recente;
+- per repo esistenti, rispettare i guardrail attuali finché non c’è decisione esplicita di upgrade.
+
+Baseline comune per nuovi progetti:
+
+| Area | Baseline |
+| --- | --- |
+| JavaScript/TypeScript | latest Node LTS supportata dallo stack; al momento Node `24.x` |
+| npm | latest npm stabile compatibile con la Node LTS scelta, con `packageManager` dichiarato |
+| Lockfile JS | `package-lock.json` |
+| Python | latest Python stable compatibile con dipendenze, deploy e tooling |
+| Lint/typecheck/test | comando esplicito nel manifest o nel runbook |
+| Version manager | file dichiarativo in root quando utile: `.node-version` o `.python-version` |
+| Tool esterni | versione minima o canale stabile documentato in `docs/TOOLCHAIN.md` |
+
+Regole:
+
+- preferire la versione più nuova supportata, non la più vecchia ancora supportata;
+- per Node distinguere sempre `latest Current`, `latest LTS` e `baseline del progetto`;
+- per Python verificare dipendenze, deploy e tool prima di adottare l’ultima major stabile;
+- non fissare una versione unica di React, Vite, Next, TanStack, Wrangler o altre librerie applicative per tutte le repo: dipendono dallo stack;
+- fissare invece runtime, package manager e lockfile;
+- ogni repo deve pinning o range esplicito nel manifest;
+- gli aggiornamenti di toolchain devono passare da roadmap/backlog o ADR se cambiano vincoli stabili;
+- le repo esistenti possono restare temporaneamente su baseline diversa se documentata;
+- le eccezioni vanno dichiarate in `docs/TOOLCHAIN.md` e, se strutturali, in ADR.
+
+Snapshot attuale da normalizzare gradualmente:
+
+| Repo | Stato toolchain rilevato | Allineamento |
+| --- | --- | --- |
+| Pratix | Node `24.x`, npm `>=11 <12`, `packageManager: npm@11.14.1` | già allineata alla baseline JS |
+| SendChimp | Node `>=24 <27`, npm `>=11 <12`, `packageManager: npm@11.14.1` | già allineata alla baseline JS |
+| SyncBay | `.node-version` = `24`, `engines.node >=20.19 <25` | da rendere più esplicita |
+| GLM | package npm presente, engines/packageManager non dichiarati | da completare |
+| TRAM | package npm presente, engines/packageManager non dichiarati | da completare |
+| DocMolder | Python `>=3.11` | già allineata alla baseline Python |
+| FiscalBay | Python `>=3.10` | guardrail repo-specifico: mantenere compatibilità Python 3.10 finché non c’è decisione esplicita di upgrade |
+
+Nota di lettura:
+
+- Node `24.x` è scelto perché è la latest LTS supportata al momento della ricognizione, non perché sia la latest Current assoluta;
+- npm deve seguire la latest stabile compatibile con la Node LTS scelta, senza imporre una patch uguale in tutte le repo;
+- Python per nuovi progetti deve puntare alla latest stable compatibile con dipendenze e deploy, non a `>=3.11` per default conservativo;
+- FiscalBay mantiene Python `>=3.10` come guardrail compatibile con la repo attuale.
+
+Guardrail per repo esistenti:
+
+- la baseline Python per nuovi progetti è latest stable compatibile con dipendenze, deploy e tooling;
+- FiscalBay resta su Python `>=3.10` finché una decisione esplicita non approva l’upgrade;
+- non introdurre in FiscalBay sintassi, dipendenze o tool che richiedano Python `>3.10` senza ADR o decisione equivalente;
+- i controlli di FiscalBay devono restare compatibili con il vincolo dichiarato in `pyproject.toml`;
+- se si decide l’upgrade di FiscalBay a Python `>=3.11`, va aggiornato `pyproject.toml`, l’eventuale documentazione toolchain, CI/verifiche e release policy collegata.
+
+### Baseline versioning, publish e release
+
+Ogni nuova repo deve dichiarare subito una di queste condizioni:
+
+- versioning non applicabile per ora;
+- versione locale senza release pubblica;
+- changelog manuale;
+- SemVer locale;
+- Release Please o altra automazione;
+- release GitHub;
+- deploy senza release;
+- deploy più release.
+
+La cosa importante non è scegliere subito il processo più maturo. È non lasciare il significato di versione, pubblicazione e rilascio implicito.
+
+### Baseline documentale per fase
+
+| Fase | Documenti sufficienti |
+| --- | --- |
+| Idea/docs-first | `README.md`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, prima decisione |
+| MVP locale | aggiungere guida dev, verifiche, dati, backlog |
+| Runtime attivo | aggiungere operations/deploy, env, security/privacy |
+| Produzione | aggiungere runbook, health, rollback, release policy |
+| Stabilizzazione | aggiungere manutenzione periodica e matrice qualità |
+
+### Criteri di passaggio di fase
+
+Il passaggio di fase deve essere esplicito.
+
+Esempi:
+
+- da docs-first a MVP: esiste uno scope implementabile e verificabile;
+- da MVP a runtime attivo: esiste un’app/servizio avviabile con comandi documentati;
+- da runtime attivo a produzione: esistono deploy, health, segreti, rollback e dati gestiti;
+- da produzione a operativo con release: esistono versioning, changelog, release policy e smoke;
+- da operativo a stabilizzazione: esiste manutenzione periodica.
+
+### Template operativo iniziale
+
+Per creare un nuovo progetto, l’ordine approvato è:
+
+1. definire nome, perimetro e non-obiettivi;
+2. scegliere fase iniziale;
+3. creare `README.md`;
+4. creare `AGENTS.md`;
+5. creare `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md` e `docs/TOOLCHAIN.md`;
+6. registrare la prima decisione stabile;
+7. definire verifiche minime;
+8. definire toolchain e versioni minime;
+9. definire GitHub baseline;
+10. definire publish/deploy/release, anche come “non applicabile per ora”;
+11. dichiarare dati, privacy, provider e segreti;
+12. popolare il primo backlog;
+13. fare il primo controllo di coerenza.
+
+### Definizione di pronto per nuova repo
+
+Una nuova repo è pronta per il lavoro operativo quando:
+
+- una nuova chat può leggerla senza contesto orale;
+- il prossimo passo è scritto;
+- le cose da non fare sono chiare;
+- il comando di verifica minimo esiste o è dichiarato non applicabile;
+- runtime, package manager e versioni minime sono dichiarati;
+- GitHub è coerente con la fase;
+- publish, deploy e release non sono ambigui;
+- i dati sensibili sono riconosciuti;
+- Codex sa dove lasciare o leggere commenti operativi;
+- la roadmap non è vuota o generica.
+
+## Definizione di pronto per intervenire su una repo esistente
+
+Prima di modificare una repo esistente, l’intervento è pronto solo se sono chiari:
+
+- stato Git locale;
+- eventuali modifiche non proprie;
+- branch/worktree da usare;
+- `AGENTS.md` e documenti che indica;
+- source of truth della repo;
+- roadmap/backlog rilevanti;
+- toolchain e versioni minime;
+- commenti Codex o PR review pendenti;
+- comandi minimi di verifica;
+- impatto su changelog, versioning, release o deploy;
+- dati sensibili o provider coinvolti;
+- criterio di completamento;
+- prossimo passo se i controlli falliscono.
+
+Checklist minima:
+
+1. eseguire `git status --short`;
+2. leggere `AGENTS.md`;
+3. leggere i documenti canonici indicati dalla source of truth;
+4. cercare commenti Codex/PR review actionable;
+5. identificare test/verifiche proporzionati;
+6. dichiarare se publish, deploy o release sono fuori scope;
+7. non toccare modifiche non proprie;
+8. chiudere con riepilogo, verifiche e rischi residui.
+
+Se uno di questi punti è ambiguo e l’ambiguità può cambiare scope, rischio o pubblicazione, bisogna chiedere chiarimento prima di procedere.
+
+## Uso dei subagent nella fase operativa
+
+I subagent possono essere utili nell’implementazione del piano, ma non devono diventare una fonte autonoma di standard.
+
+Regola principale: il piano centrale decide; i subagent analizzano, applicano e verificano dentro lo scope approvato.
+
+Uso approvato:
+
+- un coordinatore centrale mantiene il piano e decide coerenza;
+- un subagent può lavorare su una singola repo alla volta;
+- in alternativa, un subagent può lavorare su una sola area trasversale: documentazione, GitHub, versioning, test, publish/deploy;
+- la prima fase dei subagent deve essere read-only: ricognizione, gap, rischi e proposta;
+- la scrittura va autorizzata solo dopo standard approvati e repo assegnata;
+- non usare più subagent in scrittura sulla stessa repo contemporaneamente;
+- ogni subagent deve rispettare `AGENTS.md` della repo e la source of truth del piano;
+- ogni subagent deve chiudere con file toccati, contenuti migrati, eventuali contenuti rimossi, verifiche eseguite, rischi residui e prossimi passi.
+
+Output standard richiesto a un subagent:
+
+1. repo o area analizzata;
+2. documenti letti;
+3. gap rispetto al piano;
+4. modifiche proposte;
+5. file da toccare;
+6. contenuti da preservare;
+7. contenuti eventualmente da rimuovere solo se approvati;
+8. rischi o eccezioni;
+9. verifiche da eseguire;
+10. eventuale patch o piano patch;
+11. stato finale e handoff.
+
+Limiti:
+
+- i subagent non possono cambiare lo standard comune;
+- non possono normalizzare vincoli repo-specifici motivati;
+- non possono eliminare contenuti per uniformità senza decisione esplicita;
+- non possono introdurre deploy, release o workflow non previsti dalla repo;
+- non possono risolvere conflitti di governance senza ritorno al coordinatore centrale;
+- non devono usare il loro output come fonte primaria se contraddice `AGENTS.md`, documenti canonici o decisioni approvate.
+
+## Registro vincoli repo-specifici
+
+I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiarare cosa va rispettato mentre si applica lo standard comune.
+
+| Repo | Vincolo | Motivo | Cosa non fare |
+| --- | --- | --- | --- |
+| Pratix | SaaS Vercel/Supabase con UI italiana e glossary rigoroso | Prodotto gestionale leggero per avvocati freelance | non spostare verso VPS, Telegram o Cloudflare |
+| DocMolder | Telegram-first con Release Please e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o processo release manuale |
+| FiscalBay | Dati fiscali solo se presenti nelle API eBay; Python `>=3.10` finché non c’è decisione di upgrade | Rischio di dedurre informazioni non disponibili o rompere compatibilità runtime/tooling | non inventare tax data, non forzare Python `>=3.11`, non introdurre workflow GitHub Actions non previsto |
+| GLM | Cloudflare Pages e dati gara allegati | Simulatore web legato a gara/documenti specifici | non usare Vercel/Supabase come default |
+| SendChimp | Docs-first/MVP manuale | Perimetro operativo ancora manuale | non introdurre invii reali |
+| SyncBay | Shopify app con eBay come sorgente catalogo | Perimetro prodotto specifico | non allargarla a marketplace generico bidirezionale |
+| TRAM | Evidence-first e AI governata/free-first | Documenti gara e output sensibili | non anticipare V2/V3 o inviare dati a provider senza policy |
+
+## Vincoli specifici per repo
+
+### Pratix
+
+Non va spostata verso VPS, Cloudflare o Telegram.
+
+Standard specifico:
+
+- TanStack Start;
+- Vercel;
+- Supabase;
+- UI italiana;
+- token semantici;
+- glossary rigoroso;
+- smoke a11y proporzionato;
+- React Doctor obbligatorio dopo ogni release minor `X.Y.Z`.
+
+### DocMolder
+
+Non va trasformata in web app o dashboard-first.
+
+Standard specifico:
+
+- Telegram-first;
+- VPS;
+- Release Please;
+- Release PR;
+- webhook privato GitHub -> VPS;
+- documenti utente trattati come sensibili;
+- branch/worktree separati quando ci sono filoni paralleli.
+
+### FiscalBay
+
+Non dedurre dati fiscali eBay non presenti.
+
+Standard specifico:
+
+- Telegram/eBay-first;
+- Python `>=3.10` come guardrail corrente;
+- nessun upgrade a Python `>=3.11` senza decisione esplicita, aggiornamento toolchain e verifiche dedicate;
+- non usare sintassi o dipendenze che richiedono Python `>3.10` finché il guardrail resta attivo;
+- VPS FiscalBay specifica;
+- deploy fuori da GitHub Actions;
+- `scripts/deploy_now.sh`;
+- `scripts/release_now.sh`;
+- GitHub Actions solo controlli conservativi.
+
+### GLM
+
+Non usare Vercel o Supabase.
+
+Standard specifico:
+
+- Cloudflare Pages;
+- dati e fonti gara tracciabili;
+- allegati Git LFS non modificati senza richiesta;
+- changelog mostrato nel frontend;
+- deploy solo con `npm run deploy:cloudflare`.
+
+### SendChimp
+
+Non introdurre runtime/invio produttivo prima di decisione esplicita.
+
+Standard specifico:
+
+- docs-first;
+- MVP ultimo miglio manuale;
+- nessun invio WhatsApp reale;
+- nessuna integrazione produttiva Meta/Mailchimp/Shopify senza piano.
+
+### SyncBay
+
+Non trasformarla in marketplace bidirezionale generico.
+
+Standard specifico:
+
+- Shopify app;
+- eBay sorgente catalogo;
+- Vercel/Supabase previsti ma production non attiva;
+- release locale senza tag/deploy;
+- App Store solo dopo decisione.
+
+### TRAM
+
+Non anticipare V2/V3 e non inviare documenti sensibili a provider esterni senza policy.
+
+Standard specifico:
+
+- evidence-first;
+- AI free-first e governata;
+- documenti gara sensibili;
+- no release/deploy finché policy non esiste;
+- documenti governanti centrali.
+
+## Rischi da evitare
+
+### Uniformare troppo
+
+Rischio: trasformare progetti diversi in copie dello stesso stack tecnico.
+
+Correzione: semantica e protocollo di publish/deploy/release sono comuni; provider, runtime, target e comandi restano repo-specifici.
+
+### Uniformare troppo poco
+
+Rischio: ogni repo continua a richiedere un ricordo mentale diverso, con spreco di tempo e maggiore probabilità di errori.
+
+Correzione: ogni repo deve avere gli stessi punti di orientamento: `AGENTS.md`, catalogo documentazione, roadmap/backlog, regole di pubblicazione, verifiche e handoff.
+
+### Confondere roadmap e backlog
+
+Rischio: ogni idea diventa implicitamente scope aperto.
+
+Correzione: `docs/ROADMAP.md` dice dove si sta andando; `docs/BACKLOG.md` raccoglie possibilità, debiti, bug e idee non ancora scelte.
+
+### Confondere publish, deploy e release
+
+Rischio: chiudere un lavoro come “pubblicato” senza che sia davvero arrivato nel canale previsto dalla repo.
+
+Correzione: il piano definisce significato e protocollo comuni; ogni repo dichiara solo target, comandi e condizioni di applicabilità.
+
+### Appesantire repo mature
+
+Rischio: peggiorare Pratix, DocMolder o FiscalBay aggiungendo burocrazia inutile.
+
+Correzione: sulle repo mature si rifinisce, non si ricostruisce.
+
+### Normalizzare repo immature come se fossero production
+
+Rischio: creare processi di release/deploy artificiali su progetti che non sono ancora pronti.
+
+Correzione: su GLM, TRAM, SyncBay e SendChimp va dichiarata la maturità operativa senza trattare nessuna repo come fuori perimetro.
+
+## Criteri di completamento del piano
+
+Il piano può considerarsi pronto quando:
+
+- ogni repo ha una classificazione chiara di maturità;
+- ogni differenza tecnica importante è dichiarata come vincolo repo-specifico motivato;
+- i punti comuni sono abbastanza precisi da diventare patch documentali;
+- le migrazioni hanno una regola anti-perdita contenuto;
+- le decisioni approvate sono separate dalle azioni operative da eseguire;
+- la roadmap è riconosciuta come elemento centrale del coordinamento;
+- publish, deploy e release non sono usati come sinonimi;
+- Codex inbox e commenti PR hanno una regola comune;
+- test e verifiche sono proporzionati alla repo;
+- gli interventi sono ordinati per priorità e rischio;
+- il piano non obbliga a modificare codice applicativo;
+- esiste una baseline riusabile per aprire nuovi progetti già coordinati;
+- esiste una checklist di pronto intervento per le repo esistenti;
+- esiste una mappa source of truth per orientarsi senza memoria orale;
+- è definito come usare eventuali subagent senza perdere coordinamento centrale.
+
+## Sequenza operativa di intervento
+
+### Fase 1 - Standard base
+
+Obiettivo: definire il modello comune senza modificare flussi tecnici.
+
+Azioni:
+
+1. creare template comune per `AGENTS.md`;
+2. creare checklist comune documentazione;
+3. definire semantica comune di `pubblica/deploya/rilascia`;
+4. definire standard roadmap/backlog/ADR;
+5. definire baseline per nuovi progetti;
+6. definire standard risposta finale e prossimi passi.
+
+### Fase 2 - Repo meno allineate
+
+Priorità:
+
+1. GLM: catalogo docs, PR template, GitHub baseline, roadmap.
+2. TRAM: versioning futuro, roadmap/backlog, catalogo docs, policy release assente.
+3. SyncBay: GitHub/CI minima, pubblicazione, roadmap/backlog.
+4. SendChimp: uniformare senza perdere docs-first.
+
+### Fase 3 - Repo mature
+
+Priorità:
+
+1. Pratix: rifinire solo dove serve, non appesantire.
+2. DocMolder: mantenere flusso Release Please/VPS; uniformare lessico e handoff.
+3. FiscalBay: allineare GitHub/template/roadmap, mantenendo deploy locale/VPS.
+
+### Fase 4 - Qualità e manutenzione
+
+Azioni:
+
+1. introdurre matrice di conformità periodica;
+2. applicare `pr-title.yml` o controllo equivalente dove manca;
+3. applicare `CODEOWNERS` solo dove aggiunge controllo reale;
+4. introdurre React Doctor come gate nelle app React prima della prima release minor applicabile;
+5. creare check periodico “project health” per tutte le repo.
+
+## Matrice operativa repo-per-repo
+
+Questa matrice traduce il piano in interventi applicabili. Non sostituisce `AGENTS.md` delle singole repo: prima di ogni patch va comunque letto il contesto reale della repo e verificato `git status --short`.
+
+Regole comuni per ogni intervento:
+
+1. leggere `AGENTS.md`;
+2. controllare stato Git e modifiche non proprie;
+3. aggiornare link da `README.md` e `AGENTS.md` verso i documenti canonici;
+4. fare inventario dei contenuti da migrare prima di spostare o fondere documenti;
+5. evitare duplicati con stesso ruolo;
+6. non eliminare contenuti salvo decisione esplicita o assorbimento verificato;
+7. mantenere rinvii temporanei quando serve preservare tracciabilità;
+8. controllare `Codex feedback inbox`;
+9. eseguire verifiche proporzionate;
+10. chiudere con riepilogo, verifiche, contenuti migrati/rimossi e rischi residui.
+
+### Prima ondata
+
+| Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
+| --- | --- | --- | --- | --- | --- |
+| GLM | 1 | Creare `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | Aggiungere PR template, issue template minima, `pr-title.yml` o equivalente; verificare Codex inbox/workflow | `npm run test`, `npm run build`, `npm run smoke`, `npm run deploy:doctor` quando pertinente | Cloudflare Pages; non introdurre Vercel/Supabase; React Doctor prima della prima release minor applicabile |
+| TRAM | 2 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; usare `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Allineare baseline GitHub; confermare PR template/title check/quality | `npm run verify` | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
+| SyncBay | 3 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Rafforzare GitHub/CI minima; confermare PR template, issue template e title check | `npm run typecheck`, `npm run lint`, `npm run build`, `npm run smoke:ui`, `npm run db:verify` quando pertinente | Shopify app; no marketplace generico; no production deploy finché non deciso; React Doctor prima della prima release minor applicabile |
+| SendChimp | 4 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Allineare baseline GitHub già presente; mantenere docs-first finché non esiste runtime | `npm run verify`, `npm run verify:docs`, `npm run verify:language` | Docs-first/MVP manuale; nessun invio reale; React Doctor obbligatorio quando avrà runtime React e release minor |
+
+### Seconda ondata
+
+| Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
+| --- | --- | --- | --- | --- | --- |
+| Pratix | 5 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; creare `docs/CONTEXT.md` leggero o rinvio a `docs/memory/` | Rifinire solo gap reali; mantenere workflow già maturo | `npm run ci:local`; smoke a11y quando pertinente; `npm run quality:react-doctor` dopo release minor | SaaS Vercel/Supabase; UI italiana; glossary rigoroso; non appesantire |
+| DocMolder | 6 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md`; migrare progressivamente decisioni in `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Mantenere Release Please, Release PR, VPS workflow; rifinire template solo se mancano elementi baseline | `ci_verify`/make/script indicati da AGENTS; smoke Telegram quando pertinente | Telegram-first; VPS; documenti utente sensibili; non trasformare in web app |
+| FiscalBay | 7 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md` con Python `>=3.10`; creare `docs/decisions/README.md` e template; mantenere pending come fonte temporanea | Allineare template/GitHub senza introdurre Actions generiche; rispettare deploy/release scriptati | `ci_verify`; build/package quando pertinente; script release/deploy solo se richiesto | Telegram/eBay/VPS; non dedurre dati fiscali; Python `>=3.10` finché non c’è upgrade approvato |
+
+### Artefatti comuni da produrre
+
+| Artefatto | Scopo | Dove vive |
+| --- | --- | --- |
+| `README.md` di Atlas | guida d’uso dei template e del piano | `/Users/Matteo/Documents/Atlas` |
+| Piano principale | decisioni approvate, matrice repo e ordine operativo | `/Users/Matteo/Documents/Atlas/piano-coordinamento-progetti.md` |
+| Template `AGENTS.md` | struttura comune adattabile per ogni repo | `AGENTS.template.md` |
+| Checklist implementazione | controllo dei file canonici, link, GitHub e verifiche | `CHECKLIST-IMPLEMENTAZIONE.md` |
+| Template `docs/INDEX.md` | catalogo documenti uniforme | repo |
+| Template `docs/ROADMAP.md` | priorità e stato operativo | repo |
+| Template `docs/BACKLOG.md` | idee/debiti non ancora promossi | repo |
+| Template `docs/CONTEXT.md` | handoff e contesto operativo | repo |
+| Template `docs/TOOLCHAIN.md` | runtime, versioni, lockfile, tool | repo |
+| Indice decisioni | catalogo ADR e decisioni stabili | `docs/decisions/README.template.md` |
+| Template ADR | decisioni stabili | `docs/decisions/template.md` |
+| Checklist manutenzione | check mensile e pre-publish/deploy/release | `CHECKLIST-MANUTENZIONE.md` |
+
+## Matrice delle priorità
+
+| Area | Priorità | Motivo |
+| --- | --- | --- |
+| AGENTS.md | Alta | È la fonte primaria operativa per Codex |
+| Roadmap/backlog | Alta | Evita dispersione e scope implicito |
+| Pubblicazione/release/deploy | Alta | Riduce errori operativi e false chiusure |
+| GitHub/Codex inbox | Alta | Già quasi uniforme, va reso obbligo operativo |
+| Catalogo docs | Alta | Serve a orientare ogni nuova chat |
+| Test/verifiche | Alta | Deve restare proporzionato ma prevedibile |
+| Handoff/context | Media/alta | Fondamentale per lavori lunghi |
+| ADR lifecycle | Media | Utile soprattutto su progetti in evoluzione |
+| React Doctor | Alta per app React | Obbligatorio dopo ogni release minor `X.Y.Z` |
+| Manutenzione periodica | Media | Mensile e obbligatoria prima di publish/deploy/release |
+| Brand/glossario | Media | Importante ma repo-specifico |
+| Produzione/health/rollback | Alta solo per runtime attivi | Non applicabile a docs-first |
+
+## Output della fase documentale
+
+Prima di passare agli interventi repository per repository, l’output approvato è:
+
+- un template `AGENTS.md` comune ma adattabile;
+- una checklist documentale comune;
+- una matrice repo aggiornata con stato, gap e priorità;
+- una mappa source of truth per repo;
+- una convenzione roadmap/backlog/ADR;
+- una semantica condivisa per comandi operativi;
+- una regola comune per Codex inbox e commenti PR;
+- un elenco dei vincoli repo-specifici da non normalizzare;
+- una baseline per nuovi progetti;
+- una checklist di pronto intervento su repo esistenti;
+- una regola operativa per eventuali subagent;
+- una lista di azioni operative da eseguire nella Fase 2;
+- un ordine di intervento confermato.
+
+Il passaggio alla fase operativa avviene dopo questa approvazione. Senza questa base, il rischio sarebbe iniziare patch corrette localmente ma incoerenti come sistema complessivo.
+
+## Regola finale
+
+La coerenza desiderata non è “stesso processo ovunque”.
+
+La coerenza desiderata è:
+
+- stesso modo di ragionare;
+- stessa chiarezza su cosa è deciso e cosa no;
+- stessa disciplina su Git, docs, test e pubblicazione;
+- stessa attenzione a dati, privacy e fonti;
+- stessa qualità di handoff e prossimi passi;
+- differenze tecniche dichiarate, documentate e rispettate.

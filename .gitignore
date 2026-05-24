@@ -1,0 +1,19 @@
+.DS_Store
+.DS_Store?
+._*
+
+# Local editor and OS noise
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Generated caches
+.cache/
+.tmp/
+tmp/

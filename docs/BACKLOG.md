@@ -1,0 +1,51 @@
+# Backlog Atlas
+
+Il backlog raccoglie possibilità, debiti, bug e idee non ancora promosse in roadmap.
+
+Una voce nel backlog non è scope approvato.
+
+## Idee operative
+
+- Creare una checklist rapida "nuova repo" derivata dalla baseline del piano.
+- Creare un template di report mensile Atlas per tutte le repo coordinate.
+- Preparare un formato tabellare per tracciare stato, ultimo controllo, prossima azione e rischio per ogni repo.
+- Valutare una vista sintetica per distinguere publish, deploy e release repo per repo.
+
+## Backlog tecnico
+
+- Valutare repository GitHub dedicata per Atlas.
+- Se Atlas diventa repo GitHub, aggiungere PR template, issue template minima, Codex feedback inbox e PR title check.
+- Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
+- Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
+
+## Documentazione
+
+- Valutare se creare una guida breve "come applicare Atlas a una repo".
+- Valutare se creare una guida breve "come usare subagent in Atlas".
+- Valutare se separare in futuro una matrice `docs/PROJECTS.md`, solo se il piano principale diventa troppo pesante da consultare.
+
+## Debiti
+
+- Il piano principale è lungo e contiene sia decisioni sia azioni operative: va mantenuto leggibile prima di aggiungere nuovi livelli.
+- Alcune decisioni fondative sono ancora nel piano principale e non ancora estratte in ADR autonome.
+- Atlas non ha ancora un canale GitHub dichiarato.
+
+## Decisioni sospese
+
+- Pubblicare o meno Atlas su GitHub.
+- Estrarre altre ADR fondative subito o lasciarle nel piano finché non servono.
+- Definire se Atlas avrà una manutenzione mensile autonoma oltre alla manutenzione delle repo coordinate.
+
+## Attività operative ricorrenti
+
+- Rileggere `piano-coordinamento-progetti.md` prima di applicare il piano a una repo.
+- Aggiornare `docs/ROADMAP.md` quando cambia la priorità trasversale.
+- Aggiornare `docs/BACKLOG.md` quando emergono idee o debiti non ancora promossi.
+- Aggiornare `docs/CONTEXT.md` dopo passaggi lunghi o cambi di stato.
+- Verificare che i template restino coerenti con le decisioni approvate.
+
+## Regole
+
+- Quando una voce diventa prioritaria, promuoverla in `docs/ROADMAP.md`.
+- Quando una voce diventa decisione stabile, collegarla o spostarla in `docs/decisions/`.
+- Non usare il backlog come storico dei lavori completati.
