@@ -21,7 +21,7 @@ Legenda:
 | Documenti canonici | `AGENTS.md`, `README.md`, indice, roadmap, backlog, context, toolchain e decisioni dove applicabili | OK nelle repo coordinate; SendChimp ora usa `docs/CONTEXT.md` canonico |
 | Source of truth | Ogni repo dichiara fonti primarie e documenti da leggere prima di intervenire | OK, con eccezioni motivate per registri storici come `docs/DECISIONS.md` |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | OK o equivalente; Pratix e SyncBay hanno ora `pr-title.yml` dedicato |
-| Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | OK in Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel; Atlas resta rimandato |
+| Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | OK nel codice in Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel; esecuzione workflow sospesa finché Actions resta senza budget |
 | Versioning | Semantica comune; strumenti repo-specifici dichiarati | OK come classificazione; TRAM resta senza policy release reale |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | OK; deploy applicativo eseguito solo quando la repo e il diff lo richiedono |
 | Verifiche | Gate proporzionati al rischio, senza test inventati | OK come regola; GitHub Actions non usate come gate durante esaurimento minuti |
@@ -69,5 +69,9 @@ Finché il budget GitHub Actions è esaurito:
 - preferire verifiche locali equivalenti e dichiararle;
 - usare `[skip ci]` sui commit di sola governance quando si pubblica comunque;
 - evitare di attivare nuovi workflow schedulati o Dependabot dove generano run;
+- tenere disabilitato manualmente il workflow `Codex PR comments` su Pratix,
+  DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel;
+- considerare `Dependabot Updates` un workflow dinamico non disabilitabile via
+  Actions API; sospendere via config repo solo se inizia a generare run;
 - eseguire deploy applicativi solo quando il diff e la policy della repo lo
   richiedono davvero.

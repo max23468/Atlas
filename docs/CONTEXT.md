@@ -48,7 +48,7 @@ health sintetico è `docs/HEALTH.md`.
 - Sentinel: consolidamento Atlas completato con PR `max23468/Sentinel#1`; commit documentale `40f1fac`, workflow manuale `26369906474` verde e output commit `4b9d151`. Creati `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, PR template, issue template e PR title check. Il run operativo su `main` ha scansionato Ortix e San Carlo Sviluppo: nessun cambiamento rilevato; Ortix mantiene 33 avvisi 404, San Carlo 0 problemi.
 - Health Atlas: creata `docs/HEALTH.md` come snapshot sintetico. Stato: verdi Atlas, Pratix, DocMolder, GLM e SyncBay; in attenzione FiscalBay, SendChimp, TRAM e Sentinel; nessun progetto bloccato.
 - Primo ciclo manutenzione: audit read-only completato su FiscalBay, SendChimp, TRAM e Sentinel. Inboxes Codex pulite dove presenti, workflow recenti verdi, TRAM PR `#6` pubblicata e mergiata; nessun deploy/release eseguito.
-- Ciclo correttivo standard Atlas: creata `docs/STANDARDS.md`; pubblicate uniformazioni sicure su SendChimp `#21`, Pratix `#157`, SyncBay `#30`, Sentinel `#2` e GLM commit `[skip ci]`. GitHub Actions non usate come gate dopo segnalazione budget esaurito; Dependabot su GLM/Sentinel resta sospeso.
+- Ciclo correttivo standard Atlas: creata `docs/STANDARDS.md`; pubblicate uniformazioni sicure su SendChimp `#21`, Pratix `#157`, SyncBay `#30`, Sentinel `#2` e GLM commit `[skip ci]`. GitHub Actions non usate come gate dopo segnalazione budget esaurito; workflow `Codex PR comments` disabilitati manualmente su Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel; Dependabot su GLM/Sentinel resta sospeso.
 
 ## Vincoli specifici
 
@@ -97,4 +97,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 ## Prossimo passo
 
 - Chiudere solo gap dichiarati in `docs/STANDARDS.md`, partendo da quelli che non richiedono GitHub Actions o da quelli confermati dal maintainer.
+- Riabilitare i workflow `Codex PR comments` disabilitati manualmente solo quando i minuti GitHub Actions tornano disponibili.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

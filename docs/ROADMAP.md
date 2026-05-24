@@ -11,6 +11,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 ## Prossimo
 
 - Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
+- Riabilitare i workflow `Codex PR comments` solo quando il budget GitHub Actions torna disponibile.
 - Ripristinare o attivare Dependabot su GLM e Sentinel solo quando il budget GitHub Actions torna disponibile o quando il maintainer lo conferma.
 - Definire la policy release/versioning di TRAM solo con decisione dedicata, senza inventare release retroattive.
 
@@ -51,7 +52,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata la prima matrice health Atlas in `docs/HEALTH.md`, con stato sintetico verde/attenzione/bloccato e prossimi controlli per ogni repo.
 - Definito il ciclo di manutenzione periodica in `docs/MAINTENANCE.md`.
 - Eseguito il primo ciclo di manutenzione sulle repo in `Attenzione`: FiscalBay, SendChimp, TRAM e Sentinel; inbox pulite, workflow recenti verdi e merge della PR `max23468/TRAM#6` con React Doctor `100 / 100`.
-- Creato `docs/STANDARDS.md` e completato un ciclo correttivo sugli standard Atlas: SendChimp PR `#21`, Pratix PR `#157`, SyncBay PR `#30`, Sentinel PR `#2`, GLM commit `[skip ci]`; GitHub Actions non usate come gate per budget esaurito.
+- Creato `docs/STANDARDS.md` e completato un ciclo correttivo sugli standard Atlas: SendChimp PR `#21`, Pratix PR `#157`, SyncBay PR `#30`, Sentinel PR `#2`, GLM commit `[skip ci]`; GitHub Actions non usate come gate per budget esaurito e workflow `Codex PR comments` disabilitati manualmente.
 
 ## Regole
 
