@@ -48,6 +48,6 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 
 - Fase: docs-first / coordinamento operativo.
 - Git: repository locale inizializzata su branch `main`.
+- GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- GitHub: non configurato.
-- Prossimo passo: decidere se pubblicare Atlas su GitHub e se aggiungere una baseline GitHub leggera.
+- Prossimo passo: usare Atlas come base stabile prima di applicare il piano alla prima repo coordinata.

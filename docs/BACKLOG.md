@@ -13,8 +13,7 @@ Una voce nel backlog non è scope approvato.
 
 ## Backlog tecnico
 
-- Valutare repository GitHub dedicata per Atlas.
-- Se Atlas diventa repo GitHub, aggiungere PR template, issue template minima, Codex feedback inbox e PR title check.
+- Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
 
@@ -28,11 +27,9 @@ Una voce nel backlog non è scope approvato.
 
 - Il piano principale è lungo e contiene sia decisioni sia azioni operative: va mantenuto leggibile prima di aggiungere nuovi livelli.
 - Alcune decisioni fondative sono ancora nel piano principale e non ancora estratte in ADR autonome.
-- Atlas non ha ancora un canale GitHub dichiarato.
 
 ## Decisioni sospese
 
-- Pubblicare o meno Atlas su GitHub.
 - Estrarre altre ADR fondative subito o lasciarle nel piano finché non servono.
 - Definire se Atlas avrà una manutenzione mensile autonoma oltre alla manutenzione delle repo coordinate.
 

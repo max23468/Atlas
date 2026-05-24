@@ -23,7 +23,7 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 | --- | --- | --- |
 | `git` | locale | stato repository e branch |
 | `rg` | locale | ricerca e inventario file |
-| `gh` | opzionale | GitHub, solo se Atlas verrà pubblicato o usato con issue/PR |
+| `gh` | locale | gestione repository GitHub privata |
 
 ## Comandi
 
@@ -36,6 +36,8 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 - inventario file: `rg --files`.
 - stato Git: `git status --short`.
 - branch Git: `git branch --show-current`.
+- remote Git: `git remote -v`.
+- repository GitHub: `gh repo view max23468/Atlas --json nameWithOwner,url,visibility`.
 - release: non applicabile.
 - deploy: non applicabile.
 
@@ -43,7 +45,7 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 
 - Non introdurre runtime solo per formalità.
 - Se in futuro Atlas avrà script o automazioni, dichiarare runtime, package manager, lockfile e comandi qui prima di considerarli canonici.
-- Se Atlas viene inizializzato su GitHub, aggiornare questa pagina con strumenti effettivamente usati.
+- Mantenere questa pagina allineata agli strumenti effettivamente usati.
 - Aggiornamenti di toolchain strutturali richiedono roadmap/backlog o ADR.
 
 ## Eccezioni e guardrail

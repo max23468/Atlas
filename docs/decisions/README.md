@@ -6,13 +6,13 @@ Questo indice raccoglie le decisioni stabili di Atlas.
 
 - [0001 - Atlas come meta-progetto leggero](0001-atlas-meta-progetto-leggero.md): Accettata.
 - [0002 - Struttura canonica root e docs](0002-struttura-canonica-root-docs.md): Accettata.
+- [0003 - Repository GitHub privata per Atlas](0003-repository-github-privata.md): Accettata.
 
 ## Decisioni da valutare come ADR
 
 - Semantica comune di `pubblica`, `deploya` e `rilascia`.
 - Uso dei subagent nella fase implementativa.
 - Baseline per nuovi progetti.
-- Pubblicazione GitHub di Atlas, se approvata.
 
 ## Decisioni sostituite o superate
 

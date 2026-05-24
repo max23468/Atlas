@@ -112,7 +112,7 @@ Semantica comune:
 
 Target Atlas:
 
-- publish: da definire dopo eventuale inizializzazione Git/GitHub;
+- publish: push/PR verso `https://github.com/max23468/Atlas`;
 - release: non applicabile;
 - deploy: non applicabile.
 
@@ -120,14 +120,12 @@ Non interpretare richieste su Atlas come autorizzazione a pubblicare, rilasciare
 
 ## GitHub e Codex
 
-Atlas è inizializzato come repository Git locale su branch `main`.
+Atlas è inizializzato come repository Git locale su branch `main` e pubblicato nella repository privata `https://github.com/max23468/Atlas`.
 
-Quando o se Atlas verrà portato su GitHub, valutare una baseline leggera:
+Baseline leggera:
 
 - PR template;
 - issue template minima;
-- Codex feedback inbox;
-- workflow `Codex PR comments`;
 - PR title check;
 - Dependabot solo se compariranno dipendenze runtime reali.
 

@@ -4,13 +4,13 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Decidere se creare una repo GitHub dedicata per Atlas.
-- Decidere se aggiungere una baseline GitHub leggera: PR template, issue template minima, Codex feedback inbox e PR title check.
+- Usare Atlas come base stabile prima di applicare il piano alla prima repo coordinata.
+- Preparare la prima applicazione controllata del piano a una sola repo, partendo dalla priorità approvata nel piano.
 
 ## Prossimo
 
-- Preparare la prima applicazione controllata del piano a una sola repo, partendo dalla priorità approvata nel piano.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
+- Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
 
 ## Più avanti
 
@@ -21,7 +21,6 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Bloccato
 
-- GitHub Atlas: dipende dalla decisione esplicita di pubblicare Atlas.
 - Applicazione alle repo coordinate: bloccata finché Atlas non è considerato stabile.
 
 ## Fatto recente
@@ -32,6 +31,8 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creati i documenti canonici reali di Atlas: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md` e `docs/decisions/README.md`.
 - Inizializzato Git locale su branch `main`.
 - Estratte due ADR fondative: identità/perimetro di Atlas e struttura canonica root/docs.
+- Creata repository GitHub privata `https://github.com/max23468/Atlas`.
+- Aggiunta baseline GitHub leggera: PR template, issue template minima e PR title check.
 
 ## Regole
 

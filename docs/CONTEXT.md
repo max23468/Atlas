@@ -6,7 +6,7 @@
 - Ultima versione/release: non applicabile.
 - Ultimo deploy: non applicabile.
 - Git: repository locale inizializzata su branch `main` il 2026-05-24.
-- GitHub: non configurato.
+- GitHub: repository privata `https://github.com/max23468/Atlas`.
 
 ## Fonte di verità
 
@@ -16,7 +16,7 @@
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
 - Decisioni: `docs/decisions/`
-- ADR fondative: `docs/decisions/0001-atlas-meta-progetto-leggero.md`, `docs/decisions/0002-struttura-canonica-root-docs.md`
+- ADR fondative: `docs/decisions/0001-atlas-meta-progetto-leggero.md`, `docs/decisions/0002-struttura-canonica-root-docs.md`, `docs/decisions/0003-repository-github-privata.md`
 - Regole operative: `AGENTS.md`
 - Template: file `*.template.md`
 - Checklist implementazione: `CHECKLIST-IMPLEMENTAZIONE.md`
@@ -42,6 +42,7 @@ Obiettivo corrente: stabilizzare Atlas come progetto leggero prima di applicare 
 
 - `git status --short`: se Atlas è una repo Git; se non lo è, dichiarare lo stato.
 - `git branch --show-current`: confermare branch corrente.
+- `git remote -v`: confermare remote GitHub.
 - `rg --files`: inventario rapido file.
 - Controllo manuale link e coerenza tra documenti canonici.
 - Verifica che `.DS_Store` non sia trattato come contenuto progettuale.
@@ -70,5 +71,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Decidere se pubblicare Atlas su GitHub.
-- Decidere se aggiungere una baseline GitHub leggera.
+- Usare Atlas come base stabile per preparare la prima applicazione controllata del piano a una repo coordinata.
+- Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

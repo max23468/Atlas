@@ -24,8 +24,15 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/decisions/template.md`: template ADR da copiare per nuove decisioni.
 - `docs/decisions/0001-atlas-meta-progetto-leggero.md`: identità e perimetro di Atlas.
 - `docs/decisions/0002-struttura-canonica-root-docs.md`: struttura canonica root/docs.
+- `docs/decisions/0003-repository-github-privata.md`: pubblicazione GitHub privata.
 
 Le decisioni fondative restanti sono raccolte nel piano principale. Quando una decisione deve diventare autonoma, crearla in `docs/decisions/` e collegarla qui.
+
+## GitHub
+
+- Repository privata: `https://github.com/max23468/Atlas`
+- Branch principale: `main`
+- Baseline: PR template, issue template minima, PR title check.
 
 ## Template riusabili
 
