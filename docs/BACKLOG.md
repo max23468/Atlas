@@ -17,7 +17,7 @@ Una voce nel backlog non è scope approvato.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
-- Allineare Sentinel dopo il bootstrap operativo: documenti canonici, policy GitHub minima, eventuale Codex inbox, configurazione email e gestione del run rosso post-fix.
+- Valutare una Codex feedback inbox per Sentinel solo se iniziano review o commenti PR ricorrenti.
 - Riconciliare FiscalBay: runtime VPS Python `3.13` documentato, ma manifest/CI ancora su Python `3.10`.
 
 ## Documentazione

@@ -67,7 +67,7 @@ Atlas coordina, senza modificare automaticamente:
 - SendChimp
 - SyncBay
 - TRAM
-- Sentinel: monitor operativo in `/Users/Matteo/Progetti/Sentinel`, repo GitHub privata `max23468/Sentinel`, workflow schedulato/dispatch e output applicativi tracciati; resta l'ultimo target da consolidare con discovery runtime dedicata.
+- Sentinel: monitor operativo in `/Users/Matteo/Progetti/Sentinel`, repo GitHub privata `max23468/Sentinel`, workflow schedulato/dispatch, documenti canonici Atlas e output applicativi tracciati.
 
 Prima di intervenire su una di queste repo, leggere il suo `AGENTS.md`, controllare `git status --short` e applicare le regole specifiche della repo.
 

@@ -4,14 +4,14 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Usare il primo giro GLM/TRAM/SyncBay/SendChimp e la seconda ondata Pratix/DocMolder/FiscalBay come feedback reale sul metodo di allineamento Atlas.
+- Usare il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel come feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Consolidare Sentinel solo con conferma esplicita: è l'ultimo target rimasto, va trattato come baseline runtime separata e non come normale repo docs-only.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
+- Scegliere un debito prodotto/tecnico reale in una repo già allineata solo con conferma esplicita.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
 - Valutare se i pattern emersi dalle due ondate meritano una regola Atlas dopo confronto con repo comparabili.
 
@@ -48,6 +48,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Completata la seconda ondata Pratix: fix Codex P2 su `/novita`, release patch `1.11.15`, documenti canonici Atlas e merge della PR `max23468/Pratix#156`; Vercel production verificata con `publish:finish`.
 - Completata la seconda ondata DocMolder: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/` e merge della PR `max23468/DocMolder#166`; release/deploy non eseguiti perché docs-only.
 - Completata la seconda ondata FiscalBay: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, risolto il P1 Codex su `deploy/linux-setup.sh` e merge della PR `max23468/FiscalBay#78`; deploy/release non eseguiti.
+- Completato il consolidamento Sentinel: documenti canonici Atlas, decisione su GitHub Actions come runtime operativo MVP, baseline GitHub minima e merge della PR `max23468/Sentinel#1`; workflow manuale `26369906474` verde e output commit `4b9d151`.
 
 ## Regole
 

@@ -734,7 +734,7 @@ La baseline di avvio deve chiarire subito:
 | SyncBay | Scaffold runtime / MVP Shopify con primo allineamento Atlas completato e release locale 0.6.0 pubblicata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain | `npm run release`, `app/lib/version.ts`; `APP_VERSION=0.6.0` | Pubblicazione GitHub e Vercel automatico completati; no tag/GitHub Release/App Store production | Inbox, template, Dependabot; CI minima; PR `max23468/SyncBay#27`, `#28` e `#29` mergiate | typecheck, lint, build, smoke UI, Prisma validate, audit, React Doctor 100/100 | Scegliere prossimo debito reale: keyset/OAuth eBay o import listing live |
 | TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | Non ancora policy SemVer reale | GitHub privata; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
 | Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check | controllo documenti/link, `git status --short` | Bassa: base già pronta |
-| Sentinel | Monitor operativo Ortix | Scaffold runtime tracciato; documentazione canonica `docs/` assente | `package.json` indica `0.1.0` | GitHub privata e workflow schedulato/dispatch | Workflow `Sentinel`; nessuna Codex inbox vista | `npm test`, `npm run build`, workflow Actions da osservare con report e output committati | Separata: consolidare baseline runtime, docs e configurazione email dopo run rosso post-fix |
+| Sentinel | Monitor operativo Ortix e San Carlo Sviluppo, consolidamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog, context, toolchain e ADR | `package.json` indica `0.1.0`; nessuna GitHub Release | GitHub privata; PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde e output commit `4b9d151` | Workflow `Sentinel`, PR template, issue template, PR title check; Codex inbox in backlog | `npm test`, `npm run build`, YAML parse, workflow Actions con report e output committati | Completata: prossimo solo osservazione run schedulato o debito reale |
 
 ## Source of truth per repo
 
@@ -750,7 +750,7 @@ Questa tabella serve a sapere dove guardare per orientarsi in ogni progetto. Le 
 | SyncBay | `docs/ROADMAP.md`; `ROADMAP.md` resta rinvio | `docs/INDEX.md`; `docs/README.md` resta rinvio | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/TOOLCHAIN.md`, `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md`, `docs/guides/provisioning-runtime.md` |
 | TRAM | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/DECISIONS.md` come registro; `docs/decisions/` per ADR puntuali | `docs/TOOLCHAIN.md`, `docs/OPERATIONS.md`; release policy da definire |
 | Atlas | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | GitHub privata; release/deploy non applicabili |
-| Sentinel | da creare | da creare | da creare | da creare | da creare | `package.json`, `.github/workflows/sentinel.yml`; docs canonici da definire |
+| Sentinel | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | `docs/TOOLCHAIN.md`, `.github/workflows/sentinel.yml`, `package.json` |
 
 Regole:
 
@@ -1288,22 +1288,22 @@ Standard specifico:
 
 ### Sentinel
 
-Non applicare ancora il piano come se fosse una repo esistente già pronta.
-
 Standard specifico:
 
 - repo GitHub privata `max23468/Sentinel` su `main`;
 - runtime Node.js/TypeScript tracciato;
 - CLI `sentinel`, configurazione YAML e test Vitest;
-- primo monitor Ortix;
+- monitor Ortix e San Carlo Sviluppo;
 - output `data/`, `snapshots/` e `reports/` applicativi e committabili dal workflow;
-- ultimo stato verificato: commit `e1de497 chore: update sentinel outputs`;
-- ultimo run manuale visto: `26367301441`, fallito dopo test, build, scan e commit output per `Fail on scan errors`;
-- report `reports/ortix-20260524T165908Z.md`: 8 cambiamenti, 34 problemi e fatale `SENTINEL_EMAIL_FROM` mancante;
+- consolidamento Atlas completato con PR `max23468/Sentinel#1`;
+- ultimo stato verificato: output commit `4b9d151 chore: update sentinel outputs`;
+- ultimo run manuale visto: `26369906474`, verde dopo test, build, scan, commit output e controllo finale;
+- report `reports/ortix-20260524T185555Z.md`: 0 cambiamenti, 33 avvisi 404, nessuna email richiesta;
+- report `reports/sancarlo-sviluppo-20260524T185745Z.md`: 0 cambiamenti, 0 problemi, nessuna email richiesta;
 - rispettare `robots.txt`;
 - non committare segreti o password email;
 - non salvare HTML completo;
-- prima azione: consolidare documenti canonici, baseline GitHub minima, eventuale Codex inbox e configurazione email/severità scansione.
+- prossima azione: osservare il prossimo run schedulato e promuovere solo problemi reali da report/log.
 
 ### SyncBay
 
@@ -1410,7 +1410,7 @@ Priorità:
 2. TRAM: completato primo allineamento Atlas; scegliere solo debiti prodotto/tecnici reali.
 3. SyncBay: completato primo allineamento Atlas, chiusa inbox e pubblicata release locale 0.6.0; prossimo solo debito reale, per esempio keyset/OAuth eBay.
 4. SendChimp: completato primo allineamento Atlas, chiusa inbox e preservati runtime iniziale, decisioni MVP manuale e vincolo free-tier; prossimo solo debito reale, per esempio import campagna Mailchimp o UI anteprima/copia.
-5. Sentinel: tenuta alla fine; trattare come baseline runtime separata, perché GitHub/workflow esistono e ora serve consolidare docs canonici, configurazione email e gestione dei run rossi post-fix.
+5. Sentinel: completata con PR `max23468/Sentinel#1`; documenti canonici, baseline GitHub minima e workflow manuale verde.
 
 ### Fase 3 - Repo mature
 
@@ -1457,7 +1457,7 @@ Regole comuni per ogni intervento:
 | TRAM | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, template ADR con basename unico; mantenuto `docs/DECISIONS.md` come registro | Baseline GitHub già presente; PR `max23468/TRAM#7` mergiata | `npm run verify`; Quality, Repo Hygiene, PR Title e Codex sync passati | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
 | SyncBay | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/CONTEXT.md` canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SyncBay#27`, `#28` e `#29` mergiate; Codex inbox senza thread actionable; Docker Node allineato a engine; release locale 0.6.0 pubblicata | PR #27: `npm run typecheck`, `npm run lint`, `npm run build`, `npm run quality:react-doctor` 100/100, `npm run release:dry-run`, `git diff --check`; PR #28: `git diff --check`, `npm run release:dry-run`, Vercel pass; PR #29: typecheck, lint, build, React Doctor 100/100, audit, smoke UI, Prisma validate, release dry-run, Vercel pass | Shopify app; no marketplace generico; no tag/GitHub Release/App Store production finché non deciso; prossimo debito possibile: keyset/OAuth eBay |
 | SendChimp | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/context.md` mantenuto come handoff canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SendChimp#20` mergiata; Codex inbox senza thread actionable; chiuso P1 su fallback `DATABASE_URL_UNPOOLED`; Vercel automatico passato | `npm run verify`, `git diff --check`, `npm run release:dry-run`; Docs hygiene su main passato | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold; nessun tag/GitHub Release, deploy manuale o provider/billing nuovo |
-| Sentinel | separata | Creare documenti canonici Atlas se confermato: `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md` | GitHub privata e workflow schedulato già presenti; decidere PR template, issue template, `pr-title.yml` e Codex inbox | `npm test`, `npm run build`, workflow Actions da osservare distinguendo errore tecnico, scan errors e output committati | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
+| Sentinel | completata | Creati `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md`, `docs/decisions/README.md`, template ADR e ADR su GitHub Actions runtime operativo MVP | PR `max23468/Sentinel#1` mergiata; aggiunti PR template, issue template e `pr-title.yml`; Codex inbox lasciata in backlog | `git diff --check`, YAML parse, `npm test`, `npm run build`, PR title check, workflow manuale `26369906474` verde con output commit `4b9d151` | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
 
 ### Seconda ondata
 
