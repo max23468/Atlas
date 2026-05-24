@@ -4,16 +4,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Ora
 
-- Usare il primo giro GLM, TRAM, SyncBay e SendChimp come feedback reale sul metodo di allineamento Atlas.
+- Usare il primo giro GLM/TRAM/SyncBay/SendChimp e la seconda ondata Pratix/DocMolder/FiscalBay come feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Scegliere la prossima direzione solo con conferma esplicita: consolidare Sentinel come baseline runtime separata oppure avviare la seconda ondata su Pratix/DocMolder/FiscalBay.
+- Consolidare Sentinel solo con conferma esplicita: è l'ultimo target rimasto, va trattato come baseline runtime separata e non come normale repo docs-only.
 - Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
-- Valutare se i pattern emersi da GLM, TRAM, SyncBay e SendChimp meritano una regola Atlas dopo confronto con almeno un'altra repo comparabile.
+- Valutare se i pattern emersi dalle due ondate meritano una regola Atlas dopo confronto con repo comparabili.
 
 ## Più avanti
 
@@ -45,6 +45,9 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Completato l'allineamento TRAM: roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR con basename unico, con merge della PR `max23468/TRAM#7`.
 - Completato l'allineamento SyncBay e pubblicata la release locale 0.6.0: documenti canonici in `docs/`, Codex inbox pulita, Docker Node allineato a engine e merge delle PR `max23468/SyncBay#27`, `#28` e `#29`.
 - Completato l'allineamento SendChimp: roadmap in `docs/ROADMAP.md`, indice in `docs/INDEX.md`, creati `docs/BACKLOG.md` e `docs/TOOLCHAIN.md`, chiuso P1 Codex sulla migration URL e merge della PR `max23468/SendChimp#20`; Docs hygiene, Codex inbox e Vercel automatico passati.
+- Completata la seconda ondata Pratix: fix Codex P2 su `/novita`, release patch `1.11.15`, documenti canonici Atlas e merge della PR `max23468/Pratix#156`; Vercel production verificata con `publish:finish`.
+- Completata la seconda ondata DocMolder: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/` e merge della PR `max23468/DocMolder#166`; release/deploy non eseguiti perché docs-only.
+- Completata la seconda ondata FiscalBay: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, risolto il P1 Codex su `deploy/linux-setup.sh` e merge della PR `max23468/FiscalBay#78`; deploy/release non eseguiti.
 
 ## Regole
 

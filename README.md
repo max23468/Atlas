@@ -52,4 +52,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: scegliere con conferma esplicita se consolidare Sentinel come baseline runtime separata o avviare la seconda ondata su Pratix/DocMolder/FiscalBay, usando `docs/PROJECTS.md` e la discovery repo-specifica.
+- Prossimo passo: seconda ondata Pratix/DocMolder/FiscalBay completata; Sentinel resta l'ultimo target da consolidare con conferma esplicita e discovery runtime dedicata.

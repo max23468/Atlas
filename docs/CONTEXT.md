@@ -27,15 +27,16 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM, TRAM, SyncBay e SendChimp, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp e la seconda ondata Pratix/DocMolder/FiscalBay, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 
 ## Snapshot aggiornato 2026-05-24
 
 - Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera.
-- DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Nel checkout attivo non risulta il vecchio file locale non tracciato `deploy/install-python313 2.sh`; non toccare comunque ambienti o file ignorati senza scope.
-- FiscalBay: repo Git su `main`; runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
+- Pratix: seconda ondata completata con PR `max23468/Pratix#156`, release patch `1.11.15`, fix Codex P2 su `/novita`, documenti canonici Atlas e verifica Vercel production con `publish:finish`.
+- DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only.
+- FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. Runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
 - GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
 - TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title e Codex sync passati; nessun deploy o release.
 - SyncBay: allineamento Atlas completato e mergiato su `main` con PR `max23468/SyncBay#27`, `#28` e `#29`; aggiunti documenti canonici, backlog, toolchain, context uppercase, fix Docker Node 24, inbox Codex pulita e release locale 0.6.0 pubblicata. Vercel automatico passato; nessun tag, GitHub Release o App Store production.
@@ -88,5 +89,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Scegliere esplicitamente se consolidare Sentinel come baseline runtime separata o avviare la seconda ondata su Pratix/DocMolder/FiscalBay.
+- Consolidare Sentinel solo con conferma esplicita: è stata tenuta alla fine e va trattata come baseline runtime separata, partendo dal run rosso, dalla configurazione email e dai documenti canonici mancanti.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
