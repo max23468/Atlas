@@ -11,7 +11,6 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 ## Prossimo
 
 - Scegliere un debito prodotto/tecnico reale in una repo già allineata solo con conferma esplicita.
-- Definire il primo ciclo di manutenzione periodica Atlas, se serve prima di nuovi interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
 - Valutare se i pattern emersi dalle due ondate meritano una regola Atlas dopo confronto con repo comparabili.
 
@@ -50,6 +49,8 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Completata la seconda ondata FiscalBay: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, risolto il P1 Codex su `deploy/linux-setup.sh` e merge della PR `max23468/FiscalBay#78`; deploy/release non eseguiti.
 - Completato il consolidamento Sentinel: documenti canonici Atlas, decisione su GitHub Actions come runtime operativo MVP, baseline GitHub minima e merge della PR `max23468/Sentinel#1`; workflow manuale `26369906474` verde e output commit `4b9d151`.
 - Creata la prima matrice health Atlas in `docs/HEALTH.md`, con stato sintetico verde/attenzione/bloccato e prossimi controlli per ogni repo.
+- Definito il ciclo di manutenzione periodica in `docs/MAINTENANCE.md`.
+- Eseguito il primo ciclo di manutenzione sulle repo in `Attenzione`: FiscalBay, SendChimp, TRAM e Sentinel; inbox pulite, workflow recenti verdi e merge della PR `max23468/TRAM#6` con React Doctor `100 / 100`.
 
 ## Regole
 

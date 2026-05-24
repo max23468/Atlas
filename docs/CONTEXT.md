@@ -14,6 +14,7 @@
 - Indice documentale: `docs/INDEX.md`
 - Registro progetti: `docs/PROJECTS.md`
 - Matrice health: `docs/HEALTH.md`
+- Manutenzione: `docs/MAINTENANCE.md`
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
@@ -40,11 +41,12 @@ health sintetico è `docs/HEALTH.md`.
 - DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only.
 - FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. Runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
 - GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
-- TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title e Codex sync passati; nessun deploy o release.
+- TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; fix React Doctor completato e mergiato con PR `max23468/TRAM#6`. Roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title, Codex sync e React Doctor `100 / 100` passati; nessun deploy o release.
 - SyncBay: allineamento Atlas completato e mergiato su `main` con PR `max23468/SyncBay#27`, `#28` e `#29`; aggiunti documenti canonici, backlog, toolchain, context uppercase, fix Docker Node 24, inbox Codex pulita e release locale 0.6.0 pubblicata. Vercel automatico passato; nessun tag, GitHub Release o App Store production.
 - SendChimp: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/SendChimp#20`; roadmap migrata in `docs/ROADMAP.md`, indice in `docs/INDEX.md`, creati `docs/BACKLOG.md` e `docs/TOOLCHAIN.md`, rinvii compatibili da root `ROADMAP.md` e `docs/README.md`; chiuso il P1 Codex su `DATABASE_URL_UNPOOLED` vuota; Codex inbox pulita; Docs hygiene e Vercel automatico passati. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
 - Sentinel: consolidamento Atlas completato con PR `max23468/Sentinel#1`; commit documentale `40f1fac`, workflow manuale `26369906474` verde e output commit `4b9d151`. Creati `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, PR template, issue template e PR title check. Il run operativo su `main` ha scansionato Ortix e San Carlo Sviluppo: nessun cambiamento rilevato; Ortix mantiene 33 avvisi 404, San Carlo 0 problemi.
 - Health Atlas: creata `docs/HEALTH.md` come snapshot sintetico. Stato: verdi Atlas, Pratix, DocMolder, GLM e SyncBay; in attenzione FiscalBay, SendChimp, TRAM e Sentinel; nessun progetto bloccato.
+- Primo ciclo manutenzione: audit read-only completato su FiscalBay, SendChimp, TRAM e Sentinel. Inboxes Codex pulite dove presenti, workflow recenti verdi, TRAM PR `#6` pubblicata e mergiata; nessun deploy/release eseguito.
 
 ## Vincoli specifici
 
@@ -75,7 +77,7 @@ Prima di procedere:
 2. controllare `git status --short` e `git remote -v`;
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
-5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/HEALTH.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
+5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/HEALTH.md`, `docs/MAINTENANCE.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
 6. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
 7. identificare verifiche proporzionate.
 
@@ -92,5 +94,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Scegliere con nuova conferma un debito reale in una repo già allineata oppure il primo ciclo di manutenzione periodica Atlas.
+- Scegliere con nuova conferma un debito reale in una repo già allineata.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

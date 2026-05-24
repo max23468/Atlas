@@ -78,6 +78,7 @@ Documenti canonici di Atlas:
 - indice: `docs/INDEX.md`
 - registro progetti: `docs/PROJECTS.md`
 - matrice health: `docs/HEALTH.md`
+- manutenzione: `docs/MAINTENANCE.md`
 - roadmap: `docs/ROADMAP.md`
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`

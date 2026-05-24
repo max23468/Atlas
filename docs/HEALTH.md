@@ -34,7 +34,7 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 | GLM | Verde | Primo allineamento Atlas completato con PR `max23468/Gare-Lotti-Milanesi#7` | Non perdere pattern maturi: simulatore, allegati Git LFS, runbook Cloudflare | Scegliere un debito reale: fonti pubbliche, import/export o ADR Cloudflare-only |
 | SendChimp | Attenzione | PR `max23468/SendChimp#20` mergiata; Docs hygiene, Codex inbox e Vercel automatico passati | MVP manuale e vincolo free-tier; nessun invio reale o provider nuovo senza piano | Verificare capienza free-tier prima di cambiare provider, billing o invii |
 | SyncBay | Verde | PR `max23468/SyncBay#27`, `#28`, `#29` mergiate; release locale `0.6.0`; Vercel automatico passato | No tag/GitHub Release/App Store production finché la policy non cambia | Scegliere un debito reale: keyset/OAuth eBay o import listing live |
-| TRAM | Attenzione | PR `max23468/TRAM#7` mergiata; Quality, hygiene, PR title e Codex sync passati | Release/deploy policy non definita; PR draft React Doctor `#6` resta separata | Scegliere tra pilot Fase 7, policy release, provider/data policy o hardening T1/T2/T3 |
+| TRAM | Attenzione | PR `max23468/TRAM#6` e `#7` mergiate; React Doctor `100 / 100`, Quality, hygiene, PR title e Codex sync passati | Release/deploy policy non definita | Scegliere tra pilot Fase 7, policy release, provider/data policy o hardening T1/T2/T3 |
 | Sentinel | Attenzione | PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde; output commit `4b9d151` | Ortix ha 33 avvisi 404 ma 0 cambiamenti; retention output da valutare se cresce | Osservare il prossimo run schedulato e promuovere solo problemi reali da report/log |
 
 ## Regole di aggiornamento
@@ -53,4 +53,4 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 ## Prossima revisione
 
 - Dopo il prossimo intervento repo-specifico.
-- Oppure al primo ciclo di manutenzione periodica Atlas.
+- Oppure al prossimo ciclo di manutenzione periodica Atlas.
