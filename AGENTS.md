@@ -40,11 +40,12 @@ Leggere in questo ordine:
 2. `piano-coordinamento-progetti.md`
 3. `docs/INDEX.md`
 4. `docs/CONTEXT.md`
-5. `docs/ROADMAP.md`
-6. `docs/BACKLOG.md`
-7. `docs/TOOLCHAIN.md`
-8. `docs/decisions/README.md`
-9. template e checklist collegati al task
+5. `docs/PROJECTS.md`
+6. `docs/ROADMAP.md`
+7. `docs/BACKLOG.md`
+8. `docs/TOOLCHAIN.md`
+9. `docs/decisions/README.md`
+10. template e checklist collegati al task
 
 Quando si lavora su una repo diversa da Atlas, leggere sempre l'`AGENTS.md` di quella repo prima di proporre o applicare cambiamenti.
 
@@ -73,6 +74,7 @@ Documenti canonici di Atlas:
 
 - piano principale: `piano-coordinamento-progetti.md`
 - indice: `docs/INDEX.md`
+- registro progetti: `docs/PROJECTS.md`
 - roadmap: `docs/ROADMAP.md`
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`

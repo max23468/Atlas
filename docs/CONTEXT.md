@@ -12,6 +12,7 @@
 
 - Piano principale: `piano-coordinamento-progetti.md`
 - Indice documentale: `docs/INDEX.md`
+- Registro progetti: `docs/PROJECTS.md`
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
@@ -27,6 +28,8 @@
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
 Obiettivo corrente: usare Atlas come progetto stabile prima di applicare il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel.
+
+Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 
 ## Snapshot aggiornato 2026-05-24
 
@@ -64,7 +67,7 @@ Prima di procedere:
 2. controllare `git status --short` e `git remote -v`;
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
-5. leggere `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
+5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
 6. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
 7. identificare verifiche proporzionate.
 
@@ -72,7 +75,7 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Rischi aperti
 
-- Iniziare interventi repo-per-repo prima di chiudere il riallineamento dello snapshot 2026-05-24.
+- Iniziare interventi repo-per-repo senza conferma esplicita del target e senza usare `docs/PROJECTS.md`.
 - Creare documenti doppi con stesso scopo.
 - Rendere Atlas troppo pesante rispetto al suo ruolo di cabina di regia.
 - Trasformare vincoli repo-specifici in standard generici sbagliati.
@@ -80,6 +83,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Chiudere e pubblicare il riallineamento dello snapshot 2026-05-24.
-- Poi preparare la prima applicazione controllata del piano a una repo coordinata.
+- Scegliere esplicitamente la prima repo per un'applicazione controllata del piano.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

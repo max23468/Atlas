@@ -8,7 +8,7 @@ Una voce nel backlog non è scope approvato.
 
 - Creare una checklist rapida "nuova repo" derivata dalla baseline del piano.
 - Creare un template di report mensile Atlas per tutte le repo coordinate.
-- Preparare un formato tabellare per tracciare stato, ultimo controllo, prossima azione e rischio per ogni repo.
+- Evolvere `docs/PROJECTS.md` in una matrice health periodica, se serve oltre al registro operativo.
 - Valutare una vista sintetica per distinguere publish, deploy e release repo per repo.
 
 ## Backlog tecnico
@@ -23,7 +23,6 @@ Una voce nel backlog non è scope approvato.
 
 - Valutare se creare una guida breve "come applicare Atlas a una repo".
 - Valutare se creare una guida breve "come usare subagent in Atlas".
-- Valutare se separare in futuro una matrice `docs/PROJECTS.md`, solo se il piano principale diventa troppo pesante da consultare.
 - Aggiornare progressivamente i riferimenti storici che descrivono SendChimp come docs-only: oggi ha runtime Next.js, ma resta senza invio automatico produttivo.
 
 ## Debiti

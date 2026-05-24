@@ -15,6 +15,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `AGENTS.md`: regole operative specifiche di Atlas.
 - `docs/INDEX.md`: indice documentale unico.
 - `docs/ROADMAP.md`: direzione, priorità e prossimi passi di Atlas.
+- `docs/PROJECTS.md`: registro vivo dei progetti coordinati, con stato, stack, fonti, vincoli, prossime azioni e rischi.
 - `docs/BACKLOG.md`: idee, debiti e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff e contesto operativo per riprendere il lavoro.
 - `docs/TOOLCHAIN.md`: tool, runtime e verifiche applicabili ad Atlas.

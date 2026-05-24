@@ -1460,8 +1460,8 @@ Regole comuni per ogni intervento:
 
 | Artefatto | Scopo | Dove vive |
 | --- | --- | --- |
-| `README.md` di Atlas | guida d’uso dei template e del piano | `/Users/Matteo/Documents/Atlas` |
-| Piano principale | decisioni approvate, matrice repo e ordine operativo | `/Users/Matteo/Documents/Atlas/piano-coordinamento-progetti.md` |
+| `README.md` di Atlas | guida d’uso dei template e del piano | `/Users/Matteo/Progetti/Atlas` |
+| Piano principale | decisioni approvate, matrice repo e ordine operativo | `/Users/Matteo/Progetti/Atlas/piano-coordinamento-progetti.md` |
 | Template `AGENTS.md` | struttura comune adattabile per ogni repo | `AGENTS.template.md` |
 | Checklist implementazione | controllo dei file canonici, link, GitHub e verifiche | `CHECKLIST-IMPLEMENTAZIONE.md` |
 | Template `docs/INDEX.md` | catalogo documenti uniforme | repo |
