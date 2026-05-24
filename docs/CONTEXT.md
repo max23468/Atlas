@@ -13,6 +13,7 @@
 - Piano principale: `piano-coordinamento-progetti.md`
 - Indice documentale: `docs/INDEX.md`
 - Registro progetti: `docs/PROJECTS.md`
+- Matrice health: `docs/HEALTH.md`
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
@@ -27,9 +28,10 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel e la prima matrice health, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
 
-Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
+Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`; lo snapshot
+health sintetico è `docs/HEALTH.md`.
 
 ## Snapshot aggiornato 2026-05-24
 
@@ -42,6 +44,7 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 - SyncBay: allineamento Atlas completato e mergiato su `main` con PR `max23468/SyncBay#27`, `#28` e `#29`; aggiunti documenti canonici, backlog, toolchain, context uppercase, fix Docker Node 24, inbox Codex pulita e release locale 0.6.0 pubblicata. Vercel automatico passato; nessun tag, GitHub Release o App Store production.
 - SendChimp: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/SendChimp#20`; roadmap migrata in `docs/ROADMAP.md`, indice in `docs/INDEX.md`, creati `docs/BACKLOG.md` e `docs/TOOLCHAIN.md`, rinvii compatibili da root `ROADMAP.md` e `docs/README.md`; chiuso il P1 Codex su `DATABASE_URL_UNPOOLED` vuota; Codex inbox pulita; Docs hygiene e Vercel automatico passati. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
 - Sentinel: consolidamento Atlas completato con PR `max23468/Sentinel#1`; commit documentale `40f1fac`, workflow manuale `26369906474` verde e output commit `4b9d151`. Creati `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, PR template, issue template e PR title check. Il run operativo su `main` ha scansionato Ortix e San Carlo Sviluppo: nessun cambiamento rilevato; Ortix mantiene 33 avvisi 404, San Carlo 0 problemi.
+- Health Atlas: creata `docs/HEALTH.md` come snapshot sintetico. Stato: verdi Atlas, Pratix, DocMolder, GLM e SyncBay; in attenzione FiscalBay, SendChimp, TRAM e Sentinel; nessun progetto bloccato.
 
 ## Vincoli specifici
 
@@ -72,7 +75,7 @@ Prima di procedere:
 2. controllare `git status --short` e `git remote -v`;
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
-5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
+5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/HEALTH.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
 6. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
 7. identificare verifiche proporzionate.
 
@@ -89,5 +92,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Scegliere con nuova conferma un debito reale in una repo già allineata oppure la prima matrice health Atlas.
+- Scegliere con nuova conferma un debito reale in una repo già allineata oppure il primo ciclo di manutenzione periodica Atlas.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

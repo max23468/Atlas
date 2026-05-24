@@ -5,20 +5,20 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 ## Ora
 
 - Usare il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel come feedback reale sul metodo di allineamento Atlas.
-- Usare il registro vivo `docs/PROJECTS.md` come riferimento operativo prima degli interventi repo-per-repo.
+- Usare il registro vivo `docs/PROJECTS.md` e la matrice `docs/HEALTH.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Definire il primo formato di report o matrice health Atlas, se serve prima degli interventi repo-per-repo.
 - Scegliere un debito prodotto/tecnico reale in una repo già allineata solo con conferma esplicita.
+- Definire il primo ciclo di manutenzione periodica Atlas, se serve prima di nuovi interventi repo-per-repo.
 - Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
 - Valutare se i pattern emersi dalle due ondate meritano una regola Atlas dopo confronto con repo comparabili.
 
 ## Più avanti
 
-- Creare una matrice periodica di conformità/health dei progetti coordinati.
 - Definire un formato standard per report mensile Atlas.
+- Valutare se trasformare `docs/HEALTH.md` in report periodico o tenerlo come snapshot manuale.
 - Valutare automazioni leggere per link check, duplicati documentali e presenza dei file canonici.
 - Usare subagent solo nella fase implementativa, con coordinamento centrale e una repo per volta in scrittura.
 
@@ -49,6 +49,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Completata la seconda ondata DocMolder: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/` e merge della PR `max23468/DocMolder#166`; release/deploy non eseguiti perché docs-only.
 - Completata la seconda ondata FiscalBay: creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/`, risolto il P1 Codex su `deploy/linux-setup.sh` e merge della PR `max23468/FiscalBay#78`; deploy/release non eseguiti.
 - Completato il consolidamento Sentinel: documenti canonici Atlas, decisione su GitHub Actions come runtime operativo MVP, baseline GitHub minima e merge della PR `max23468/Sentinel#1`; workflow manuale `26369906474` verde e output commit `4b9d151`.
+- Creata la prima matrice health Atlas in `docs/HEALTH.md`, con stato sintetico verde/attenzione/bloccato e prossimi controlli per ogni repo.
 
 ## Regole
 

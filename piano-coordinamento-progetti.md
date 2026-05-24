@@ -911,6 +911,7 @@ Ogni nuova repo deve partire almeno con:
 | `AGENTS.md` | regole operative per Codex | deve essere letto prima di modifiche non banali |
 | `docs/ROADMAP.md` | direzione e prossimi passi | con sezioni `Ora`, `Prossimo`, `Più avanti`, `Bloccato` |
 | `docs/INDEX.md` | catalogo documentale | deve linkare i documenti canonici |
+| `docs/HEALTH.md` | snapshot health dei progetti coordinati | per meta-repo o manutenzione periodica, non per ogni app |
 | `docs/BACKLOG.md` | idee, debiti e attività non ancora scelte | non deve sostituire la roadmap |
 | `docs/TOOLCHAIN.md` | runtime, tool, package manager, versioni minime | deve distinguere baseline ed eccezioni |
 | `docs/CONTEXT.md` o equivalente | handoff per nuove chat | utile anche se breve |

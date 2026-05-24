@@ -8,8 +8,8 @@ Una voce nel backlog non è scope approvato.
 
 - Creare una checklist rapida "nuova repo" derivata dalla baseline del piano.
 - Creare un template di report mensile Atlas per tutte le repo coordinate.
-- Evolvere `docs/PROJECTS.md` in una matrice health periodica, se serve oltre al registro operativo.
 - Valutare una vista sintetica per distinguere publish, deploy e release repo per repo.
+- Valutare se trasformare `docs/HEALTH.md` in report periodico o tenerlo come snapshot manuale.
 - Valutare quali pattern GLM/TRAM/SyncBay/SendChimp meritano una regola Atlas: documento di logica/modello, changelog frontend, runbook deploy molto concreto, separazione nome prodotto/URL tecnico, basename Markdown univoci, decision register separato dagli ADR puntuali, rinvii compatibili dopo migrazione dei documenti canonici.
 
 ## Backlog tecnico

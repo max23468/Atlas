@@ -16,6 +16,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `docs/INDEX.md`: indice documentale unico.
 - `docs/ROADMAP.md`: direzione, priorità e prossimi passi di Atlas.
 - `docs/PROJECTS.md`: registro vivo dei progetti coordinati, con stato, stack, fonti, vincoli, prossime azioni e rischi.
+- `docs/HEALTH.md`: matrice health sintetica dei progetti coordinati.
 - `docs/BACKLOG.md`: idee, debiti e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff e contesto operativo per riprendere il lavoro.
 - `docs/TOOLCHAIN.md`: tool, runtime e verifiche applicabili ad Atlas.
@@ -52,4 +53,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: ondate GLM/TRAM/SyncBay/SendChimp, Pratix/DocMolder/FiscalBay e Sentinel completate; scegliere con nuova conferma un debito reale o la prima matrice health Atlas.
+- Prossimo passo: ondate GLM/TRAM/SyncBay/SendChimp, Pratix/DocMolder/FiscalBay, Sentinel e prima matrice health completate; scegliere con nuova conferma un debito reale o il primo ciclo di manutenzione periodica Atlas.

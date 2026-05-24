@@ -77,6 +77,7 @@ Documenti canonici di Atlas:
 - piano principale: `piano-coordinamento-progetti.md`
 - indice: `docs/INDEX.md`
 - registro progetti: `docs/PROJECTS.md`
+- matrice health: `docs/HEALTH.md`
 - roadmap: `docs/ROADMAP.md`
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`

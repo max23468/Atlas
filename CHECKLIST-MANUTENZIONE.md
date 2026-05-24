@@ -25,14 +25,15 @@ Frequenza:
 ## Documentazione
 
 1. `docs/INDEX.md`
-2. `docs/ROADMAP.md`
-3. `docs/BACKLOG.md`
-4. `docs/TOOLCHAIN.md`
-5. `docs/CONTEXT.md`
-6. `docs/decisions/`
-7. duplicati o documenti non canonici
-8. rinvii temporanei ancora necessari
-9. contenuti migrati senza perdita
+2. `docs/HEALTH.md` se la repo è Atlas o una meta-repo equivalente
+3. `docs/ROADMAP.md`
+4. `docs/BACKLOG.md`
+5. `docs/TOOLCHAIN.md`
+6. `docs/CONTEXT.md`
+7. `docs/decisions/`
+8. duplicati o documenti non canonici
+9. rinvii temporanei ancora necessari
+10. contenuti migrati senza perdita
 
 ## Toolchain
 

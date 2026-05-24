@@ -14,6 +14,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 
 - `docs/ROADMAP.md`: direzione, priorità e prossimi passi di Atlas.
 - `docs/PROJECTS.md`: registro vivo dei progetti coordinati, con stato, stack/runtime, Git/GitHub, source of truth, vincoli, prossime azioni e blocchi.
+- `docs/HEALTH.md`: matrice health sintetica per decidere dove guardare prima.
 - `docs/BACKLOG.md`: idee, debiti, bug e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff per nuove chat e lavoro continuativo.
 - `docs/TOOLCHAIN.md`: tool, runtime, versioni e verifiche applicabili ad Atlas.
@@ -55,7 +56,8 @@ I file `*.template.md` restano template e non devono essere confusi con lo stato
 
 ## Repo coordinate
 
-La matrice operativa aggiornata vive in `docs/PROJECTS.md`.
+La matrice operativa dettagliata vive in `docs/PROJECTS.md`; lo snapshot health
+sintetico vive in `docs/HEALTH.md`.
 
 Atlas coordina, senza modificare automaticamente:
 

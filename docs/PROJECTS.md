@@ -2,7 +2,10 @@
 
 Data ultimo aggiornamento: 2026-05-24
 
-Questo registro è la matrice viva dei progetti coordinati da Atlas. Serve a orientare lo stato operativo, non a sostituire l'`AGENTS.md` o i documenti canonici delle singole repo.
+Questo registro è la matrice viva dettagliata dei progetti coordinati da Atlas.
+Serve a orientare lo stato operativo, non a sostituire l'`AGENTS.md` o i
+documenti canonici delle singole repo. Per il colpo d'occhio health usare anche
+`docs/HEALTH.md`.
 
 Prima di intervenire su una repo:
 
@@ -18,7 +21,7 @@ Prima di intervenire su una repo:
 
 | Progetto | Stato aggiornato | Stack/runtime | Git/GitHub | Source of truth | Vincoli forti | Prossima azione | Blocchi/rischi |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atlas | Meta-progetto docs-first stabile dopo primo giro, seconda ondata e consolidamento Sentinel | Nessun runtime applicativo | Checkout attivo: `/Users/Matteo/Progetti/Atlas`; `main`; GitHub privata `max23468/Atlas` | `AGENTS.md`, `README.md`, `piano-coordinamento-progetti.md`, `docs/INDEX.md`, questo registro, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/` | Non è un prodotto applicativo; niente release/deploy; non applica piani ad altre repo senza richiesta | Scegliere con nuova conferma un debito reale o la prima matrice health Atlas | Alcune note storiche indicano `/Users/Matteo/Documents/Atlas`; in questo ambiente il checkout reale è `/Users/Matteo/Progetti/Atlas` |
+| Atlas | Meta-progetto docs-first stabile dopo primo giro, seconda ondata, consolidamento Sentinel e prima matrice health | Nessun runtime applicativo | Checkout attivo: `/Users/Matteo/Progetti/Atlas`; `main`; GitHub privata `max23468/Atlas` | `AGENTS.md`, `README.md`, `piano-coordinamento-progetti.md`, `docs/INDEX.md`, questo registro, `docs/HEALTH.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/` | Non è un prodotto applicativo; niente release/deploy; non applica piani ad altre repo senza richiesta | Scegliere con nuova conferma un debito reale o il primo ciclo di manutenzione periodica Atlas | Alcune note storiche indicano `/Users/Matteo/Documents/Atlas`; in questo ambiente il checkout reale è `/Users/Matteo/Progetti/Atlas` |
 | Pratix | Seconda ondata completata; produzione SaaS matura pubblicata con release patch `1.11.15` | TanStack Start, Node/npm, Vercel, Supabase | PR `max23468/Pratix#156` mergiata; Vercel production verificata con `publish:finish` | `AGENTS.md`; `docs/ROADMAP.md`; `docs/INDEX.md`; `docs/BACKLOG.md`; `docs/CONTEXT.md`; `docs/TOOLCHAIN.md`; `docs/memory/`; `docs/decisions/`; `docs/guides/versioning-e-release.md`; `docs/guides/deploy.md` | UI italiana, glossary rigoroso, token semantici; non spostare verso VPS, Telegram o Cloudflare | Scegliere solo debiti prodotto/tecnici reali con nuova conferma | Rischio di appesantire una repo già matura; React Doctor obbligatorio dopo release minor |
 | DocMolder | Seconda ondata completata; produzione operativa Telegram/VPS pubblicata come docs-only | Python `>=3.11`; CI anche `3.13`; runtime operativo/VPS preferito `3.13` | PR `max23468/DocMolder#166` mergiata; release/deploy non eseguiti perché docs-only | `AGENTS.md`; `docs/ROADMAP.md`; `docs/BACKLOG.md`; `docs/TOOLCHAIN.md`; `docs/decisions/`; `docs/MILESTONE_BOARD.md`; `docs/INDEX.md`; `docs/CONTEXT.md`; `docs/CODEX_TASK_PACKET.md`; `docs/RELEASE_PROCESS.md`; `docs/VERSIONING.md`; `docs/VPS_RUNBOOK.md` | Telegram-first; documenti utente sensibili; non trasformare in web app o processo release manuale | Scegliere solo debiti prodotto/tecnici reali con nuova conferma | Non toccare file ignorati di ambiente locale senza scope; mantenere Release Please/VPS come policy repo-specifica |
 | FiscalBay | Seconda ondata completata; operativo Telegram/eBay/VPS con fix deploy pubblicato | Runtime VPS documentato `3.13`; manifest, ruff, mypy e GitHub Actions ancora `3.10` | PR `max23468/FiscalBay#78` mergiata; thread Codex P1 risolto; deploy/release non eseguiti | `AGENTS.md`; `docs/ROADMAP.md`; `docs/BACKLOG.md`; `docs/TOOLCHAIN.md`; `docs/decisions/`; `docs/MILESTONE_BOARD.md`; `docs/INDEX.md`; `docs/CONTEXT.md`; `docs/RELEASE_POLICY.md`; `docs/OPERATIONS.md`; `docs/RUNBOOK.md`; `docs/DECISIONS_PENDING.md` | Non dedurre dati fiscali eBay assenti; non usare sintassi o dipendenze `>3.10` finché manifest/CI non cambiano | Decidere l'eventuale upgrade Python completo solo con manifest, CI e policy allineati | Stato Python misto: non considerare l'upgrade completato |
@@ -39,7 +42,7 @@ Sentinel è stata tenuta alla fine e ha completato il consolidamento baseline ru
 Le prossime direzioni possibili, da confermare esplicitamente, sono:
 
 1. scegliere un debito prodotto/tecnico reale in una repo già allineata;
-2. definire la prima matrice health Atlas.
+2. definire il primo ciclo di manutenzione periodica Atlas.
 
 La seconda ondata completata è stata:
 
