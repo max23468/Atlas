@@ -27,7 +27,7 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo i pilot GLM e TRAM, scegliendo una sola prossima repo alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM, TRAM, SyncBay e SendChimp, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 
@@ -39,7 +39,7 @@ Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`.
 - GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
 - TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title e Codex sync passati; nessun deploy o release.
 - SyncBay: allineamento Atlas completato e mergiato su `main` con PR `max23468/SyncBay#27`, `#28` e `#29`; aggiunti documenti canonici, backlog, toolchain, context uppercase, fix Docker Node 24, inbox Codex pulita e release locale 0.6.0 pubblicata. Vercel automatico passato; nessun tag, GitHub Release o App Store production.
-- SendChimp: non è più solo documentazione; ha scaffold runtime Next.js/React su Vercel, Neon Free/Postgres 17 e Neon Auth. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
+- SendChimp: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/SendChimp#20`; roadmap migrata in `docs/ROADMAP.md`, indice in `docs/INDEX.md`, creati `docs/BACKLOG.md` e `docs/TOOLCHAIN.md`, rinvii compatibili da root `ROADMAP.md` e `docs/README.md`; chiuso il P1 Codex su `DATABASE_URL_UNPOOLED` vuota; Codex inbox pulita; Docs hygiene e Vercel automatico passati. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
 - Sentinel: repo GitHub privata `max23468/Sentinel`, branch `main`, commit ultimo verificato `e1de497 chore: update sentinel outputs`; workflow `Sentinel` schedulato/dispatch con Node 22, test, build, scan e commit degli output `data/`, `snapshots/`, `reports/`. Ultimo run manuale visto: `26367301441`, fallito sul commit `785808b` nello step `Fail on scan errors` dopo test, build, scan e commit output; il report `reports/ortix-20260524T165908Z.md` registra 8 cambiamenti, 34 problemi e fatale `SENTINEL_EMAIL_FROM` mancante. Trattarlo come operativo ma non verde.
 
 ## Vincoli specifici
@@ -88,5 +88,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Scegliere esplicitamente la prossima repo dopo GLM/TRAM/SyncBay.
+- Scegliere esplicitamente se consolidare Sentinel come baseline runtime separata o avviare la seconda ondata su Pratix/DocMolder/FiscalBay.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
