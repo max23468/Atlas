@@ -17,8 +17,9 @@ Una voce nel backlog non è scope approvato.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
-- Valutare una Codex feedback inbox per Sentinel solo se iniziano review o commenti PR ricorrenti.
+- Ripristinare Dependabot su GLM e Sentinel quando i minuti GitHub Actions tornano disponibili o quando viene deciso un budget sostenibile.
 - Riconciliare FiscalBay: runtime VPS Python `3.13` documentato, ma manifest/CI ancora su Python `3.10`.
+- Definire policy SemVer/release TRAM e decidere se aggiungere `docs/decisions/README.md` canonico accanto a `docs/DECISIONS.md`.
 
 ## Documentazione
 

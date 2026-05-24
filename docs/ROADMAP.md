@@ -5,14 +5,14 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 ## Ora
 
 - Usare il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel come feedback reale sul metodo di allineamento Atlas.
-- Usare il registro vivo `docs/PROJECTS.md` e la matrice `docs/HEALTH.md` come riferimento operativo prima degli interventi repo-per-repo.
+- Usare il registro vivo `docs/PROJECTS.md`, la matrice `docs/HEALTH.md` e `docs/STANDARDS.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
-- Scegliere un debito prodotto/tecnico reale in una repo già allineata solo con conferma esplicita.
-- Valutare se creare una Codex feedback inbox anche per Atlas, solo se iniziano PR o commenti operativi ricorrenti.
-- Valutare se i pattern emersi dalle due ondate meritano una regola Atlas dopo confronto con repo comparabili.
+- Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
+- Ripristinare o attivare Dependabot su GLM e Sentinel solo quando il budget GitHub Actions torna disponibile o quando il maintainer lo conferma.
+- Definire la policy release/versioning di TRAM solo con decisione dedicata, senza inventare release retroattive.
 
 ## Più avanti
 
@@ -51,6 +51,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata la prima matrice health Atlas in `docs/HEALTH.md`, con stato sintetico verde/attenzione/bloccato e prossimi controlli per ogni repo.
 - Definito il ciclo di manutenzione periodica in `docs/MAINTENANCE.md`.
 - Eseguito il primo ciclo di manutenzione sulle repo in `Attenzione`: FiscalBay, SendChimp, TRAM e Sentinel; inbox pulite, workflow recenti verdi e merge della PR `max23468/TRAM#6` con React Doctor `100 / 100`.
+- Creato `docs/STANDARDS.md` e completato un ciclo correttivo sugli standard Atlas: SendChimp PR `#21`, Pratix PR `#157`, SyncBay PR `#30`, Sentinel PR `#2`, GLM commit `[skip ci]`; GitHub Actions non usate come gate per budget esaurito.
 
 ## Regole
 
