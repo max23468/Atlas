@@ -29,7 +29,7 @@ Se una richiesta contraddice vincoli tecnici, sicurezza, dati, policy delle repo
   - non è un prodotto applicativo;
   - non è una dashboard runtime;
   - non sostituisce gli `AGENTS.md` delle singole repo;
-  - non applica automaticamente il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay o TRAM;
+  - non applica automaticamente il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel;
   - non introduce release, deploy o workflow GitHub dove non sono stati decisi.
 
 ## Fonti primarie
@@ -155,7 +155,7 @@ Comandi minimi:
 - test: non applicabile;
 - build: non applicabile;
 - smoke: controllo manuale dei documenti e dei link interni;
-- Git: `git status --short` solo dopo inizializzazione Git;
+- Git: `git status --short`;
 - file: `rg --files`;
 - pulizia sistema: verificare che `.DS_Store` non sia contenuto progettuale.
 
@@ -165,7 +165,7 @@ Non dichiarare verifiche non eseguite.
 
 Non applicabile ad Atlas.
 
-React Doctor resta obbligatorio solo per app React dopo ogni release minor `X.Y.Z`, cioè quando cambia `Y`, secondo il piano approvato.
+React Doctor resta obbligatorio solo per app React dopo ogni release minor `X.Y.Z`, cioè quando cambia `Y`, secondo il piano approvato. SendChimp oggi ha runtime React/Next.js, quindi rientra nel criterio quando avrà una release minor applicabile.
 
 ## Sicurezza, privacy e dati
 

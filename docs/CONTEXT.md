@@ -26,7 +26,15 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: stabilizzare Atlas come progetto leggero prima di applicare il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay o TRAM.
+Obiettivo corrente: usare Atlas come progetto stabile prima di applicare il piano a Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel.
+
+## Snapshot aggiornato 2026-05-24
+
+- Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera.
+- DocMolder: repo Git su `main`; `pyproject.toml` richiede Python `>=3.11`, CI testa `3.11`, `3.12` e `3.13`, documentazione runtime preferisce Python `3.13`. Al controllo esisteva un file locale non tracciato `deploy/install-python313 2.sh`, da non toccare senza scope.
+- FiscalBay: repo Git su `main`; runtime VPS documentato a Python `3.13`, ma `pyproject.toml`, `ruff`, `mypy` e GitHub Actions restano su Python `3.10`. Trattare l'upgrade come stato misto: non usare sintassi o dipendenze `>3.10` finché manifest, CI e policy non sono aggiornati.
+- SendChimp: non è più solo documentazione; ha scaffold runtime Next.js/React su Vercel, Neon Free/Postgres 17 e Neon Auth. Resta MVP manuale, senza invii WhatsApp automatici e con vincolo free-tier.
+- Sentinel: cartella locale presente, ma non è una repo Git locale e non risulta repository GitHub `max23468/Sentinel`; contiene solo cache `.wrangler`. Va censita o inizializzata prima di entrare nella matrice operativa.
 
 ## Vincoli specifici
 
@@ -36,6 +44,7 @@ Obiettivo corrente: stabilizzare Atlas come progetto leggero prima di applicare 
 - Non confondere i template con i documenti canonici reali.
 - Non perdere contenuti durante migrazioni o uniformazioni.
 - Rispettare sempre l'`AGENTS.md` della repo bersaglio prima di qualunque intervento fuori da Atlas.
+- Se la repo bersaglio non ha ancora `AGENTS.md` o non è una repo Git, fermarsi alla ricognizione e creare prima una baseline.
 - Usare i subagent solo nella fase implementativa, con coordinamento centrale, prima passata read-only e una sola repo per volta in scrittura.
 
 ## Verifiche da ricordare
@@ -52,7 +61,7 @@ Obiettivo corrente: stabilizzare Atlas come progetto leggero prima di applicare 
 Prima di procedere:
 
 1. leggere `AGENTS.md`;
-2. controllare se Atlas è stato inizializzato come repo Git;
+2. controllare `git status --short` e `git remote -v`;
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
 5. leggere `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
@@ -63,7 +72,7 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Rischi aperti
 
-- Iniziare interventi repo-per-repo prima che Atlas sia abbastanza stabile.
+- Iniziare interventi repo-per-repo prima di chiudere il riallineamento dello snapshot 2026-05-24.
 - Creare documenti doppi con stesso scopo.
 - Rendere Atlas troppo pesante rispetto al suo ruolo di cabina di regia.
 - Trasformare vincoli repo-specifici in standard generici sbagliati.
@@ -71,5 +80,6 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 
 ## Prossimo passo
 
-- Usare Atlas come base stabile per preparare la prima applicazione controllata del piano a una repo coordinata.
+- Chiudere e pubblicare il riallineamento dello snapshot 2026-05-24.
+- Poi preparare la prima applicazione controllata del piano a una repo coordinata.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.

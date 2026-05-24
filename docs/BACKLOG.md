@@ -16,17 +16,21 @@ Una voce nel backlog non è scope approvato.
 - Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
+- Censire Sentinel: identità, perimetro, Git/GitHub, `AGENTS.md`, source of truth, toolchain, publish/deploy/release.
+- Riconciliare FiscalBay: runtime VPS Python `3.13` documentato, ma manifest/CI ancora su Python `3.10`.
 
 ## Documentazione
 
 - Valutare se creare una guida breve "come applicare Atlas a una repo".
 - Valutare se creare una guida breve "come usare subagent in Atlas".
 - Valutare se separare in futuro una matrice `docs/PROJECTS.md`, solo se il piano principale diventa troppo pesante da consultare.
+- Aggiornare progressivamente i riferimenti storici che descrivono SendChimp come docs-only: oggi ha runtime Next.js, ma resta senza invio automatico produttivo.
 
 ## Debiti
 
 - Il piano principale è lungo e contiene sia decisioni sia azioni operative: va mantenuto leggibile prima di aggiungere nuovi livelli.
 - Alcune decisioni fondative sono ancora nel piano principale e non ancora estratte in ADR autonome.
+- Il piano principale contiene snapshot datati: prima di applicarlo a una repo, verificare sempre lo stato reale del checkout.
 
 ## Decisioni sospese
 

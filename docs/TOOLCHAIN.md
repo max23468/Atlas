@@ -52,4 +52,4 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 
 - React Doctor non applicabile ad Atlas.
 - Codex feedback inbox non applicabile finché Atlas non ha una repo GitHub.
-- Nessuna regola di Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay o TRAM si applica automaticamente ad Atlas senza adattamento esplicito.
+- Nessuna regola di Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel si applica automaticamente ad Atlas senza adattamento esplicito.

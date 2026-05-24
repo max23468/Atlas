@@ -15,6 +15,8 @@ Costruire un coordinamento pieno tra i progetti locali:
 - SendChimp
 - SyncBay
 - TRAM
+- Atlas
+- Sentinel
 
 L’obiettivo non è rendere le repository identiche. L’obiettivo è renderle coerenti con lo stile operativo, le aspettative e il modo di lavorare del maintainer, mantenendo le differenze tecniche reali di ciascun progetto.
 
@@ -97,6 +99,20 @@ Regole di partenza approvate:
 - mantenere `Codex PR comments` e `Codex feedback inbox` come standard comune già acquisito;
 - rendere React Doctor obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`;
 
+## Aggiornamento stato 2026-05-24
+
+Questo piano nasce come snapshot del 2026-05-23. Prima di applicarlo a una repo, verificare sempre il checkout reale.
+
+Novità recepite:
+
+- Atlas è ora un progetto Git/GitHub dedicato, repository privata `https://github.com/max23468/Atlas`.
+- SendChimp non è più solo documentazione: ha scaffold runtime Next.js/React con Vercel, Neon Free/Postgres 17 e Neon Auth. Resta però MVP manuale, senza invii WhatsApp automatici produttivi e con vincolo free-tier.
+- DocMolder usa Python `>=3.11` nel manifest, testa anche Python `3.13` in CI e documenta Python `3.13` come runtime preferito per sviluppo operativo/VPS. Non trattarlo come progetto `>=3.10`.
+- FiscalBay è in stato misto: la documentazione runtime/VPS indica Python `3.13`, ma `pyproject.toml`, ruff, mypy e GitHub Actions restano su Python `3.10`. Finché manifest e CI non sono aggiornati, non usare sintassi o dipendenze che richiedono Python `>3.10`.
+- Sentinel è da censire: localmente esiste `/Users/Matteo/Documents/Sentinel`, ma al controllo del 2026-05-24 contiene solo cache `.wrangler`, senza `.git`, `AGENTS.md` o sorgenti visibili; `max23468/Sentinel` non risulta raggiungibile via `gh repo view`.
+
+Conseguenza: l'ordine operativo va rivalutato prima della prima applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only e Sentinel va prima portata almeno a baseline di progetto o esclusa esplicitamente dalla prima ondata.
+
 Tabella decisionale approvata:
 
 | Area | Decisione | Stato |
@@ -109,7 +125,7 @@ Tabella decisionale approvata:
 | Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
 | Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
 | Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
-| React Doctor | Obbligatorio nelle app React dopo ogni release minor `X.Y.Z`; applicabile anche a SendChimp quando avrà runtime React | Approvato |
+| React Doctor | Obbligatorio nelle app React dopo ogni release minor `X.Y.Z`; applicabile anche a SendChimp, che oggi ha runtime React/Next.js | Approvato |
 | Nuovi progetti | Avviare ogni nuova repo da una baseline completa: governance, docs, GitHub, verifiche, release/deploy policy e handoff | Approvato |
 | Root vs docs | Root solo per ingresso, istruzioni agenti, configurazione/tooling e sorgente; `docs/` per governance, roadmap, decisioni, contesto e approfondimenti | Approvato |
 | Subagent | Usarli solo nella fase di implementazione, con coordinamento centrale, scope read-only iniziale e una repo per volta in scrittura | Approvato |
@@ -388,9 +404,11 @@ Adattatori repo-specifici:
 | DocMolder | PR/merge GitHub | Release Please/GitHub Release quando rilasciabile | VPS/runbook quando previsto |
 | FiscalBay | PR/merge GitHub o flusso repo | `scripts/release_now.sh` quando previsto | `scripts/deploy_now.sh`/VPS quando previsto |
 | GLM | PR/merge GitHub | `npm run release` quando previsto | Cloudflare Pages solo su richiesta/target dichiarato |
-| SendChimp | PR/merge GitHub/documentazione | release locale se prevista | non applicabile finché non esiste runtime |
+| SendChimp | PR/merge GitHub | release locale se prevista | Vercel solo quando previsto e protetto da Neon Auth; nessun invio automatico |
 | SyncBay | PR/merge GitHub | `npm run release` locale quando previsto | non production finché non deciso |
 | TRAM | PR/merge GitHub | non applicabile finché policy assente | non applicabile finché policy assente |
+| Atlas | push/PR verso repository privata GitHub | non applicabile | non applicabile |
+| Sentinel | da censire | da definire | da definire |
 
 Regola: il protocollo è comune; cambiano solo comandi, provider e target.
 
@@ -490,7 +508,7 @@ Applicabilità:
 - GLM: obbligatorio quando consolidato come app React con release minor;
 - TRAM: obbligatorio quando consolidato come app React con release minor;
 - SyncBay: obbligatorio quando consolidato come app React con release minor;
-- SendChimp: obbligatorio quando avrà runtime React e release minor;
+- SendChimp: obbligatorio perché ha runtime React/Next.js quando avrà una release minor applicabile;
 - DocMolder e FiscalBay: non applicabile finché restano repo Python/Telegram-first senza app React.
 
 ### 13. Stile, tono e lingua
@@ -533,6 +551,7 @@ Esempi:
 - SendChimp: campagne, telefoni, consenso;
 - SyncBay: shop, listing, clienti, ordini;
 - Pratix: dati clienti, pratiche, fatture.
+- Sentinel: da censire; non copiare segreti, token o cache `.wrangler` in Atlas.
 
 Regola: ciò che serve al test deve essere sintetico o anonimizzato.
 
@@ -711,9 +730,11 @@ La baseline di avvio deve chiarire subito:
 | DocMolder | Produzione operativa Telegram/VPS | Molto strutturata ma con schema diverso: docs governanti in maiuscolo | Release Please primario | PR + Release PR + GitHub Release + VPS/webhook | GitHub molto completo, manutenzione, VPS workflows | `ci_verify`, make, smoke Telegram quando serve | Bassa/media: non forzare Pratix-style |
 | FiscalBay | Operativo Telegram/eBay/VPS | Buona, con release/operations forti | `scripts/release_now.sh`, no Release Please | Deploy locale/VPS; release esplicita | Workflow allowlist, inbox Codex, PR title | `ci_verify`, build package quando serve | Media: uniformare docs/GitHub template e roadmap |
 | GLM | Web app Cloudflare Pages | Minima, concentrata su logica gara e deploy | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, manca PR template | Test, build, smoke, deploy doctor | Alta: catalogo docs e GitHub più deboli |
-| SendChimp | Docs-first / MVP manuale, futuro runtime React | Molto strutturata | SemVer locale previsto ma niente runtime release | Pubblicazione GitHub, no deploy produttivo | Inbox, docs hygiene, PR title | `npm run verify`, docs/language; React Doctor quando avrà runtime React | Alta: uniformare senza perdere docs-first |
+| SendChimp | Runtime Next.js iniziale / MVP manuale | Molto strutturata, ma alcuni path sono ancora pre-standard Atlas | SemVer locale previsto; release runtime da governare prima di uso produttivo | GitHub + Vercel previsto/protetto; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title | `npm run verify`; React Doctor dopo release minor applicabile | Alta: uniformare senza perdere decisioni runtime e vincolo free-tier |
 | SyncBay | Scaffold runtime / MVP Shopify | Strutturata con ADR e guide | `npm run release`, `app/lib/version.ts` | Pubblicazione GitHub; no deploy production deciso | Inbox, template, Dependabot; CI minima | typecheck, lint, build, smoke UI, db verify | Alta: GitHub/CI e publish policy da completare |
 | TRAM | MVP iniziale interno | Documenti governanti pochi ma chiari | Non ancora policy SemVer reale | GitHub al massimo; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Alta: roadmap/versioning/catalogo da consolidare |
+| Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check | controllo documenti/link, `git status --short` | Bassa: base già pronta |
+| Sentinel | Da censire | Assente nel checkout locale | Da definire | Da definire | Da definire | Da definire | Alta: prima serve baseline minima |
 
 ## Source of truth per repo
 
@@ -728,6 +749,8 @@ Questa tabella serve a sapere dove guardare per orientarsi in ogni progetto. Le 
 | SendChimp | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md` |
 | SyncBay | Da migrare a `docs/ROADMAP.md` | Da migrare a `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md`, `docs/guides/provisioning-runtime.md` |
 | TRAM | Da migrare a `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` da creare | `docs/CONTEXT.md` | usare `docs/decisions/`; `docs/DECISIONS.md` come riepilogo temporaneo | `docs/OPERATIONS.md`; release policy da definire |
+| Atlas | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | GitHub privata; release/deploy non applicabili |
+| Sentinel | da creare o verificare | da creare o verificare | da creare o verificare | da creare o verificare | da creare o verificare | da definire |
 
 Regole:
 
@@ -1000,22 +1023,22 @@ Snapshot attuale da normalizzare gradualmente:
 | GLM | package npm presente, engines/packageManager non dichiarati | da completare |
 | TRAM | package npm presente, engines/packageManager non dichiarati | da completare |
 | DocMolder | Python `>=3.11` | già allineata alla baseline Python |
-| FiscalBay | Python `>=3.10` | guardrail repo-specifico: mantenere compatibilità Python 3.10 finché non c’è decisione esplicita di upgrade |
+| FiscalBay | Manifest e CI Python `3.10`; runtime VPS documentato a Python `3.13` | stato misto: mantenere compatibilità codice Python 3.10 finché manifest, CI e policy non vengono aggiornati |
 
 Nota di lettura:
 
 - Node `24.x` è scelto perché è la latest LTS supportata al momento della ricognizione, non perché sia la latest Current assoluta;
 - npm deve seguire la latest stabile compatibile con la Node LTS scelta, senza imporre una patch uguale in tutte le repo;
 - Python per nuovi progetti deve puntare alla latest stable compatibile con dipendenze e deploy, non a `>=3.11` per default conservativo;
-- FiscalBay mantiene Python `>=3.10` come guardrail compatibile con la repo attuale.
+- FiscalBay mantiene Python `>=3.10` nel manifest e nei controlli statici, anche se il runtime VPS documentato è Python `3.13`.
 
 Guardrail per repo esistenti:
 
 - la baseline Python per nuovi progetti è latest stable compatibile con dipendenze, deploy e tooling;
-- FiscalBay resta su Python `>=3.10` finché una decisione esplicita non approva l’upgrade;
-- non introdurre in FiscalBay sintassi, dipendenze o tool che richiedano Python `>3.10` senza ADR o decisione equivalente;
+- FiscalBay resta compatibile con Python `>=3.10` finché manifest, CI e policy non approvano l’upgrade completo;
+- non introdurre in FiscalBay sintassi, dipendenze o tool che richiedano Python `>3.10` senza ADR o decisione equivalente e senza aggiornare manifest/CI;
 - i controlli di FiscalBay devono restare compatibili con il vincolo dichiarato in `pyproject.toml`;
-- se si decide l’upgrade di FiscalBay a Python `>=3.11`, va aggiornato `pyproject.toml`, l’eventuale documentazione toolchain, CI/verifiche e release policy collegata.
+- se si decide l’upgrade completo di FiscalBay, va aggiornato `pyproject.toml`, l’eventuale documentazione toolchain, CI/verifiche e release policy collegata.
 
 ### Baseline versioning, publish e release
 
@@ -1166,11 +1189,13 @@ I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiara
 | --- | --- | --- | --- |
 | Pratix | SaaS Vercel/Supabase con UI italiana e glossary rigoroso | Prodotto gestionale leggero per avvocati freelance | non spostare verso VPS, Telegram o Cloudflare |
 | DocMolder | Telegram-first con Release Please e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o processo release manuale |
-| FiscalBay | Dati fiscali solo se presenti nelle API eBay; Python `>=3.10` finché non c’è decisione di upgrade | Rischio di dedurre informazioni non disponibili o rompere compatibilità runtime/tooling | non inventare tax data, non forzare Python `>=3.11`, non introdurre workflow GitHub Actions non previsto |
+| FiscalBay | Dati fiscali solo se presenti nelle API eBay; runtime VPS documentato a Python `3.13`, manifest/CI ancora Python `3.10` | Rischio di dedurre informazioni non disponibili o rompere compatibilità runtime/tooling | non inventare tax data, non usare feature `>3.10` finché manifest/CI non sono aggiornati, non introdurre workflow GitHub Actions non previsto |
 | GLM | Cloudflare Pages e dati gara allegati | Simulatore web legato a gara/documenti specifici | non usare Vercel/Supabase come default |
-| SendChimp | Docs-first/MVP manuale | Perimetro operativo ancora manuale | non introdurre invii reali |
+| SendChimp | Runtime Next.js/Vercel/Neon per MVP manuale | Perimetro operativo ancora manuale e vincolo free-tier | non introdurre invii reali, non usare Supabase nel primo scaffold, non creare risorse a pagamento |
 | SyncBay | Shopify app con eBay come sorgente catalogo | Perimetro prodotto specifico | non allargarla a marketplace generico bidirezionale |
 | TRAM | Evidence-first e AI governata/free-first | Documenti gara e output sensibili | non anticipare V2/V3 o inviare dati a provider senza policy |
+| Atlas | Meta-progetto docs-first su GitHub privata | Coordinamento, non prodotto applicativo | non trasformarlo in runtime o dashboard senza decisione |
+| Sentinel | Da censire | Cartella locale non ancora repo Git verificata | non applicare standard repo-per-repo finché non esistono baseline e `AGENTS.md` |
 
 ## Vincoli specifici per repo
 
@@ -1210,9 +1235,9 @@ Non dedurre dati fiscali eBay non presenti.
 Standard specifico:
 
 - Telegram/eBay-first;
-- Python `>=3.10` come guardrail corrente;
-- nessun upgrade a Python `>=3.11` senza decisione esplicita, aggiornamento toolchain e verifiche dedicate;
-- non usare sintassi o dipendenze che richiedono Python `>3.10` finché il guardrail resta attivo;
+- runtime VPS documentato a Python `3.13`;
+- manifest, ruff, mypy e GitHub Actions ancora su Python `3.10`;
+- non usare sintassi o dipendenze che richiedono Python `>3.10` finché il guardrail di manifest/CI resta attivo;
 - VPS FiscalBay specifica;
 - deploy fuori da GitHub Actions;
 - `scripts/deploy_now.sh`;
@@ -1233,14 +1258,43 @@ Standard specifico:
 
 ### SendChimp
 
-Non introdurre runtime/invio produttivo prima di decisione esplicita.
+Non introdurre invio produttivo prima di decisione esplicita.
 
 Standard specifico:
 
-- docs-first;
+- runtime Next.js/React iniziale;
+- Vercel con Functions Frankfurt;
+- Neon Free/Postgres 17 in Frankfurt;
+- Neon Auth per protezione route/API;
+- nessun Supabase nel primo scaffold;
+- vincolo free-tier;
 - MVP ultimo miglio manuale;
 - nessun invio WhatsApp reale;
 - nessuna integrazione produttiva Meta/Mailchimp/Shopify senza piano.
+
+### Atlas
+
+Non trasformarlo in prodotto applicativo senza decisione esplicita.
+
+Standard specifico:
+
+- meta-progetto docs-first;
+- repository GitHub privata;
+- nessun runtime;
+- nessuna release o deploy;
+- baseline GitHub leggera.
+
+### Sentinel
+
+Non applicare ancora il piano come se fosse una repo pronta.
+
+Standard specifico:
+
+- da censire;
+- al controllo 2026-05-24 esiste solo cartella locale con cache `.wrangler`;
+- nessun `AGENTS.md` verificato;
+- nessuna repo Git locale o GitHub verificata;
+- prima azione: creare o trovare baseline reale prima di qualunque patch operativa.
 
 ### SyncBay
 
@@ -1302,7 +1356,7 @@ Correzione: sulle repo mature si rifinisce, non si ricostruisce.
 
 Rischio: creare processi di release/deploy artificiali su progetti che non sono ancora pronti.
 
-Correzione: su GLM, TRAM, SyncBay e SendChimp va dichiarata la maturità operativa senza trattare nessuna repo come fuori perimetro.
+Correzione: su GLM, TRAM, SyncBay, SendChimp e Sentinel va dichiarata la maturità operativa senza trattare nessuna repo come fuori perimetro. SendChimp ha già runtime iniziale; Sentinel invece va prima censita.
 
 ## Criteri di completamento del piano
 
@@ -1346,7 +1400,8 @@ Priorità:
 1. GLM: catalogo docs, PR template, GitHub baseline, roadmap.
 2. TRAM: versioning futuro, roadmap/backlog, catalogo docs, policy release assente.
 3. SyncBay: GitHub/CI minima, pubblicazione, roadmap/backlog.
-4. SendChimp: uniformare senza perdere docs-first.
+4. SendChimp: uniformare senza perdere runtime iniziale, decisioni MVP manuale e vincolo free-tier.
+5. Sentinel: censire o inizializzare baseline prima di qualunque intervento operativo.
 
 ### Fase 3 - Repo mature
 
@@ -1390,15 +1445,16 @@ Regole comuni per ogni intervento:
 | GLM | 1 | Creare `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | Aggiungere PR template, issue template minima, `pr-title.yml` o equivalente; verificare Codex inbox/workflow | `npm run test`, `npm run build`, `npm run smoke`, `npm run deploy:doctor` quando pertinente | Cloudflare Pages; non introdurre Vercel/Supabase; React Doctor prima della prima release minor applicabile |
 | TRAM | 2 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; usare `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Allineare baseline GitHub; confermare PR template/title check/quality | `npm run verify` | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
 | SyncBay | 3 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Rafforzare GitHub/CI minima; confermare PR template, issue template e title check | `npm run typecheck`, `npm run lint`, `npm run build`, `npm run smoke:ui`, `npm run db:verify` quando pertinente | Shopify app; no marketplace generico; no production deploy finché non deciso; React Doctor prima della prima release minor applicabile |
-| SendChimp | 4 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Allineare baseline GitHub già presente; mantenere docs-first finché non esiste runtime | `npm run verify`, `npm run verify:docs`, `npm run verify:language` | Docs-first/MVP manuale; nessun invio reale; React Doctor obbligatorio quando avrà runtime React e release minor |
+| SendChimp | 4 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; rendere `docs/CONTEXT.md` canonico o rinvio da `docs/context.md` | Allineare baseline GitHub già presente; rispettare runtime Next.js/Vercel/Neon e vincolo free-tier | `npm run verify`, `npm run verify:docs`, `npm run verify:language`; React Doctor dopo release minor applicabile | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold |
+| Sentinel | 5 | Censire o creare `README.md`, `AGENTS.md`, `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md` | Verificare se esiste repo Git/GitHub; se assente inizializzare solo su richiesta | da definire dopo baseline | Stato attuale non repo: non toccare cache `.wrangler` come contenuto progettuale |
 
 ### Seconda ondata
 
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
-| Pratix | 5 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; creare `docs/CONTEXT.md` leggero o rinvio a `docs/memory/` | Rifinire solo gap reali; mantenere workflow già maturo | `npm run ci:local`; smoke a11y quando pertinente; `npm run quality:react-doctor` dopo release minor | SaaS Vercel/Supabase; UI italiana; glossary rigoroso; non appesantire |
-| DocMolder | 6 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md`; migrare progressivamente decisioni in `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Mantenere Release Please, Release PR, VPS workflow; rifinire template solo se mancano elementi baseline | `ci_verify`/make/script indicati da AGENTS; smoke Telegram quando pertinente | Telegram-first; VPS; documenti utente sensibili; non trasformare in web app |
-| FiscalBay | 7 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md` con Python `>=3.10`; creare `docs/decisions/README.md` e template; mantenere pending come fonte temporanea | Allineare template/GitHub senza introdurre Actions generiche; rispettare deploy/release scriptati | `ci_verify`; build/package quando pertinente; script release/deploy solo se richiesto | Telegram/eBay/VPS; non dedurre dati fiscali; Python `>=3.10` finché non c’è upgrade approvato |
+| Pratix | 6 | Migrare `ROADMAP.md` in `docs/ROADMAP.md`; migrare `docs/README.md` in `docs/INDEX.md`; creare `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; creare `docs/CONTEXT.md` leggero o rinvio a `docs/memory/` | Rifinire solo gap reali; mantenere workflow già maturo | `npm run ci:local`; smoke a11y quando pertinente; `npm run quality:react-doctor` dopo release minor | SaaS Vercel/Supabase; UI italiana; glossary rigoroso; non appesantire |
+| DocMolder | 7 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md`; migrare progressivamente decisioni in `docs/decisions/`; mantenere `docs/DECISIONS.md` come riepilogo temporaneo | Mantenere Release Please, Release PR, VPS workflow; rifinire template solo se mancano elementi baseline | `ci_verify`/make/script indicati da AGENTS; smoke Telegram quando pertinente | Telegram-first; VPS; Python `3.13` preferito ma manifest `>=3.11`; documenti utente sensibili; non trasformare in web app |
+| FiscalBay | 8 | Creare `docs/BACKLOG.md`; creare `docs/TOOLCHAIN.md` distinguendo manifest Python `3.10` e runtime VPS `3.13`; creare `docs/decisions/README.md` e template; mantenere pending come fonte temporanea | Allineare template/GitHub senza introdurre Actions generiche; rispettare deploy/release scriptati | `ci_verify`; build/package quando pertinente; script release/deploy solo se richiesto | Telegram/eBay/VPS; non dedurre dati fiscali; compat codice Python `3.10` finché manifest/CI non cambiano |
 
 ### Artefatti comuni da produrre
 
