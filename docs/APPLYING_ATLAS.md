@@ -4,9 +4,17 @@ Atlas non serve a continuare lo sviluppo prodotto delle repo coordinate. Serve a
 rendere espliciti e coerenti governance, documentazione, GitHub, verifiche,
 versioning, publish, deploy, release e handoff dove possibile.
 
+Per scegliere cosa fare dopo un giro Atlas, usare anche
+`docs/NEXT_STEPS.md`: i debiti prodotto delle repo coordinate non sono prossimi
+passi Atlas finché non esistono repo target e scope operativo espliciti.
+
 ## Principio
 
 Prima si capisce la repo, poi si applica Atlas.
+
+Applicare Atlas non significa sviluppare la repo. Significa rendere leggibili e
+coerenti governance, policy, verifiche, pubblicazione e handoff, preservando i
+vincoli locali.
 
 Non partire dai template. Partire da:
 
@@ -85,6 +93,10 @@ Non introdurre:
 - billing;
 - dati reali;
 - workflow GitHub Actions non necessari.
+
+Non proporre pilot, feature, import/export, UI, OAuth, hardening applicativo o
+altro sviluppo prodotto come esito naturale dell'allineamento Atlas. Questi
+lavori vanno solo censiti o impacchettati, salvo richiesta esplicita sulla repo.
 
 ## Fase 4 - Verifica
 

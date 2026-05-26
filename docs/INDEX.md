@@ -20,6 +20,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/STANDARD_CANDIDATES.md`: registro dei pattern maturi candidati a standard.
 - `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice per distinguere publish, release e deploy repo per repo.
 - `docs/APPLYING_ATLAS.md`: guida operativa per applicare Atlas a una repo.
+- `docs/NEXT_STEPS.md`: procedura per scegliere prossimi passi Atlas senza confonderli con sviluppo prodotto delle repo.
 - `docs/BACKLOG.md`: idee, debiti, bug e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff per nuove chat e lavoro continuativo.
 - `docs/TOOLCHAIN.md`: tool, runtime, versioni e verifiche applicabili ad Atlas.

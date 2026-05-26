@@ -22,6 +22,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `docs/STANDARD_CANDIDATES.md`: pattern emersi dalle repo e candidati a standard.
 - `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice operativa per publish, release e deploy.
 - `docs/APPLYING_ATLAS.md`: guida breve per applicare Atlas a una repo.
+- `docs/NEXT_STEPS.md`: procedura per rispondere a "e ora?" senza trasformare Atlas in sviluppo prodotto.
 - `docs/BACKLOG.md`: idee, debiti e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff e contesto operativo per riprendere il lavoro.
 - `docs/TOOLCHAIN.md`: tool, runtime e verifiche applicabili ad Atlas.
@@ -51,7 +52,8 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 5. Non creare documenti doppi con stesso titolo o stesso scopo.
 6. Adattare comandi, release, deploy e verifiche alla repo reale.
 7. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release minor `X.Y.Z`.
-8. Pulire `.DS_Store` se compare nel working tree o risulta tracciato per errore; mantenerlo ignorato.
+8. Non proporre sviluppo prodotto delle repo coordinate come prossimo passo Atlas senza repo target e scope espliciti.
+9. Pulire `.DS_Store` se compare nel working tree o risulta tracciato per errore; mantenerlo ignorato.
 
 ## Stato operativo
 
