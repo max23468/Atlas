@@ -16,6 +16,9 @@
 - Matrice health: `docs/HEALTH.md`
 - Manutenzione: `docs/MAINTENANCE.md`
 - Standard Atlas: `docs/STANDARDS.md`
+- Pattern candidati: `docs/STANDARD_CANDIDATES.md`
+- Publish/deploy/release: `docs/PUBLISH_DEPLOY_RELEASE.md`
+- Applicazione Atlas: `docs/APPLYING_ATLAS.md`
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
@@ -25,6 +28,7 @@
 - Template: file `*.template.md`
 - Checklist implementazione: `CHECKLIST-IMPLEMENTAZIONE.md`
 - Checklist manutenzione: `CHECKLIST-MANUTENZIONE.md`
+- Checklist nuova repo: `CHECKLIST-NUOVA-REPO.md`
 
 ## Ultimo contesto utile
 
@@ -35,9 +39,9 @@ Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`; lo snapshot
 health sintetico è `docs/HEALTH.md`.
 
-## Snapshot aggiornato 2026-05-24
+## Snapshot aggiornato 2026-05-26
 
-- Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera.
+- Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera. Aggiunti `CHECKLIST-NUOVA-REPO.md`, `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` per rendere più operativo il metodo Atlas.
 - Pratix: seconda ondata completata con PR `max23468/Pratix#156`, release patch `1.11.15`, fix Codex P2 su `/novita`, documenti canonici Atlas e verifica Vercel production con `publish:finish`.
 - DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only.
 - FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. La policy repo-specifica dichiara supporto Python `>=3.10`, con VPS `3.13` come compatibilità runtime controllata; non forzare upgrade oltre `3.10` senza decisione repo-specifica.
@@ -81,8 +85,9 @@ Prima di procedere:
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
 5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/HEALTH.md`, `docs/MAINTENANCE.md`, `docs/STANDARDS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
-6. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
-7. identificare verifiche proporzionate.
+6. leggere `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` quando la richiesta riguarda interventi repo-per-repo, publish, deploy, release o promozione di pattern;
+7. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
+8. identificare verifiche proporzionate.
 
 Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata, indicare nuova posizione o motivo della rimozione.
 

@@ -5,12 +5,13 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 ## Ora
 
 - Usare il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel come feedback reale sul metodo di allineamento Atlas.
-- Usare il registro vivo `docs/PROJECTS.md`, la matrice `docs/HEALTH.md` e `docs/STANDARDS.md` come riferimento operativo prima degli interventi repo-per-repo.
+- Usare il registro vivo `docs/PROJECTS.md`, la matrice `docs/HEALTH.md`, `docs/STANDARDS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 
 ## Prossimo
 
 - Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
+- Rivalutare periodicamente `docs/STANDARD_CANDIDATES.md` prima di promuovere nuovi pattern a standard Atlas.
 - Riabilitare i workflow `Codex PR comments` solo quando il budget GitHub Actions torna disponibile.
 - Riabilitare il workflow runtime `Sentinel` solo quando il budget GitHub Actions torna disponibile o quando esiste un runtime alternativo.
 - Ripristinare o attivare Dependabot su GLM e Sentinel solo quando il budget GitHub Actions torna disponibile o quando il maintainer lo conferma.
@@ -57,6 +58,10 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Definita la policy SemVer/release di TRAM con commit `783b783` `[skip ci]`; nessun deploy perché TRAM non ha target deploy approvato.
 - Verificata la policy Python di FiscalBay: supporto dichiarato `>=3.10`, VPS `3.13` come runtime operativo compatibile, nessun upgrade forzato.
 - Disabilitato manualmente il workflow runtime `Sentinel` per evitare nuovi run schedulati durante l'esaurimento minuti Actions.
+- Creata `CHECKLIST-NUOVA-REPO.md` per inserire una nuova repository nel perimetro Atlas senza applicare template in modo meccanico.
+- Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
+- Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
+- Creato `docs/STANDARD_CANDIDATES.md` per classificare i pattern emersi da GLM, TRAM, SyncBay, SendChimp e dalle altre repo coordinate.
 
 ## Regole
 

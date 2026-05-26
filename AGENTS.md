@@ -41,11 +41,16 @@ Leggere in questo ordine:
 3. `docs/INDEX.md`
 4. `docs/CONTEXT.md`
 5. `docs/PROJECTS.md`
-6. `docs/ROADMAP.md`
-7. `docs/BACKLOG.md`
-8. `docs/TOOLCHAIN.md`
-9. `docs/decisions/README.md`
-10. template e checklist collegati al task
+6. `docs/HEALTH.md`
+7. `docs/STANDARDS.md`
+8. `docs/STANDARD_CANDIDATES.md`
+9. `docs/PUBLISH_DEPLOY_RELEASE.md`
+10. `docs/APPLYING_ATLAS.md`
+11. `docs/ROADMAP.md`
+12. `docs/BACKLOG.md`
+13. `docs/TOOLCHAIN.md`
+14. `docs/decisions/README.md`
+15. template e checklist collegati al task
 
 Quando si lavora su una repo diversa da Atlas, leggere sempre l'`AGENTS.md` di quella repo prima di proporre o applicare cambiamenti.
 
@@ -80,6 +85,9 @@ Documenti canonici di Atlas:
 - matrice health: `docs/HEALTH.md`
 - manutenzione: `docs/MAINTENANCE.md`
 - standard: `docs/STANDARDS.md`
+- pattern candidati a standard: `docs/STANDARD_CANDIDATES.md`
+- matrice publish/deploy/release: `docs/PUBLISH_DEPLOY_RELEASE.md`
+- guida applicazione Atlas: `docs/APPLYING_ATLAS.md`
 - roadmap: `docs/ROADMAP.md`
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`
@@ -87,6 +95,7 @@ Documenti canonici di Atlas:
 - decisioni: `docs/decisions/`
 - checklist implementazione: `CHECKLIST-IMPLEMENTAZIONE.md`
 - checklist manutenzione: `CHECKLIST-MANUTENZIONE.md`
+- checklist nuova repo: `CHECKLIST-NUOVA-REPO.md`
 
 I file `*.template.md` sono template riusabili, non documenti canonici di stato di Atlas.
 

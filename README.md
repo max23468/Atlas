@@ -19,6 +19,9 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `docs/HEALTH.md`: matrice health sintetica dei progetti coordinati.
 - `docs/MAINTENANCE.md`: ciclo di manutenzione periodica Atlas.
 - `docs/STANDARDS.md`: stato di uniformazione degli standard Atlas.
+- `docs/STANDARD_CANDIDATES.md`: pattern emersi dalle repo e candidati a standard.
+- `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice operativa per publish, release e deploy.
+- `docs/APPLYING_ATLAS.md`: guida breve per applicare Atlas a una repo.
 - `docs/BACKLOG.md`: idee, debiti e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff e contesto operativo per riprendere il lavoro.
 - `docs/TOOLCHAIN.md`: tool, runtime e verifiche applicabili ad Atlas.
@@ -30,6 +33,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `AGENTS.template.md`: base per le regole operative di ogni repo.
 - `CHECKLIST-IMPLEMENTAZIONE.md`: checklist da usare quando si applica il piano a una repo.
 - `CHECKLIST-MANUTENZIONE.md`: checklist mensile e pre-publish/pre-deploy/pre-release.
+- `CHECKLIST-NUOVA-REPO.md`: checklist rapida per portare una nuova repo nel perimetro Atlas.
 - `docs/INDEX.template.md`: indice documentale unico.
 - `docs/ROADMAP.template.md`: roadmap canonica.
 - `docs/BACKLOG.template.md`: backlog separato dalla roadmap.

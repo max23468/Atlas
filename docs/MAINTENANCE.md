@@ -14,13 +14,15 @@ scope e output.
 
 ## Ordine del ciclo completo
 
-1. Atlas: verificare `git status`, documenti canonici, `docs/HEALTH.md` e
-   coerenza con `docs/PROJECTS.md`.
+1. Atlas: verificare `git status`, documenti canonici, `docs/HEALTH.md`,
+   `docs/STANDARDS.md`, `docs/STANDARD_CANDIDATES.md`,
+   `docs/PUBLISH_DEPLOY_RELEASE.md` e coerenza con `docs/PROJECTS.md`.
 2. Repo in `Bloccato`: risolvere prima dei debiti ordinari.
 3. Repo in `Attenzione`: fare audit read-only e promuovere solo problemi reali.
 4. Repo in `Verde`: controllare solo segnali leggeri o debiti scelti.
-5. Aggiornare `docs/HEALTH.md`, `docs/PROJECTS.md`, `docs/ROADMAP.md` o
-   `docs/BACKLOG.md` solo dove cambia lo stato.
+5. Aggiornare `docs/HEALTH.md`, `docs/PROJECTS.md`, `docs/STANDARDS.md`,
+   `docs/STANDARD_CANDIDATES.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`,
+   `docs/ROADMAP.md` o `docs/BACKLOG.md` solo dove cambia lo stato.
 
 ## Audit read-only minimo
 

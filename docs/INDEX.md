@@ -17,6 +17,9 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/HEALTH.md`: matrice health sintetica per decidere dove guardare prima.
 - `docs/MAINTENANCE.md`: ciclo di manutenzione periodica e criteri di intervento.
 - `docs/STANDARDS.md`: matrice degli standard Atlas e del loro stato repo per repo.
+- `docs/STANDARD_CANDIDATES.md`: registro dei pattern maturi candidati a standard.
+- `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice per distinguere publish, release e deploy repo per repo.
+- `docs/APPLYING_ATLAS.md`: guida operativa per applicare Atlas a una repo.
 - `docs/BACKLOG.md`: idee, debiti, bug e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff per nuove chat e lavoro continuativo.
 - `docs/TOOLCHAIN.md`: tool, runtime, versioni e verifiche applicabili ad Atlas.
@@ -55,6 +58,7 @@ I file `*.template.md` restano template e non devono essere confusi con lo stato
 
 - `CHECKLIST-IMPLEMENTAZIONE.md`: checklist per applicare il piano a una repo.
 - `CHECKLIST-MANUTENZIONE.md`: checklist mensile e pre-publish/pre-deploy/pre-release.
+- `CHECKLIST-NUOVA-REPO.md`: checklist per inserire una nuova repo nel perimetro Atlas.
 
 ## Repo coordinate
 

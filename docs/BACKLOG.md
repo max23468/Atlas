@@ -6,11 +6,8 @@ Una voce nel backlog non è scope approvato.
 
 ## Idee operative
 
-- Creare una checklist rapida "nuova repo" derivata dalla baseline del piano.
 - Creare un template di report mensile Atlas per tutte le repo coordinate.
-- Valutare una vista sintetica per distinguere publish, deploy e release repo per repo.
 - Valutare se trasformare `docs/HEALTH.md` in report periodico o tenerlo come snapshot manuale.
-- Valutare quali pattern GLM/TRAM/SyncBay/SendChimp meritano una regola Atlas: documento di logica/modello, changelog frontend, runbook deploy molto concreto, separazione nome prodotto/URL tecnico, basename Markdown univoci, decision register separato dagli ADR puntuali, rinvii compatibili dopo migrazione dei documenti canonici.
 
 ## Backlog tecnico
 
@@ -24,7 +21,6 @@ Una voce nel backlog non è scope approvato.
 
 ## Documentazione
 
-- Valutare se creare una guida breve "come applicare Atlas a una repo", includendo discovery repo-specifica e classificazione degli extra.
 - Valutare se creare una guida breve "come usare subagent in Atlas".
 - Aggiornare progressivamente eventuali riferimenti storici ancora residui che descrivono SendChimp come docs-only: oggi ha runtime Next.js e primo allineamento Atlas completato, ma resta senza invio automatico produttivo.
 
@@ -33,7 +29,7 @@ Una voce nel backlog non è scope approvato.
 - Il piano principale è lungo e contiene sia decisioni sia azioni operative: va mantenuto leggibile prima di aggiungere nuovi livelli.
 - Alcune decisioni fondative sono ancora nel piano principale e non ancora estratte in ADR autonome.
 - Il piano principale contiene snapshot datati: prima di applicarlo a una repo, verificare sempre lo stato reale del checkout.
-- Il primo giro GLM, TRAM, SyncBay e SendChimp ha mostrato che alcune repo hanno pattern più maturi del template minimo Atlas: non vanno persi né trasformati subito in standard.
+- Il primo giro GLM, TRAM, SyncBay e SendChimp ha mostrato che alcune repo hanno pattern più maturi del template minimo Atlas: usare `docs/STANDARD_CANDIDATES.md` prima di promuoverli o scartarli.
 
 ## Decisioni sospese
 

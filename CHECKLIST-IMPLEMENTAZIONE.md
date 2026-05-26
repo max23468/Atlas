@@ -7,7 +7,7 @@ Usare questa checklist prima di applicare il piano a una repository.
 1. Leggere `AGENTS.md`.
 2. Eseguire `git status --short`.
 3. Identificare modifiche non proprie.
-4. Leggere `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`.
+4. Leggere `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/STANDARDS.md`, `docs/STANDARD_CANDIDATES.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`, `docs/APPLYING_ATLAS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`.
 5. Censire funzioni, documenti, workflow, runbook, policy e comportamenti repo-specifici non previsti dal piano Atlas.
 6. Classificare gli extra: mantenere specifico, promuovere ad Atlas, sostituire con pattern più maturo, mettere in backlog o rimuovere solo se duplicato/superato.
 7. Controllare `Codex feedback inbox`.
@@ -38,6 +38,10 @@ Usare questa checklist prima di applicare il piano a una repository.
 - `docs/INDEX.md`
 - `docs/ROADMAP.md`
 - `docs/BACKLOG.md`
+- `docs/STANDARDS.md`
+- `docs/STANDARD_CANDIDATES.md`
+- `docs/PUBLISH_DEPLOY_RELEASE.md`
+- `docs/APPLYING_ATLAS.md`
 - `docs/TOOLCHAIN.md`
 - `docs/CONTEXT.md`
 - `docs/decisions/`

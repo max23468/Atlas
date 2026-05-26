@@ -1,11 +1,16 @@
 # Matrice standard Atlas
 
-Data ultimo aggiornamento: 2026-05-24
+Data ultimo aggiornamento: 2026-05-26
 
 Questa matrice verifica gli standard che Atlas deve rendere espliciti e, dove
 possibile, uniformare nelle repo coordinate. Atlas coordina e pubblica la
 governance: non forza runtime, release, deploy o workflow dove la policy della
 repo non li prevede.
+
+Documenti collegati:
+
+- `docs/PUBLISH_DEPLOY_RELEASE.md`: semantica e matrice operativa di publish, release e deploy.
+- `docs/STANDARD_CANDIDATES.md`: pattern maturi non ancora tutti promossi a standard.
 
 Legenda:
 
@@ -23,7 +28,7 @@ Legenda:
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | OK o equivalente; Pratix e SyncBay hanno ora `pr-title.yml` dedicato |
 | Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | OK nel codice in Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel; esecuzione workflow sospesa finché Actions resta senza budget |
 | Versioning | Semantica comune; strumenti repo-specifici dichiarati | OK; TRAM ha ora policy SemVer/release in ADR dedicata |
-| Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | OK; deploy applicativo eseguito solo quando la repo e il diff lo richiedono |
+| Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | OK; matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Verifiche | Gate proporzionati al rischio, senza test inventati | OK come regola; GitHub Actions non usate come gate durante esaurimento minuti |
 | React Doctor | Obbligatorio per app React dopo release minor o modifiche React trasversali | OK in Pratix, GLM, SendChimp, SyncBay e TRAM |
 | Dependabot | Solo dove ci sono dipendenze runtime reali e budget/rumore sono sostenibili | OK dove già attivo; sospeso su GLM e Sentinel finché i minuti Actions sono esauriti |
@@ -65,6 +70,10 @@ Legenda:
   nessun deploy eseguito perché non esiste target deploy approvato.
 - FiscalBay: verificata la policy Python repo-specifica; nessun cambio forzato a
   `3.13` perché il supporto dichiarato resta `>=3.10`.
+- Atlas: aggiunti `docs/PUBLISH_DEPLOY_RELEASE.md`,
+  `docs/STANDARD_CANDIDATES.md`, `docs/APPLYING_ATLAS.md` e
+  `CHECKLIST-NUOVA-REPO.md` per rendere operativo il metodo trasversale senza
+  applicarlo automaticamente alle altre repo.
 
 ## Regola temporanea GitHub Actions
 
