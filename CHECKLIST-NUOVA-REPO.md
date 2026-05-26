@@ -16,6 +16,17 @@ decidere cosa mantenere, promuovere, adattare o lasciare fuori.
 - Censire dati sensibili, file ignorati, fixture, export, cache e artefatti
   generati.
 
+## Isolamento lavoro
+
+- Fare discovery read-only prima di cambiare file.
+- Prima di qualunque modifica creare una branch dedicata `codex/...`, salvo
+  regola repo-specifica più restrittiva.
+- Usare un worktree separato se il checkout non è pulito, se ci sono modifiche
+  dell'utente, se l'intervento durerà più turni o se Atlas sta lavorando su più
+  repo nello stesso ciclo.
+- Non lasciare lavoro Atlas mischiato su `main`/`master`.
+- Dichiarare in chiusura branch, worktree e PR residue.
+
 ## Classificazione Atlas
 
 Per ogni elemento già presente nella repo decidere una sola categoria:

@@ -7,12 +7,13 @@ Usare questa checklist prima di applicare il piano a una repository.
 1. Leggere `AGENTS.md`.
 2. Eseguire `git status --short`.
 3. Identificare modifiche non proprie.
-4. Leggere `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/STANDARDS.md`, `docs/STANDARD_CANDIDATES.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`, `docs/APPLYING_ATLAS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`.
-5. Censire funzioni, documenti, workflow, runbook, policy e comportamenti repo-specifici non previsti dal piano Atlas.
-6. Classificare gli extra: mantenere specifico, promuovere ad Atlas, sostituire con pattern più maturo, mettere in backlog o rimuovere solo se duplicato/superato.
-7. Controllare `Codex feedback inbox`.
-8. Identificare verifiche proporzionate.
-9. Dichiarare se publish, deploy o release sono fuori scope.
+4. Creare una branch dedicata prima di modifiche; usare worktree separato se la repo non è pulita, l'intervento è lungo o ci sono più repo in parallelo.
+5. Leggere `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/STANDARDS.md`, `docs/STANDARD_CANDIDATES.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`, `docs/APPLYING_ATLAS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`.
+6. Censire funzioni, documenti, workflow, runbook, policy e comportamenti repo-specifici non previsti dal piano Atlas.
+7. Classificare gli extra: mantenere specifico, promuovere ad Atlas, sostituire con pattern più maturo, mettere in backlog o rimuovere solo se duplicato/superato.
+8. Controllare `Codex feedback inbox`.
+9. Identificare verifiche proporzionate.
+10. Dichiarare se publish, deploy o release sono fuori scope.
 
 ## Discovery repo-specifica
 

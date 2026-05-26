@@ -69,11 +69,35 @@ Prima di lavorare su una repo coordinata da Atlas:
 
 1. leggere l'`AGENTS.md` della repo;
 2. controllare `git status --short`;
-3. leggere i documenti canonici della repo;
-4. fare una ricognizione read-only degli elementi repo-specifici già maturi: funzioni, documenti, runbook, checklist, workflow, regole, policy e comportamenti non previsti dal piano Atlas;
-5. classificare questi elementi prima di applicare template o standard: mantenere specifico, promuovere come possibile standard Atlas, sostituire con pattern più maturo, parcheggiare in backlog o rimuovere solo se duplicato/superato e assorbito senza perdita;
-6. controllare Codex feedback inbox se la repo ha GitHub configurato;
-7. applicare il piano solo dentro lo scope autorizzato.
+3. creare o usare una branch dedicata prima di qualunque modifica;
+4. usare un worktree separato quando la repo non è pulita, quando l'intervento è lungo, quando si lavora su più repo in parallelo o quando serve preservare lo stato operativo corrente;
+5. leggere i documenti canonici della repo;
+6. fare una ricognizione read-only degli elementi repo-specifici già maturi: funzioni, documenti, runbook, checklist, workflow, regole, policy e comportamenti non previsti dal piano Atlas;
+7. classificare questi elementi prima di applicare template o standard: mantenere specifico, promuovere come possibile standard Atlas, sostituire con pattern più maturo, parcheggiare in backlog o rimuovere solo se duplicato/superato e assorbito senza perdita;
+8. controllare Codex feedback inbox se la repo ha GitHub configurato;
+9. applicare il piano solo dentro lo scope autorizzato.
+
+## Branch e worktree nelle repo coordinate
+
+Atlas non deve lavorare direttamente su `main`/`master` delle repo coordinate
+quando applica baseline, policy, documenti, workflow o standard.
+
+Regole:
+
+- usare sempre una branch dedicata con prefisso `codex/`, salvo policy locale più
+  specifica;
+- non iniziare modifiche se la repo ha cambiamenti non propri non compresi nello
+  scope;
+- usare un worktree separato quando il working tree principale non è pulito,
+  quando esistono modifiche dell'utente da preservare, quando l'intervento dura
+  più turni o quando Atlas coordina più repo nello stesso ciclo;
+- lasciare il checkout principale della repo nella condizione trovata, salvo
+  richiesta esplicita;
+- dichiarare nel riepilogo branch, worktree, PR e branch residue.
+
+Il worktree non è obbligatorio per ogni modifica piccola e isolata su checkout
+pulito; la branch dedicata invece è obbligatoria per gli interventi Atlas sulle
+repo coordinate.
 
 ## Documentazione
 

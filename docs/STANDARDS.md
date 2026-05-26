@@ -25,6 +25,7 @@ Legenda:
 | --- | --- | --- |
 | Documenti canonici | `AGENTS.md`, `README.md`, indice, roadmap, backlog, context, toolchain e decisioni dove applicabili | OK nelle repo coordinate; SendChimp ora usa `docs/CONTEXT.md` canonico |
 | Source of truth | Ogni repo dichiara fonti primarie e documenti da leggere prima di intervenire | OK, con eccezioni motivate per registri storici come `docs/DECISIONS.md` |
+| Isolamento Git | Interventi Atlas su repo coordinate sempre su branch dedicata; worktree separato quando serve preservare stato o parallelizzare | OK come regola Atlas; da applicare nei prossimi interventi repo-per-repo |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | OK o equivalente; Pratix e SyncBay hanno ora `pr-title.yml` dedicato |
 | Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | OK nel codice in Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel; esecuzione workflow sospesa finché Actions resta senza budget |
 | Versioning | Semantica comune; strumenti repo-specifici dichiarati | OK; TRAM ha ora policy SemVer/release in ADR dedicata |

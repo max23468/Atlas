@@ -19,6 +19,7 @@ standard trasversale.
 | Pattern | Stato | Evidenza | Uso Atlas |
 | --- | --- | --- | --- |
 | Discovery degli extra repo-specifici prima dei template | Promosso | GLM, TRAM, SyncBay, SendChimp | Regola operativa in `AGENTS.md`, `CHECKLIST-IMPLEMENTAZIONE.md`, `CHECKLIST-NUOVA-REPO.md` e `docs/APPLYING_ATLAS.md` |
+| Branch dedicata per interventi Atlas su repo coordinate | Promosso | Ciclo multi-repo Atlas | Obbligatoria prima di modifiche; worktree separato quando serve isolamento reale |
 | Separazione esplicita tra publish, release e deploy | Promosso | Tutte le repo coordinate | Fonte sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Runbook deploy con target, comando e verifica | Promosso come principio | Pratix, DocMolder, FiscalBay, GLM, SyncBay, SendChimp | I dettagli restano repo-specifici; Atlas richiede solo che esistano quando si deploya |
 | Codex feedback inbox | Promosso con condizione | Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM, Sentinel | Da usare dove ci sono PR operative ricorrenti; esecuzione workflow sospesa finché Actions è senza budget |
@@ -34,6 +35,8 @@ standard trasversale.
 ## Standard già promossi
 
 - Discovery repo-specifica prima di qualunque template.
+- Branch dedicata prima di modificare repo coordinate; worktree separato quando
+  il checkout va preservato o il lavoro è parallelo/lungo.
 - Separazione tra `pubblica`, `rilascia` e `deploya`.
 - Verifiche proporzionate al rischio e dichiarate senza inventare risultati.
 - React Doctor solo per app React e solo nei casi previsti.
