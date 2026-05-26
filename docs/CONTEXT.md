@@ -65,6 +65,9 @@ health sintetico è `docs/HEALTH.md`.
 - Prima di applicare template Atlas a una repo, censire funzioni, documenti, runbook, workflow e regole già mature; classificare ogni extra prima di mantenerlo, promuoverlo, sostituirlo, metterlo in backlog o rimuoverlo.
 - Rispettare sempre l'`AGENTS.md` della repo bersaglio prima di qualunque intervento fuori da Atlas.
 - Se la repo bersaglio non ha ancora `AGENTS.md` o non è una repo Git, fermarsi alla ricognizione e creare prima una baseline.
+- Per modifiche Atlas su repo coordinate, usare sempre una branch dedicata; usare
+  un worktree separato quando il checkout non è pulito, il lavoro è lungo o ci
+  sono più repo in parallelo.
 - Usare i subagent solo nella fase implementativa, con coordinamento centrale, prima passata read-only e una sola repo per volta in scrittura.
 
 ## Verifiche da ricordare
@@ -94,6 +97,8 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 ## Rischi aperti
 
 - Iniziare interventi repo-per-repo senza conferma esplicita del target e senza usare `docs/PROJECTS.md`.
+- Modificare repo coordinate direttamente su `main`/`master` invece di usare una
+  branch dedicata o, quando necessario, un worktree separato.
 - Creare documenti doppi con stesso scopo.
 - Rendere Atlas troppo pesante rispetto al suo ruolo di cabina di regia.
 - Trasformare vincoli repo-specifici in standard generici sbagliati.

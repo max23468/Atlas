@@ -12,10 +12,29 @@ Non partire dai template. Partire da:
 
 1. `AGENTS.md` della repo;
 2. `git status --short --branch`;
-3. documenti canonici e runbook reali;
-4. workflow, test, script, release, deploy e policy esistenti;
-5. Codex feedback inbox se la repo la usa;
-6. vincoli su dati, provider, segreti e runtime.
+3. branch dedicata o worktree separato se servono modifiche;
+4. documenti canonici e runbook reali;
+5. workflow, test, script, release, deploy e policy esistenti;
+6. Codex feedback inbox se la repo la usa;
+7. vincoli su dati, provider, segreti e runtime.
+
+## Isolamento Git
+
+Per interventi Atlas su repo coordinate, non lavorare direttamente su
+`main`/`master`.
+
+Regola minima:
+
+- discovery read-only: può avvenire sulla branch corrente se il checkout è pulito;
+- qualunque modifica: creare prima una branch dedicata `codex/...`;
+- lavoro lungo, repo non pulita, modifiche utente presenti o più repo in parallelo:
+  usare un worktree separato;
+- publish: pubblicare solo la branch prevista o il canale dichiarato dalla repo;
+- chiusura: dichiarare branch, worktree, PR aperte e residui.
+
+Il worktree è uno strumento di isolamento, non un rito obbligatorio. Diventa
+obbligatorio quando evita di mischiare lavoro Atlas, modifiche dell'utente e
+stato operativo della repo.
 
 ## Fase 1 - Discovery read-only
 
