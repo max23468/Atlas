@@ -158,9 +158,10 @@ Nota metodologica:
     coerente per tag, GitHub Release, changelog/source of truth versione e
     rapporto con Vercel/App Store production, senza confondere deploy hosting e
     rilascio prodotto.
-  - Decisione applicata: `docs/CONTEXT.md`, `docs/DECISIONS_PENDING.md` e la
-    guida versioning dichiarano che tag/GitHub Release/App Store production sono
-    decisione pending distinta dal deploy Vercel.
+  - Decisione applicata: ADR SyncBay `0008-tag-e-github-release.md`,
+    `docs/CONTEXT.md`, `docs/DECISIONS_PENDING.md` e la guida versioning
+    dichiarano che tag/GitHub Release valgono solo per release prodotto reale,
+    mentre App Store production resta decisione separata dal deploy Vercel.
 
 - [x] Riallineare DocMolder a una pubblicazione proporzionata standard Atlas.
   - Repo interessata: DocMolder.
@@ -222,9 +223,9 @@ Nota metodologica:
   - Output atteso: valutare repo per repo una policy release completa,
     distinguendo release prodotto, deploy hosting, App Store o runtime live; non
     creare tag/GitHub Release retroattivi senza una decisione di migrazione.
-  - Decisione applicata: GLM, SendChimp e SyncBay dichiarano source of truth
-    locale e registrano tag/GitHub Release come decisione pending prima di una
-    release prodotto reale. Nessun tag retroattivo creato.
+  - Decisione applicata: GLM, SendChimp, SyncBay e Sentinel dichiarano source of
+    truth e policy tag/GitHub Release. Nessun tag retroattivo creato; Sentinel
+    limita tag e GitHub Release a release tool/dashboard, non a scan/report.
 
 - [x] Riallineare i `docs/CONTEXT.md` che dichiarano una versione statica non aggiornata.
   - Repo interessata: GLM.

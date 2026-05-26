@@ -20,6 +20,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/STANDARD_CANDIDATES.md`: registro dei pattern maturi candidati a standard.
 - `docs/SEMANTIC_CHECKLIST.md`: checklist dei contenuti minimi richiesti per la compliance semantica.
 - `docs/SEMANTIC_COMPLIANCE_GAPS.md`: checklist dei gap di compliance semantica da normalizzare.
+- `docs/ACTIONS_FAILURE_AUDIT_2026-05-26.md`: audit read-only dei failure GitHub Actions storici durante la sospensione Actions.
 - `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice per distinguere publish, release e deploy repo per repo.
 - `docs/APPLYING_ATLAS.md`: guida operativa per applicare Atlas a una repo.
 - `docs/NEXT_STEPS.md`: procedura per scegliere prossimi passi Atlas senza confonderli con sviluppo prodotto delle repo.

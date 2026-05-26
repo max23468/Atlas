@@ -45,8 +45,8 @@ health sintetico è `docs/HEALTH.md`.
 
 - Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera. Aggiunti `CHECKLIST-NUOVA-REPO.md`, `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`, `docs/STANDARD_CANDIDATES.md` e `docs/NEXT_STEPS.md` per rendere più operativo il metodo Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Pratix: seconda ondata completata con PR `max23468/Pratix#156`, release patch `1.11.15`, fix Codex P2 su `/novita`, documenti canonici Atlas e verifica Vercel production con `publish:finish`.
-- DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only. Da riallineare alla regola Atlas 0004 sui basename Markdown.
-- FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. La policy repo-specifica dichiara supporto Python `>=3.10`, con VPS `3.13` come compatibilità runtime controllata; non forzare upgrade oltre `3.10` senza decisione repo-specifica. Da riallineare alla regola Atlas 0004 sui basename Markdown.
+- DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only. Basename Markdown riallineati al ciclo semantic compliance.
+- FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. La policy repo-specifica dichiara supporto Python `>=3.10`, con VPS `3.13` come compatibilità runtime controllata; non forzare upgrade oltre `3.10` senza decisione repo-specifica. Basename Markdown riallineati al ciclo semantic compliance.
 - GLM: primo allineamento Atlas completato e mergiato su `main` con PR `max23468/Gare-Lotti-Milanesi#7`; aggiunti documenti canonici, baseline GitHub, roadmap/backlog maturi e discovery dei pattern specifici GLM. Nessun deploy produzione eseguito.
 - TRAM: allineamento Atlas completato e mergiato su `main` con PR `max23468/TRAM#7`; fix React Doctor completato e mergiato con PR `max23468/TRAM#6`; policy SemVer/release definita con commit `783b783` `[skip ci]`. Roadmap migrata in `docs/ROADMAP.md`, aggiunti `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e template ADR `docs/decisions/0000-template.md`. Quality, hygiene, PR title, Codex sync e React Doctor `100 / 100` passati; nessun deploy perché manca target deploy approvato.
 - SyncBay: allineamento Atlas completato e mergiato su `main` con PR `max23468/SyncBay#27`, `#28` e `#29`; aggiunti documenti canonici, backlog, toolchain, context uppercase, fix Docker Node 24, inbox Codex `#2` presente e release locale 0.6.0 pubblicata. Vercel automatico passato; nessun tag, GitHub Release o App Store production.
@@ -65,8 +65,14 @@ health sintetico è `docs/HEALTH.md`.
 - Semantic compliance Atlas: checklist chiusa a livello governance. Tutte le
   repo coordinate hanno basename Markdown tracciati univoci, `docs/DECISIONS.md`,
   `docs/DECISIONS_PENDING.md`, backlog wording comune e context aggiornato; GLM
-  e Sentinel hanno `dependabot.yml`; tag/GitHub Release restano decisioni
-  pending dove il versioning è ancora locale.
+  e Sentinel hanno `dependabot.yml`.
+- Audit Actions e release governance `2026-05-26`: creato
+  `docs/ACTIONS_FAILURE_AUDIT_2026-05-26.md`; i failure storici su DocMolder,
+  GLM, TRAM, SyncBay e Sentinel sono classificati come non gate durante la
+  sospensione Actions. GLM, SendChimp, SyncBay e Sentinel hanno policy
+  tag/GitHub Release documentata nelle rispettive repo: nessun tag creato ora,
+  tag `vX.Y.Z` solo per release prodotto reale o, in Sentinel, release
+  tool/dashboard.
 
 ## Vincoli specifici
 
@@ -91,6 +97,8 @@ health sintetico è `docs/HEALTH.md`.
 - `git branch --show-current`: confermare branch corrente.
 - `git remote -v`: confermare remote GitHub.
 - `rg --files`: inventario rapido file.
+- `docs/ACTIONS_FAILURE_AUDIT_2026-05-26.md`: classificazione dei failure
+  storici GitHub Actions durante la sospensione.
 - Controllo manuale link e coerenza tra documenti canonici.
 - Verifica che `.DS_Store` non sia trattato come contenuto progettuale.
 

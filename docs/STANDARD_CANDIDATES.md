@@ -26,7 +26,7 @@ standard trasversale.
 | React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM | Obbligatorio per app React dopo release minor o modifiche React trasversali |
 | Basename Markdown univoci | Promosso | TRAM, decisione Atlas 0004 | Regola trasversale: niente due file Markdown con lo stesso basename nella stessa repo |
 | Decision register separato dagli ADR puntuali | Promosso | TRAM, DocMolder, decisione utente Atlas | Standard pieno: registro stabile, pending separato e ADR puntuali con basename univoci |
-| Changelog frontend locale senza GitHub Release | Respinto come stato stabile | GLM, SendChimp, SyncBay | Da riallineare verso tag e GitHub Release quando esiste versioning/release reale; ammesso solo come fase transitoria |
+| Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | GLM, SendChimp, SyncBay, Sentinel | Ammesso per docs-only o lavori pre-release; quando esiste una release prodotto reale, la repo deve avere policy tag/GitHub Release con source of truth dichiarata |
 | Allegati, benchmark o fonti esterne fuori dal flusso Git ordinario | Repo-specifico con principio comune | GLM, TRAM, FiscalBay, DocMolder | Preservare LFS, fixture o archivi solo secondo policy locale e senza dati sensibili |
 | Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze o manifest compatibili | Standard pieno Atlas; la sospensione globale GitHub Actions fino al `2026-06-01` compreso non lo declassa |
 | Runtime operativo su GitHub Actions | Repo-specifico e sospeso | Sentinel | Non generalizzare; la finestra globale di sospensione GitHub Actions dura fino al `2026-06-01` compreso |

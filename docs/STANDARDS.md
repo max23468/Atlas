@@ -39,7 +39,7 @@ diversa ma accettata.
 | Isolamento Git | Interventi Atlas su repo coordinate sempre su branch dedicata; worktree separato quando serve preservare stato o parallelizzare | `OK pieno`: regola Atlas definita; da applicare in ogni intervento futuro |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | `OK equivalente`: baseline presente; alcune repo usano `pr-title.yml`, altre controlli equivalenti nella CI/policy locale |
 | Codex feedback inbox | Issue `Codex feedback inbox` e, quando le Actions non sono sospese, handler/workflow coerente dove ci sono PR operative ricorrenti | `Sospeso`: Atlas va allineato tramite issue inbox; nuovi workflow o riattivazioni Actions restano sospesi fino al `2026-06-01` compreso |
-| Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `OK equivalente`: GLM, SendChimp e SyncBay dichiarano source of truth locale e decisione pending per tag/GitHub Release prima di release prodotto reale |
+| Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `OK equivalente`: GLM, SendChimp, SyncBay e Sentinel dichiarano source of truth e policy tag/GitHub Release proporzionata alla release reale |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `OK pieno`: principio dichiarato nei context/policy repo o già presente in policy locale |
 | Verifiche | Gate proporzionati al rischio, senza test inventati | `Sospeso`: fino al `2026-06-01` compreso non usare GitHub Actions come gate; raccontare eventuali run failure/cancelled come stato remoto, non come verifica richiesta |
@@ -58,11 +58,11 @@ diversa ma accettata.
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
 | DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; `Release Please`/`VPS Check` disabilitati manualmente nella finestra Actions |
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
-| GLM | OK pieno | Da riallineare | OK pieno | OK equivalente | OK pieno | OK pieno | Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release in `docs/DECISIONS_PENDING.md` |
-| SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release da decidere prima di release prodotto reale |
-| SyncBay | OK pieno | OK equivalente | OK equivalente | OK equivalente | OK pieno | OK pieno | Checkout `main` pulito, Vercel production `READY`; tag/GitHub Release/App Store production restano decisione pending esplicita |
+| GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
+| SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release definiti per release prodotto reale |
+| SyncBay | OK pieno | OK equivalente | OK equivalente | OK equivalente | OK pieno | OK pieno | Vercel production `READY`; tag/GitHub Release definiti per release prodotto reale; App Store production resta separata |
 | TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Branch locale residua rimossa; `Repo Hygiene` fallita senza log su `main`, ma `npm run verify` passa localmente |
-| Sentinel | OK pieno | Da riallineare | OK pieno | OK equivalente | N/A | OK pieno | Dependabot aggiunto; release versionate e runtime post-Actions restano in `docs/DECISIONS_PENDING.md` |
+| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | N/A | OK pieno | Dependabot aggiunto; tag/GitHub Release definiti solo per release tool/dashboard; runtime post-Actions resta in `docs/DECISIONS_PENDING.md` |
 
 ## Interventi del ciclo correttivo
 
