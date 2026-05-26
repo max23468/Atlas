@@ -37,7 +37,7 @@ diversa ma accettata.
 | Scope Atlas vs prodotto | Atlas censisce e coordina; non propone sviluppo prodotto delle repo come prossimo passo generico | `OK pieno`: procedura dedicata in `docs/NEXT_STEPS.md` |
 | Isolamento Git | Interventi Atlas su repo coordinate sempre su branch dedicata; worktree separato quando serve preservare stato o parallelizzare | `OK pieno`: regola Atlas definita; da applicare in ogni intervento futuro |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | `OK equivalente`: baseline presente; alcune repo usano `pr-title.yml`, altre controlli equivalenti nella CI/policy locale |
-| Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | `Da riallineare`: Atlas è ancora senza inbox propria; SyncBay oggi non ha un'issue inbox aperta; le altre repo operative hanno una inbox verificata |
+| Codex feedback inbox | Workflow/handler e issue `Codex feedback inbox` dove ci sono PR operative ricorrenti | `Da riallineare`: Atlas è ancora senza inbox propria; le altre repo operative hanno una inbox verificata, con workflow sospesi dove previsto dalla finestra Actions |
 | Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `Da riallineare`: restano repo con changelog/versione locale senza release GitHub coerente |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `Da riallineare`: il principio è approvato, ma non ancora dichiarato in modo uniforme repo per repo |
@@ -59,7 +59,7 @@ diversa ma accettata.
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
 | GLM | OK pieno | Da riallineare | OK pieno | Da riallineare | OK pieno | Da riallineare | Branch remota residua rimossa; `CI` fallita su `main` il `2026-05-25`; manca ancora `dependabot.yml`; resta il drift versione in `docs/CONTEXT.md` |
 | SendChimp | OK pieno | OK pieno | OK pieno | Da riallineare | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; versioning/changelog locale da riallineare se esiste release reale |
-| SyncBay | OK pieno | Da riallineare | Da riallineare | Da riallineare | OK pieno | OK pieno | `PR Title` fallita il `2026-05-26`; nessuna issue inbox aperta; branch locale `codex/inventory-import-stock` verificata ma non pubblicata |
+| SyncBay | OK pieno | OK equivalente | OK equivalente | Da riallineare | OK pieno | OK pieno | Checkout `main` pulito, nessuna PR o branch extra, inbox `#2`, Vercel production `READY`; `PR Title` e `Codex PR comments` disabilitati manualmente nella finestra Actions |
 | TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Branch locale residua rimossa; `Repo Hygiene` fallita senza log su `main`, ma `npm run verify` passa localmente |
 | Sentinel | OK pieno | Da riallineare | OK pieno | Da riallineare | N/A | Da riallineare | `PR Title` fallita il `2026-05-26`; inbox `#4` presente; workflow runtime sospeso e `dependabot.yml` ancora assente |
 
