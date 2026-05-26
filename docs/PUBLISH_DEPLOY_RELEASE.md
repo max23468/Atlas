@@ -68,10 +68,13 @@ Non fare release quando:
 - Fino al `2026-06-01` compreso, Atlas non deve riattivare o aggiungere
   workflow GitHub Actions e non deve usarli come gate.
 - Lo stato remoto non è ancora congelato: al `2026-05-26` risultano
-  `Release Please` fallita su DocMolder, `CI` fallita su GLM e `PR Title`
-  fallita su SyncBay e Sentinel.
+  `Release Please` fallita su DocMolder, `CI` fallita su GLM, `Repo Hygiene`
+  fallita su TRAM e `PR Title` fallita su SyncBay e Sentinel.
 - In DocMolder, `Release Please` e `VPS Check` sono disabilitati manualmente
   durante la finestra Actions; vanno rivalutati dal `2026-06-02`.
+- In SyncBay, la branch locale `codex/inventory-import-stock` è verificata ma
+  non pubblicata; pubblicarla durante la finestra Actions richiede decisione
+  esplicita perché potrebbe accendere workflow remoti.
 - `Codex PR comments` resta disabilitato manualmente sulle repo coordinate dove
   era già stato spento.
 - `Sentinel` runtime schedulato resta disabilitato manualmente.

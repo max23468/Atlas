@@ -23,8 +23,8 @@ health `Attenzione` o `Bloccato` solo quando creano un rischio operativo reale.
 
 | Stato | Progetti | Motivo |
 | --- | --- | --- |
-| Verde | Atlas, Pratix, FiscalBay, TRAM | Nessun blocco operativo immediato nello snapshot aggiornato del `2026-05-26` |
-| Attenzione | DocMolder, GLM, SendChimp, SyncBay, Sentinel | Esistono workflow recenti non verdi, vincoli runtime o segnali GitHub da ricontrollare prima del prossimo lavoro |
+| Verde | Atlas, Pratix, FiscalBay | Nessun blocco operativo immediato nello snapshot aggiornato del `2026-05-26` |
+| Attenzione | DocMolder, GLM, SendChimp, SyncBay, TRAM, Sentinel | Esistono workflow recenti non verdi, branch locali non pubblicate, vincoli runtime o segnali GitHub da ricontrollare prima del prossimo lavoro |
 | Bloccato | Nessuno | Nessun blocco trasversale aperto dopo il consolidamento Sentinel |
 
 Nota:
@@ -42,8 +42,8 @@ finché non diventano un problema operativo reale nella repo interessata.
 | FiscalBay | Verde | Nessuna PR aperta; inbox Codex `#69`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Non rompere supporto `>=3.10` senza decisione repo-specifica; deploy VPS resta repo-specifico | Solo audit read-only; upgrade Python solo con scope FiscalBay esplicito |
 | GLM | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch remota residua rimossa; inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25` | Prima del prossimo lavoro GLM serve ricontrollare la `CI` su `main`; non toccare deploy Cloudflare o allegati Git LFS senza scope esplicito | Audit read-only e ispezione del failure `CI` prima di nuove modifiche GLM |
 | SendChimp | Attenzione | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | MVP manuale e vincolo free-tier; versioning/release ancora non pienamente riallineati | Solo controllo governance/provider read-only salvo scope SendChimp esplicito |
-| SyncBay | Attenzione | Nessuna PR aperta; nessuna inbox Codex aperta; `PR Title` fallita il `2026-05-26` | Baseline GitHub non tutta verde; release pubblica ancora non standardizzata | Ricontrollare `PR Title` e lo stato inbox prima del prossimo lavoro SyncBay |
-| TRAM | Verde | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Nessun target deploy approvato: release e deploy restano distinti | Solo audit read-only o aggiornamento stato salvo scope TRAM esplicito |
+| SyncBay | Attenzione | Nessuna PR aperta; nessuna inbox Codex aperta; checkout locale pulito su `codex/inventory-import-stock` con commit unico non pubblicato `398f95f`; nessuna branch remota; `PR Title` fallita il `2026-05-26` | Branch feature locale verificata ma non pubblicata; React Doctor `99 / 100` con warning; release pubblica ancora non standardizzata | Decidere se preservare, pubblicare o chiudere la branch solo dopo fine sospensione Actions o con autorizzazione esplicita |
+| TRAM | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch locale residua rimossa; inbox Codex `#2`; tag `v0.2.0`; `Repo Hygiene` fallita su `main` senza log disponibili; `npm run verify` passa localmente | Failure remoto senza step/log durante finestra Actions; nessun target deploy approvato: release e deploy restano distinti | Dal `2026-06-02` ricontrollare `Repo Hygiene`; non rilanciare Actions prima senza decisione |
 | Sentinel | Attenzione | Nessuna PR aperta; inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow runtime `Sentinel` disabilitato manualmente | Monitor schedulato sospeso fino al `2026-06-01` compreso; baseline GitHub non ancora tutta verde | Rivalutare dal `2026-06-02` la riattivazione del workflow e ricontrollare `PR Title` |
 
 ## Regole di aggiornamento

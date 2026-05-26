@@ -59,8 +59,8 @@ diversa ma accettata.
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
 | GLM | OK pieno | Da riallineare | OK pieno | Da riallineare | OK pieno | Da riallineare | Branch remota residua rimossa; `CI` fallita su `main` il `2026-05-25`; manca ancora `dependabot.yml`; resta il drift versione in `docs/CONTEXT.md` |
 | SendChimp | OK pieno | OK pieno | OK pieno | Da riallineare | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; versioning/changelog locale da riallineare se esiste release reale |
-| SyncBay | OK pieno | Da riallineare | Da riallineare | Da riallineare | OK pieno | OK pieno | `PR Title` fallita il `2026-05-26`; nessuna issue inbox aperta; non usare qui il checkout locale transitorio come segnale canonico |
-| TRAM | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; policy SemVer/release già definita |
+| SyncBay | OK pieno | Da riallineare | Da riallineare | Da riallineare | OK pieno | OK pieno | `PR Title` fallita il `2026-05-26`; nessuna issue inbox aperta; branch locale `codex/inventory-import-stock` verificata ma non pubblicata |
+| TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Branch locale residua rimossa; `Repo Hygiene` fallita senza log su `main`, ma `npm run verify` passa localmente |
 | Sentinel | OK pieno | Da riallineare | OK pieno | Da riallineare | N/A | Da riallineare | `PR Title` fallita il `2026-05-26`; inbox `#4` presente; workflow runtime sospeso e `dependabot.yml` ancora assente |
 
 ## Interventi del ciclo correttivo

@@ -102,13 +102,18 @@ Esito aggiornato:
   rimossa; `CI` fallita su `main` il `2026-05-25`.
 - SendChimp: inbox Codex `#2`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
-- SyncBay: nessuna inbox Codex aperta; `PR Title` fallita il `2026-05-26`.
-- TRAM: inbox Codex `#2`; ultimo run GitHub `Dependabot Updates`
-  cancellato il `2026-05-25`.
+- SyncBay: nessuna inbox Codex aperta; checkout locale pulito su
+  `codex/inventory-import-stock`, commit unico non pubblicato `398f95f`, nessuna
+  PR o branch remota; `PR Title` fallita il `2026-05-26`; verifiche locali
+  passate senza rilanciare Actions.
+- TRAM: inbox Codex `#2`; checkout `main` pulito; branch locale assorbita
+  `codex/tram-fase-7-pilot-stabilizzazione` rimossa; `Repo Hygiene` fallita su
+  `main` senza log disponibili; `npm run verify` passa localmente.
 - Sentinel: inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow
   runtime `Sentinel` ancora disabilitato manualmente.
-- Su richiesta del maintainer, questo aggiornamento non usa come segnale
-  canonico lo stato locale temporaneamente in lavorazione di SyncBay e TRAM.
+- Il checkout locale di SyncBay è ora segnale canonico perché ricontrollato su
+  richiesta esplicita; non pubblicare la branch locale durante la sospensione
+  Actions senza nuova decisione.
 - Nessun deploy o release Atlas eseguito in questo audit.
 
 ## Regole
