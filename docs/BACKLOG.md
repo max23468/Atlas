@@ -30,6 +30,7 @@ Una voce nel backlog non è scope approvato.
 - Alcune decisioni fondative sono ancora nel piano principale e non ancora estratte in ADR autonome.
 - Il piano principale contiene snapshot datati: prima di applicarlo a una repo, verificare sempre lo stato reale del checkout.
 - Il primo giro GLM, TRAM, SyncBay e SendChimp ha mostrato che alcune repo hanno pattern più maturi del template minimo Atlas: usare `docs/STANDARD_CANDIDATES.md` prima di promuoverli o scartarli.
+- I debiti prodotto delle repo coordinate possono essere censiti in Atlas, ma non sono scope operativo Atlas finché l'utente non indica repo target e attività esplicita.
 
 ## Decisioni sospese
 

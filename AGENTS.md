@@ -46,11 +46,12 @@ Leggere in questo ordine:
 8. `docs/STANDARD_CANDIDATES.md`
 9. `docs/PUBLISH_DEPLOY_RELEASE.md`
 10. `docs/APPLYING_ATLAS.md`
-11. `docs/ROADMAP.md`
-12. `docs/BACKLOG.md`
-13. `docs/TOOLCHAIN.md`
-14. `docs/decisions/README.md`
-15. template e checklist collegati al task
+11. `docs/NEXT_STEPS.md`
+12. `docs/ROADMAP.md`
+13. `docs/BACKLOG.md`
+14. `docs/TOOLCHAIN.md`
+15. `docs/decisions/README.md`
+16. template e checklist collegati al task
 
 Quando si lavora su una repo diversa da Atlas, leggere sempre l'`AGENTS.md` di quella repo prima di proporre o applicare cambiamenti.
 
@@ -99,6 +100,23 @@ Il worktree non è obbligatorio per ogni modifica piccola e isolata su checkout
 pulito; la branch dedicata invece è obbligatoria per gli interventi Atlas sulle
 repo coordinate.
 
+## Prossimi passi e scope Atlas
+
+Quando l'utente chiede "e ora?", "prossimi passi?" o formule simili senza
+indicare una repo target e uno scope operativo esplicito, Atlas deve proporre
+solo lavoro Atlas-first:
+
+- manutenzione governance e documentale;
+- audit read-only;
+- controllo branch, PR, run, workflow e pubblicazioni residue;
+- aggiornamento di matrici, policy, template, checklist e handoff;
+- classificazione di pattern o debiti senza trasformarli in sviluppo prodotto.
+
+Atlas non deve proporre sviluppo prodotto delle repo coordinate come prossimo
+passo generico. Debiti, pilot, hardening, import/export, provider, UI, OAuth,
+deploy o release di una repo diventano attività esecutive solo dopo richiesta
+esplicita sulla repo e applicazione della policy locale.
+
 ## Documentazione
 
 Documenti canonici di Atlas:
@@ -112,6 +130,7 @@ Documenti canonici di Atlas:
 - pattern candidati a standard: `docs/STANDARD_CANDIDATES.md`
 - matrice publish/deploy/release: `docs/PUBLISH_DEPLOY_RELEASE.md`
 - guida applicazione Atlas: `docs/APPLYING_ATLAS.md`
+- prossimi passi Atlas: `docs/NEXT_STEPS.md`
 - roadmap: `docs/ROADMAP.md`
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`

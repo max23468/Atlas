@@ -7,11 +7,13 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Usare il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay e il consolidamento Sentinel come feedback reale sul metodo di allineamento Atlas.
 - Usare il registro vivo `docs/PROJECTS.md`, la matrice `docs/HEALTH.md`, `docs/STANDARDS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
+- Usare `docs/NEXT_STEPS.md` quando viene chiesto "e ora?": proporre solo lavoro Atlas-first, non sviluppo prodotto delle repo coordinate.
 
 ## Prossimo
 
 - Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
 - Rivalutare periodicamente `docs/STANDARD_CANDIDATES.md` prima di promuovere nuovi pattern a standard Atlas.
+- Tenere separati debiti repo e scope Atlas: i debiti repo si censiscono o si impacchettano, ma non diventano lavoro esecutivo senza target esplicito.
 - Riabilitare i workflow `Codex PR comments` solo quando il budget GitHub Actions torna disponibile.
 - Riabilitare il workflow runtime `Sentinel` solo quando il budget GitHub Actions torna disponibile o quando esiste un runtime alternativo.
 - Ripristinare o attivare Dependabot su GLM e Sentinel solo quando il budget GitHub Actions torna disponibile o quando il maintainer lo conferma.
@@ -62,6 +64,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
 - Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Creato `docs/STANDARD_CANDIDATES.md` per classificare i pattern emersi da GLM, TRAM, SyncBay, SendChimp e dalle altre repo coordinate.
+- Creato `docs/NEXT_STEPS.md` per impedire che i prossimi passi Atlas vengano confusi con sviluppo prodotto delle repo coordinate.
 
 ## Regole
 

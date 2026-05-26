@@ -19,6 +19,7 @@
 - Pattern candidati: `docs/STANDARD_CANDIDATES.md`
 - Publish/deploy/release: `docs/PUBLISH_DEPLOY_RELEASE.md`
 - Applicazione Atlas: `docs/APPLYING_ATLAS.md`
+- Prossimi passi Atlas: `docs/NEXT_STEPS.md`
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
@@ -34,14 +35,14 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel e la prima matrice health, scegliendo una sola prossima repo o fase alla volta e verificando sempre gli extra repo-specifici prima di normalizzare.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel e la prima matrice health, proponendo solo lavoro Atlas-first quando non esistono repo target e scope operativo espliciti.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`; lo snapshot
 health sintetico è `docs/HEALTH.md`.
 
 ## Snapshot aggiornato 2026-05-26
 
-- Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera. Aggiunti `CHECKLIST-NUOVA-REPO.md`, `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` per rendere più operativo il metodo Atlas.
+- Atlas: repository GitHub privata `https://github.com/max23468/Atlas`, branch `main`, baseline GitHub leggera. Aggiunti `CHECKLIST-NUOVA-REPO.md`, `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`, `docs/STANDARD_CANDIDATES.md` e `docs/NEXT_STEPS.md` per rendere più operativo il metodo Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Pratix: seconda ondata completata con PR `max23468/Pratix#156`, release patch `1.11.15`, fix Codex P2 su `/novita`, documenti canonici Atlas e verifica Vercel production con `publish:finish`.
 - DocMolder: seconda ondata completata con PR `max23468/DocMolder#166`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR. Runtime dichiarato: Python `>=3.11`, CI anche `3.13`, runtime operativo/VPS preferito `3.13`. Release/deploy non eseguiti perché docs-only.
 - FiscalBay: seconda ondata completata con PR `max23468/FiscalBay#78`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR, risolto P1 Codex su `deploy/linux-setup.sh`. La policy repo-specifica dichiara supporto Python `>=3.10`, con VPS `3.13` come compatibilità runtime controllata; non forzare upgrade oltre `3.10` senza decisione repo-specifica.
@@ -59,6 +60,8 @@ health sintetico è `docs/HEALTH.md`.
 
 - Non applicare il piano alle altre repo finché Atlas non è stabile.
 - Non trattare Atlas come prodotto applicativo.
+- Non proporre sviluppo prodotto delle repo coordinate come prossimo passo Atlas
+  senza repo target e scope operativo espliciti.
 - Non introdurre release o deploy finché non c'è decisione esplicita.
 - Non confondere i template con i documenti canonici reali.
 - Non perdere contenuti durante migrazioni o uniformazioni.
@@ -88,7 +91,7 @@ Prima di procedere:
 3. leggere `README.md`;
 4. leggere `piano-coordinamento-progetti.md`;
 5. leggere `docs/INDEX.md`, `docs/PROJECTS.md`, `docs/HEALTH.md`, `docs/MAINTENANCE.md`, `docs/STANDARDS.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md` e `docs/TOOLCHAIN.md`;
-6. leggere `docs/APPLYING_ATLAS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` quando la richiesta riguarda interventi repo-per-repo, publish, deploy, release o promozione di pattern;
+6. leggere `docs/APPLYING_ATLAS.md`, `docs/NEXT_STEPS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` quando la richiesta riguarda interventi repo-per-repo, prossimi passi, publish, deploy, release o promozione di pattern;
 7. verificare che la richiesta riguardi Atlas e non applichi implicitamente cambiamenti ad altre repo;
 8. identificare verifiche proporzionate.
 
@@ -97,6 +100,8 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 ## Rischi aperti
 
 - Iniziare interventi repo-per-repo senza conferma esplicita del target e senza usare `docs/PROJECTS.md`.
+- Suggerire feature, pilot, hardening, provider o import/export di una repo come
+  prossimo passo Atlas invece di classificarli come debiti repo da autorizzare.
 - Modificare repo coordinate direttamente su `main`/`master` invece di usare una
   branch dedicata o, quando necessario, un worktree separato.
 - Creare documenti doppi con stesso scopo.

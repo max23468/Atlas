@@ -31,14 +31,15 @@ Frequenza:
 5. `docs/STANDARD_CANDIDATES.md` se la repo è Atlas o una meta-repo equivalente
 6. `docs/PUBLISH_DEPLOY_RELEASE.md` se la repo è Atlas o una meta-repo equivalente
 7. `docs/APPLYING_ATLAS.md` se la repo è Atlas o una meta-repo equivalente
-8. `docs/ROADMAP.md`
-9. `docs/BACKLOG.md`
-10. `docs/TOOLCHAIN.md`
-11. `docs/CONTEXT.md`
-12. `docs/decisions/`
-13. duplicati o documenti non canonici
-14. rinvii temporanei ancora necessari
-15. contenuti migrati senza perdita
+8. `docs/NEXT_STEPS.md` se la repo è Atlas o una meta-repo equivalente
+9. `docs/ROADMAP.md`
+10. `docs/BACKLOG.md`
+11. `docs/TOOLCHAIN.md`
+12. `docs/CONTEXT.md`
+13. `docs/decisions/`
+14. duplicati o documenti non canonici
+15. rinvii temporanei ancora necessari
+16. contenuti migrati senza perdita
 
 ## Toolchain
 
