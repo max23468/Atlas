@@ -41,10 +41,10 @@ diversa ma accettata.
 | Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `Da riallineare`: restano repo con changelog/versione locale senza release GitHub coerente |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `Da riallineare`: il principio è approvato, ma non ancora dichiarato in modo uniforme repo per repo |
-| Verifiche | Gate proporzionati al rischio, senza test inventati | `Da riallineare`: la regola Atlas è di non usare GitHub Actions come gate fino al `2026-06-01` compreso, ma lo stato remoto non è ancora congelato e mostra run queued/failure/cancelled da raccontare correttamente |
+| Verifiche | Gate proporzionati al rischio, senza test inventati | `Da riallineare`: la regola Atlas è di non usare GitHub Actions come gate fino al `2026-06-01` compreso, ma lo stato remoto non è ancora congelato e mostra run failure/cancelled da raccontare correttamente |
 | React Doctor | Obbligatorio per app React dopo release minor o modifiche React trasversali | `OK pieno`: applicato in Pratix, GLM, SendChimp, SyncBay e TRAM |
 | Dependabot | Standard pieno in tutte le repo con dipendenze o manifest compatibili | `Da riallineare`: standard confermato, ma GLM e Sentinel sono ancora senza config locale e GitHub continua a mostrare run/cancellazioni nelle altre repo |
-| Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `Da riallineare`: situazione generale buona, ma FiscalBay va riallineata a Python `3.13` come runtime unico dichiarato |
+| Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `Da riallineare`: situazione generale buona; FiscalBay mantiene Python `>=3.10` come compatibilità repo-specifica motivata, con VPS `3.13` come runtime controllato |
 | Privacy/sicurezza | No segreti, no dati reali non necessari, provider/API variabili verificati | `OK pieno`: policy comune presente; i dettagli restano repo-specifici |
 | Artefatti generati | `.DS_Store`, cache, build output e file temporanei non sono contenuto progettuale | `OK equivalente`: regola comune rispettata; Sentinel mantiene output applicativi previsti dal proprio runtime |
 | Handoff | `docs/CONTEXT.md` o path dichiarato per riprendere il lavoro | `OK pieno`: handoff presente; SendChimp riallineato a `docs/CONTEXT.md` |
@@ -55,9 +55,9 @@ diversa ma accettata.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Atlas | OK pieno | OK pieno | Da riallineare | N/A | N/A | N/A | Nessuna PR aperta; manca ancora una inbox Codex propria |
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
-| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; `Dependabot Updates` in coda il `2026-05-26` |
-| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` resta gap da riallineare a `3.13` |
-| GLM | OK pieno | Da riallineare | OK pieno | Da riallineare | OK pieno | Da riallineare | `CI` fallita su `main` il `2026-05-25`; manca ancora `dependabot.yml`; resta il drift versione in `docs/CONTEXT.md` |
+| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; `Release Please`/`VPS Check` disabilitati manualmente nella finestra Actions |
+| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
+| GLM | OK pieno | Da riallineare | OK pieno | Da riallineare | OK pieno | Da riallineare | Branch remota residua rimossa; `CI` fallita su `main` il `2026-05-25`; manca ancora `dependabot.yml`; resta il drift versione in `docs/CONTEXT.md` |
 | SendChimp | OK pieno | OK pieno | OK pieno | Da riallineare | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; versioning/changelog locale da riallineare se esiste release reale |
 | SyncBay | OK pieno | Da riallineare | Da riallineare | Da riallineare | OK pieno | OK pieno | `PR Title` fallita il `2026-05-26`; nessuna issue inbox aperta; non usare qui il checkout locale transitorio come segnale canonico |
 | TRAM | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; policy SemVer/release già definita |
@@ -80,8 +80,8 @@ diversa ma accettata.
   temporanea nella finestra globale GitHub Actions non cambia la regola.
 - TRAM: definita la policy SemVer/release con commit `783b783` `[skip ci]`;
   nessun deploy eseguito perché non esiste target deploy approvato.
-- FiscalBay: la policy Python `>=3.10` è stata riclassificata come gap da
-  riallineare a `3.13` in un intervento dedicato.
+- FiscalBay: la policy Python `>=3.10` è classificata come compatibilità
+  repo-specifica motivata, con VPS `3.13` come runtime controllato.
 - Atlas: aggiunti `docs/PUBLISH_DEPLOY_RELEASE.md`,
   `docs/STANDARD_CANDIDATES.md`, `docs/APPLYING_ATLAS.md` e
   `CHECKLIST-NUOVA-REPO.md` per rendere operativo il metodo trasversale senza

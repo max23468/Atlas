@@ -54,11 +54,11 @@ standard trasversale.
 - Sentinel come runtime schedulato GitHub Actions.
 - GLM con Cloudflare Pages e allegati gara gestiti come fonti specifiche.
 - DocMolder con flusso Telegram-first, Release Please e runbook VPS.
+- FiscalBay con compatibilità Python `>=3.10` e VPS `3.13` come runtime
+  operativo controllato.
 
 ## Pattern respinti come stato stabile
 
-- FiscalBay con compatibilità Python `>=3.10`: da riallineare a Python `3.13`
-  come runtime unico dichiarato.
 - Changelog/versioning locale senza tag o GitHub Release: ammesso solo come
   fase transitoria dove non esiste ancora release reale.
 

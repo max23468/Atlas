@@ -87,16 +87,15 @@ Nota metodologica:
   - Output atteso: le eccezioni devono essere leggibili senza dover ricostruire
     il contesto storico.
 
-- [ ] Riallineare FiscalBay a Python `3.13` come runtime unico dichiarato.
+- [x] Riclassificare FiscalBay come compatibilità Python repo-specifica.
   - Repo interessata: FiscalBay.
-  - Verdetto: da riallineare.
-  - Problema: manifest, ruff, mypy, CI e parte della documentazione dichiarano
-    ancora supporto Python `>=3.10`, mentre la decisione operativa ora è
-    riallineare tutto a Python `3.13`.
-  - Output atteso: aggiornare in un intervento dedicato `pyproject.toml`,
-    workflow allowlist, deploy/setup, README e docs operative, senza usare
-    GitHub Actions come gate e senza eseguire deploy/release salvo richiesta
-    esplicita.
+  - Verdetto: eccezione motivata, non gap da forzare.
+  - Problema precedente: il supporto Python `>=3.10` era stato letto come
+    mismatch rispetto al runtime VPS `3.13`.
+  - Decisione aggiornata: mantenere `>=3.10` come compatibilità dichiarata dalla
+    repo, con VPS `3.13` come runtime operativo controllato.
+  - Output atteso: nessun riallineamento forzato a `3.13`; eventuali upgrade
+    Python richiedono scope FiscalBay esplicito e decisione repo-specifica.
 
 - [ ] Riallineare Atlas alla Codex feedback inbox.
   - Repo interessata: Atlas.
@@ -121,8 +120,8 @@ Nota metodologica:
     fino al `2026-06-01` compreso non cambia lo standard.
   - Evidenza aggiornata audit `2026-05-26`: GLM e Sentinel risultano ancora
     senza `dependabot.yml`; in parallelo GitHub mostra ancora run
-    `Dependabot Updates` queued/cancelled su altre repo, quindi la sospensione
-    Atlas non va descritta come freeze totale dello stato remoto.
+    `Dependabot Updates` cancelled su altre repo, quindi la sospensione Atlas
+    non va descritta come freeze totale dello stato remoto.
   - Output atteso: dal `2026-06-02` verificare repo per repo se Dependabot è
     già attivo, se va riattivato o se manca configurazione, senza trattarlo
     come pattern facoltativo.

@@ -22,8 +22,8 @@ Legenda:
 - Fino al `2026-06-01` compreso, Atlas non deve usare GitHub Actions come gate
   nelle repo coordinate: usare verifiche locali e canali diretti repo-specifici;
   non rilanciare o aggiungere workflow. Questo vincolo di governance non
-  equivale a zero run remoti: al `2026-05-26` restano ancora esempi di run in
-  coda, falliti o cancellati su più repo.
+  equivale a zero run remoti: al `2026-05-26` restano ancora esempi di run
+  falliti o cancellati su più repo.
 - Non inventare deploy/release dove non esistono.
 
 ## Matrice repo
@@ -68,8 +68,10 @@ Non fare release quando:
 - Fino al `2026-06-01` compreso, Atlas non deve riattivare o aggiungere
   workflow GitHub Actions e non deve usarli come gate.
 - Lo stato remoto non è ancora congelato: al `2026-05-26` risultano
-  `Dependabot Updates` in coda su DocMolder, `CI` fallita su GLM e `PR Title`
+  `Release Please` fallita su DocMolder, `CI` fallita su GLM e `PR Title`
   fallita su SyncBay e Sentinel.
+- In DocMolder, `Release Please` e `VPS Check` sono disabilitati manualmente
+  durante la finestra Actions; vanno rivalutati dal `2026-06-02`.
 - `Codex PR comments` resta disabilitato manualmente sulle repo coordinate dove
   era già stato spento.
 - `Sentinel` runtime schedulato resta disabilitato manualmente.

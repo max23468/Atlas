@@ -92,11 +92,14 @@ Esito aggiornato:
 - Atlas: nessuna inbox Codex aperta; il riallineamento resta aperto.
 - Pratix: inbox Codex `#34`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
-- DocMolder: inbox Codex `#149`; `Dependabot Updates` in coda il
-  `2026-05-26`; `VPS Check` fallito il `2026-05-25`.
+- DocMolder: inbox Codex `#149`; commit docs-only `bf54615` pubblicato su
+  `main`; branch locale residua rimossa; venv locale riparata; `Release Please`
+  fallita su `bf54615` senza log disponibili; `Release Please` e `VPS Check`
+  disabilitati manualmente durante la finestra Actions.
 - FiscalBay: inbox Codex `#69`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
-- GLM: inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25`.
+- GLM: inbox Codex `#3`; branch remota residua `origin/work-codex-excel-sync`
+  rimossa; `CI` fallita su `main` il `2026-05-25`.
 - SendChimp: inbox Codex `#2`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
 - SyncBay: nessuna inbox Codex aperta; `PR Title` fallita il `2026-05-26`.
