@@ -1023,7 +1023,7 @@ Snapshot attuale da normalizzare gradualmente:
 | --- | --- | --- |
 | Pratix | Node `24.x`, npm `>=11 <12`, `packageManager: npm@11.14.1` | già allineata alla baseline JS |
 | SendChimp | Node `>=24 <27`, npm `>=11 <12`, `packageManager: npm@11.14.1` | già allineata alla baseline JS |
-| SyncBay | `.node-version` = `24`, `engines.node >=22.13 <25`, Docker `node:24-alpine` | allineata in `docs/TOOLCHAIN.md` |
+| SyncBay | `.node-version` = `24.16.0`, `engines.node >=24.15 <25`, Docker `node:24.16.0-alpine` | allineata alla baseline Node 24 con floor esplicito |
 | GLM | package npm presente, engines/packageManager non dichiarati | da completare |
 | TRAM | package npm presente, engines/packageManager non dichiarati | da completare |
 | DocMolder | Python `>=3.11` | già allineata alla baseline Python |
