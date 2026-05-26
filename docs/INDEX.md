@@ -18,6 +18,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/MAINTENANCE.md`: ciclo di manutenzione periodica e criteri di intervento.
 - `docs/STANDARDS.md`: matrice degli standard Atlas e del loro stato repo per repo.
 - `docs/STANDARD_CANDIDATES.md`: registro dei pattern maturi candidati a standard.
+- `docs/SEMANTIC_CHECKLIST.md`: checklist dei contenuti minimi richiesti per la compliance semantica.
 - `docs/SEMANTIC_COMPLIANCE_GAPS.md`: checklist dei gap di compliance semantica da normalizzare.
 - `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice per distinguere publish, release e deploy repo per repo.
 - `docs/APPLYING_ATLAS.md`: guida operativa per applicare Atlas a una repo.

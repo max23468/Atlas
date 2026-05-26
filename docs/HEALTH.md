@@ -29,8 +29,10 @@ health `Attenzione` o `Bloccato` solo quando creano un rischio operativo reale.
 
 Nota:
 I gap Atlas su Codex inbox, versioning, basename Markdown, lifecycle
-decisionale, Publish proporzionata o toolchain restano manutenzione governance
-finché non diventano un problema operativo reale nella repo interessata.
+decisionale, publish proporzionata o toolchain sono stati riallineati a livello
+governance/documentazione. Restano da rivalutare dal `2026-06-02` le sospensioni
+Actions e, quando servirà una release prodotto reale, le decisioni pending su
+tag/GitHub Release.
 
 ## Matrice
 
@@ -40,11 +42,11 @@ finché non diventano un problema operativo reale nella repo interessata.
 | Pratix | Verde | Nessuna PR aperta; inbox Codex `#34`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Repo già matura: non appesantire processi o UI; React Doctor dopo release minor | Solo audit read-only o aggiornamento stato salvo scope Pratix esplicito |
 | DocMolder | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch residua rimossa; inbox Codex `#149`; commit docs-only `bf54615` pubblicato; `Release Please` fallita su `bf54615` senza log disponibili | Venv locale riparata; `Release Please` e `VPS Check` disabilitati manualmente durante la finestra Actions; preservare Release Please e runbook locali | Dal `2026-06-02` rivalutare riattivazione `Release Please`/`VPS Check` e ricontrollare il failure remoto |
 | FiscalBay | Verde | Nessuna PR aperta; inbox Codex `#69`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Non rompere supporto `>=3.10` senza decisione repo-specifica; deploy VPS resta repo-specifico | Solo audit read-only; upgrade Python solo con scope FiscalBay esplicito |
-| GLM | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch remota residua rimossa; inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25` | Prima del prossimo lavoro GLM serve ricontrollare la `CI` su `main`; non toccare deploy Cloudflare o allegati Git LFS senza scope esplicito | Audit read-only e ispezione del failure `CI` prima di nuove modifiche GLM |
-| SendChimp | Attenzione | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | MVP manuale e vincolo free-tier; versioning/release ancora non pienamente riallineati | Solo controllo governance/provider read-only salvo scope SendChimp esplicito |
-| SyncBay | Attenzione | Nessuna PR aperta; checkout `main` pulito e allineato a `origin/main`; nessuna branch locale o remota extra; inbox Codex `#2`; commit `dc5ba72` pubblicato; Vercel production `READY` e home `200 OK`; workflow `PR Title` e `Codex PR comments` disabilitati manualmente | Stato operativo ok; React Doctor `99 / 100` con warning; release pubblica ancora non standardizzata | Dal `2026-06-02` rivalutare riattivazione workflow; versioning/tag/GitHub Release solo con decisione SyncBay |
+| GLM | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch remota residua rimossa; inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25`; Dependabot e context versione riallineati in branch Atlas | Prima del prossimo lavoro GLM serve ricontrollare la `CI` su `main`; non toccare deploy Cloudflare o allegati Git LFS senza scope esplicito | Audit read-only e ispezione del failure `CI` prima di nuove modifiche GLM |
+| SendChimp | Attenzione | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25`; modello decisionale/versioning riallineato in branch Atlas | MVP manuale e vincolo free-tier; tag/GitHub Release restano decisione pending prima di release prodotto reale | Solo controllo governance/provider read-only salvo scope SendChimp esplicito |
+| SyncBay | Attenzione | Nessuna PR aperta; checkout `main` pulito e allineato a `origin/main`; nessuna branch locale o remota extra; inbox Codex `#2`; commit `dc5ba72` pubblicato; Vercel production `READY` e home `200 OK`; workflow `PR Title` e `Codex PR comments` disabilitati manualmente; modello decisionale/versioning riallineato in branch Atlas | Stato operativo ok; React Doctor `99 / 100` con warning; App Store/tag/GitHub Release restano decisione pending esplicita | Dal `2026-06-02` rivalutare riattivazione workflow; versioning/tag/GitHub Release solo con decisione SyncBay |
 | TRAM | Attenzione | Nessuna PR aperta; checkout `main` pulito; branch locale residua rimossa; inbox Codex `#2`; tag `v0.2.0`; `Repo Hygiene` fallita su `main` senza log disponibili; `npm run verify` passa localmente | Failure remoto senza step/log durante finestra Actions; nessun target deploy approvato: release e deploy restano distinti | Dal `2026-06-02` ricontrollare `Repo Hygiene`; non rilanciare Actions prima senza decisione |
-| Sentinel | Attenzione | Nessuna PR aperta; inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow runtime `Sentinel` disabilitato manualmente | Monitor schedulato sospeso fino al `2026-06-01` compreso; baseline GitHub non ancora tutta verde | Rivalutare dal `2026-06-02` la riattivazione del workflow e ricontrollare `PR Title` |
+| Sentinel | Attenzione | Nessuna PR aperta; inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow runtime `Sentinel` disabilitato manualmente; Dependabot e decisioni pending riallineati in branch Atlas | Monitor schedulato sospeso fino al `2026-06-01` compreso; baseline GitHub non ancora tutta verde | Rivalutare dal `2026-06-02` la riattivazione del workflow e ricontrollare `PR Title` |
 
 ## Regole di aggiornamento
 

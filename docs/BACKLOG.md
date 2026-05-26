@@ -11,9 +11,9 @@ Una voce nel backlog non è scope approvato.
 
 ## Backlog tecnico
 
-- Riallineare Atlas alla Codex feedback inbox con issue canonica e baseline
-  coerente; eventuali workflow GitHub restano sospesi fino al `2026-06-01`
-  compreso.
+- Dal `2026-06-02` valutare se affiancare alla issue `Codex feedback inbox`
+  `#3` un handler/workflow Atlas, se serve davvero e se le Actions non sono più
+  sospese.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
 - Rivalutare dal `2026-06-02` la riattivazione dei workflow `Codex PR comments`

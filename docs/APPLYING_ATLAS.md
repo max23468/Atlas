@@ -21,7 +21,7 @@ Non partire dai template. Partire da:
 1. `AGENTS.md` della repo;
 2. `git status --short --branch`;
 3. branch dedicata o worktree separato se servono modifiche;
-4. documenti canonici e runbook reali;
+4. documenti canonici e runbook reali, verificati con `docs/SEMANTIC_CHECKLIST.md`;
 5. workflow, test, script, release, deploy e policy esistenti;
 6. Codex feedback inbox se la repo la usa;
 7. vincoli su dati, provider, segreti e runtime.

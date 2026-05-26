@@ -17,6 +17,7 @@
 - Manutenzione: `docs/MAINTENANCE.md`
 - Standard Atlas: `docs/STANDARDS.md`
 - Pattern candidati: `docs/STANDARD_CANDIDATES.md`
+- Checklist semantica: `docs/SEMANTIC_CHECKLIST.md`
 - Publish/deploy/release: `docs/PUBLISH_DEPLOY_RELEASE.md`
 - Applicazione Atlas: `docs/APPLYING_ATLAS.md`
 - Prossimi passi Atlas: `docs/NEXT_STEPS.md`
@@ -58,6 +59,14 @@ health sintetico è `docs/HEALTH.md`.
 - Cleanup branch `2026-05-26`: GLM non ha più la branch remota residua `origin/work-codex-excel-sync`; DocMolder è tornata su `main` pulito, senza branch locale `codex/align-atlas-doc-governance`, con commit docs-only `bf54615` pubblicato; TRAM non ha più la branch locale assorbita `codex/tram-fase-7-pilot-stabilizzazione`. La venv locale DocMolder è stata riparata rigenerando l'entrypoint `coverage`; `bash scripts/ci_test.sh --coverage` passa. Il run remoto `Release Please` su `bf54615` è fallito senza log disponibili; `Release Please` e `VPS Check` sono disabilitati manualmente durante la finestra Actions.
 - Ricontrollo SyncBay `2026-05-26`: checkout locale pulito su `main...origin/main`, nessuna PR aperta, nessuna branch locale o remota extra, commit `dc5ba72` pubblicato su `main` e deployment Vercel production `READY` sullo stesso SHA; `https://syncbay.vercel.app` risponde `200 OK`. Verifiche locali passate: `git diff --check`, `npm run lint`, `npm run prisma:validate`, `npm run typecheck`, `npm run build`, `npm run quality:react-doctor` con score `99 / 100` e solo warning, `npm run release:dry-run`, `npm audit --omit=dev`, `npm run db:push:dry-run` e `npm run smoke:ui`. Workflow `PR Title` e `Codex PR comments` restano disabilitati manualmente durante la sospensione Actions.
 - Chiusura gap senza Actions: TRAM ha policy release/versioning; FiscalBay è classificata come compatibilità Python intenzionale, non come mismatch da forzare.
+- Codex inbox Atlas: issue GitHub `#3` creata come canale manuale durante la
+  sospensione GitHub Actions; nessun nuovo workflow Actions prima del
+  `2026-06-02`.
+- Semantic compliance Atlas: checklist chiusa a livello governance. Tutte le
+  repo coordinate hanno basename Markdown tracciati univoci, `docs/DECISIONS.md`,
+  `docs/DECISIONS_PENDING.md`, backlog wording comune e context aggiornato; GLM
+  e Sentinel hanno `dependabot.yml`; tag/GitHub Release restano decisioni
+  pending dove il versioning è ancora locale.
 
 ## Vincoli specifici
 
@@ -119,5 +128,5 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
   disabilitati manualmente, salvo nuova decisione.
 - Rivalutare dal `2026-06-02` la riattivazione del workflow runtime `Sentinel`
   o la scelta di un runtime alternativo.
-- Riallineare Atlas alla Codex feedback inbox in un intervento dedicato;
-  eventuali workflow GitHub restano sospesi fino al `2026-06-01` compreso.
+- Usare la issue GitHub `#3` come Codex feedback inbox Atlas; eventuali workflow
+  GitHub restano sospesi fino al `2026-06-01` compreso.
