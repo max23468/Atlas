@@ -18,6 +18,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/MAINTENANCE.md`: ciclo di manutenzione periodica e criteri di intervento.
 - `docs/STANDARDS.md`: matrice degli standard Atlas e del loro stato repo per repo.
 - `docs/STANDARD_CANDIDATES.md`: registro dei pattern maturi candidati a standard.
+- `docs/SEMANTIC_COMPLIANCE_GAPS.md`: checklist dei gap di compliance semantica da normalizzare.
 - `docs/PUBLISH_DEPLOY_RELEASE.md`: matrice per distinguere publish, release e deploy repo per repo.
 - `docs/APPLYING_ATLAS.md`: guida operativa per applicare Atlas a una repo.
 - `docs/NEXT_STEPS.md`: procedura per scegliere prossimi passi Atlas senza confonderli con sviluppo prodotto delle repo.
@@ -28,7 +29,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 ## Decisioni
 
 - `docs/decisions/`: ADR e decisioni stabili.
-- `docs/decisions/README.md`: indice delle decisioni.
+- `docs/DECISIONS.md`: indice delle decisioni.
 - `docs/decisions/template.md`: template ADR da copiare per nuove decisioni.
 - `docs/decisions/0001-atlas-meta-progetto-leggero.md`: identità e perimetro di Atlas.
 - `docs/decisions/0002-struttura-canonica-root-docs.md`: struttura canonica root/docs.
@@ -40,7 +41,8 @@ Le decisioni fondative restanti sono raccolte nel piano principale. Quando una d
 
 - Repository privata: `https://github.com/max23468/Atlas`
 - Branch principale: `main`
-- Baseline: PR template, issue template minima, PR title check.
+- Baseline: PR template, issue template minima, PR title check; Codex inbox da
+  riallineare.
 
 ## Template riusabili
 
@@ -50,7 +52,7 @@ Le decisioni fondative restanti sono raccolte nel piano principale. Quando una d
 - `docs/BACKLOG.template.md`: template di backlog separato dalla roadmap.
 - `docs/TOOLCHAIN.template.md`: template per runtime, package manager, lockfile e tool esterni.
 - `docs/CONTEXT.template.md`: template di contesto operativo e handoff.
-- `docs/decisions/README.template.md`: template per indice decisioni.
+- `docs/DECISIONS.template.md`: template per indice decisioni.
 - `docs/decisions/template.md`: template ADR.
 
 I file `*.template.md` restano template e non devono essere confusi con lo stato reale di Atlas.
@@ -82,7 +84,7 @@ Prima di intervenire su una di queste repo, leggere il suo `AGENTS.md`, controll
 
 ## Note di manutenzione
 
-Non creare un secondo documento con lo stesso titolo o lo stesso scopo di uno già indicato qui.
+Non creare un secondo documento con lo stesso titolo, lo stesso scopo o lo stesso basename Markdown di uno già indicato qui.
 
 Se un documento viene migrato o sostituito, aggiornare questo indice e lasciare un rinvio temporaneo quando serve preservare tracciabilità.
 

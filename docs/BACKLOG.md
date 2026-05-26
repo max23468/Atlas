@@ -11,12 +11,17 @@ Una voce nel backlog non è scope approvato.
 
 ## Backlog tecnico
 
-- Valutare se creare una Codex feedback inbox per Atlas quando iniziano PR o commenti operativi ricorrenti.
+- Riallineare Atlas alla Codex feedback inbox con issue canonica e baseline
+  coerente; eventuali workflow GitHub restano sospesi fino al `2026-06-01`
+  compreso.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
-- Riabilitare i workflow `Codex PR comments` su Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel quando i minuti GitHub Actions tornano disponibili.
-- Riabilitare il workflow runtime `Sentinel` quando i minuti GitHub Actions tornano disponibili o quando viene deciso un runtime alternativo.
-- Ripristinare Dependabot su GLM e Sentinel quando i minuti GitHub Actions tornano disponibili o quando viene deciso un budget sostenibile.
+- Rivalutare dal `2026-06-02` la riattivazione dei workflow `Codex PR comments`
+  su Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel.
+- Rivalutare dal `2026-06-02` la riattivazione del workflow runtime
+  `Sentinel` o la scelta di un runtime alternativo.
+- Riallineare Dependabot nelle repo dove oggi è sospeso, senza trattarlo come
+  standard facoltativo.
 - Valutare un upgrade Python completo di FiscalBay oltre `3.10` solo con decisione repo-specifica su manifest, CI, toolchain e policy.
 
 ## Documentazione

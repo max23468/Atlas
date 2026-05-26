@@ -46,13 +46,14 @@ Usare questa checklist prima di applicare il piano a una repository.
 - `docs/NEXT_STEPS.md`
 - `docs/TOOLCHAIN.md`
 - `docs/CONTEXT.md`
+- `docs/DECISIONS.md`
 - `docs/decisions/`
-- `docs/decisions/README.md`
 - `docs/decisions/template.md`
 
 ## Doppioni documentali
 
 - Non creare documenti con lo stesso titolo o lo stesso scopo.
+- Non creare due file Markdown con lo stesso basename nella stessa repo.
 - Se esiste già un documento equivalente, migrarlo nel documento canonico o trasformarlo in rinvio temporaneo.
 - Se un contenuto resta fuori dal documento canonico, indicare dove si trova e perché.
 
@@ -63,7 +64,8 @@ Usare questa checklist prima di applicare il piano a una repository.
 - Codex feedback inbox.
 - Workflow Codex PR comments.
 - PR title check.
-- Dependabot solo con dipendenze runtime reali.
+- Dependabot come standard pieno quando la repo ha dipendenze o manifest
+  compatibili.
 - Branch protection solo se utile.
 
 ## Subagent

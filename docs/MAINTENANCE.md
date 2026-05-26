@@ -67,7 +67,7 @@ Output atteso:
   trasversale;
 - nessun deploy o release implicito.
 
-Esito:
+Esito storico:
 
 - FiscalBay: checkout pulito, nessuna PR aperta, inbox Codex senza thread
   actionable, workflow recenti verdi.
@@ -80,10 +80,39 @@ Esito:
   restano da osservare i report schedulati e gli avvisi 404 Ortix non bloccanti.
 - Nessun deploy o release eseguito.
 
+Questo esito è utile come traccia del primo passaggio, ma è stato superato
+dall'audit completo del `2026-05-26`.
+
+## Audit completo del 2026-05-26
+
+Esito aggiornato:
+
+- Nessuna PR aperta su Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp,
+  SyncBay, TRAM e Sentinel.
+- Atlas: nessuna inbox Codex aperta; il riallineamento resta aperto.
+- Pratix: inbox Codex `#34`; ultimo run GitHub `Dependabot Updates`
+  cancellato il `2026-05-25`.
+- DocMolder: inbox Codex `#149`; `Dependabot Updates` in coda il
+  `2026-05-26`; `VPS Check` fallito il `2026-05-25`.
+- FiscalBay: inbox Codex `#69`; ultimo run GitHub `Dependabot Updates`
+  cancellato il `2026-05-25`.
+- GLM: inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25`.
+- SendChimp: inbox Codex `#2`; ultimo run GitHub `Dependabot Updates`
+  cancellato il `2026-05-25`.
+- SyncBay: nessuna inbox Codex aperta; `PR Title` fallita il `2026-05-26`.
+- TRAM: inbox Codex `#2`; ultimo run GitHub `Dependabot Updates`
+  cancellato il `2026-05-25`.
+- Sentinel: inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow
+  runtime `Sentinel` ancora disabilitato manualmente.
+- Su richiesta del maintainer, questo aggiornamento non usa come segnale
+  canonico lo stato locale temporaneamente in lavorazione di SyncBay e TRAM.
+- Nessun deploy o release Atlas eseguito in questo audit.
+
 ## Regole
 
 - La matrice health è uno snapshot, non un'autorizzazione a modificare repo.
 - Prima di scrivere in una repo coordinata serve sempre perimetro chiaro e
   rispetto dell'`AGENTS.md` locale.
 - Non copiare in Atlas segreti, dump, dati applicativi reali o log sensibili.
-- Non trasformare warning noti in blocchi se i run operativi sono verdi.
+- Non trasformare warning noti in blocchi se i run operativi non impattano il
+  flusso reale della repo.

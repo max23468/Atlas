@@ -95,7 +95,8 @@ Regole di partenza approvate:
 - standardizzare prima la reperibilità: `README.md` e `AGENTS.md` devono indicare sempre i documenti canonici;
 - usare `docs/ROADMAP.md` come unica posizione canonica della roadmap;
 - usare `docs/INDEX.md` come indice documentale unico;
-- usare `docs/decisions/` come standard unico per nuove ADR; `docs/DECISIONS.md` può restare solo come indice/riepilogo temporaneo dove già esiste;
+- usare `docs/DECISIONS.md` come indice decisionale e `docs/decisions/` come standard per ADR puntuali;
+- non creare due file Markdown con lo stesso basename nella stessa repo;
 - mantenere `Codex PR comments` e `Codex feedback inbox` come standard comune già acquisito;
 - rendere React Doctor obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`;
 
@@ -120,8 +121,9 @@ Tabella decisionale approvata:
 | Roadmap | Usare `docs/ROADMAP.md` come unica roadmap canonica; eventuali `ROADMAP.md` in root vanno migrati o sostituiti con rinvio temporaneo | Approvato |
 | Indice documentale | Usare `docs/INDEX.md` come indice documentale unico; eventuali `docs/README.md` vanno migrati o sostituiti con rinvio temporaneo | Approvato |
 | Backlog | Usare `docs/BACKLOG.md` come backlog unico separato dalla roadmap | Approvato |
-| ADR | Usare `docs/decisions/` come standard unico per nuove ADR; `docs/DECISIONS.md` solo come indice/riepilogo temporaneo nelle repo che lo usano già | Approvato |
-| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot solo con dipendenze runtime reali; branch protection solo per repo operative/condivise | Approvato |
+| ADR | Usare `docs/DECISIONS.md` come indice decisionale e `docs/decisions/` come standard per nuove ADR puntuali | Approvato |
+| Basename Markdown | Non creare due file Markdown con lo stesso basename nella stessa repo | Approvato |
+| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot come standard pieno nelle repo con dipendenze o manifest compatibili; branch protection solo per repo operative/condivise | Approvato |
 | Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
 | Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
 | Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
@@ -301,10 +303,11 @@ Standard approvato:
 - le nuove ADR vanno in `docs/decisions/`;
 - naming standard: `NNNN-slug-breve.md`;
 - `docs/decisions/template.md` deve esistere in ogni repo con governance viva;
-- `docs/decisions/README.md` o `docs/INDEX.md` devono indicizzare le decisioni;
-- `docs/DECISIONS.md`, dove già esiste, va trattato come indice/riepilogo temporaneo e non come luogo per nuove decisioni strutturate;
+- `docs/DECISIONS.md` deve indicizzare le decisioni;
+- `docs/INDEX.md` deve collegare `docs/DECISIONS.md` e `docs/decisions/`;
 - `docs/DECISIONS_PENDING.md` o `docs/decisions-pending.md` può restare per decisioni non ancora approvate;
 - non creare documenti duplicati con stesso titolo o stessa decisione.
+- non creare due file Markdown con lo stesso basename nella stessa repo.
 
 Serve ADR quando cambia stabilmente:
 
@@ -733,7 +736,7 @@ La baseline di avvio deve chiarire subito:
 | SendChimp | Runtime Next.js iniziale / MVP manuale con primo allineamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog e toolchain; `docs/context.md` resta handoff | SemVer locale previsto; release runtime da governare prima di uso produttivo | Pubblicazione GitHub e Vercel automatico completati; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title; PR `max23468/SendChimp#20` mergiata | `npm run verify`, `git diff --check`, `npm run release:dry-run`; React Doctor dopo release minor applicabile | Scegliere prossimo debito reale: import campagna Mailchimp, UI anteprima/copia o hardening multi-tenant/Auth |
 | SyncBay | Scaffold runtime / MVP Shopify con primo allineamento Atlas completato e release locale 0.6.0 pubblicata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain | `npm run release`, `app/lib/version.ts`; `APP_VERSION=0.6.0` | Pubblicazione GitHub e Vercel automatico completati; no tag/GitHub Release/App Store production | Inbox, template, Dependabot; CI minima; PR `max23468/SyncBay#27`, `#28` e `#29` mergiate | typecheck, lint, build, smoke UI, Prisma validate, audit, React Doctor 100/100 | Scegliere prossimo debito reale: keyset/OAuth eBay o import listing live |
 | TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | Non ancora policy SemVer reale | GitHub privata; no deploy/release policy | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
-| Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check | controllo documenti/link, `git status --short` | Bassa: base già pronta |
+| Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check; Codex inbox da riallineare | controllo documenti/link, `git status --short` | Bassa: manca ancora il riallineamento della Codex inbox; workflow GitHub sospesi fino al `2026-06-01` compreso |
 | Sentinel | Monitor operativo Ortix e San Carlo Sviluppo, consolidamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog, context, toolchain e ADR | `package.json` indica `0.1.0`; nessuna GitHub Release | GitHub privata; PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde e output commit `4b9d151` | Workflow `Sentinel`, PR template, issue template, PR title check; Codex inbox in backlog | `npm test`, `npm run build`, YAML parse, workflow Actions con report e output committati | Completata: prossimo solo osservazione run schedulato o debito reale |
 
 ## Source of truth per repo
@@ -949,7 +952,7 @@ Per una nuova repo, il livello minimo approvato è:
 - issue o inbox per commenti Codex;
 - workflow `Codex PR comments`;
 - workflow `pr-title.yml` o controllo equivalente del titolo PR;
-- Dependabot solo quando ci sono dipendenze runtime reali;
+- Dependabot come standard pieno quando ci sono dipendenze o manifest compatibili;
 - branch protection solo quando il progetto diventa operativo o condiviso.
 
 ### Baseline verifiche
@@ -1454,19 +1457,19 @@ Regole comuni per ogni intervento:
 
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
-| GLM | completata | Primo allineamento completato con `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md`, `docs/decisions/template.md` | PR template, issue template minima e `pr-title.yml` aggiunti con PR `max23468/Gare-Lotti-Milanesi#7`; Codex inbox verificata senza thread actionable | Per il pilot documentale: `git diff --check` e CI GitHub passata; test/build/smoke restano per cambi runtime | Cloudflare Pages; non introdurre Vercel/Supabase; non perdere pattern GLM maturi come logica simulatore, changelog frontend e runbook Cloudflare |
+| GLM | completata | Primo allineamento completato con `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, indice decisioni e `docs/decisions/template.md`; da riallineare alla regola Atlas 0004 sui basename Markdown | PR template, issue template minima e `pr-title.yml` aggiunti con PR `max23468/Gare-Lotti-Milanesi#7`; Codex inbox verificata senza thread actionable | Per il pilot documentale: `git diff --check` e CI GitHub passata; test/build/smoke restano per cambi runtime | Cloudflare Pages; non introdurre Vercel/Supabase; non perdere pattern GLM maturi come logica simulatore, changelog frontend e runbook Cloudflare |
 | TRAM | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, template ADR con basename unico; mantenuto `docs/DECISIONS.md` come registro | Baseline GitHub già presente; PR `max23468/TRAM#7` mergiata | `npm run verify`; Quality, Repo Hygiene, PR Title e Codex sync passati | Evidence-first; nessun deploy/release finché policy assente; React Doctor prima della prima release minor applicabile |
 | SyncBay | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/CONTEXT.md` canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SyncBay#27`, `#28` e `#29` mergiate; Codex inbox senza thread actionable; Docker Node allineato a engine; release locale 0.6.0 pubblicata | PR #27: `npm run typecheck`, `npm run lint`, `npm run build`, `npm run quality:react-doctor` 100/100, `npm run release:dry-run`, `git diff --check`; PR #28: `git diff --check`, `npm run release:dry-run`, Vercel pass; PR #29: typecheck, lint, build, React Doctor 100/100, audit, smoke UI, Prisma validate, release dry-run, Vercel pass | Shopify app; no marketplace generico; no tag/GitHub Release/App Store production finché non deciso; prossimo debito possibile: keyset/OAuth eBay |
 | SendChimp | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/context.md` mantenuto come handoff canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SendChimp#20` mergiata; Codex inbox senza thread actionable; chiuso P1 su fallback `DATABASE_URL_UNPOOLED`; Vercel automatico passato | `npm run verify`, `git diff --check`, `npm run release:dry-run`; Docs hygiene su main passato | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold; nessun tag/GitHub Release, deploy manuale o provider/billing nuovo |
-| Sentinel | completata | Creati `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md`, `docs/decisions/README.md`, template ADR e ADR su GitHub Actions runtime operativo MVP | PR `max23468/Sentinel#1` mergiata; aggiunti PR template, issue template e `pr-title.yml`; Codex inbox lasciata in backlog | `git diff --check`, YAML parse, `npm test`, `npm run build`, PR title check, workflow manuale `26369906474` verde con output commit `4b9d151` | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
+| Sentinel | completata | Creati `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md`, indice decisioni, template ADR e ADR su GitHub Actions runtime operativo MVP; da riallineare alla regola Atlas 0004 sui basename Markdown | PR `max23468/Sentinel#1` mergiata; aggiunti PR template, issue template e `pr-title.yml`; Codex inbox lasciata in backlog | `git diff --check`, YAML parse, `npm test`, `npm run build`, PR title check, workflow manuale `26369906474` verde con output commit `4b9d151` | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
 
 ### Seconda ondata
 
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
 | Pratix | completata | `ROADMAP.md` rinvia a `docs/ROADMAP.md`; `docs/README.md` rinvia a `docs/INDEX.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/CONTEXT.md`; release patch `1.11.15` | PR `max23468/Pratix#156` mergiata; workflow maturo preservato | Test mirato, prepush guard completo, GitHub checks e `publish:finish` production su `/` e `/novita` | SaaS Vercel/Supabase; UI italiana; glossary rigoroso; non appesantire |
-| DocMolder | completata | Creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR; documenti storici preservati | PR `max23468/DocMolder#166` mergiata; release/deploy saltati perché docs-only | Manutenzione GitHub, preflight publish, test hygiene, check Codex inbox e CI GitHub docs-only | Telegram-first; VPS; Python `3.13` preferito ma manifest `>=3.11`; documenti utente sensibili; non trasformare in web app |
-| FiscalBay | completata | Creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/decisions/README.md` e template ADR; backlog condizionato estratto dalla roadmap | PR `max23468/FiscalBay#78` mergiata; thread Codex P1 risolto; deploy/release saltati perché non impliciti | `bash -n deploy/linux-setup.sh`, `git diff --check`, workflow allowlist, `bash scripts/ci_verify.sh`, GitHub checks | Telegram/eBay/VPS; non dedurre dati fiscali; compat codice Python `3.10` finché manifest/CI non cambiano |
+| DocMolder | completata | Creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR; documenti storici preservati; da riallineare alla regola Atlas 0004 sui basename Markdown | PR `max23468/DocMolder#166` mergiata; release/deploy saltati perché docs-only | Manutenzione GitHub, preflight publish, test hygiene, check Codex inbox e CI GitHub docs-only | Telegram-first; VPS; Python `3.13` preferito ma manifest `>=3.11`; documenti utente sensibili; non trasformare in web app |
+| FiscalBay | completata | Creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, indice decisioni e template ADR; backlog condizionato estratto dalla roadmap; da riallineare alla regola Atlas 0004 sui basename Markdown | PR `max23468/FiscalBay#78` mergiata; thread Codex P1 risolto; deploy/release saltati perché non impliciti | `bash -n deploy/linux-setup.sh`, `git diff --check`, workflow allowlist, `bash scripts/ci_verify.sh`, GitHub checks | Telegram/eBay/VPS; non dedurre dati fiscali; compat codice Python `3.10` finché manifest/CI non cambiano |
 
 ### Artefatti comuni da produrre
 
@@ -1481,7 +1484,7 @@ Regole comuni per ogni intervento:
 | Template `docs/BACKLOG.md` | idee/debiti non ancora promossi | repo |
 | Template `docs/CONTEXT.md` | handoff e contesto operativo | repo |
 | Template `docs/TOOLCHAIN.md` | runtime, versioni, lockfile, tool | repo |
-| Indice decisioni | catalogo ADR e decisioni stabili | `docs/decisions/README.template.md` |
+| Indice decisioni | catalogo ADR e decisioni stabili | `docs/DECISIONS.template.md` |
 | Template ADR | decisioni stabili | `docs/decisions/template.md` |
 | Checklist manutenzione | check mensile e pre-publish/deploy/release | `CHECKLIST-MANUTENZIONE.md` |
 

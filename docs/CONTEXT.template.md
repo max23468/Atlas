@@ -11,7 +11,7 @@
 - Roadmap: `docs/ROADMAP.md`
 - Backlog: `docs/BACKLOG.md`
 - Toolchain: `docs/TOOLCHAIN.md`
-- Decisioni: `docs/decisions/`
+- Decisioni: `docs/DECISIONS.md` e `docs/decisions/`
 - Pubblicazione/release/deploy: `[documento]`
 
 ## Ultimo contesto utile

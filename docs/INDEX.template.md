@@ -13,6 +13,7 @@
 
 ## Decisioni
 
+- `docs/DECISIONS.md`: indice delle decisioni.
 - `docs/decisions/`: ADR e decisioni stabili.
 - `docs/decisions/template.md`: template ADR.
 - `[eventuale pending]`: decisioni non ancora approvate.
@@ -43,7 +44,7 @@
 
 ## Note di manutenzione
 
-Non creare un secondo documento con lo stesso titolo o lo stesso scopo di uno già indicato qui.
+Non creare un secondo documento con lo stesso titolo, lo stesso scopo o lo stesso basename Markdown di uno già indicato qui.
 
 Se un documento viene migrato o sostituito, aggiornare questo indice e lasciare rinvio temporaneo quando serve preservare tracciabilità.
 

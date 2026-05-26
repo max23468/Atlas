@@ -14,9 +14,14 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
 - Rivalutare periodicamente `docs/STANDARD_CANDIDATES.md` prima di promuovere nuovi pattern a standard Atlas.
 - Tenere separati debiti repo e scope Atlas: i debiti repo si censiscono o si impacchettano, ma non diventano lavoro esecutivo senza target esplicito.
-- Riabilitare i workflow `Codex PR comments` solo quando il budget GitHub Actions torna disponibile.
-- Riabilitare il workflow runtime `Sentinel` solo quando il budget GitHub Actions torna disponibile o quando esiste un runtime alternativo.
-- Ripristinare o attivare Dependabot su GLM e Sentinel solo quando il budget GitHub Actions torna disponibile o quando il maintainer lo conferma.
+- Mantenere la sospensione globale GitHub Actions fino al `2026-06-01`
+  compreso e rivalutare dal `2026-06-02`.
+- Riattivare i workflow `Codex PR comments` non prima del `2026-06-02`, salvo
+  nuova decisione.
+- Riattivare il workflow runtime `Sentinel` non prima del `2026-06-02` o usare
+  un runtime alternativo.
+- Riallineare Dependabot dove oggi è sospeso, senza declassarlo da standard
+  pieno.
 - Non forzare upgrade Python FiscalBay oltre `3.10`: la VPS `3.13` è compatibilità operativa finché la repo non decide un upgrade completo.
 
 ## Più avanti
@@ -28,14 +33,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 
 ## Bloccato
 
-- Nessun blocco operativo trasversale aperto; restano sospesi i workflow legati al budget GitHub Actions, incluso il runtime schedulato Sentinel.
+- Nessun blocco operativo trasversale aperto; resta attiva la sospensione
+  globale GitHub Actions fino al `2026-06-01` compreso, incluso il runtime
+  schedulato Sentinel.
 
 ## Fatto recente
 
 - Creato Atlas come meta-progetto separato.
 - Approvato il piano di coordinamento operativo.
 - Creati template e checklist per AGENTS, documentazione, roadmap, backlog, toolchain, contesto, decisioni, implementazione e manutenzione.
-- Creati i documenti canonici reali di Atlas: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md` e `docs/decisions/README.md`.
+- Creati i documenti canonici reali di Atlas: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md` e `docs/DECISIONS.md`.
 - Inizializzato Git locale su branch `main`.
 - Estratte tre ADR fondative: identità/perimetro di Atlas, struttura canonica root/docs e repository GitHub privata.
 - Creata repository GitHub privata `https://github.com/max23468/Atlas`.
@@ -56,10 +63,16 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Creata la prima matrice health Atlas in `docs/HEALTH.md`, con stato sintetico verde/attenzione/bloccato e prossimi controlli per ogni repo.
 - Definito il ciclo di manutenzione periodica in `docs/MAINTENANCE.md`.
 - Eseguito il primo ciclo di manutenzione sulle repo in `Attenzione`: FiscalBay, SendChimp, TRAM e Sentinel; inbox pulite, workflow recenti verdi e merge della PR `max23468/TRAM#6` con React Doctor `100 / 100`.
-- Creato `docs/STANDARDS.md` e completato un ciclo correttivo sugli standard Atlas: SendChimp PR `#21`, Pratix PR `#157`, SyncBay PR `#30`, Sentinel PR `#2`, GLM commit `[skip ci]`; GitHub Actions non usate come gate per budget esaurito e workflow `Codex PR comments` disabilitati manualmente.
+- Creato `docs/STANDARDS.md` e completato un ciclo correttivo sugli standard
+  Atlas: SendChimp PR `#21`, Pratix PR `#157`, SyncBay PR `#30`, Sentinel PR
+  `#2`, GLM commit `[skip ci]`; GitHub Actions non usate come gate nella
+  finestra globale fino al `2026-06-01` compreso e workflow `Codex PR comments`
+  disabilitati manualmente.
 - Definita la policy SemVer/release di TRAM con commit `783b783` `[skip ci]`; nessun deploy perché TRAM non ha target deploy approvato.
 - Verificata la policy Python di FiscalBay: supporto dichiarato `>=3.10`, VPS `3.13` come runtime operativo compatibile, nessun upgrade forzato.
-- Disabilitato manualmente il workflow runtime `Sentinel` per evitare nuovi run schedulati durante l'esaurimento minuti Actions.
+- Disabilitato manualmente il workflow runtime `Sentinel` per evitare nuovi run
+  schedulati durante la sospensione globale GitHub Actions fino al
+  `2026-06-01` compreso.
 - Creata `CHECKLIST-NUOVA-REPO.md` per inserire una nuova repository nel perimetro Atlas senza applicare template in modo meccanico.
 - Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
 - Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.

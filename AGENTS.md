@@ -50,7 +50,7 @@ Leggere in questo ordine:
 12. `docs/ROADMAP.md`
 13. `docs/BACKLOG.md`
 14. `docs/TOOLCHAIN.md`
-15. `docs/decisions/README.md`
+15. `docs/DECISIONS.md`
 16. template e checklist collegati al task
 
 Quando si lavora su una repo diversa da Atlas, leggere sempre l'`AGENTS.md` di quella repo prima di proporre o applicare cambiamenti.
@@ -135,14 +135,14 @@ Documenti canonici di Atlas:
 - backlog: `docs/BACKLOG.md`
 - contesto: `docs/CONTEXT.md`
 - toolchain: `docs/TOOLCHAIN.md`
-- decisioni: `docs/decisions/`
+- decisioni: `docs/DECISIONS.md` e `docs/decisions/`
 - checklist implementazione: `CHECKLIST-IMPLEMENTAZIONE.md`
 - checklist manutenzione: `CHECKLIST-MANUTENZIONE.md`
 - checklist nuova repo: `CHECKLIST-NUOVA-REPO.md`
 
 I file `*.template.md` sono template riusabili, non documenti canonici di stato di Atlas.
 
-Non creare documenti doppi con stesso titolo o stesso scopo. Se un documento viene migrato o trasformato, preservare i contenuti utili e aggiornare `docs/INDEX.md`.
+Non creare documenti doppi con stesso titolo, stesso scopo o stesso basename Markdown. Se un documento viene migrato o trasformato, preservare i contenuti utili e aggiornare `docs/INDEX.md`.
 
 ## Regola anti-perdita
 
@@ -186,7 +186,8 @@ Baseline leggera:
 - PR template;
 - issue template minima;
 - PR title check;
-- Dependabot solo se compariranno dipendenze runtime reali.
+- Dependabot come standard pieno quando esistono dipendenze o manifest
+  compatibili; Atlas lo applica a sé stesso solo se introdurrà dipendenze reali.
 
 La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nelle repo che la usano già.
 

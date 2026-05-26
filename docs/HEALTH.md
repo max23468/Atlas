@@ -6,12 +6,16 @@ Questa matrice è lo snapshot operativo dei progetti coordinati da Atlas. Serve 
 decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 `AGENTS.md` delle singole repo.
 
+I gap semantici, documentali o di governance Atlas non cambiano da soli lo
+stato health: vanno tracciati in `docs/SEMANTIC_COMPLIANCE_GAPS.md` e diventano
+health `Attenzione` o `Bloccato` solo quando creano un rischio operativo reale.
+
 ## Legenda
 
 | Stato | Significato | Azione |
 | --- | --- | --- |
 | Verde | Nessun blocco noto; ultimo allineamento o gate rilevante completato | Monitorare al prossimo ciclo o fare solo audit read-only se emerge un segnale |
-| Attenzione | Nessun blocco immediato, ma c'è un rischio o una decisione da non dimenticare | Tenere in vista prima di cambiare codice, runtime o processo |
+| Attenzione | Nessun blocco immediato, ma c'è un rischio operativo o una decisione runtime da non dimenticare | Tenere in vista prima di cambiare codice, runtime o processo |
 | Bloccato | C'è un impedimento operativo che blocca publish, deploy, release o uso previsto | Risolvere prima di nuove iniziative sulla repo |
 | Non applicabile | La categoria non ha senso per quel progetto | Non forzare controlli o processi inutili |
 
@@ -19,23 +23,28 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
 
 | Stato | Progetti | Motivo |
 | --- | --- | --- |
-| Verde | Atlas, Pratix, DocMolder, FiscalBay, GLM, SyncBay, TRAM | Allineamento completato e nessun blocco operativo noto nello snapshot Atlas |
-| Attenzione | SendChimp, Sentinel | Esistono vincoli o osservazioni da rispettare prima del prossimo lavoro |
+| Verde | Atlas, Pratix, FiscalBay, TRAM | Nessun blocco operativo immediato nello snapshot aggiornato del `2026-05-26` |
+| Attenzione | DocMolder, GLM, SendChimp, SyncBay, Sentinel | Esistono workflow recenti non verdi, vincoli runtime o segnali GitHub da ricontrollare prima del prossimo lavoro |
 | Bloccato | Nessuno | Nessun blocco trasversale aperto dopo il consolidamento Sentinel |
+
+Nota:
+I gap Atlas su Codex inbox, versioning, basename Markdown, lifecycle
+decisionale, Publish proporzionata o toolchain restano manutenzione governance
+finché non diventano un problema operativo reale nella repo interessata.
 
 ## Matrice
 
-| Progetto | Health | Ultimo segnale verificato | Rischio da tenere in vista | Prossimo controllo sensato |
+| Progetto | Health | Ultimo segnale verificato | Rischio operativo da tenere in vista | Prossimo controllo sensato |
 | --- | --- | --- | --- | --- |
-| Atlas | Verde | `main` pubblicato dopo la chiusura delle ondate e il consolidamento Sentinel | Non trasformare Atlas in runtime, dashboard applicativa o sviluppo prodotto delle repo | Aggiornare `docs/HEALTH.md` quando cambia stato di una repo |
-| Pratix | Verde | PR `max23468/Pratix#156` mergiata, release patch `1.11.15`, Vercel production verificata con `publish:finish` | Repo già matura: non appesantire processi o UI; React Doctor dopo release minor | Solo audit read-only o aggiornamento stato salvo scope Pratix esplicito |
-| DocMolder | Verde | PR `max23468/DocMolder#166` mergiata; publish docs-only completato senza release/deploy | Mantenere Release Please, VPS e policy repo-specifica; documenti utente sensibili | Solo audit read-only o aggiornamento stato salvo scope DocMolder esplicito |
-| FiscalBay | Verde | PR `max23468/FiscalBay#78` mergiata; inbox Codex `#69` senza actionable; toolchain dichiara supporto `>=3.10` e VPS `3.13` compatibile | Non rompere supporto `>=3.10` solo per uniformità | Solo audit read-only; upgrade Python solo con scope FiscalBay esplicito |
-| GLM | Verde | Primo allineamento Atlas completato con PR `max23468/Gare-Lotti-Milanesi#7` | Non perdere pattern maturi: simulatore, allegati Git LFS, runbook Cloudflare | Solo classificazione pattern o audit read-only salvo scope GLM esplicito |
-| SendChimp | Attenzione | PR `max23468/SendChimp#21` mergiata; Vercel production `Ready`; `/api/health` OK con database raggiungibile e Neon Auth configurato | MVP manuale e vincolo free-tier; nessun invio reale o provider nuovo senza piano | Solo controllo governance/provider read-only salvo scope SendChimp esplicito |
-| SyncBay | Verde | PR `max23468/SyncBay#27`, `#28`, `#29` mergiate; release locale `0.6.0`; Vercel automatico passato | No tag/GitHub Release/App Store production finché la policy non cambia | Solo audit read-only o aggiornamento stato salvo scope SyncBay esplicito |
-| TRAM | Verde | PR `max23468/TRAM#6` e `#7` mergiate; React Doctor `100 / 100`; policy SemVer/release definita con commit `783b783` | Nessun target deploy approvato: release e deploy restano distinti | Solo audit read-only o aggiornamento stato salvo scope TRAM esplicito |
-| Sentinel | Attenzione | PR `max23468/Sentinel#1` e `#2` mergiate; workflow manuale `26369906474` verde; workflow runtime `Sentinel` ora disabilitato manualmente | Monitor schedulato sospeso per budget Actions; Ortix ha 33 avvisi 404 ma 0 cambiamenti | Riabilitare il workflow solo quando i minuti Actions tornano disponibili o quando esiste runtime alternativo |
+| Atlas | Verde | Nessuna PR aperta; repo docs-first senza runtime; audit completo Atlas eseguito il `2026-05-26` | Nessun rischio runtime; tenere allineato lo snapshot documentale allo stato GitHub reale | Aggiornare `docs/HEALTH.md` quando cambia stato di una repo o di un workflow trasversale |
+| Pratix | Verde | Nessuna PR aperta; inbox Codex `#34`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Repo già matura: non appesantire processi o UI; React Doctor dopo release minor | Solo audit read-only o aggiornamento stato salvo scope Pratix esplicito |
+| DocMolder | Attenzione | Nessuna PR aperta; inbox Codex `#149`; `Dependabot Updates` in coda il `2026-05-26`; `VPS Check` fallito il `2026-05-25` | GitHub/VPS da ricontrollare prima del prossimo ciclo; preservare Release Please e runbook locali | Ricontrollare coda Dependabot e `VPS Check` prima del prossimo lavoro DocMolder |
+| FiscalBay | Verde | Nessuna PR aperta; inbox Codex `#69`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Non rompere supporto `>=3.10` senza decisione repo-specifica; deploy VPS resta repo-specifico | Solo audit read-only; upgrade Python solo con scope FiscalBay esplicito |
+| GLM | Attenzione | Nessuna PR aperta; inbox Codex `#3`; `CI` fallita su `main` il `2026-05-25` | Prima del prossimo lavoro GLM serve ricontrollare la `CI` su `main`; non toccare deploy Cloudflare o allegati Git LFS senza scope esplicito | Audit read-only e ispezione del failure `CI` prima di nuove modifiche GLM |
+| SendChimp | Attenzione | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | MVP manuale e vincolo free-tier; versioning/release ancora non pienamente riallineati | Solo controllo governance/provider read-only salvo scope SendChimp esplicito |
+| SyncBay | Attenzione | Nessuna PR aperta; nessuna inbox Codex aperta; `PR Title` fallita il `2026-05-26` | Baseline GitHub non tutta verde; release pubblica ancora non standardizzata | Ricontrollare `PR Title` e lo stato inbox prima del prossimo lavoro SyncBay |
+| TRAM | Verde | Nessuna PR aperta; inbox Codex `#2`; ultimo run GitHub `Dependabot Updates` cancellato il `2026-05-25` | Nessun target deploy approvato: release e deploy restano distinti | Solo audit read-only o aggiornamento stato salvo scope TRAM esplicito |
+| Sentinel | Attenzione | Nessuna PR aperta; inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow runtime `Sentinel` disabilitato manualmente | Monitor schedulato sospeso fino al `2026-06-01` compreso; baseline GitHub non ancora tutta verde | Rivalutare dal `2026-06-02` la riattivazione del workflow e ricontrollare `PR Title` |
 
 ## Regole di aggiornamento
 
@@ -43,6 +52,9 @@ decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
   operativo significativo.
 - Non usare questa matrice per autorizzare modifiche automatiche alle repo:
   prima serve sempre conferma esplicita sul target.
+- Non usare questa matrice per registrare gap semantici o debiti documentali
+  Atlas se non hanno ancora impatto operativo: per quelli usare
+  `docs/SEMANTIC_COMPLIANCE_GAPS.md`.
 - Se un dato dipende da provider, piani gratuiti, prezzi, API o limiti variabili,
   verificarlo live prima di trasformarlo in decisione.
 - Se emerge un blocco reale, spostarlo anche in `docs/ROADMAP.md` o

@@ -15,9 +15,15 @@ Legenda:
 
 - `Pubblica` non significa automaticamente deploy o release.
 - `Rilascia` richiede una policy versioning/release della repo.
+- Dove esiste una release reale, la policy deve chiarire source of truth,
+  formato tag, GitHub Release e changelog; il solo versioning locale è
+  transitorio.
 - `Deploya` richiede target, comando e verifica post-deploy dichiarati.
-- Se GitHub Actions è senza budget, usare verifiche locali e canali diretti
-  repo-specifici; non rilanciare o aggiungere workflow.
+- Fino al `2026-06-01` compreso, Atlas non deve usare GitHub Actions come gate
+  nelle repo coordinate: usare verifiche locali e canali diretti repo-specifici;
+  non rilanciare o aggiungere workflow. Questo vincolo di governance non
+  equivale a zero run remoti: al `2026-05-26` restano ancora esempi di run in
+  coda, falliti o cancellati su più repo.
 - Non inventare deploy/release dove non esistono.
 
 ## Matrice repo
@@ -28,11 +34,11 @@ Legenda:
 | Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor secondo guide repo | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
 | DocMolder | PR/merge GitHub | Sì, Release Please/policy repo | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
 | FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
-| GLM | PR/merge GitHub | Sì, policy locale dichiarata | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages` | Non usare Vercel/Supabase |
-| SendChimp | PR/merge GitHub | Locale, solo se changelog contiene voci versionate | Vercel production esiste, ma deploy runtime non va attivato senza decisione | `npm run release`, Vercel CLI solo se policy lo richiede | MVP manuale; niente invii reali o provider nuovi |
-| SyncBay | PR/merge GitHub | Locale `0.x`, niente tag/GitHub Release finché policy non cambia | Vercel automatico; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime` | Shopify/eBay, no marketplace generico |
-| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release non deploya; niente `docs/decisions/README.md` per basename |
-| Sentinel | PR/merge GitHub | Parziale/N/A | Sì, ma runtime attuale è GitHub Actions schedulato | Workflow `Sentinel` quando budget Actions disponibile | Workflow runtime sospeso finché Actions è senza budget |
+| GLM | PR/merge GitHub | Parziale: policy locale dichiarata, da verificare/riallineare a tag e GitHub Release se esiste release reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages` | Non usare Vercel/Supabase |
+| SendChimp | PR/merge GitHub | Parziale: changelog/versioning locale da riallineare se esiste release reale | Vercel production esiste, ma deploy runtime non va attivato senza decisione | `npm run release`, Vercel CLI solo se policy lo richiede | MVP manuale; niente invii reali o provider nuovi |
+| SyncBay | PR/merge GitHub | Da riallineare: oggi locale `0.x` senza tag/GitHub Release | Vercel automatico; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime` | Shopify/eBay, no marketplace generico |
+| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release non deploya; usa `docs/DECISIONS.md` per basename |
+| Sentinel | PR/merge GitHub | Parziale/N/A | Sì, ma runtime attuale è GitHub Actions schedulato | Workflow `Sentinel` non prima del `2026-06-02`, salvo nuova decisione | Workflow runtime sospeso fino al `2026-06-01` compreso |
 
 ## Quando fare deploy diretto
 
@@ -57,9 +63,15 @@ Non fare release quando:
 - la release creerebbe tag/GitHub Release non previsti;
 - mancano verifiche locali sufficienti.
 
-## Azioni sospese per budget Actions
+## Azioni sospese per finestra GitHub Actions
 
-- `Codex PR comments` resta disabilitato manualmente sulle repo coordinate.
+- Fino al `2026-06-01` compreso, Atlas non deve riattivare o aggiungere
+  workflow GitHub Actions e non deve usarli come gate.
+- Lo stato remoto non è ancora congelato: al `2026-05-26` risultano
+  `Dependabot Updates` in coda su DocMolder, `CI` fallita su GLM e `PR Title`
+  fallita su SyncBay e Sentinel.
+- `Codex PR comments` resta disabilitato manualmente sulle repo coordinate dove
+  era già stato spento.
 - `Sentinel` runtime schedulato resta disabilitato manualmente.
-- Dependabot su GLM e Sentinel resta sospeso o da non riattivare finché non torna
-  un budget sostenibile.
+- Dependabot resta standard Atlas pieno; eventuali sospensioni locali o run
+  cancellati non cambiano la regola e vanno trattati come stato transitorio.

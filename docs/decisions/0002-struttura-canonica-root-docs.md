@@ -16,10 +16,11 @@ Atlas usa questa struttura canonica:
 
 - root: `README.md`, `AGENTS.md`, `piano-coordinamento-progetti.md`, template principali, checklist operative e configurazioni;
 - `docs/`: indice, roadmap, backlog, contesto, toolchain e decisioni;
-- `docs/decisions/`: ADR e decisioni stabili;
+- `docs/DECISIONS.md`: indice decisionale;
+- `docs/decisions/`: ADR puntuali e decisioni stabili autonome;
 - file `*.template.md`: template riusabili, non documenti canonici dello stato di Atlas.
 
-L'indice unico è `docs/INDEX.md`. La roadmap unica è `docs/ROADMAP.md`. Il backlog unico è `docs/BACKLOG.md`. Le decisioni stabili autonome vivono in `docs/decisions/`.
+L'indice unico è `docs/INDEX.md`. La roadmap unica è `docs/ROADMAP.md`. Il backlog unico è `docs/BACKLOG.md`. L'indice decisionale è `docs/DECISIONS.md`; le decisioni stabili autonome vivono in `docs/decisions/`.
 
 Durante migrazioni o uniformazioni vale la regola anti-perdita: nessun contenuto utile va eliminato senza essere migrato, collegato o dichiarato superato.
 
@@ -41,6 +42,7 @@ Durante migrazioni o uniformazioni vale la regola anti-perdita: nessun contenuto
 
 - Aggiornare `docs/INDEX.md` quando si aggiunge, sostituisce o migra un documento.
 - Non creare doppioni di roadmap, backlog, indice o decisioni.
+- Non creare due file Markdown con lo stesso basename nella stessa repo.
 - Lasciare i template con suffisso `.template.md`.
 - Usare `.gitignore` per escludere `.DS_Store` e rumore locale.
 
@@ -48,7 +50,7 @@ Durante migrazioni o uniformazioni vale la regola anti-perdita: nessun contenuto
 
 - `rg --files`
 - `find . -name .DS_Store -print`
-- controllo manuale di `README.md`, `docs/INDEX.md` e `docs/decisions/README.md`
+- controllo manuale di `README.md`, `docs/INDEX.md` e `docs/DECISIONS.md`
 
 ## Collegamenti
 

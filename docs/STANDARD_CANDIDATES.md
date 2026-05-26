@@ -22,15 +22,14 @@ standard trasversale.
 | Branch dedicata per interventi Atlas su repo coordinate | Promosso | Ciclo multi-repo Atlas | Obbligatoria prima di modifiche; worktree separato quando serve isolamento reale |
 | Separazione esplicita tra publish, release e deploy | Promosso | Tutte le repo coordinate | Fonte sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Runbook deploy con target, comando e verifica | Promosso come principio | Pratix, DocMolder, FiscalBay, GLM, SyncBay, SendChimp | I dettagli restano repo-specifici; Atlas richiede solo che esistano quando si deploya |
-| Codex feedback inbox | Promosso con condizione | Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM, Sentinel | Da usare dove ci sono PR operative ricorrenti; esecuzione workflow sospesa finché Actions è senza budget |
+| Codex feedback inbox | Promosso con condizione | Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM, Sentinel | Da usare dove ci sono PR operative ricorrenti; i workflow GitHub Actions restano sospesi globalmente fino al `2026-06-01` compreso |
 | React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM | Obbligatorio per app React dopo release minor o modifiche React trasversali |
-| Basename Markdown univoci | Candidato | TRAM | Utile dove la repo lo richiede; non imporre ad Atlas perché `docs/decisions/README.md` è intenzionale |
-| Decision register separato dagli ADR puntuali | Candidato | TRAM | Utile quando ci sono molte decisioni operative; non obbligatorio per repo piccole |
-| Changelog frontend locale senza GitHub Release | Candidato | GLM, SendChimp, SyncBay | Da usare solo quando tag/GitHub Release non sono ancora policy mature |
-| Separazione tra nome prodotto e URL tecnico | Candidato | GLM | Utile per prodotti con brand, repository e runtime non allineati |
+| Basename Markdown univoci | Promosso | TRAM, decisione Atlas 0004 | Regola trasversale: niente due file Markdown con lo stesso basename nella stessa repo |
+| Decision register separato dagli ADR puntuali | Promosso | TRAM, DocMolder, decisione utente Atlas | Standard pieno: registro stabile, pending separato e ADR puntuali con basename univoci |
+| Changelog frontend locale senza GitHub Release | Respinto come stato stabile | GLM, SendChimp, SyncBay | Da riallineare verso tag e GitHub Release quando esiste versioning/release reale; ammesso solo come fase transitoria |
 | Allegati, benchmark o fonti esterne fuori dal flusso Git ordinario | Repo-specifico con principio comune | GLM, TRAM, FiscalBay, DocMolder | Preservare LFS, fixture o archivi solo secondo policy locale e senza dati sensibili |
-| Dependabot come baseline universale | Candidato sospeso | GLM, Sentinel, repo con dipendenze runtime | Attivare solo se dipendenze reali, budget Actions e rumore operativo sono sostenibili |
-| Runtime operativo su GitHub Actions | Repo-specifico e sospeso | Sentinel | Non generalizzare; oggi resta sospeso per budget Actions |
+| Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze o manifest compatibili | Standard pieno Atlas; la sospensione globale GitHub Actions fino al `2026-06-01` compreso non lo declassa |
+| Runtime operativo su GitHub Actions | Repo-specifico e sospeso | Sentinel | Non generalizzare; la finestra globale di sospensione GitHub Actions dura fino al `2026-06-01` compreso |
 
 ## Standard già promossi
 
@@ -41,22 +40,27 @@ standard trasversale.
 - Verifiche proporzionate al rischio e dichiarate senza inventare risultati.
 - React Doctor solo per app React e solo nei casi previsti.
 - Codex inbox solo dove il volume di PR/commenti la giustifica.
+- Basename Markdown univoci: `README.md` solo in root, `docs/INDEX.md` come
+  indice documentale e `docs/DECISIONS.md` come indice decisionale.
+- Lifecycle decisionale completo: registro stabile, pending separato e ADR
+  puntuali.
+- Dependabot come standard pieno nelle repo con dipendenze o manifest
+  compatibili.
 
 ## Candidati da rivalutare
-
-- Basename Markdown univoci.
-- Registro decisionale separato dagli ADR puntuali.
-- Changelog frontend locale senza tag o GitHub Release.
-- Separazione tra nome prodotto, repository e URL runtime.
-- Dependabot con soglia esplicita di sostenibilità.
 
 ## Pattern da preservare ma non generalizzare
 
 - Sentinel come runtime schedulato GitHub Actions.
 - GLM con Cloudflare Pages e allegati gara gestiti come fonti specifiche.
-- FiscalBay con compatibilità Python `>=3.10` e VPS `3.13` come runtime
-  operativo controllato.
 - DocMolder con flusso Telegram-first, Release Please e runbook VPS.
+
+## Pattern respinti come stato stabile
+
+- FiscalBay con compatibilità Python `>=3.10`: da riallineare a Python `3.13`
+  come runtime unico dichiarato.
+- Changelog/versioning locale senza tag o GitHub Release: ammesso solo come
+  fase transitoria dove non esiste ancora release reale.
 
 ## Criterio di promozione
 

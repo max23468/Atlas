@@ -26,7 +26,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `docs/BACKLOG.md`: idee, debiti e attività non ancora promosse.
 - `docs/CONTEXT.md`: handoff e contesto operativo per riprendere il lavoro.
 - `docs/TOOLCHAIN.md`: tool, runtime e verifiche applicabili ad Atlas.
-- `docs/decisions/README.md`: indice delle decisioni stabili.
+- `docs/DECISIONS.md`: indice delle decisioni stabili.
 - `docs/decisions/template.md`: template ADR per nuove decisioni.
 
 ## Template e checklist
@@ -40,7 +40,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - `docs/BACKLOG.template.md`: backlog separato dalla roadmap.
 - `docs/TOOLCHAIN.template.md`: runtime, versioni, package manager, lockfile e tool esterni.
 - `docs/CONTEXT.template.md`: contesto operativo e handoff.
-- `docs/decisions/README.template.md`: indice decisioni.
+- `docs/DECISIONS.template.md`: indice decisioni.
 - `docs/decisions/template.md`: template ADR.
 
 ## Regole d'uso
@@ -49,7 +49,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 2. Non sovrascrivere documenti esistenti senza inventario dei contenuti.
 3. Censire funzioni, documenti, runbook, workflow e regole repo-specifiche già mature prima di applicare uno standard Atlas.
 4. Migrare, collegare o dichiarare superato ogni contenuto utile.
-5. Non creare documenti doppi con stesso titolo o stesso scopo.
+5. Non creare documenti doppi con stesso titolo, stesso scopo o stesso basename Markdown.
 6. Adattare comandi, release, deploy e verifiche alla repo reale.
 7. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release minor `X.Y.Z`.
 8. Non proporre sviluppo prodotto delle repo coordinate come prossimo passo Atlas senza repo target e scope espliciti.
@@ -61,4 +61,6 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - Git: repository locale inizializzata su branch `main`.
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
-- Prossimo passo: standard Atlas censiti e uniformazioni sicure pubblicate; riabilitare workflow sospesi solo quando tornano disponibili Actions o quando una policy repo lo richiede.
+- Prossimo passo: standard Atlas censiti e uniformazioni sicure pubblicate;
+  mantenere la sospensione globale GitHub Actions fino al `2026-06-01`
+  compreso e rivalutare dal `2026-06-02`.

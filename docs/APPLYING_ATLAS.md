@@ -79,6 +79,8 @@ Applicare solo ciò che migliora davvero la governance:
 
 - creare documenti canonici mancanti;
 - rinominare o collegare documenti solo se non rompe convenzioni locali;
+- separare decisioni stabili, decisioni pending e ADR puntuali con basename
+  Markdown univoci;
 - aggiungere PR template, issue template o PR title check se coerenti;
 - aggiungere Codex inbox solo se ci sono review/PR ricorrenti;
 - dichiarare versioning/release/deploy senza inventarli;
@@ -122,8 +124,23 @@ Seguire `docs/PUBLISH_DEPLOY_RELEASE.md` e la policy della repo:
 - `pubblica tutto`: publish più eventuale release/deploy solo dove davvero
   richiesti.
 
+Quando una repo ha versioning o release reale, non lasciare come stato stabile un
+solo changelog/versioning locale: la policy deve chiarire source of truth,
+formato tag, GitHub Release, changelog e rapporto con deploy/runtime.
+
 Quando serve pubblicare senza Actions, usare commit `[skip ci]` solo se la repo
 lo accetta e il diff è compatibile.
+
+La pubblicazione deve restare proporzionata al diff:
+
+- docs-only/governance-only: review documentale, `git diff --check`,
+  coerenza/link e publish Git secondo policy repo;
+- nessuno smoke test, deploy, release, App Store, VPS o gate runtime se il diff
+  non cambia runtime, prodotto, configurazione operativa o documenti di deploy;
+- branch/PR restano obbligatori dove la policy locale li richiede, ma non
+  giustificano controlli runtime non pertinenti;
+- le scorciatoie locali come `make publish-docs` non sono eccezioni isolate:
+  vanno ricondotte a questo principio comune.
 
 ## Fase 6 - Handoff Atlas
 

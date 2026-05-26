@@ -51,12 +51,13 @@ Verificare o creare, adattandoli alla repo:
 - `docs/BACKLOG.md`;
 - `docs/CONTEXT.md`;
 - `docs/TOOLCHAIN.md`;
+- `docs/DECISIONS.md`;
 - `docs/decisions/` o registro decisionale equivalente.
 
 Eccezioni ammesse:
 
 - non creare documenti doppi con stesso titolo o scopo;
-- rispettare regole locali come basename Markdown univoci;
+- non creare due file Markdown con lo stesso basename nella stessa repo;
 - mantenere registri storici maturi se sono la source of truth reale.
 
 ## GitHub
@@ -66,12 +67,13 @@ Eccezioni ammesse:
 - PR title check presente o equivalente nella policy locale.
 - Codex feedback inbox presente solo dove ci sono PR operative ricorrenti o
   review thread da gestire.
-- Dependabot presente solo dove ci sono dipendenze runtime reali e budget/rumore
-  sostenibili.
-- Workflow GitHub Actions compatibili con budget, policy e ruolo della repo.
+- Dependabot presente come standard pieno quando la repo ha dipendenze o
+  manifest compatibili.
+- Workflow GitHub Actions compatibili con policy e ruolo della repo.
 
-Se i minuti GitHub Actions sono esauriti, non attivare nuovi workflow schedulati
-e non usare Actions come gate.
+Fino al `2026-06-01` compreso, GitHub Actions sono sospese in tutte le repo
+coordinate: non attivare nuovi workflow schedulati e non usare Actions come
+gate.
 
 ## Versioning, release e deploy
 

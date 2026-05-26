@@ -51,5 +51,6 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 ## Eccezioni e guardrail
 
 - React Doctor non applicabile ad Atlas.
-- Codex feedback inbox non ancora configurata per Atlas; da valutare solo se iniziano PR o commenti operativi ricorrenti.
+- Codex feedback inbox da riallineare anche per Atlas, senza attivare workflow
+  GitHub Actions prima del `2026-06-02`.
 - Nessuna regola di Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM o Sentinel si applica automaticamente ad Atlas senza adattamento esplicito.
