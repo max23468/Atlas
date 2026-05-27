@@ -12,6 +12,44 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.
 - Usare `docs/NEXT_STEPS.md` quando viene chiesto "e ora?": proporre solo lavoro Atlas-first, non sviluppo prodotto delle repo coordinate.
 
+## Ordine hardening completo (priorità alta → bassa)
+
+1. **Pratix**: P0/P1 (bloccante) — `git` + Vercel + Supabase, `.env` tracciati e hardening minimi prima di nuove aperture.
+2. **FiscalBay**: P0/P1 — separazione runtime e credenziali ambientali, webhook/API hygiene, logging payload.
+3. **SyncBay**: P0/P1 — keyset separati, firma callback, policy OAuth/sessioni e rate limit.
+4. **DocMolder**: P0/P1 — VPS + Telegram con runbook deploy/rollback e idempotenza script.
+5. **TRAM**: P1 — confine documentazione pubblica/interiore, CI su regressioni operanti.
+6. **Sentinel**: P1 — env locali fuori repo, retention controllata, scheduler resilient.
+7. **SendChimp**: P1 — capienza provider, guardrail quota e governance provider.
+8. **GLM**: P1/P2 — hardening deploy target, review dipendenze, contenuti demo.
+9. **Atlas**: P1/P2 — governance, standard e audit docs-first.
+
+## Stato aggiornamento hardening 2026-05-27 (tracciamento operativo)
+
+- **Obiettivo ondata:** implementare i piani P0/P1/P2/operativo su tutte le repo coordinate, senza attività di rotazione preventiva.
+- **Metodo di verifica usato:** per ogni repo verificati:
+  - presenza documento operativo (`SECURITY.md` e/o `docs/SECURITY_HARDENING.md`);
+  - nessun file `.env` tracciato in git;
+  - assenza di terminologia di rotazione preventiva nei piani tecnici;
+  - stato branch coerente (`codex/hardening-operativo-2026-05-27`).
+
+### Risultato per repo (2026-05-27)
+
+- **Pratix**: `SECURITY.md` aggiornato con P0/P1/P2 espliciti + stop interventi funzionali finché P0/P1; nessuna rotazione preventiva; `docs/ROADMAP.md` aggiornata.
+- **DocMolder**: `docs/SECURITY_HARDENING.md` creato + aggiornato `docs/OPERATIONS_SECURITY.md` con sezione hardening-operativo e ritiro del riferimento a rotazioni periodiche.
+- **FiscalBay**: `docs/SECURITY_HARDENING.md` aggiornato; `docs/SECURITY_OPERATIONS.md` con sostituzione credenziali solo in incidente; nessuna rotazione programmata.
+- **GLM**: `docs/SECURITY_HARDENING.md` aggiornato con P0/P1/P2 e hardening deploy target esplicito.
+- **SyncBay**: `docs/SECURITY_HARDENING.md` aggiornato + `SECURITY.md` allineata su sostituzione credenziali in incidente (non rotazione periodica).
+- **TRAM**: `docs/SECURITY_HARDENING.md` aggiornato con focus su confine pubblico/interno e checklist trimestrale.
+- **Sentinel**: `docs/SECURITY_HARDENING.md` aggiornato con monitor runtime e guardrail su scheduler/retry/offline.
+- **SendChimp**: `docs/SECURITY_HARDENING.md` aggiornato con capacity check pre-estensione e controllo provider.
+- **Atlas**: `docs/SECURITY_HARDENING.md` aggiunto con governance docs-first + anti-deriva.
+
+### Prossimi passi Atlas (fine ondata)
+
+- Tracciare anche i risultati di verifica nei record operativi (`docs/HEALTH.md`, `docs/PROJECTS.md`) con data di check.
+- Prima di un nuovo ciclo funzionale su repo sensibili, verificare `P0/P1` non in stato bloccante.
+
 ## Prossimo
 
 - Mantenere `docs/STANDARDS.md` come fonte di verità per standard uniformati, equivalenti, sospesi e non applicabili.
