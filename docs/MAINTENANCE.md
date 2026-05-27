@@ -95,7 +95,7 @@ Esito aggiornato:
 - DocMolder: inbox Codex `#149`; commit docs-only `bf54615` pubblicato su
   `main`; branch locale residua rimossa; venv locale riparata; `Release Please`
   fallita su `bf54615` senza log disponibili; `Release Please` e `VPS Check`
-  disabilitati manualmente durante la finestra Actions.
+  sono stati verificati e sono disponibili nel monitoraggio post-riavvio.
 - FiscalBay: inbox Codex `#69`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
 - GLM: inbox Codex `#3`; branch remota residua `origin/work-codex-excel-sync`
@@ -106,12 +106,12 @@ Esito aggiornato:
   `origin/main`; nessuna PR, branch locale o branch remota extra; commit
   `dc5ba72` pubblicato; Vercel production `READY` e home `200 OK`; verifiche
   locali passate senza rilanciare Actions. Workflow `PR Title` e
-  `Codex PR comments` restano disabilitati manualmente durante la sospensione.
+  `Codex PR comments` risultano verificati attivi nel ripristino post-riavvio.
 - TRAM: inbox Codex `#2`; checkout `main` pulito; branch locale assorbita
   `codex/tram-fase-7-pilot-stabilizzazione` rimossa; `Repo Hygiene` fallita su
   `main` senza log disponibili; `npm run verify` passa localmente.
 - Sentinel: inbox Codex `#4`; `PR Title` fallita il `2026-05-26`; workflow
-  runtime `Sentinel` ancora disabilitato manualmente.
+  runtime `Sentinel` verificato attivo dopo il ripristino post-riavvio.
 - Il checkout locale di SyncBay è ora segnale canonico perché ricontrollato su
   richiesta esplicita; la branch locale feature non esiste più e il lavoro è su
   `main`.

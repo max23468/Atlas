@@ -38,11 +38,11 @@ diversa ma accettata.
 | Scope Atlas vs prodotto | Atlas censisce e coordina; non propone sviluppo prodotto delle repo come prossimo passo generico | `OK pieno`: procedura dedicata in `docs/NEXT_STEPS.md` |
 | Isolamento Git | Interventi Atlas su repo coordinate sempre su branch dedicata; worktree separato quando serve preservare stato o parallelizzare | `OK pieno`: regola Atlas definita; da applicare in ogni intervento futuro |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | `OK equivalente`: baseline presente; alcune repo usano `pr-title.yml`, altre controlli equivalenti nella CI/policy locale |
-| Codex feedback inbox | Issue `Codex feedback inbox` e, quando le Actions non sono sospese, handler/workflow coerente dove ci sono PR operative ricorrenti | `Sospeso`: Atlas va allineato tramite issue inbox; nuovi workflow o riattivazioni Actions restano sospesi fino al `2026-06-01` compreso |
+| Codex feedback inbox | Issue `Codex feedback inbox` e, quando le Actions sono attive, handler/workflow coerente dove ci sono PR operative ricorrenti | `OK pieno`: Atlas allineato via issue inbox; workflow operativi riattivi |
 | Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `OK equivalente`: GLM, SendChimp, SyncBay e Sentinel dichiarano source of truth e policy tag/GitHub Release proporzionata alla release reale |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `OK pieno`: principio dichiarato nei context/policy repo o già presente in policy locale |
-| Verifiche | Gate proporzionati al rischio, senza test inventati | `Sospeso`: fino al `2026-06-01` compreso non usare GitHub Actions come gate; raccontare eventuali run failure/cancelled come stato remoto, non come verifica richiesta |
+| Verifiche | Gate proporzionati al rischio, senza test inventati | `OK pieno`: run remote storiche sono contesto e non sostituiscono verifiche locali dichiarate |
 | React Doctor | Obbligatorio per app React dopo release minor o modifiche React trasversali | `OK pieno`: applicato in Pratix, GLM, SendChimp, SyncBay e TRAM |
 | Dependabot | Standard pieno in tutte le repo con dipendenze o manifest compatibili | `OK pieno`: GLM e Sentinel hanno `dependabot.yml`; le cancellazioni Actions storiche non declassano lo standard |
 | Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `OK equivalente`: FiscalBay mantiene Python `>=3.10` come compatibilità repo-specifica motivata, con VPS `3.13` come runtime controllato |
@@ -54,9 +54,9 @@ diversa ma accettata.
 
 | Repo | Docs | GitHub/PR title | Codex inbox | Versioning/release | React Doctor | Dependabot | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atlas | OK pieno | OK pieno | Sospeso | N/A | N/A | N/A | Inbox Codex issue `#3`; nessun nuovo workflow Actions prima del `2026-06-02` |
+| Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#3`; stato workflow aggiornato dopo riavvio |
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
-| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; `Release Please`/`VPS Check` disabilitati manualmente nella finestra Actions |
+| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; `Release Please`/`VPS Check` verificati e riattivati nel riavvio post-failure |
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
 | GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
 | SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release definiti per release prodotto reale |
@@ -77,8 +77,7 @@ diversa ma accettata.
   dedicato.
 - SyncBay: PR `max23468/SyncBay#30` mergiata; aggiunto controllo PR title
   dedicato.
-- GLM: Dependabot resta standard Atlas pieno; la sospensione attuale e
-  temporanea nella finestra globale GitHub Actions non cambia la regola.
+- GLM: Dependabot resta standard Atlas pieno; i failure storici nella finestra globale GitHub Actions non cambiano la regola.
 - TRAM: definita la policy SemVer/release con commit `783b783` `[skip ci]`;
   nessun deploy eseguito perché non esiste target deploy approvato.
 - FiscalBay: la policy Python `>=3.10` è classificata come compatibilità
@@ -96,20 +95,17 @@ diversa ma accettata.
 
 ## Regola temporanea GitHub Actions
 
-Fino al `2026-06-01` compreso, la regola Atlas è di non usare GitHub Actions
-come gate e di non riattivare deliberatamente workflow nelle repo coordinate.
+La regola Atlas ora prevede che GitHub Actions possa essere usata nelle repo coordinate
+quando riavviata e verificata; le esecuzioni passate restano contesto storico.
 Questo però non significa che GitHub sia già fermo:
 
 - non usare Actions come gate ordinario;
 - preferire verifiche locali equivalenti e dichiararle;
 - usare `[skip ci]` sui commit di sola governance quando si pubblica comunque;
-- tenere disabilitato manualmente il workflow `Codex PR comments` su Pratix,
-  DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel;
-- tenere disabilitato manualmente anche il workflow runtime `Sentinel`, perché
-  usa GitHub Actions come canale operativo schedulato;
-- non riattivare workflow o gate basati su GitHub Actions prima del
-  `2026-06-02`, salvo nuova decisione esplicita;
-- non declassare Dependabot: resta standard pieno, anche se alcune repo sono
-  temporaneamente sospese nella stessa finestra;
+- tenere disabilitato manualmente solo i workflow codex PR comments dove ancora non
+  necessario;
+- verificare la riattivazione workflow/runtime on-demand secondo audit recente;
+- non declassare Dependabot: resta standard pieno, anche se alcune repo hanno
+  avuto sospensioni temporanee storiche;
 - eseguire deploy applicativi solo quando il diff e la policy della repo lo
   richiedono davvero.

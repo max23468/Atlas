@@ -111,8 +111,6 @@ La verifica dipende dallo scope:
 - deploy: solo con target e runbook repo-specifici;
 - sicurezza: controllo segreti, dump, export e file sensibili.
 
-Se GitHub Actions è senza budget, non usarle come gate e non creare workflow
-schedulati nuovi.
 
 ## Fase 5 - Pubblicazione
 
@@ -128,8 +126,8 @@ Quando una repo ha versioning o release reale, non lasciare come stato stabile u
 solo changelog/versioning locale: la policy deve chiarire source of truth,
 formato tag, GitHub Release, changelog e rapporto con deploy/runtime.
 
-Quando serve pubblicare senza Actions, usare commit `[skip ci]` solo se la repo
-lo accetta e il diff è compatibile.
+Quando la policy repo prevede una pubblicazione documentale rapida, usare commit
+`[skip ci]` solo se la repo lo accetta e il diff è compatibile.
 
 La pubblicazione deve restare proporzionata al diff:
 

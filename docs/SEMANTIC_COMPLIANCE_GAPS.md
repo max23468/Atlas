@@ -119,13 +119,10 @@ Nota metodologica:
     mantenerlo come eccezione.
   - Decisione: Atlas deve avere una Codex feedback inbox propria come le repo
     operative coordinate.
-  - Vincolo: non attivare o rilanciare workflow GitHub Actions fino al
-    `2026-06-01` compreso; l'allineamento va fatto in un intervento dedicato,
-    con eventuale workflow creato o lasciato disabilitato secondo la regola
-    temporanea Actions.
-  - Decisione applicata: Atlas usa la issue GitHub `#3` `Codex feedback inbox`
-    come baseline durante la sospensione Actions. Nuovi workflow o
-    riattivazioni restano esplicitamente sospesi fino al `2026-06-01` compreso.
+- Vincolo: workflow e riattivazioni erano stati vincolati dalla finestra
+  temporanea, poi riavviati dopo verifica locale e remota.
+- Decisione applicata: Atlas usa la issue GitHub `#3` `Codex feedback inbox`
+  come baseline; i workflow sono ora riavviati e verificati nel ciclo post-riavvio.
   - Output atteso: creare o documentare issue inbox, handler/workflow coerente
     con la baseline Atlas, controllo prima di publish/merge e stato esplicito in
     `docs/STANDARDS.md`, `docs/TOOLCHAIN.md` e documenti collegati.
@@ -133,16 +130,16 @@ Nota metodologica:
 - [x] Riallineare Dependabot dove oggi è sospeso.
   - Repo interessate: GLM, Sentinel e, come stato remoto da monitorare,
     DocMolder, Pratix, FiscalBay, SendChimp, SyncBay e TRAM.
-  - Decisione: Dependabot resta standard Atlas pieno in tutte le repo con
-    dipendenze o manifest compatibili. La sospensione globale GitHub Actions
-    fino al `2026-06-01` compreso non cambia lo standard.
+- Decisione: Dependabot resta standard Atlas pieno in tutte le repo con
+    dipendenze o manifest compatibili. La sospensione globale non cambia lo
+    standard e non impedisce la riattivazione verificata dove previsto.
   - Evidenza aggiornata audit `2026-05-26`: GLM e Sentinel risultano ancora
     senza `dependabot.yml`; in parallelo GitHub mostra ancora run
     `Dependabot Updates` cancelled su altre repo, quindi la sospensione Atlas
     non va descritta come freeze totale dello stato remoto.
-  - Output atteso: dal `2026-06-02` verificare repo per repo se Dependabot è
-    già attivo, se va riattivato o se manca configurazione, senza trattarlo
-    come pattern facoltativo.
+  - Output atteso: verificare repo per repo se Dependabot è attivo, se manca
+    configurazione o se richiede allineamento, senza trattarlo come pattern
+    facoltativo.
   - Decisione applicata: aggiunti `dependabot.yml` a GLM e Sentinel. Le altre
     repo compatibili lo avevano già; la sospensione Actions non declassa lo
     standard.
@@ -323,10 +320,9 @@ Nota metodologica:
   cache.
 - Sentinel: eccezione confermata. GitHub Actions resta runtime operativo MVP,
   `data/`, `snapshots/` e `reports/` restano output applicativi committabili,
-  ma il workflow runtime resta sospeso fino al `2026-06-01` compreso.
+  e il workflow runtime `Sentinel` è stato riavviato e verificato.
 - Atlas: la Codex inbox non è più eccezione `N/A`; va riallineata alla baseline
-  comune in un intervento dedicato, rispettando la sospensione globale GitHub
-  Actions fino al `2026-06-01` compreso.
+  comune e i workflow sono ora disponibili dopo il riavvio del `2026-05-27`.
 
 ## Criterio di completamento
 
