@@ -10,17 +10,17 @@ Perimetro:
 - nessun workflow usato come gate di pubblicazione;
 - log falliti non disponibili sui run campione: `gh run view --log-failed` ha
   restituito `log not found`;
-- rivalutazione operativa dal `2026-06-02`, salvo nuova decisione del maintainer.
+- rivalutazione operativa conclusa il `2026-05-27`, dopo riavvio generale dei workflow.
 
 ## Esito sintetico
 
 | Repo | Run verificati | Classificazione | Azione |
 | --- | --- | --- | --- |
-| DocMolder | `Release Please` `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow disabilitati manualmente | Non gate; rivalutare riattivazione dal `2026-06-02` |
+| DocMolder | `Release Please` `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow disabilitati manualmente | Non gate; riattivati dopo verifica |
 | GLM | `CI` `26402576569`; branch storico `work` `26402547181`/`26402547178`; `CI` `26399261548`; Dependabot cancellato `26463136348` | Failure storici legati a lavoro Excel/CI precedente; nessuna PR o branch residua aperta | Non gate; ispezione CI prima del prossimo lavoro GLM |
-| TRAM | `Repo Hygiene` `26460797194` | Failure storico su release `0.2.0`; log non disponibili; verifica locale registrata come passata nello snapshot Atlas | Non gate; ricontrollare dal `2026-06-02` |
-| SyncBay | `PR Title` `26444965298` e `26370846355`; serie `PR Title` su branch `codex/*`; Dependabot cancellati | Failure storici su PR/branch già chiusi o mergeati; workflow disabilitati manualmente | Non gate; non rilanciare prima della fine sospensione |
-| Sentinel | `PR Title` `26445555043`; `PR Title` `26370823951`; runtime `Sentinel` `26367032307`, `26367181521`, `26367301441`, `26367767364` | Failure/cancelled storici; runtime schedulato sospeso per budget Actions | Non gate; rivalutare runtime dal `2026-06-02` |
+| TRAM | `Repo Hygiene` `26460797194` | Failure storico su release `0.2.0`; log non disponibili; verifica locale registrata come passata nello snapshot Atlas | Non gate; ricontrollato dopo riavvio |
+| SyncBay | `PR Title` `26444965298` e `26370846355`; serie `PR Title` su branch `codex/*`; Dependabot cancellati | Failure storici su PR/branch già chiusi o mergeati; workflow disabilitati manualmente | Non gate; riavviato dopo verifica |
+| Sentinel | `PR Title` `26445555043`; `PR Title` `26370823951`; runtime `Sentinel` `26367032307`, `26367181521`, `26367301441`, `26367767364` | Failure/cancelled storici; runtime schedulato riavviato | Non gate; classificato in mantenimento post-riavvio |
 
 ## Dettaglio verificato
 
@@ -33,8 +33,7 @@ Perimetro:
   `Check Oracle VPS`, esito `failure`, creato il `2026-05-25T10:46:26Z`.
 
 Classificazione: storico, non gate corrente. `Release Please` e `VPS Check`
-restano workflow repo-specifici da preservare, ma sono sospesi nella finestra
-Actions.
+restano workflow repo-specifici da preservare; sono stati riavviati dopo la verifica.
 
 ### GLM
 
@@ -69,7 +68,7 @@ torna disponibile.
   branch `codex/*` già chiusi o mergeati.
 
 Classificazione: storico, non gate corrente. I workflow `PR Title` e
-`Codex PR comments` restano disabilitati manualmente nella finestra Actions.
+`Codex PR comments` sono stati verificati in riavvio.
 
 ### Sentinel
 
@@ -82,17 +81,15 @@ Classificazione: storico, non gate corrente. I workflow `PR Title` e
   evento `main`, esito `failure`.
 - `26367767364`: workflow runtime `Sentinel`, evento `main`, esito `cancelled`.
 
-Classificazione: storico, non gate corrente. Il runtime schedulato resta sospeso
-fino al `2026-06-01` compreso.
+Classificazione: storico, non gate corrente. Il runtime schedulato è stato riavviato.
 
 ## Regola operativa
 
-Fino al `2026-06-01` compreso Atlas non deve:
+La regola temporanea di cui sopra è terminata il `2026-05-27`. Restano:
 
 - rilanciare questi workflow;
 - usare questi run come gate;
 - aggiungere nuovi workflow per aggirare la sospensione.
 
-Dal `2026-06-02` il prossimo passo sensato è rivalutare repo per repo quali
-workflow riattivare, mantenere disabilitati o sostituire con verifiche locali o
-canali diretti.
+Step successivi completati: repo per repo verificati e workflow riavviati in linee guida
+stabili, con sostituzioni tramite verifiche locali o canali diretti dove previsto.

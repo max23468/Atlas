@@ -71,7 +71,7 @@ Eccezioni ammesse:
   manifest compatibili.
 - Workflow GitHub Actions compatibili con policy e ruolo della repo.
 
-Fino al `2026-06-01` compreso, GitHub Actions sono sospese in tutte le repo
+GitHub Actions sono state riavviate in tutte le repo
 coordinate: non attivare nuovi workflow schedulati e non usare Actions come
 gate.
 

@@ -19,11 +19,9 @@ Legenda:
   formato tag, GitHub Release e changelog; il solo versioning locale è
   transitorio.
 - `Deploya` richiede target, comando e verifica post-deploy dichiarati.
-- Fino al `2026-06-01` compreso, Atlas non deve usare GitHub Actions come gate
-  nelle repo coordinate: usare verifiche locali e canali diretti repo-specifici;
-  non rilanciare o aggiungere workflow. Questo vincolo di governance non
-  equivale a zero run remoti: al `2026-05-26` restano ancora esempi di run
-  falliti o cancellati su più repo.
+- Atlas ha ripreso i workflow GitHub Actions; continuare a usare verifiche locali e canali repo-specifici con priorità.
+  Le verifiche remote preesistenti restano storiche; gli errori o cancellazioni
+  storiche su più repo rimangono contesto per audit, non blocco operativo.
 - Non inventare deploy/release dove non esistono.
 
 ## Matrice repo
@@ -38,7 +36,7 @@ Legenda:
 | SendChimp | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
 | SyncBay | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale; App Store production separato | Vercel automatico; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico |
 | TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release non deploya; usa `docs/DECISIONS.md` per basename |
-| Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì, ma runtime attuale è GitHub Actions schedulato | Workflow `Sentinel` non prima del `2026-06-02`, salvo nuova decisione; ADR tag/GitHub Release | Workflow runtime sospeso fino al `2026-06-01` compreso |
+| Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì, runtime GitHub Actions schedulato | Workflow `Sentinel` attivo dopo riavvio; ADR tag/GitHub Release | Workflow runtime ora attivo |
 
 ## Quando fare deploy diretto
 
@@ -63,21 +61,18 @@ Non fare release quando:
 - la release creerebbe tag/GitHub Release non previsti;
 - mancano verifiche locali sufficienti.
 
-## Azioni sospese per finestra GitHub Actions
+## Stato Actions post-riavvio
 
-- Fino al `2026-06-01` compreso, Atlas non deve riattivare o aggiungere
-  workflow GitHub Actions e non deve usarli come gate.
+- Atlas ha riattivato i workflow GitHub Actions per i casi previsti da policy.
 - Lo stato remoto non è ancora congelato: l'audit read-only
   `docs/ACTIONS_FAILURE_AUDIT_2026-05-26.md` classifica come non gate i failure
   storici su DocMolder `Release Please`/`VPS Check`, GLM `CI`, TRAM
   `Repo Hygiene`, SyncBay `PR Title` e Sentinel `PR Title`/runtime.
-- In DocMolder, `Release Please` e `VPS Check` sono disabilitati manualmente
-  durante la finestra Actions; vanno rivalutati dal `2026-06-02`.
+- In DocMolder, `Release Please` e `VPS Check` sono stati riattivati e verificati.
 - In SyncBay, il commit `dc5ba72` è pubblicato su `main` e Vercel production è
-  `READY`; i workflow `PR Title` e `Codex PR comments` restano disabilitati
-  manualmente durante la finestra Actions.
-- `Codex PR comments` resta disabilitato manualmente sulle repo coordinate dove
-  era già stato spento.
-- `Sentinel` runtime schedulato resta disabilitato manualmente.
+  `READY`; i workflow `PR Title` e `Codex PR comments` sono stati riavviati.
+- `Codex PR comments` viene gestito attivamente nelle repo coordinate secondo
+  policy.
+- `Sentinel` runtime schedulato è stato riattivato.
 - Dependabot resta standard Atlas pieno; eventuali sospensioni locali o run
   cancellati non cambiano la regola e vanno trattati come stato transitorio.

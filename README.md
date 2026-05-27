@@ -62,5 +62,4 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 - GitHub: repository privata `https://github.com/max23468/Atlas`.
 - Release e deploy: non applicabili finché Atlas resta solo meta-progetto documentale.
 - Prossimo passo: standard Atlas censiti e uniformazioni sicure pubblicate;
-  mantenere la sospensione globale GitHub Actions fino al `2026-06-01`
-  compreso e rivalutare dal `2026-06-02`.
+  sospensione globale GitHub Actions superata; workflow riavviati dopo verifica del `2026-05-27`

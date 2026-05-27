@@ -11,14 +11,14 @@ Una voce nel backlog non è scope approvato.
 
 ## Backlog tecnico
 
-- Dal `2026-06-02` valutare se affiancare alla issue `Codex feedback inbox`
+- Valutare se affiancare alla issue `Codex feedback inbox`
   `#3` un handler/workflow Atlas, se serve davvero e se le Actions non sono più
   sospese.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
-- Rivalutare dal `2026-06-02` la riattivazione dei workflow `Codex PR comments`
+- Riattivazione workflow `Codex PR comments` verificata post-riavvio.
   su Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel.
-- Rivalutare dal `2026-06-02` la riattivazione del workflow runtime
+- Riattivazione del workflow runtime verificata post-riavvio.
   `Sentinel` o la scelta di un runtime alternativo.
 - Riallineare Dependabot nelle repo dove oggi è sospeso, senza trattarlo come
   standard facoltativo.
