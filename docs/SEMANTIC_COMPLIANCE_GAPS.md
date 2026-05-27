@@ -260,7 +260,7 @@ Nota metodologica:
   - Repo interessata: GLM.
   - Verdetto: nessuna discrepanza reale.
   - Evidenza: GLM dichiara esplicitamente nome prodotto visibile `Simulatore
-    gara TPL lotti 1-4`, repository `Gare-Lotti-Milanesi`, progetto/slug deploy
+    gara TPL lotti 1-4`, repository `GLM` (GitHub), progetto/slug deploy
     `gare-lotti-milanesi` e URL pubblico
     `https://gare-lotti-milanesi.pages.dev`.
   - Decisione confermata: non aprire un riallineamento su questo punto; la
