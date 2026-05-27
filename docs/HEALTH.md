@@ -1,6 +1,6 @@
 # Matrice health Atlas
 
-Data ultimo aggiornamento: 2026-05-26
+Data ultimo aggiornamento: 2026-05-27
 
 Questa matrice è lo snapshot operativo dei progetti coordinati da Atlas. Serve a
 decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
@@ -23,8 +23,8 @@ health `Attenzione` o `Bloccato` solo quando creano un rischio operativo reale.
 
 | Stato | Progetti | Motivo |
 | --- | --- | --- |
-| Verde | Atlas, Pratix, FiscalBay, GLM, SendChimp | Nessun blocco operativo immediato nello snapshot aggiornato del `2026-05-26` |
-| Attenzione | DocMolder, SyncBay, TRAM, Sentinel | Esistono workflow recenti non verdi, workflow sospesi, vincoli runtime o decisioni production da ricontrollare prima del prossimo lavoro |
+| Verde | Atlas, FiscalBay, GLM, SendChimp | Nessun blocco operativo immediato nello snapshot aggiornato del `2026-05-27` |
+| Attenzione | Pratix, DocMolder, SyncBay, TRAM, Sentinel | Pratix in hardening tecnico-operativo; esistono workflow recenti non verdi, workflow sospesi, vincoli runtime o decisioni production da ricontrollare |
 | Bloccato | Nessuno | Nessun blocco trasversale aperto dopo il consolidamento Sentinel |
 
 Nota:
@@ -40,7 +40,7 @@ per release prodotto reali.
 | Progetto | Health | Ultimo segnale verificato | Rischio operativo da tenere in vista | Prossimo controllo sensato |
 | --- | --- | --- | --- | --- |
 | Atlas | Verde | Nessuna PR aperta; repo docs-first senza runtime; audit completo Atlas eseguito il `2026-05-26` | Nessun rischio runtime; tenere allineato lo snapshot documentale allo stato GitHub reale | Aggiornare `docs/HEALTH.md` quando cambia stato di una repo o di un workflow trasversale |
-| Pratix | Verde | PR `#159` mergiata su `main`; Vercel production `READY` con commit `59fbb05`; `/` e `/novita` rispondono `200`; nessuna release SemVer richiesta dal dry-run (`Non versionato`) | Repo già matura: non appesantire processi o UI; React Doctor dopo release minor | Solo audit read-only o aggiornamento stato salvo scope Pratix esplicito |
+| Pratix | Attenzione | PR `#159` mergiata su `main`; Vercel production `READY` con commit `59fbb05`; `/` e `/novita` rispondono `200`; nessuna release SemVer richiesta dal dry-run (`Non versionato`) | Hardening rischio tecnico in corso: `.env` tracciati, segreti espliciti in file o policy integrazione | Completare checklist Pratix-hardening e aggiornare stato prima di aprire nuovi interventi funzionali |
 | DocMolder | Attenzione | PR `#168` mergiata su `main` con commit `c3aeb05`; inbox Codex `#149` senza commenti aperti; branch remota rimossa; run `Dependency Graph` cancellata durante la sospensione Actions | `Release Please` e `VPS Check` sono riavviati e preservati con runbook locale | Verificato il riavvio il `2026-05-27`; ricontrollare i run remoti |
 | FiscalBay | Verde | PR `#80` mergiata su `main` con commit `d67c912`; inbox Codex `#69` senza thread actionable; branch remota rimossa; run `Dependency Graph` cancellata durante la finestra Actions | Non rompere supporto `>=3.10` senza decisione repo-specifica; deploy VPS resta repo-specifico | Solo audit read-only; upgrade Python o deploy VPS solo con scope FiscalBay esplicito |
 | GLM | Verde | PR `#12` mergiata su `main`; deploy Cloudflare Pages produzione completato sul commit `0ad6a6a`; home e `/api/version` rispondono `200`; nessuna release SemVer richiesta dal dry-run | Non usare Vercel/Supabase; non toccare allegati gara o Git LFS senza scope esplicito | Audit read-only; ricontrollare i failure Actions storici dopo riavvio |
