@@ -14,6 +14,10 @@ Legenda:
 ## Regole comuni
 
 - `Pubblica` non significa automaticamente deploy o release.
+  Nel significato operativo richiesto, `pubblica` include comunque: portare il
+  lavoro nel canale canonico (tipicamente PR/merge su `main` o workflow equivalente),
+  verificare i check previsti e chiudere il checkout quando l'assorbimento è
+  completo (branch/worktree locali e remoti non più necessari).
 - `Rilascia` richiede una policy versioning/release della repo.
 - Dove esiste una release reale, la policy deve chiarire source of truth,
   formato tag, GitHub Release e changelog; il solo versioning locale è
@@ -35,7 +39,7 @@ Legenda:
 | GLM | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; non retro-taggare lo storico |
 | SendChimp | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
 | SyncBay | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale; App Store production separato | Vercel automatico; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico |
-| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release non deploya; usa `docs/DECISIONS.md` per basename |
+| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Il lavoro viene considerato pubblicato solo a PR/merge completato (o commit doc-only previsto dalla policy); pulizia branch/worktree locali e remoti inclusa |
 | Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì, runtime GitHub Actions schedulato | Workflow `Sentinel` attivo dopo riavvio; ADR tag/GitHub Release | Workflow runtime ora attivo |
 
 ## Quando fare deploy diretto

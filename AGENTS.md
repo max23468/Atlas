@@ -164,14 +164,14 @@ Se Atlas viene inizializzato come repo GitHub con release proprie, creare prima 
 
 Semantica comune:
 
-- `pubblica`: porta il lavoro nel canale canonico previsto;
+- `pubblica`: porta il lavoro nel canale canonico previsto con PR/merge concluso su `main` (quando previsto dal flusso della repo) e pulizia esplicita del checkout (branch/worktree locali e remoti) al termine.
 - `rilascia`: chiude o crea una versione secondo policy;
 - `deploya`: aggiorna runtime o ambiente operativo dichiarato;
 - `pubblica tutto`: publish, eventuale release, eventuale deploy, verifica e cleanup.
 
 Target Atlas:
 
-- publish: push/PR verso `https://github.com/max23468/Atlas`;
+- publish: push/PR e merge verso `https://github.com/max23468/Atlas`;
 - release: non applicabile;
 - deploy: non applicabile.
 
