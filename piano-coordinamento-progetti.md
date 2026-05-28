@@ -404,7 +404,7 @@ Adattatori repo-specifici:
 | Repo | `pubblica` | `rilascia` | `deploya` |
 | --- | --- | --- | --- |
 | Pratix | PR/merge GitHub verso main | `npm run release` secondo policy | Vercel production quando previsto |
-| DocMolder | PR/merge GitHub | Release Please/GitHub Release quando rilasciabile | VPS/runbook quando previsto |
+| DocMolder | PR/merge GitHub | policy release manuale repo-specifica | VPS/runbook quando previsto |
 | FiscalBay | PR/merge GitHub o flusso repo | `scripts/release_now.sh` quando previsto | `scripts/deploy_now.sh`/VPS quando previsto |
 | GLM | PR/merge GitHub | `npm run release` quando previsto | Cloudflare Pages solo su richiesta/target dichiarato |
 | SendChimp | PR/merge GitHub | release locale se prevista | Vercel solo quando previsto e protetto da Neon Auth; nessun invio automatico |
@@ -730,8 +730,8 @@ La baseline di avvio deve chiarire subito:
 | Repo | Fase attuale | Documentazione | Versioning | Pubblicazione/deploy | GitHub | Verifiche | Priorità allineamento |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Pratix | Produzione SaaS, seconda ondata completata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain; memoria operativa preservata | SemVer locale con `npm run release`, `src/lib/version.ts`; release patch `1.11.15` pubblicata | GitHub + Vercel production; PR `max23468/Pratix#156` mergiata e `publish:finish` passato | Inbox Codex, Quality, Dependabot, template | Prepush guard completo, test mirato e smoke production `/` + `/novita`; React Doctor dopo release minor | Completata: prossimo solo debito reale |
-| DocMolder | Produzione operativa Telegram/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; documenti governanti preservati | Release Please primario | PR `max23468/DocMolder#166` mergiata; release/deploy non eseguiti perché docs-only | GitHub molto completo, manutenzione, VPS workflows | preflight publish, hygiene, CI GitHub docs-only | Completata: prossimo solo debito reale |
-| FiscalBay | Operativo Telegram/eBay/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; release/operations preservati | `scripts/release_now.sh`, no Release Please | PR `max23468/FiscalBay#78` mergiata; fix deploy pubblicato; release/deploy non eseguiti | Workflow allowlist, inbox Codex, PR title | `ci_verify`, workflow allowlist, shell syntax e GitHub checks | Completata: resta upgrade Python misto da decidere separatamente |
+| DocMolder | Produzione operativa Telegram/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; documenti governanti preservati | Policy manuale repo-specifica | PR `max23468/DocMolder#166` mergiata; release/deploy non eseguiti perché docs-only | GitHub molto completo, manutenzione, VPS workflows | preflight publish, hygiene, CI GitHub docs-only | Completata: prossimo solo debito reale |
+| FiscalBay | Operativo Telegram/eBay/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; release/operations preservati | `scripts/release_now.sh`, workflow di rilascio manuale locale | PR `max23468/FiscalBay#78` mergiata; fix deploy pubblicato; release/deploy non eseguiti | Workflow allowlist, inbox Codex, PR title | `ci_verify`, workflow allowlist, shell syntax e GitHub checks | Completata: resta upgrade Python misto da decidere separatamente |
 | GLM | Web app Cloudflare Pages | Allineata ad Atlas con documenti canonici | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, PR template, issue template, PR title | Test, build, smoke, deploy doctor | Completata prima passata: resta scelta debito reale |
 | SendChimp | Runtime Next.js iniziale / MVP manuale con primo allineamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog e toolchain; `docs/context.md` resta handoff | SemVer locale previsto; release runtime da governare prima di uso produttivo | Pubblicazione GitHub e Vercel automatico completati; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title; PR `max23468/SendChimp#20` mergiata | `npm run verify`, `git diff --check`, `npm run release:dry-run`; React Doctor dopo release minor applicabile | Scegliere prossimo debito reale: import campagna Mailchimp, UI anteprima/copia o hardening multi-tenant/Auth |
 | SyncBay | Scaffold runtime / MVP Shopify con primo allineamento Atlas completato e release locale 0.6.0 pubblicata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain | `npm run release`, `app/lib/version.ts`; `APP_VERSION=0.6.0` | Pubblicazione GitHub e Vercel automatico completati; no tag/GitHub Release/App Store production | Inbox, template, Dependabot; CI minima; PR `max23468/SyncBay#27`, `#28` e `#29` mergiate | typecheck, lint, build, smoke UI, Prisma validate, audit, React Doctor 100/100 | Scegliere prossimo debito reale: keyset/OAuth eBay o import listing live |
@@ -1052,7 +1052,7 @@ Ogni nuova repo deve dichiarare subito una di queste condizioni:
 - versione locale senza release pubblica;
 - changelog manuale;
 - SemVer locale;
-- Release Please o altra automazione;
+- automazione di release documentata manuale o tool-specifica;
 - release GitHub;
 - deploy senza release;
 - deploy più release.
@@ -1194,7 +1194,7 @@ I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiara
 | Repo | Vincolo | Motivo | Cosa non fare |
 | --- | --- | --- | --- |
 | Pratix | SaaS Vercel/Supabase con UI italiana e glossary rigoroso | Prodotto gestionale leggero per avvocati freelance | non spostare verso VPS, Telegram o Cloudflare |
-| DocMolder | Telegram-first con Release Please e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o processo release manuale |
+| DocMolder | Telegram-first con release manuale e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o processo release manuale |
 | FiscalBay | Dati fiscali solo se presenti nelle API eBay; runtime VPS documentato a Python `3.13`, manifest/CI ancora Python `3.10` | Rischio di dedurre informazioni non disponibili o rompere compatibilità runtime/tooling | non inventare tax data, non usare feature `>3.10` finché manifest/CI non sono aggiornati, non introdurre workflow GitHub Actions non previsto |
 | GLM | Cloudflare Pages e dati gara allegati | Simulatore web legato a gara/documenti specifici | non usare Vercel/Supabase come default |
 | SendChimp | Runtime Next.js/Vercel/Neon per MVP manuale | Perimetro operativo ancora manuale e vincolo free-tier | non introdurre invii reali, non usare Supabase nel primo scaffold, non creare risorse a pagamento |
@@ -1228,8 +1228,7 @@ Standard specifico:
 
 - Telegram-first;
 - VPS;
-- Release Please;
-- Release PR;
+- release manuale repo-specifica;
 - webhook privato GitHub -> VPS;
 - documenti utente trattati come sensibili;
 - branch/worktree separati quando ci sono filoni paralleli.
@@ -1421,7 +1420,7 @@ Priorità:
 Priorità:
 
 1. Pratix: completata con PR `max23468/Pratix#156`; prossimo solo debito reale, senza appesantire.
-2. DocMolder: completata con PR `max23468/DocMolder#166`; mantenere flusso Release Please/VPS.
+2. DocMolder: completata con PR `max23468/DocMolder#166`; mantenere flusso manuale/VPS.
 3. FiscalBay: completata con PR `max23468/FiscalBay#78`; mantenere deploy locale/VPS e decidere upgrade Python solo con policy allineata.
 
 ### Fase 4 - Qualità e manutenzione

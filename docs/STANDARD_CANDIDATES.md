@@ -53,7 +53,7 @@ standard trasversale.
 
 - Sentinel come runtime schedulato GitHub Actions.
 - GLM con Cloudflare Pages e allegati gara gestiti come fonti specifiche.
-- DocMolder con flusso Telegram-first, Release Please e runbook VPS.
+- DocMolder con flusso Telegram-first, release manuale e runbook VPS.
 - FiscalBay con compatibilità Python `>=3.10` e VPS `3.13` come runtime
   operativo controllato.
 
