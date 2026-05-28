@@ -13,11 +13,12 @@ Legenda:
 
 ## Regole comuni
 
-- `Pubblica` non significa automaticamente deploy o release.
+- `Pubblica` include la chiusura completa prevista dal flusso corrente e non va interpretata come mero push/PR.
   Nel significato operativo richiesto, `pubblica` include comunque: portare il
   lavoro nel canale canonico (tipicamente PR/merge su `main` o workflow equivalente),
   verificare i check previsti e chiudere il checkout quando l'assorbimento è
-  completo (branch/worktree locali e remoti non più necessari).
+  completo (branch/worktree locali e remoti non più necessari), includendo release,
+  deploy o attivazioni solo se previste dal contesto o richieste esplicitamente.
 - `Rilascia` richiede una policy versioning/release della repo.
 - Dove esiste una release reale, la policy deve chiarire source of truth,
   formato tag, GitHub Release e changelog; il solo versioning locale è
