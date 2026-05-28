@@ -35,7 +35,7 @@ Legenda:
 | --- | --- | --- | --- | --- | --- |
 | Atlas | Push/PR su GitHub privata | N/A | N/A | `git push origin main` o PR se non banale | Docs-first; nessun runtime |
 | Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor secondo guide repo | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
-| DocMolder | PR/merge GitHub | Sì, Release Please/policy repo | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
+| DocMolder | PR/merge GitHub | Sì, policy release manuale repo-specifica | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
 | FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
 | GLM | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; non retro-taggare lo storico |
 | SendChimp | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
@@ -71,9 +71,10 @@ Non fare release quando:
 - Atlas ha riattivato i workflow GitHub Actions per i casi previsti da policy.
 - Lo stato remoto non è ancora congelato: l'audit read-only
   `docs/ACTIONS_FAILURE_AUDIT_2026-05-26.md` classifica come non gate i failure
-  storici su DocMolder `Release Please`/`VPS Check`, GLM `CI`, TRAM
+  storici su DocMolder `VPS Check`/workflow legacy, GLM `CI`, TRAM
   `Repo Hygiene`, SyncBay `PR Title` e Sentinel `PR Title`/runtime.
-- In DocMolder, `Release Please` e `VPS Check` sono stati riattivati e verificati.
+- In DocMolder, il workflow di rilascio precedente è terminato e il flusso
+  corrente segue la policy manuale indicata nei documenti release della repo.
 - In SyncBay, il commit `dc5ba72` è pubblicato su `main` e Vercel production è
   `READY`; i workflow `PR Title` e `Codex PR comments` sono stati riavviati.
 - `Codex PR comments` viene gestito attivamente nelle repo coordinate secondo

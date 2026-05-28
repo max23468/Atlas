@@ -72,7 +72,7 @@ I tool e i subagent non devono comprimere, riassumere o scartare contenuti utili
 
 ## Versioning
 
-Policy: `[non applicabile | locale | SemVer | Release Please | GitHub Release | altro]`
+Policy: `[non applicabile | locale | SemVer | manuale | GitHub Release | altro]`
 
 Prima di chiudere un lavoro, valutare impatto su:
 

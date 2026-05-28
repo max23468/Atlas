@@ -16,7 +16,7 @@ Perimetro:
 
 | Repo | Run verificati | Classificazione | Azione |
 | --- | --- | --- | --- |
-| DocMolder | `Release Please` `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow disabilitati manualmente | Non gate; riattivati dopo verifica |
+| DocMolder | workflow legacy di rilascio `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow disabilitati manualmente | Non gate; deprecato dopo verifica |
 | GLM | `CI` `26402576569`; branch storico `work` `26402547181`/`26402547178`; `CI` `26399261548`; Dependabot cancellato `26463136348` | Failure storici legati a lavoro Excel/CI precedente; nessuna PR o branch residua aperta | Non gate; ispezione CI prima del prossimo lavoro GLM |
 | TRAM | `Repo Hygiene` `26460797194` | Failure storico su release `0.2.0`; log non disponibili; verifica locale registrata come passata nello snapshot Atlas | Non gate; ricontrollato dopo riavvio |
 | SyncBay | `PR Title` `26444965298` e `26370846355`; serie `PR Title` su branch `codex/*`; Dependabot cancellati | Failure storici su PR/branch già chiusi o mergeati; workflow disabilitati manualmente | Non gate; riavviato dopo verifica |
@@ -26,14 +26,14 @@ Perimetro:
 
 ### DocMolder
 
-- `26459559695`: workflow `Release Please`, evento `push`, branch `main`, titolo
-  `chore(docs): align decision index governance`, job `release-please`, esito
+- `26459559695`: workflow legacy di rilascio, evento `push`, branch `main`, titolo
+  `chore(docs): align decision index governance`, job legacy, esito
   `failure`, creato il `2026-05-26T15:57:33Z`.
 - `26396552938`: workflow `VPS Check`, evento `schedule`, branch `main`, job
   `Check Oracle VPS`, esito `failure`, creato il `2026-05-25T10:46:26Z`.
 
-Classificazione: storico, non gate corrente. `Release Please` e `VPS Check`
-restano workflow repo-specifici da preservare; sono stati riavviati dopo la verifica.
+Classificazione: storico, non gate corrente. Il workflow di rilascio legacy e
+`VPS Check` sono stati deprecati; classificati non gate dopo la verifica.
 
 ### GLM
 

@@ -93,9 +93,9 @@ Esito aggiornato:
 - Pratix: inbox Codex `#34`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
 - DocMolder: inbox Codex `#149`; commit docs-only `bf54615` pubblicato su
-  `main`; branch locale residua rimossa; venv locale riparata; `Release Please`
-  fallita su `bf54615` senza log disponibili; `Release Please` e `VPS Check`
-  sono stati verificati e sono disponibili nel monitoraggio post-riavvio.
+  `main`; branch locale residua rimossa; venv locale riparata; workflow legacy di
+  rilascio fallita su `bf54615` senza log disponibili; il flusso legacy è
+  stato disattivato e sostituito dal flusso manuale repository-specifico.
 - FiscalBay: inbox Codex `#69`; ultimo run GitHub `Dependabot Updates`
   cancellato il `2026-05-25`.
 - GLM: inbox Codex `#3`; branch remota residua `origin/work-codex-excel-sync`
