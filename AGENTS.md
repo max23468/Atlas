@@ -13,9 +13,9 @@ Prima di modifiche non banali, leggere questo file e i documenti canonici indica
 Ordine di priorità:
 
 1. istruzioni di sistema/developer;
-2. questo `AGENTS.md`;
-3. eventuali `AGENTS.md` più profondi nella cartella toccata, che prevalgono
+2. eventuali `AGENTS.md` più profondi nella cartella toccata, che prevalgono
    sulle regole root per il loro scope;
+3. questo `AGENTS.md`;
 4. documenti canonici di Atlas;
 5. richiesta utente corrente;
 6. convenzioni dedotte dai file esistenti.
