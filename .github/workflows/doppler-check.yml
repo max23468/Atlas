@@ -43,8 +43,8 @@ jobs:
         uses: dopplerhq/secrets-fetch-action@v2.0.0
         with:
           doppler-token: ${{ secrets.DOPPLER_TOKEN }}
-          project: ${{ vars.DOPPLER_PROJECT }}
-          config: ${{ vars.DOPPLER_CONFIG }}
+          doppler-project: ${{ vars.DOPPLER_PROJECT }}
+          doppler-config: ${{ vars.DOPPLER_CONFIG }}
           inject-env-vars: true
 
       - name: Skip fetch
