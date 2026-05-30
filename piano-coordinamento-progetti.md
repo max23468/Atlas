@@ -774,9 +774,10 @@ Regole:
 
 ## Standard comune approvato
 
-### A. Blocco comune per AGENTS.md
+### A. Contenuti sostanziali per AGENTS.md
 
-Ogni `AGENTS.md` deve contenere, nello stesso ordine:
+Ogni `AGENTS.md` deve integrare in modo granulare, nelle sezioni più adatte alla
+repo, questi contenuti sostanziali:
 
 1. Scopo.
 2. Priorità delle istruzioni.
@@ -799,9 +800,10 @@ Ogni `AGENTS.md` deve contenere, nello stesso ordine:
 19. Risposta finale.
 20. Definizione di completamento.
 
-Le sezioni possono essere più brevi nelle repo docs-first o non applicabili, ma
-l'assenza deve essere esplicita quando incide su publish, release, deploy,
-verifiche, sicurezza o dati.
+La forma e l'ordine restano repo-specifici: non va incollato un blocco comune
+Atlas dentro le repo. Le sezioni possono essere più brevi nelle repo docs-first
+o non applicabili, ma l'assenza deve essere esplicita quando incide su publish,
+release, deploy, verifiche, sicurezza o dati.
 
 ### A.1 Root e docs
 
@@ -1406,7 +1408,8 @@ Obiettivo: definire il modello comune senza modificare flussi tecnici.
 
 Azioni:
 
-1. creare template comune per `AGENTS.md`;
+1. definire contenuti sostanziali comuni per `AGENTS.md`, da integrare in modo
+   granulare nelle sezioni esistenti delle repo;
 2. creare checklist comune documentazione;
 3. definire semantica comune di `pubblica/deploya/rilascia`;
 4. definire standard roadmap/backlog/ADR;

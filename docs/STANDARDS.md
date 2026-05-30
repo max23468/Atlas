@@ -32,7 +32,7 @@ diversa ma accettata.
 | Area | Regola Atlas | Stato attuale |
 | --- | --- | --- |
 | Documenti canonici | `AGENTS.md`, `README.md`, indice, roadmap, backlog, context, toolchain e decisioni dove applicabili | `OK pieno`: presenti nelle repo coordinate; SendChimp ora usa `docs/CONTEXT.md` canonico |
-| AGENTS.md | Standard sostanziale comune: priorità/fonti, perimetro, Git/worktree, inbox, verifiche a corsie, publish completo e proporzionato, release/deploy valutati insieme, sicurezza, UI/provider/deploy/output quando applicabili, risposta finale e completamento | `Da riallineare`: modello aggiornato in Atlas; rollout repo-per-repo da eseguire nel punto 1/24 prima di passare al punto 2/24 |
+| AGENTS.md | Standard sostanziale comune da integrare granularmente, senza blocchi Atlas incollati: priorità/fonti, perimetro, Git/worktree, inbox, verifiche a corsie, publish completo e proporzionato, release/deploy valutati insieme, sicurezza, UI/provider/deploy/output quando applicabili, risposta finale e completamento | `OK pieno`: punto 1/24 completato e pubblicato in Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp, TRAM e Sentinel; SyncBay verificata già conforme senza diff necessario |
 | Source of truth | Ogni repo dichiara fonti primarie e documenti da leggere prima di intervenire | `OK pieno`: dichiarate; restano alcune differenze motivate, per esempio registri storici come `docs/DECISIONS.md` |
 | Basename Markdown univoci | Niente due file Markdown con lo stesso basename nella stessa repo; usare `docs/INDEX.md` per indice documentale e `docs/DECISIONS.md` per indice decisionale | `OK pieno`: verificato sui file Markdown tracciati di tutte le repo coordinate |
 | Lifecycle decisionale | Registro stabile, pending separato e ADR puntuali: `docs/DECISIONS.md`, `docs/DECISIONS_PENDING.md` e `docs/decisions/NNNN-slug.md` | `OK pieno`: modello presente in tutte le repo coordinate |
@@ -55,7 +55,7 @@ diversa ma accettata.
 
 | Repo | Docs | GitHub/PR title | Codex inbox | Versioning/release | React Doctor | Dependabot | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#3`; stato workflow aggiornato dopo riavvio |
+| Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#10`; stato workflow aggiornato dopo riavvio |
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
 | DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; release manuale documentata, con check VPS del runbook |
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |

@@ -118,7 +118,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Verificata la policy Python di FiscalBay: supporto dichiarato `>=3.10`, VPS `3.13` come runtime operativo compatibile, nessun upgrade forzato.
 - Riavviato manualmente il workflow runtime `Sentinel` dopo verifica iniziale.
 - Creata `CHECKLIST-NUOVA-REPO.md` per inserire una nuova repository nel perimetro Atlas senza applicare template in modo meccanico.
-- Aggiornato lo standard `AGENTS.md` come punto 1/24: template sostanziale unico, checklist semantica estesa, publish completo e proporzionato, release/deploy valutati insieme e rimozione dei riferimenti alla delega operativa esclusa.
+- Completato e pubblicato il punto 1/24 `AGENTS.md`: contenuti sostanziali integrati granularmente nelle repo, senza blocco comune Atlas incollato; PR pubblicate Atlas `#19`, Pratix `#171`, DocMolder `#190`, FiscalBay `#89`, GLM `#20`, SendChimp `#33`, TRAM `#22` e Sentinel `#20`; SyncBay verificata già conforme senza diff necessario.
 - Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
 - Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Creato `docs/STANDARD_CANDIDATES.md` per classificare i pattern emersi da GLM, TRAM, SyncBay, SendChimp e dalle altre repo coordinate.

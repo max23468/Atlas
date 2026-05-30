@@ -36,7 +36,7 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel e la prima matrice health, proponendo solo lavoro Atlas-first quando non esistono repo target e scope operativo espliciti.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel, la prima matrice health e il completamento del punto 1/24 `AGENTS.md`, proponendo solo lavoro Atlas-first quando non esistono repo target e scope operativo espliciti.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`; lo snapshot
 health sintetico è `docs/HEALTH.md`.
@@ -64,8 +64,13 @@ health sintetico è `docs/HEALTH.md`.
 - Cleanup branch `2026-05-26`: GLM non ha più la branch remota residua `origin/work-codex-excel-sync`; DocMolder è tornata su `main` pulito, senza branch locale `codex/align-atlas-doc-governance`, con commit docs-only `bf54615` pubblicato; TRAM non ha più la branch locale assorbita `codex/tram-fase-7-pilot-stabilizzazione`. La venv locale DocMolder è stata riparata rigenerando l'entrypoint `coverage`; `bash scripts/ci_test.sh --coverage` passa. Il run remoto `(workflow legacy)` su `bf54615` è fallito senza log disponibili; il flusso release attivo resta manuale e repo-specifico.
 - Ricontrollo SyncBay `2026-05-26`: checkout locale pulito su `main...origin/main`, nessuna PR aperta, nessuna branch locale o remota extra, commit `dc5ba72` pubblicato su `main` e deployment Vercel production `READY` sullo stesso SHA; `https://syncbay.vercel.app` risponde `200 OK`. Verifiche locali passate: `git diff --check`, `npm run lint`, `npm run prisma:validate`, `npm run typecheck`, `npm run build`, `npm run quality:react-doctor` con score `99 / 100` e solo warning, `npm run release:dry-run`, `npm audit --omit=dev`, `npm run db:push:dry-run` e `npm run smoke:ui`. Workflow `PR Title` e `Codex PR comments` risultano verificati in sede di ripristino post-riavvio.
 - Chiusura gap: TRAM ha policy release/versioning; FiscalBay è classificata come compatibilità Python intenzionale, non come mismatch da forzare.
-- Codex inbox Atlas: issue GitHub `#3` come canale operativo. I workflow sono
+- Codex inbox Atlas: issue GitHub `#10` come canale operativo. I workflow sono
   stati riavviati dopo verifica in data `2026-05-27`.
+- Punto 1/24 `AGENTS.md`: completato e pubblicato con integrazione granulare
+  delle regole sostanziali nelle repo coordinate, senza blocco comune Atlas
+  incollato. PR pubblicate: Atlas `#19`, Pratix `#171`, DocMolder `#190`,
+  FiscalBay `#89`, GLM `#20`, SendChimp `#33`, TRAM `#22`, Sentinel `#20`.
+  SyncBay è stata verificata conforme senza diff necessario.
 - Semantic compliance Atlas: checklist chiusa a livello governance. Tutte le
   repo coordinate hanno basename Markdown tracciati univoci, `docs/DECISIONS.md`,
   `docs/DECISIONS_PENDING.md`, backlog wording comune e context aggiornato; GLM
