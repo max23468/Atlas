@@ -160,6 +160,9 @@ Policy attuale: non applicabile.
 
 Atlas non ha ancora package, changelog o release policy. Finché resta docs-first, le modifiche documentali non richiedono bump di versione.
 
+Release Please non è adottato in Atlas: non delegare changelog, versioni, tag o
+GitHub Release a bot automatici senza una decisione esplicita.
+
 Se Atlas viene inizializzato come repo GitHub con release proprie, creare prima una decisione in `docs/decisions/` o aggiornare la roadmap/backlog.
 
 ## Publish, deploy e release
