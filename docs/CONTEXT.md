@@ -144,4 +144,4 @@ Durante handoff e migrazioni, non perdere contenuti: se una nota viene spostata,
 - I workflow `Codex PR comments` sono stati verificati e riattivati nella revisione
   post-riavvio; monitorare eventuali regression nel prossimo check Atlas.
 - Il workflow runtime `Sentinel` è stato verificato dopo riavvio.
-- Usare la issue GitHub `#3` come Codex feedback inbox Atlas.
+- Usare la issue GitHub `#10` come Codex feedback inbox Atlas.

@@ -13,10 +13,12 @@ Prima di modifiche non banali, leggere questo file e i documenti canonici indica
 Ordine di priorità:
 
 1. istruzioni di sistema/developer;
-2. questo `AGENTS.md`;
-3. documenti canonici di Atlas;
-4. richiesta utente corrente;
-5. convenzioni dedotte dai file esistenti.
+2. eventuali `AGENTS.md` più profondi nella cartella toccata, che prevalgono
+   sulle regole root per il loro scope;
+3. questo `AGENTS.md`;
+4. documenti canonici di Atlas;
+5. richiesta utente corrente;
+6. convenzioni dedotte dai file esistenti.
 
 Se una richiesta contraddice vincoli tecnici, sicurezza, dati, policy delle repo collegate o decisioni approvate in Atlas, segnalarlo prima di procedere.
 
@@ -85,7 +87,7 @@ quando applica baseline, policy, documenti, workflow o standard.
 
 Regole:
 
-- usare sempre una branch dedicata con prefisso `codex/`, salvo policy locale più
+- usare sempre una branch dedicata `codex/<tema>`, salvo policy locale più
   specifica;
 - non iniziare modifiche se la repo ha cambiamenti non propri non compresi nello
   scope;
@@ -158,6 +160,9 @@ Policy attuale: non applicabile.
 
 Atlas non ha ancora package, changelog o release policy. Finché resta docs-first, le modifiche documentali non richiedono bump di versione.
 
+Release Please non è adottato in Atlas: non delegare changelog, versioni, tag o
+GitHub Release a bot automatici senza una decisione esplicita.
+
 Se Atlas viene inizializzato come repo GitHub con release proprie, creare prima una decisione in `docs/decisions/` o aggiornare la roadmap/backlog.
 
 ## Publish, deploy e release
@@ -168,6 +173,10 @@ Semantica comune:
 - `rilascia`: chiude o crea una versione secondo policy;
 - `deploya`: aggiorna runtime o ambiente operativo dichiarato;
 - `pubblica tutto`: publish, eventuale release, eventuale deploy, verifica e cleanup.
+
+Release e deploy vanno valutati insieme quando entrambi sono applicabili: non
+chiudere una release senza dichiarare lo stato del deploy, e non chiudere un
+deploy senza dichiarare se la release è necessaria o `N/A`.
 
 Target Atlas:
 
@@ -194,6 +203,11 @@ La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nell
 ## Test e verifiche
 
 Atlas è docs-first e non ha runtime applicativo.
+
+Usare verifiche proporzionate: corsia `veloce` per docs/governance, corsia
+`standard` per aggiornamenti Atlas che toccano matrici o policy condivise,
+corsia `completa` solo se una modifica Atlas abilita automazioni, workflow o
+pubblicazioni trasversali.
 
 Comandi minimi:
 
@@ -258,4 +272,6 @@ Un lavoro su Atlas è completo quando:
 - nessun piano è stato applicato ad altre repo senza richiesta esplicita;
 - verifiche proporzionate eseguite o dichiarate non applicabili;
 - publish/deploy/release gestiti o dichiarati fuori scope;
+- publish, release e deploy completati oppure dichiarati non applicabili con
+  motivo;
 - nessun contenuto perso nelle migrazioni.
