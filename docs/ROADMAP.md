@@ -1,12 +1,14 @@
 # Roadmap Atlas
 
-Data ultimo aggiornamento: 2026-05-27
+Data ultimo aggiornamento: 2026-05-30
 
 La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non ancora scelte stanno in `docs/BACKLOG.md`.
 
 ## Ora
 
-- Avvio hardening repo: primo step operativo su Pratix (eseguire piano Pratix-risk in ordine con pubblico). Gli altri repo restano in attesa del loro slot.
+- Avvio hardening repo: primo step operativo su Pratix seguendo i gate P0/P1
+  già documentati in `SECURITY.md` e `docs/SECURITY_HARDENING.md` della repo.
+  Gli altri repo restano in attesa del loro slot.
 - Prendere spunto dal primo giro GLM/TRAM/SyncBay/SendChimp e dalla seconda ondata Pratix/DocMolder/FiscalBay.
 - Usare il registro vivo `docs/PROJECTS.md`, la matrice `docs/HEALTH.md`, `docs/STANDARDS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md` e `docs/STANDARD_CANDIDATES.md` come riferimento operativo prima degli interventi repo-per-repo.
 - Applicare sempre la discovery degli extra repo-specifici prima di template, normalizzazioni o migrazioni.

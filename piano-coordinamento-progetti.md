@@ -1194,7 +1194,7 @@ I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiara
 | Repo | Vincolo | Motivo | Cosa non fare |
 | --- | --- | --- | --- |
 | Pratix | SaaS Vercel/Supabase con UI italiana e glossary rigoroso | Prodotto gestionale leggero per avvocati freelance | non spostare verso VPS, Telegram o Cloudflare |
-| DocMolder | Telegram-first con release manuale e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o processo release manuale |
+| DocMolder | Telegram-first con release repo-specifica e VPS | Utility documentale operativa, non dashboard web | non trasformare in web app o in un processo release manuale generico scollegato dal runbook DocMolder |
 | FiscalBay | Dati fiscali solo se presenti nelle API eBay; runtime VPS documentato a Python `3.13`, manifest/CI ancora Python `3.10` | Rischio di dedurre informazioni non disponibili o rompere compatibilità runtime/tooling | non inventare tax data, non usare feature `>3.10` finché manifest/CI non sono aggiornati, non introdurre workflow GitHub Actions non previsto |
 | GLM | Cloudflare Pages e dati gara allegati | Simulatore web legato a gara/documenti specifici | non usare Vercel/Supabase come default |
 | SendChimp | Runtime Next.js/Vercel/Neon per MVP manuale | Perimetro operativo ancora manuale e vincolo free-tier | non introdurre invii reali, non usare Supabase nel primo scaffold, non creare risorse a pagamento |

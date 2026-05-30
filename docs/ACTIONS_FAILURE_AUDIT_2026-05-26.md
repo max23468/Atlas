@@ -16,7 +16,7 @@ Perimetro:
 
 | Repo | Run verificati | Classificazione | Azione |
 | --- | --- | --- | --- |
-| DocMolder | workflow legacy di rilascio `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow disabilitati manualmente | Non gate; deprecato dopo verifica |
+| DocMolder | workflow legacy di rilascio `26459559695`; `VPS Check` `26396552938` | Failure storici su `main` durante sospensione Actions; workflow legacy disabilitato manualmente; `VPS Check` resta segnale operativo da verificare con runbook | Non gate durante la sospensione; solo il workflow legacy è deprecato |
 | GLM | `CI` `26402576569`; branch storico `work` `26402547181`/`26402547178`; `CI` `26399261548`; Dependabot cancellato `26463136348` | Failure storici legati a lavoro Excel/CI precedente; nessuna PR o branch residua aperta | Non gate; ispezione CI prima del prossimo lavoro GLM |
 | TRAM | `Repo Hygiene` `26460797194` | Failure storico su release `0.2.0`; log non disponibili; verifica locale registrata come passata nello snapshot Atlas | Non gate; ricontrollato dopo riavvio |
 | SyncBay | `PR Title` `26444965298` e `26370846355`; serie `PR Title` su branch `codex/*`; Dependabot cancellati | Failure storici su PR/branch già chiusi o mergeati; workflow disabilitati manualmente | Non gate; riavviato dopo verifica |
@@ -32,8 +32,9 @@ Perimetro:
 - `26396552938`: workflow `VPS Check`, evento `schedule`, branch `main`, job
   `Check Oracle VPS`, esito `failure`, creato il `2026-05-25T10:46:26Z`.
 
-Classificazione: storico, non gate corrente. Il workflow di rilascio legacy e
-`VPS Check` sono stati deprecati; classificati non gate dopo la verifica.
+Classificazione: storico, non gate corrente durante la sospensione Actions. Il
+workflow di rilascio legacy è deprecato; `VPS Check` resta un segnale operativo
+DocMolder da rivalutare tramite runbook, non un workflow da considerare ritirato.
 
 ### GLM
 

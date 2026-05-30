@@ -1,6 +1,6 @@
 # Matrice health Atlas
 
-Data ultimo aggiornamento: 2026-05-27
+Data ultimo aggiornamento: 2026-05-30
 
 Questa matrice è lo snapshot operativo dei progetti coordinati da Atlas. Serve a
 decidere dove guardare prima, non sostituisce `docs/PROJECTS.md` né gli
@@ -30,8 +30,9 @@ health `Attenzione` o `Bloccato` solo quando creano un rischio operativo reale.
 Nota:
 I gap Atlas su Codex inbox, versioning, basename Markdown, lifecycle
 decisionale, publish proporzionata o toolchain sono stati riallineati a livello
-governance/documentazione. Stato: verificati i workflow e aggiornata la rimozione della sospensione globale.
-Actions. Le decisioni su tag/GitHub Release per GLM, SendChimp, SyncBay e Sentinel
+governance/documentazione. Stato: workflow verificati e sospensione globale
+Actions rimossa. Le decisioni su tag/GitHub Release per GLM, SendChimp,
+SyncBay e Sentinel
 sono formalizzate come policy documentali: non richiedono tag finché non esiste
 una release prodotto reale.
 
@@ -40,7 +41,7 @@ una release prodotto reale.
 | Progetto | Health | Ultimo segnale verificato | Rischio operativo da tenere in vista | Prossimo controllo sensato |
 | --- | --- | --- | --- | --- |
 | Atlas | Verde | Nessuna PR aperta; repo docs-first senza runtime; audit completo Atlas eseguito il `2026-05-26` | Nessun rischio runtime; tenere allineato lo snapshot documentale allo stato GitHub reale | Aggiornare `docs/HEALTH.md` quando cambia stato di una repo o di un workflow trasversale |
-| Pratix | Attenzione | PR `#159` mergiata su `main`; `SECURITY.md`, `docs/SECURITY_HARDENING.md` e `docs/ROADMAP.md` aggiornati con hardening P0/P1; Vercel production `READY` con commit `59fbb05`; `/` e `/novita` rispondono `200`; nessuna release SemVer richiesta dal dry-run (`Non versionato`) | Checklist P0/P1 da `docs/SECURITY_HARDENING.md` prima di ogni gating: segreti, guardrail pre-merge, verifica CI (solo dopo completamento l'area può essere promossa a verde) | Completare la verifica hardening P0/P1 (segreti, guardrail pre-merge, verifica CI) |
+| Pratix | Attenzione | PR `#159` mergiata su `main`; `SECURITY.md`, `docs/SECURITY_HARDENING.md` e `docs/ROADMAP.md` aggiornati con hardening P0/P1; Vercel production `READY` con commit `59fbb05`; `/` e `/novita` rispondono `200`; nessuna release SemVer richiesta dal dry-run (`Non versionato`) | Gate P0/P1 documentato in `docs/SECURITY_HARDENING.md`: segreti, guardrail pre-merge e verifica CI; promuovere a verde solo dopo evidenza di completamento | Completare e registrare la verifica hardening P0/P1 indicata in `docs/SECURITY_HARDENING.md` |
 | DocMolder | Attenzione | PR `#168` mergiata su `main` con commit `c3aeb05`; `docs/OPERATIONS_SECURITY.md` e `docs/SECURITY_HARDENING.md` aggiornati al `2026-05-27`; inbox Codex `#149` senza commenti aperti; branch remota rimossa | P0/P1 su pipeline VPS + Telegram-first: dry-run, artifact immutabile e lock esecuzione ancora da rendere verificabili | Verificare runbook VPS e checklist di deployment prima di nuove aperture operative |
 | FiscalBay | Attenzione | PR `#80` mergiata su `main` con commit `d67c912`; `docs/SECURITY_HARDENING.md` e `docs/SECURITY_OPERATIONS.md` aggiornati il `2026-05-27`; inbox Codex `#69` senza thread actionable | P0/P1 su separazione ambienti e gestione webhook/API; non prevedere rotazioni preventive nel piano corrente | Chiudere controllo P0/P1 su segreti runtime e integrazioni prima di riaprire lavori sensibili |
 | GLM | Verde | PR `#12` mergiata su `main`; deploy Cloudflare Pages produzione completato sul commit `0ad6a6a`; home e `/api/version` rispondono `200`; nessuna release SemVer richiesta dal dry-run | Non usare Vercel/Supabase; non toccare allegati gara o Git LFS senza scope esplicito | Audit read-only; ricontrollare i failure Actions storici dopo riavvio |

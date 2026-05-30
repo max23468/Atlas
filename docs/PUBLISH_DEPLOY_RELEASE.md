@@ -1,6 +1,6 @@
 # Matrice publish, deploy e release
 
-Data ultimo aggiornamento: 2026-05-26.
+Data ultimo aggiornamento: 2026-05-30.
 
 Questa matrice evita ambiguità operative tra `pubblica`, `deploya` e
 `rilascia`. Le policy delle singole repo prevalgono sempre su questa sintesi.
@@ -13,12 +13,14 @@ Legenda:
 
 ## Regole comuni
 
-- `Pubblica` include la chiusura completa prevista dal flusso corrente e non va interpretata come mero push/PR.
-  Nel significato operativo richiesto, `pubblica` include comunque: portare il
-  lavoro nel canale canonico (tipicamente PR/merge su `main` o workflow equivalente),
-  verificare i check previsti e chiudere il checkout quando l'assorbimento è
-  completo (branch/worktree locali e remoti non più necessari), includendo release,
-  deploy o attivazioni solo se previste dal contesto o richieste esplicitamente.
+- `Pubblica` include la chiusura completa del canale canonico previsto dalla repo
+  e non va interpretata come mero push locale: portare il lavoro su GitHub/main
+  tramite PR/merge o flusso equivalente, verificare i check previsti e chiudere il
+  checkout quando l'assorbimento è completo, inclusa la pulizia di branch/worktree
+  locali e remoti non più necessari.
+- `Pubblica` non include release, deploy o attivazioni runtime salvo richiesta
+  esplicita (`rilascia`, `deploya`, `pubblica tutto`) o policy repo-specifica che
+  li renda parte obbligatoria del canale canonico.
 - `Rilascia` richiede una policy versioning/release della repo.
 - Dove esiste una release reale, la policy deve chiarire source of truth,
   formato tag, GitHub Release e changelog; il solo versioning locale è
