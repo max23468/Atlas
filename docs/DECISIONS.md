@@ -12,7 +12,6 @@ Questo indice raccoglie le decisioni stabili di Atlas.
 ## Decisioni da valutare come ADR
 
 - Semantica comune di `pubblica`, `deploya` e `rilascia`.
-- Uso dei subagent nella fase implementativa.
 - Baseline per nuovi progetti.
 
 ## Decisioni sostituite o superate

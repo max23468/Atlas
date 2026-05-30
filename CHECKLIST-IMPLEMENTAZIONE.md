@@ -32,7 +32,7 @@ Usare questa checklist prima di applicare il piano a una repository.
 5. Aggiornare link da `README.md` e `AGENTS.md`.
 6. Aggiornare `docs/INDEX.md`.
 7. Dichiarare eventuali contenuti rimossi e motivo.
-8. Verificare che tool o subagent non abbiano riassunto, scartato o compresso contenuti utili.
+8. Verificare che strumenti, automazioni o riscritture non abbiano riassunto, scartato o compresso contenuti utili.
 
 ## File canonici
 
@@ -67,13 +67,6 @@ Usare questa checklist prima di applicare il piano a una repository.
 - Dependabot come standard pieno quando la repo ha dipendenze o manifest
   compatibili.
 - Branch protection solo se utile.
-
-## Subagent
-
-- Usarli solo in fase implementativa, non per ridecidere il piano.
-- Prima passata read-only.
-- Una sola repo per volta in scrittura.
-- Ogni subagent deve restituire inventario file, contenuti migrati, contenuti non migrati e verifiche.
 
 ## Verifiche
 

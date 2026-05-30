@@ -1,6 +1,6 @@
 # Checklist semantica Atlas
 
-Data ultimo aggiornamento: 2026-05-26.
+Data ultimo aggiornamento: 2026-05-31.
 
 Questa checklist definisce cosa deve essere verificabile nei documenti canonici
 di una repo coordinata da Atlas. Non impone testi identici: impone contenuti
@@ -22,15 +22,27 @@ Una repo è semanticamente allineata quando chi apre una nuova chat può capire:
 
 Contenuto minimo:
 
-- priorità delle istruzioni;
-- identità, perimetro e non-obiettivi del progetto;
-- documenti da leggere prima di modifiche non banali;
-- regole Git, branch, worktree e protezione modifiche non proprie;
-- regole su test, build, lint, smoke e verifiche proporzionate;
-- policy publish, release e deploy della repo;
-- gestione Codex feedback inbox se la repo la usa;
-- sicurezza, privacy, segreti e dati sensibili;
-- definizione di done o aspettative di chiusura.
+- priorità delle istruzioni: sistema/developer, `AGENTS.md`, `AGENTS.md` più profondi, documenti canonici, richiesta utente, convenzioni di codice e assunzioni marginali;
+- identità, fase, perimetro, assi di validità e non-obiettivi del progetto;
+- fonti primarie: `README.md`, `docs/INDEX.md`, `docs/CONTEXT.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, registri decisioni, guide, runbook, codice, test e configurazioni collegati;
+- workflow iniziale: `git status --short`, lettura file vicini, controllo inbox, scelta verifiche, valutazione docs/changelog/versioning/release/deploy;
+- regole Git, branch, worktree, protezione modifiche non proprie, cleanup e controllo `git branch -vv`/`git worktree list` quando applicabile;
+- branch/PR default per lavori non banali e commit diretto su `main` solo per micro docs-only dove la policy locale lo consente;
+- `Codex feedback inbox` obbligatoria prima di PR ready, merge, pubblicazione, deploy o release, con thread actionable risolti o dichiarati fuori scope;
+- verifiche in corsie `veloce`, `standard` e `completa`, con comandi repo-specifici e divieto di dichiarare check non eseguiti;
+- semantica completa e proporzionata di `pubblica`, con canale canonico, verifiche, inbox, valutazione release/deploy, verifica finale e cleanup;
+- release e deploy valutati insieme quando entrambi applicabili, senza chiudere uno dei due senza dichiarare l'altro;
+- changelog, versioning, release e categorie Conventional Commit valutati a ogni chiusura, anche quando il risultato è `Non versionato`;
+- nessun changelog o release delegato a bot automatici come fonte primaria senza decisione esplicita;
+- GitHub/PR/merge policy: PR template, issue template, PR title check o equivalente, self-review, check pertinenti e niente nuove automazioni senza decisione;
+- UI/React/browser checks quando applicabile: lingua/glossario, responsive, overflow, accessibilità proporzionata, componenti esistenti, browser check e React Doctor secondo policy;
+- provider/API/fonti variabili: fonti ufficiali/correnti, distinzione tra fatto/fonte/assunzione/inferenza/decisione, costi/free-tier, privacy e minimizzazione;
+- deploy/produzione/verifica live: stato deploy dichiarato, target canonico, pre/post-check, rollback/runbook dove serve e nessuna attivazione produttiva senza decisione;
+- sicurezza, privacy, segreti e dati sensibili: niente segreti, niente stampa valori, controlli booleani, dati reali solo con policy;
+- file generati, temporanei e output applicativi: esclusioni chiare, eccezioni dichiarate per output committabili, controllo diff e retention quando applicabile;
+- documentazione canonica, regola anti-duplicati e regola anti-perdita;
+- risposta finale uniforme: cosa cambiato/scoperto, file, verifiche, contenuti migrati/rimossi/preservati, stato publish/release/deploy, branch/worktree, rischi residui e prossimo passo;
+- definizione di completamento unica: scope chiuso, coerenza con perimetro/stack/docs, verifiche proporzionate, inbox, publish/release/deploy, cleanup, nessun segreto/dato/temp/contenuto perso.
 
 ## `docs/INDEX.md`
 

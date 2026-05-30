@@ -81,7 +81,7 @@ Prima di aprire interventi sulle singole repo sono fissate queste scelte:
 6. regola comune per commenti Codex: inbox obbligatoria prima di PR/pubblicazione;
 7. definizione condivisa di “pubblica”, “deploya” e “rilascia”;
 8. frequenza della manutenzione periodica;
-9. perimetro operativo dei subagent nella fase di implementazione;
+9. disciplina operativa per coordinare gli interventi senza perdere contenuti o contesto;
 10. applicabilità obbligatoria di React Doctor nelle app React dopo release minor `X.Y.Z`.
 11. baseline obbligatoria per nuovi progetti, così ogni nuova repo nasce già coordinata.
 12. confine generale tra ciò che resta in root e ciò che deve stare in `docs/`.
@@ -130,7 +130,7 @@ Tabella decisionale approvata:
 | React Doctor | Obbligatorio nelle app React dopo ogni release minor `X.Y.Z`; applicabile anche a SendChimp, che oggi ha runtime React/Next.js | Approvato |
 | Nuovi progetti | Avviare ogni nuova repo da una baseline completa: governance, docs, GitHub, verifiche, release/deploy policy e handoff | Approvato |
 | Root vs docs | Root solo per ingresso, istruzioni agenti, configurazione/tooling e sorgente; `docs/` per governance, roadmap, decisioni, contesto e approfondimenti | Approvato |
-| Subagent | Usarli solo nella fase di implementazione, con coordinamento centrale, scope read-only iniziale e una repo per volta in scrittura | Approvato |
+| Coordinamento operativo | Applicare il piano con controllo centrale, discovery read-only iniziale, una repo per volta in scrittura e nessuna perdita di contenuti | Approvato |
 | Toolchain/versioni | Ogni repo deve dichiarare runtime, package manager, engines, lockfile e versioni minime in configurazione più `docs/TOOLCHAIN.md`; baseline: latest LTS per Node, latest stable compatibile per Python, guardrail repo-specifici dove esistono | Approvato |
 
 Elementi recepiti nel piano:
@@ -149,21 +149,27 @@ Elementi recepiti nel piano:
 
 Uniformare struttura e contenuto minimo:
 
-- priorità delle istruzioni;
-- identità del progetto;
-- perimetro e non-obiettivi;
-- fonti primarie da leggere;
-- workflow operativo minimo;
-- gestione modifiche non proprie;
-- test e verifiche proporzionate;
-- pubblicazione, deploy e release;
-- gestione commenti Codex;
-- GitHub, PR e merge;
-- documentazione e roadmap;
-- sicurezza, dati e privacy;
-- stile di risposta finale;
-- prossimi passi;
-- definizione di completamento.
+- priorità delle istruzioni: sistema/developer, `AGENTS.md`, eventuali `AGENTS.md` più profondi, documenti canonici, richiesta utente, convenzioni reali e assunzioni marginali;
+- identità, fase, perimetro, assi di validità e non-obiettivi;
+- fonti primarie da leggere prima di modifiche non banali, incluse guide, runbook, codice, test e configurazioni collegate;
+- workflow iniziale: `git status --short`, lettura file vicini, controllo inbox, scelta verifiche e valutazione docs/changelog/versioning/release/deploy;
+- gestione modifiche non proprie, branch dedicata, worktree quando serve e cleanup con controllo `git branch -vv`/`git worktree list` quando applicabile;
+- branch/PR default per lavori non banali; commit diretto su `main` solo per micro docs-only ammessi dalla policy locale;
+- `Codex feedback inbox` obbligatoria prima di PR ready, merge, pubblicazione, deploy o release;
+- verifiche proporzionate in corsie `veloce`, `standard` e `completa`, con comandi repo-specifici;
+- semantica di `pubblica` completa ma proporzionata: canale canonico, verifiche, inbox, valutazione release/deploy, verifica finale e cleanup;
+- release e deploy valutati insieme quando entrambi applicabili;
+- versioning, changelog, categorie Conventional Commit e rilascio valutati a ogni chiusura, anche quando il risultato è `Non versionato`;
+- nessuna release o changelog affidati a bot automatici come fonte primaria senza decisione esplicita;
+- GitHub, PR, merge, self-review, PR title check e divieto di nuove automazioni non decise;
+- documentazione canonica, roadmap, backlog, decisioni, anti-duplicati e anti-perdita;
+- UI/React/browser checks quando applicabili, prendendo il modello più completo emerso da Pratix, GLM, SendChimp, SyncBay e TRAM;
+- provider, API, fonti aggiornabili, costi/free-tier, privacy e minimizzazione;
+- deploy, produzione, verifica live, rollback/runbook e attivazioni produttive solo se decise;
+- sicurezza, dati, segreti, `.env`, dati reali, screenshot/report e controlli booleani;
+- file generati, temporanei e output applicativi committabili solo se dichiarati;
+- risposta finale uniforme;
+- definizione di completamento unica.
 
 ### 2. Catalogo documentazione
 
@@ -207,7 +213,7 @@ Regola anti-perdita:
 - se un contenuto viene rimosso per uniformità, la rimozione deve essere esplicita nel riepilogo dell’intervento;
 - i rinvii temporanei sono preferibili alla cancellazione quando non è certo che tutto il contenuto sia stato assorbito;
 - le migrazioni devono preservare link, riferimenti operativi, comandi, vincoli, decisioni e contesto storico utile;
-- i tool o i subagent non devono perdere pezzi: la perdita di contenuto è ammessa solo su decisione esplicita.
+- strumenti, automazioni e riscritture non devono perdere pezzi: la perdita di contenuto è ammessa solo su decisione esplicita.
 
 ### 2.1 Root e docs
 
@@ -775,22 +781,27 @@ Ogni `AGENTS.md` deve contenere, nello stesso ordine:
 1. Scopo.
 2. Priorità delle istruzioni.
 3. Identità del progetto.
-4. Perimetro e non-obiettivi.
+4. Perimetro, assi di validità e non-obiettivi.
 5. Fonti primarie.
-6. Stato/maturità della repo.
-7. Workflow operativo prima di lavorare.
-8. Regole su modifiche non proprie.
-9. Codice/stile/qualità.
-10. Documentazione, roadmap e ADR.
-11. Versioning.
-12. Pubblicazione, deploy e release.
-13. GitHub e commenti Codex.
-14. Test e verifiche proporzionate.
-15. Sicurezza, privacy e dati.
-16. Risposte finali e prossimi passi.
-17. Definizione di completamento.
+6. Workflow operativo prima di lavorare.
+7. Branch, worktree e modifiche non proprie.
+8. Documentazione, roadmap, backlog, ADR e anti-perdita.
+9. Versioning, changelog, release e categorie commit.
+10. Pubblicazione, deploy e release.
+11. GitHub, PR, merge e Codex feedback inbox.
+12. Test e verifiche proporzionate in corsie `veloce`, `standard`, `completa`.
+13. UI/React/browser checks quando applicabili.
+14. Provider, API, fonti variabili, costi e privacy.
+15. Deploy, produzione e verifica live quando applicabili.
+16. Sicurezza, privacy, segreti e dati.
+17. File generati, temporanei e output applicativi.
+18. Pulizia repository.
+19. Risposta finale.
+20. Definizione di completamento.
 
-Le sezioni possono essere più brevi nelle repo docs-first.
+Le sezioni possono essere più brevi nelle repo docs-first o non applicabili, ma
+l'assenza deve essere esplicita quando incide su publish, release, deploy,
+verifiche, sicurezza o dati.
 
 ### A.1 Root e docs
 
@@ -1147,24 +1158,21 @@ Checklist minima:
 
 Se uno di questi punti è ambiguo e l’ambiguità può cambiare scope, rischio o pubblicazione, bisogna chiedere chiarimento prima di procedere.
 
-## Uso dei subagent nella fase operativa
+## Coordinamento operativo nella fase repo-per-repo
 
-I subagent possono essere utili nell’implementazione del piano, ma non devono diventare una fonte autonoma di standard.
-
-Regola principale: il piano centrale decide; i subagent analizzano, applicano e verificano dentro lo scope approvato.
+Il piano centrale decide lo standard comune. Gli interventi sulle repo coordinate
+devono applicarlo senza ridefinirlo durante la scrittura.
 
 Uso approvato:
 
-- un coordinatore centrale mantiene il piano e decide coerenza;
-- un subagent può lavorare su una singola repo alla volta;
-- in alternativa, un subagent può lavorare su una sola area trasversale: documentazione, GitHub, versioning, test, publish/deploy;
-- la prima fase dei subagent deve essere read-only: ricognizione, gap, rischi e proposta;
-- la scrittura va autorizzata solo dopo standard approvati e repo assegnata;
-- non usare più subagent in scrittura sulla stessa repo contemporaneamente;
-- ogni subagent deve rispettare `AGENTS.md` della repo e la source of truth del piano;
-- ogni subagent deve chiudere con file toccati, contenuti migrati, eventuali contenuti rimossi, verifiche eseguite, rischi residui e prossimi passi.
+- un coordinamento centrale mantiene piano, decisioni e coerenza;
+- si lavora in scrittura su una sola repo per volta;
+- la prima fase resta read-only: ricognizione, gap, rischi e proposta;
+- la scrittura parte solo dopo standard approvati e repo assegnata;
+- ogni intervento deve rispettare `AGENTS.md` della repo e la source of truth del piano;
+- ogni intervento chiude con file toccati, contenuti migrati, eventuali contenuti rimossi, verifiche eseguite, rischi residui e prossimi passi.
 
-Output standard richiesto a un subagent:
+Output standard richiesto:
 
 1. repo o area analizzata;
 2. documenti letti;
@@ -1180,12 +1188,12 @@ Output standard richiesto a un subagent:
 
 Limiti:
 
-- i subagent non possono cambiare lo standard comune;
-- non possono normalizzare vincoli repo-specifici motivati;
-- non possono eliminare contenuti per uniformità senza decisione esplicita;
-- non possono introdurre deploy, release o workflow non previsti dalla repo;
-- non possono risolvere conflitti di governance senza ritorno al coordinatore centrale;
-- non devono usare il loro output come fonte primaria se contraddice `AGENTS.md`, documenti canonici o decisioni approvate.
+- non cambiare lo standard comune durante la fase applicativa;
+- non normalizzare vincoli repo-specifici motivati;
+- non eliminare contenuti per uniformità senza decisione esplicita;
+- non introdurre deploy, release o workflow non previsti dalla repo;
+- non risolvere conflitti di governance senza tornare al piano centrale;
+- non usare output intermedi come fonte primaria se contraddicono `AGENTS.md`, documenti canonici o decisioni approvate.
 
 ## Registro vincoli repo-specifici
 
@@ -1388,7 +1396,7 @@ Il piano può considerarsi pronto quando:
 - esiste una baseline riusabile per aprire nuovi progetti già coordinati;
 - esiste una checklist di pronto intervento per le repo esistenti;
 - esiste una mappa source of truth per orientarsi senza memoria orale;
-- è definito come usare eventuali subagent senza perdere coordinamento centrale.
+- è definito come coordinare gli interventi senza perdere contenuti o coerenza centrale.
 
 ## Sequenza operativa di intervento
 
@@ -1518,7 +1526,7 @@ Prima di passare agli interventi repository per repository, l’output approvato
 - un elenco dei vincoli repo-specifici da non normalizzare;
 - una baseline per nuovi progetti;
 - una checklist di pronto intervento su repo esistenti;
-- una regola operativa per eventuali subagent;
+- una regola operativa per il coordinamento degli interventi;
 - una lista di azioni operative da eseguire nella Fase 2;
 - un ordine di intervento confermato.
 
