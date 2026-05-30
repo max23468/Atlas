@@ -150,7 +150,7 @@ Durante migrazioni, merge documentali o rinomini non perdere contenuti.
 
 Prima di eliminare o sostituire un documento, verificare che ogni informazione utile sia stata migrata, collegata o dichiarata superata. Se un contenuto viene rimosso per uniformità, dichiararlo nel riepilogo.
 
-I tool e i subagent non devono comprimere, riassumere o scartare contenuti utili durante una migrazione salvo decisione esplicita.
+Strumenti, automazioni e riscritture non devono comprimere, riassumere o scartare contenuti utili durante una migrazione salvo decisione esplicita.
 
 ## Versioning
 
@@ -190,20 +190,6 @@ Baseline leggera:
   compatibili; Atlas lo applica a sé stesso solo se introdurrà dipendenze reali.
 
 La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nelle repo che la usano già.
-
-## Subagent
-
-Usare subagent solo nella fase implementativa, non per ridecidere lo standard comune.
-
-Regole:
-
-- coordinamento centrale in Atlas;
-- prima passata read-only;
-- discovery esplicita di contenuti e comportamenti extra rispetto al piano Atlas;
-- una sola repo per volta in scrittura;
-- nessuna rimozione di contenuti senza decisione esplicita;
-- riepilogo finale con file toccati, contenuti migrati e verifiche;
-- rispetto dell'`AGENTS.md` della repo assegnata.
 
 ## Test e verifiche
 

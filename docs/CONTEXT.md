@@ -93,7 +93,7 @@ health sintetico è `docs/HEALTH.md`.
 - Per modifiche Atlas su repo coordinate, usare sempre una branch dedicata; usare
   un worktree separato quando il checkout non è pulito, il lavoro è lungo o ci
   sono più repo in parallelo.
-- Usare i subagent solo nella fase implementativa, con coordinamento centrale, prima passata read-only e una sola repo per volta in scrittura.
+- Applicare gli interventi repo-per-repo con coordinamento centrale, prima passata read-only, una sola repo per volta in scrittura e nessuna perdita di contenuti.
 
 ## Verifiche da ricordare
 

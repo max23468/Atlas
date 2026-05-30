@@ -1,6 +1,6 @@
 # Matrice standard Atlas
 
-Data ultimo aggiornamento: 2026-05-26
+Data ultimo aggiornamento: 2026-05-31
 
 Questa matrice verifica gli standard che Atlas deve rendere espliciti e, dove
 possibile, uniformare nelle repo coordinate. Atlas coordina e pubblica la
@@ -32,6 +32,7 @@ diversa ma accettata.
 | Area | Regola Atlas | Stato attuale |
 | --- | --- | --- |
 | Documenti canonici | `AGENTS.md`, `README.md`, indice, roadmap, backlog, context, toolchain e decisioni dove applicabili | `OK pieno`: presenti nelle repo coordinate; SendChimp ora usa `docs/CONTEXT.md` canonico |
+| AGENTS.md | Standard sostanziale comune: priorità/fonti, perimetro, Git/worktree, inbox, verifiche a corsie, publish completo e proporzionato, release/deploy valutati insieme, sicurezza, UI/provider/deploy/output quando applicabili, risposta finale e completamento | `Da riallineare`: modello aggiornato in Atlas; rollout repo-per-repo da eseguire nel punto 1/24 prima di passare al punto 2/24 |
 | Source of truth | Ogni repo dichiara fonti primarie e documenti da leggere prima di intervenire | `OK pieno`: dichiarate; restano alcune differenze motivate, per esempio registri storici come `docs/DECISIONS.md` |
 | Basename Markdown univoci | Niente due file Markdown con lo stesso basename nella stessa repo; usare `docs/INDEX.md` per indice documentale e `docs/DECISIONS.md` per indice decisionale | `OK pieno`: verificato sui file Markdown tracciati di tutte le repo coordinate |
 | Lifecycle decisionale | Registro stabile, pending separato e ADR puntuali: `docs/DECISIONS.md`, `docs/DECISIONS_PENDING.md` e `docs/decisions/NNNN-slug.md` | `OK pieno`: modello presente in tutte le repo coordinate |

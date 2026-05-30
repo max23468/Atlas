@@ -1,6 +1,6 @@
 # Roadmap Atlas
 
-Data ultimo aggiornamento: 2026-05-30
+Data ultimo aggiornamento: 2026-05-31
 
 La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non ancora scelte stanno in `docs/BACKLOG.md`.
 
@@ -68,7 +68,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Definire un formato standard per report mensile Atlas.
 - Valutare se trasformare `docs/HEALTH.md` in report periodico o tenerlo come snapshot manuale.
 - Valutare automazioni leggere per link check, duplicati documentali e presenza dei file canonici.
-- Usare subagent solo nella fase implementativa, con coordinamento centrale e una repo per volta in scrittura.
+- Mantenere la scrittura repo-per-repo con coordinamento centrale, discovery iniziale e nessuna perdita di contenuti.
 
 ## Bloccato
 
@@ -118,6 +118,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Verificata la policy Python di FiscalBay: supporto dichiarato `>=3.10`, VPS `3.13` come runtime operativo compatibile, nessun upgrade forzato.
 - Riavviato manualmente il workflow runtime `Sentinel` dopo verifica iniziale.
 - Creata `CHECKLIST-NUOVA-REPO.md` per inserire una nuova repository nel perimetro Atlas senza applicare template in modo meccanico.
+- Aggiornato lo standard `AGENTS.md` come punto 1/24: template sostanziale unico, checklist semantica estesa, publish completo e proporzionato, release/deploy valutati insieme e rimozione dei riferimenti alla delega operativa esclusa.
 - Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
 - Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Creato `docs/STANDARD_CANDIDATES.md` per classificare i pattern emersi da GLM, TRAM, SyncBay, SendChimp e dalle altre repo coordinate.

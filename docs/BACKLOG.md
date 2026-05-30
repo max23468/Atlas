@@ -26,7 +26,6 @@ Una voce nel backlog non è scope approvato.
 
 ## Documentazione
 
-- Valutare se creare una guida breve "come usare subagent in Atlas".
 - Aggiornare progressivamente eventuali riferimenti storici ancora residui che descrivono SendChimp come docs-only: oggi ha runtime Next.js e primo allineamento Atlas completato, ma resta senza invio automatico produttivo.
 
 ## Debiti
