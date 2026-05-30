@@ -39,7 +39,7 @@ jobs:
           fi
 
       - name: Fetch Doppler secrets
-        if: ${{ env.DOPPLER_TOKEN_PRESENT == 'true' && vars.DOPPLER_PROJECT != '' && vars.DOPPLER_CONFIG != '' }}
+        if: ${{ github.event_name == 'workflow_dispatch' && env.DOPPLER_TOKEN_PRESENT == 'true' && vars.DOPPLER_PROJECT != '' && vars.DOPPLER_CONFIG != '' }}
         uses: dopplerhq/secrets-fetch-action@v2.0.0
         with:
           doppler-token: ${{ secrets.DOPPLER_TOKEN }}
@@ -48,6 +48,6 @@ jobs:
           inject-env-vars: true
 
       - name: Skip fetch
-        if: ${{ env.DOPPLER_TOKEN_PRESENT != 'true' || vars.DOPPLER_PROJECT == '' || vars.DOPPLER_CONFIG == '' }}
+        if: ${{ github.event_name != 'workflow_dispatch' || env.DOPPLER_TOKEN_PRESENT != 'true' || vars.DOPPLER_PROJECT == '' || vars.DOPPLER_CONFIG == '' }}
         run: |
-          echo "::notice::Doppler fetch saltato: imposta DOPPLER_TOKEN, DOPPLER_PROJECT e DOPPLER_CONFIG nelle impostazioni GitHub."
+          echo "::notice::Doppler fetch saltato: il fetch reale viene eseguito solo con workflow_dispatch e configurazione completa."
