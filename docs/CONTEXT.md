@@ -68,7 +68,7 @@ health sintetico è `docs/HEALTH.md`.
   stati riavviati dopo verifica in data `2026-05-27`.
 - Punto 1/24 `AGENTS.md`: completato e pubblicato con integrazione granulare
   delle regole sostanziali nelle repo coordinate, senza blocco comune Atlas
-  incollato. PR pubblicate: Atlas `#19`, Pratix `#171`, DocMolder `#190`,
+  incollato. PR pubblicate: Atlas `#19` e `#20`, Pratix `#171`, DocMolder `#190`,
   FiscalBay `#89`, GLM `#20`, SendChimp `#33`, TRAM `#22`, Sentinel `#20`.
   SyncBay è stata verificata conforme senza diff necessario.
 - Semantic compliance Atlas: checklist chiusa a livello governance. Tutte le
