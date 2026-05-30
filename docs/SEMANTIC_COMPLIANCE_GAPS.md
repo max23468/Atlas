@@ -121,7 +121,7 @@ Nota metodologica:
     operative coordinate.
 - Vincolo: workflow e riattivazioni erano stati vincolati dalla finestra
   temporanea, poi riavviati dopo verifica locale e remota.
-- Decisione applicata: Atlas usa la issue GitHub `#3` `Codex feedback inbox`
+- Decisione applicata: Atlas usa la issue GitHub `#10` `Codex feedback inbox`
   come baseline; i workflow sono ora riavviati e verificati nel ciclo post-riavvio.
   - Output atteso: creare o documentare issue inbox, handler/workflow coerente
     con la baseline Atlas, controllo prima di publish/merge e stato esplicito in
