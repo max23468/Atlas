@@ -40,7 +40,7 @@ diversa ma accettata.
 | Scope Atlas vs prodotto | Atlas censisce e coordina; non propone sviluppo prodotto delle repo come prossimo passo generico | `OK pieno`: procedura dedicata in `docs/NEXT_STEPS.md` |
 | Isolamento Git | Interventi Atlas su repo coordinate sempre su branch dedicata; worktree separato quando serve preservare stato o parallelizzare | `OK pieno`: regola Atlas definita; da applicare in ogni intervento futuro |
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | `OK equivalente`: baseline presente; alcune repo usano `pr-title.yml`, altre controlli equivalenti nella CI/policy locale |
-| Codex feedback inbox | Issue `Codex feedback inbox` e, quando le Actions sono attive, handler/workflow coerente dove ci sono PR operative ricorrenti | `OK pieno`: Atlas allineato via issue inbox; workflow operativi riattivi |
+| Codex feedback inbox | Issue `Codex feedback inbox`, label canonica `codex-feedback-inbox` e, quando le Actions sono attive, handler/workflow coerente dove ci sono PR operative ricorrenti | `OK pieno`: Atlas e repo coordinate allineate al modello con label canonica; workflow operativi attivi |
 | Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `OK equivalente`: GLM, SendChimp, SyncBay e Sentinel dichiarano source of truth e policy tag/GitHub Release proporzionata alla release reale |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `OK pieno`: principio dichiarato nei context/policy repo o già presente in policy locale |
@@ -57,14 +57,14 @@ diversa ma accettata.
 | Repo | Docs | GitHub/PR title | Codex inbox | Versioning/release | React Doctor | Dependabot | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#10`; stato workflow aggiornato dopo riavvio |
-| Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
-| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; release manuale documentata, con check VPS del runbook |
-| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; Python `3.13` è baseline unica per manifest, CI, toolchain e VPS |
-| GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
+| Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#163`; `Dependabot Updates` cancellato il `2026-05-25` |
+| DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | Inbox `#149`; PR title controllato nella CI/policy locale; release manuale documentata, con check VPS del runbook |
+| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Inbox `#86`; Python `3.13` è baseline unica per manifest, CI, toolchain e VPS |
+| GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#14`; Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
 | SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release definiti per release prodotto reale |
-| SyncBay | OK pieno | OK equivalente | OK equivalente | OK equivalente | OK pieno | OK pieno | Vercel production pilota distinta da Shopify App Store production; tag/GitHub Release solo per release prodotto reale |
-| TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | SemVer `0.x`, tag/GitHub Release `v0.2.0` già esistenti; nessun target deploy approvato |
-| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Runtime GitHub Actions e dashboard Vercel/Blob sono canali distinti; tag/GitHub Release solo per tool/dashboard |
+| SyncBay | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#2`; Vercel production pilota distinta da Shopify App Store production; tag/GitHub Release solo per release prodotto reale |
+| TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Inbox `#2`; SemVer `0.x`, tag/GitHub Release `v0.2.0` già esistenti; nessun target deploy approvato |
+| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#4` marcata `codex-feedback-inbox`; runtime GitHub Actions e dashboard Vercel/Blob sono canali distinti; tag/GitHub Release solo per tool/dashboard |
 
 ## Interventi del ciclo correttivo
 
@@ -74,7 +74,7 @@ diversa ma accettata.
   deploy Vercel production `Ready` con `/api/health` OK.
 - Sentinel: PR `max23468/Sentinel#2` mergiata; aggiunti Codex inbox workflow e
   handler, poi corretto handler con label gestita e limite ai thread actionable;
-  issue `#4` è la inbox canonica, issue `#3` chiusa come superata.
+  il modello con label `codex-feedback-inbox` è stato promosso alle altre repo.
 - Pratix: PR `max23468/Pratix#157` mergiata; aggiunto controllo PR title
   dedicato.
 - SyncBay: PR `max23468/SyncBay#30` mergiata; aggiunto controllo PR title

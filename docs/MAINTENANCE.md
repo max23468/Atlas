@@ -83,9 +83,28 @@ Esito storico:
 Questo esito è utile come traccia del primo passaggio, ma è stato superato
 dall'audit completo del `2026-05-26`.
 
-## Audit completo del 2026-05-26
+## Audit Codex feedback inbox del 2026-05-31
 
 Esito aggiornato:
+
+- Nessuna PR aperta su Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp,
+  SyncBay, TRAM e Sentinel.
+- Le inbox Codex canoniche sono: Atlas `#10`, Pratix `#163`,
+  DocMolder `#149`, FiscalBay `#86`, GLM `#14`, SendChimp `#2`,
+  SyncBay `#2`, TRAM `#2`, Sentinel `#4`.
+- Tutte le inbox risultano senza thread Codex actionable al momento del
+  controllo.
+- Il modello operativo è normalizzato sulla label `codex-feedback-inbox`.
+  DocMolder mantiene varianti motivate nel workflow/handler per checkout PR-head
+  e fallback API, senza uscire dallo standard.
+- GLM resta con checkout principale sporco per lavoro utente separato; gli
+  interventi Atlas vanno fatti da worktree dedicato fino a cleanup completato.
+- Nessun deploy o release Atlas eseguito in questo audit.
+
+## Snapshot storico del 2026-05-26
+
+Questo snapshot resta come traccia storica e non va riusato come stato corrente
+senza verifica live:
 
 - Nessuna PR aperta su Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp,
   SyncBay, TRAM e Sentinel.
