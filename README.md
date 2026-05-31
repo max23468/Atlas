@@ -51,7 +51,7 @@ Atlas non è un prodotto applicativo e non sostituisce gli `AGENTS.md` delle sin
 4. Migrare, collegare o dichiarare superato ogni contenuto utile.
 5. Non creare documenti doppi con stesso titolo, stesso scopo o stesso basename Markdown.
 6. Adattare comandi, release, deploy e verifiche alla repo reale.
-7. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release minor `X.Y.Z`.
+7. Applicare React Doctor solo alle app React, obbligatorio dopo ogni release major/minor `X.Y.Z` o modifica React trasversale.
 8. Non proporre sviluppo prodotto delle repo coordinate come prossimo passo Atlas senza repo target e scope espliciti.
 9. Pulire `.DS_Store` se compare nel working tree o risulta tracciato per errore; mantenerlo ignorato.
 
