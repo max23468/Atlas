@@ -82,7 +82,7 @@ Prima di aprire interventi sulle singole repo sono fissate queste scelte:
 7. definizione condivisa di “pubblica”, “deploya” e “rilascia”;
 8. frequenza della manutenzione periodica;
 9. disciplina operativa per coordinare gli interventi senza perdere contenuti o contesto;
-10. applicabilità obbligatoria di React Doctor nelle app React dopo release minor `X.Y.Z`.
+10. applicabilità obbligatoria di React Doctor nelle app React dopo release major/minor `X.Y.Z`.
 11. baseline obbligatoria per nuovi progetti, così ogni nuova repo nasce già coordinata.
 12. confine generale tra ciò che resta in root e ciò che deve stare in `docs/`.
 13. baseline toolchain e versioni minime per nuovi progetti.
@@ -98,7 +98,7 @@ Regole di partenza approvate:
 - usare `docs/DECISIONS.md` come indice decisionale e `docs/decisions/` come standard per ADR puntuali;
 - non creare due file Markdown con lo stesso basename nella stessa repo;
 - mantenere `Codex PR comments` e `Codex feedback inbox` come standard comune già acquisito;
-- rendere React Doctor obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`;
+- rendere React Doctor obbligatorio nelle app React dopo ogni release major/minor dello schema `X.Y.Z`;
 
 ## Aggiornamento stato 2026-05-24
 
@@ -129,7 +129,7 @@ Tabella decisionale approvata:
 | Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
 | Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
 | Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
-| React Doctor | Obbligatorio nelle app React dopo ogni release minor `X.Y.Z`; applicabile anche a SendChimp, che oggi ha runtime React/Next.js | Approvato |
+| React Doctor | Obbligatorio nelle app React dopo ogni release major/minor `X.Y.Z`; applicabile anche a SendChimp, che oggi ha runtime React/Next.js | Approvato |
 | Nuovi progetti | Avviare ogni nuova repo da una baseline completa: governance, docs, GitHub, verifiche, release/deploy policy e handoff | Approvato |
 | Root vs docs | Root solo per ingresso, istruzioni agenti, configurazione/tooling e sorgente; `docs/` per governance, roadmap, decisioni, contesto e approfondimenti | Approvato |
 | Coordinamento operativo | Applicare il piano con controllo centrale, discovery read-only iniziale, una repo per volta in scrittura e nessuna perdita di contenuti | Approvato |
@@ -510,7 +510,7 @@ Standard approvato:
 - React Doctor è obbligatorio nelle app React dopo ogni release major/minor dello schema `X.Y.Z`, cioè quando cambia `X` o `Y`;
 - non è obbligatorio dopo ogni patch `X.Y.Z` quando cambia solo `Z`, salvo modifiche React trasversali o rischiose;
 - è obbligatorio prima di considerare chiusa una release major/minor React;
-- il comando standard è `npm run quality:react-doctor`, basato su `npx react-doctor@latest` per seguire sempre l'ultima diagnostica disponibile;
+- il comando standard è `npm run quality:react-doctor`, basato su `npx --yes react-doctor@latest` per seguire sempre l'ultima diagnostica disponibile senza prompt interattivi;
 - se il comando React Doctor manca, va aggiunto prima della prima release major/minor a cui si applica;
 - il risultato va citato nel riepilogo di release o nella verifica finale;
 - eventuali failure vanno risolte o dichiarate come blocker.
@@ -740,11 +740,11 @@ La baseline di avvio deve chiarire subito:
 
 | Repo | Fase attuale | Documentazione | Versioning | Pubblicazione/deploy | GitHub | Verifiche | Priorità allineamento |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Pratix | Produzione SaaS, seconda ondata completata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain; memoria operativa preservata | SemVer locale con `npm run release`, `src/lib/version.ts`; release patch `1.11.15` pubblicata | GitHub + Vercel production; PR `max23468/Pratix#156` mergiata e `publish:finish` passato | Inbox Codex, Quality, Dependabot, template | Prepush guard completo, test mirato e smoke production `/` + `/novita`; React Doctor dopo release minor | Completata: prossimo solo debito reale |
+| Pratix | Produzione SaaS, seconda ondata completata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain; memoria operativa preservata | SemVer locale con `npm run release`, `src/lib/version.ts`; release patch `1.11.15` pubblicata | GitHub + Vercel production; PR `max23468/Pratix#156` mergiata e `publish:finish` passato | Inbox Codex, Quality, Dependabot, template | Prepush guard completo, test mirato e smoke production `/` + `/novita`; React Doctor dopo release major/minor | Completata: prossimo solo debito reale |
 | DocMolder | Produzione operativa Telegram/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; documenti governanti preservati | Policy manuale repo-specifica | PR `max23468/DocMolder#166` mergiata; release/deploy non eseguiti perché docs-only | GitHub molto completo, manutenzione, VPS workflows | preflight publish, hygiene, CI GitHub docs-only | Completata: prossimo solo debito reale |
 | FiscalBay | Operativo Telegram/eBay/VPS, seconda ondata completata | Canonica con `docs/BACKLOG.md`, `docs/TOOLCHAIN.md` e `docs/decisions/`; release/operations preservati | `scripts/release_now.sh`, workflow di rilascio manuale locale | PR `max23468/FiscalBay#78` mergiata; fix deploy pubblicato; release/deploy non eseguiti | Workflow allowlist, inbox Codex, PR title; Python `3.13` baseline unica dopo il riallineamento toolchain | `ci_verify`, workflow allowlist, shell syntax e GitHub checks | Completata: prossimo solo debito reale |
 | GLM | Web app Cloudflare Pages | Allineata ad Atlas con documenti canonici | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, PR template, issue template, PR title | Test, build, smoke, deploy doctor | Completata prima passata: resta scelta debito reale |
-| SendChimp | Runtime Next.js iniziale / MVP manuale con primo allineamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog e toolchain; `docs/context.md` resta handoff | SemVer locale previsto; release runtime da governare prima di uso produttivo | Pubblicazione GitHub e Vercel automatico completati; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title; PR `max23468/SendChimp#20` mergiata | `npm run verify`, `git diff --check`, `npm run release:dry-run`; React Doctor dopo release minor applicabile | Scegliere prossimo debito reale: import campagna Mailchimp, UI anteprima/copia o hardening multi-tenant/Auth |
+| SendChimp | Runtime Next.js iniziale / MVP manuale con primo allineamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog e toolchain; `docs/context.md` resta handoff | SemVer locale previsto; release runtime da governare prima di uso produttivo | Pubblicazione GitHub e Vercel automatico completati; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title; PR `max23468/SendChimp#20` mergiata | `npm run verify`, `git diff --check`, `npm run release:dry-run`; React Doctor dopo release major/minor applicabile | Scegliere prossimo debito reale: import campagna Mailchimp, UI anteprima/copia o hardening multi-tenant/Auth |
 | SyncBay | Scaffold runtime / MVP Shopify con primo allineamento Atlas completato e release locale 0.6.0 pubblicata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain | `npm run release`, `app/lib/version.ts`; `APP_VERSION=0.6.0`; release prodotto reale sempre con tag Git e GitHub Release `vX.Y.Z` | Pubblicazione GitHub e Vercel automatico completati; App Store production non attiva | Inbox, template, Dependabot; CI minima; PR `max23468/SyncBay#27`, `#28` e `#29` mergiate | typecheck, lint, build, smoke UI, Prisma validate, audit, React Doctor 100/100 | Scegliere prossimo debito reale: keyset/OAuth eBay o import listing live |
 | TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | SemVer `0.x` con `package.json` come fonte; tag/GitHub Release `v0.2.0` già esistente | GitHub pubblica; release distinta da deploy; nessun target deploy approvato | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
 | Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub pubblica, no deploy | PR template, issue template minima, PR title check; Codex inbox `#10` marcata `codex-feedback-inbox`; Dependabot GitHub Actions | controllo documenti/link, `git status --short` | Bassa: workflow GitHub riavviati; prossimo solo manutenzione governance |
@@ -1233,7 +1233,7 @@ Standard specifico:
 - token semantici;
 - glossary rigoroso;
 - smoke a11y proporzionato;
-- React Doctor obbligatorio dopo ogni release minor `X.Y.Z`.
+- React Doctor obbligatorio dopo ogni release major/minor `X.Y.Z`.
 
 ### DocMolder
 
@@ -1446,7 +1446,7 @@ Azioni:
 1. introdurre matrice di conformità periodica;
 2. applicare `pr-title.yml` o controllo equivalente dove manca;
 3. non introdurre `CODEOWNERS` e rimuoverlo dove non aggiunge controllo reale;
-4. introdurre React Doctor come gate nelle app React prima della prima release minor applicabile;
+4. introdurre React Doctor come gate nelle app React prima della prima release major/minor applicabile;
 5. creare check periodico “project health” per tutte le repo.
 
 ## Matrice operativa repo-per-repo
@@ -1473,7 +1473,7 @@ Regole comuni per ogni intervento:
 | Repo | Priorità | File e documenti | GitHub/processo | Verifiche | Vincoli |
 | --- | --- | --- | --- | --- | --- |
 | GLM | completata | Primo allineamento completato con `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md`, indice decisioni e `docs/decisions/template.md`; da riallineare alla regola Atlas 0004 sui basename Markdown | PR template, issue template minima e `pr-title.yml` aggiunti; repo GitHub corrente `max23468/GLM`; Codex inbox verificata senza thread actionable | Per il pilot documentale: `git diff --check` e CI GitHub passata; test/build/smoke restano per cambi runtime | Cloudflare Pages; non introdurre Vercel/Supabase; non perdere pattern GLM maturi come logica simulatore, changelog frontend e runbook Cloudflare |
-| TRAM | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, template ADR con basename unico; mantenuto `docs/DECISIONS.md` come registro | Baseline GitHub già presente; PR `max23468/TRAM#7` mergiata | `npm run verify`; Quality, Repo Hygiene, PR Title e Codex sync passati | Evidence-first; release SemVer `0.x` attiva; nessun deploy finché manca target approvato; React Doctor prima della prima release minor applicabile |
+| TRAM | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, template ADR con basename unico; mantenuto `docs/DECISIONS.md` come registro | Baseline GitHub già presente; PR `max23468/TRAM#7` mergiata | `npm run verify`; Quality, Repo Hygiene, PR Title e Codex sync passati | Evidence-first; release SemVer `0.x` attiva; nessun deploy finché manca target approvato; React Doctor prima della prima release major/minor applicabile |
 | SyncBay | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/CONTEXT.md` canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SyncBay#27`, `#28` e `#29` mergiate; Codex inbox senza thread actionable; Docker Node allineato a engine; release locale 0.6.0 pubblicata | PR #27: `npm run typecheck`, `npm run lint`, `npm run build`, `npm run quality:react-doctor` 100/100, `npm run release:dry-run`, `git diff --check`; PR #28: `git diff --check`, `npm run release:dry-run`, Vercel pass; PR #29: typecheck, lint, build, React Doctor 100/100, audit, smoke UI, Prisma validate, release dry-run, Vercel pass | Shopify app; no marketplace generico; release prodotto reale sempre con tag Git e GitHub Release `vX.Y.Z`; App Store production separata; prossimo debito possibile: keyset/OAuth eBay |
 | SendChimp | completata | Roadmap migrata in `docs/ROADMAP.md`; creati `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`; `docs/context.md` mantenuto come handoff canonico; `ROADMAP.md` e `docs/README.md` restano rinvii | PR `max23468/SendChimp#20` mergiata; Codex inbox senza thread actionable; chiuso P1 su fallback `DATABASE_URL_UNPOOLED`; Vercel automatico passato | `npm run verify`, `git diff --check`, `npm run release:dry-run`; Docs hygiene su main passato | Runtime Next.js/MVP manuale; nessun invio reale; nessun Supabase nel primo scaffold; release prodotto reale sempre con tag Git e GitHub Release `vX.Y.Z`; deploy manuale o provider/billing nuovo solo con decisione |
 | Sentinel | completata | Creati `docs/ROADMAP.md`, `docs/INDEX.md`, `docs/BACKLOG.md`, `docs/TOOLCHAIN.md`, `docs/CONTEXT.md`, indice decisioni, template ADR e ADR su GitHub Actions runtime operativo MVP; da riallineare alla regola Atlas 0004 sui basename Markdown | PR `max23468/Sentinel#1` mergiata; aggiunti PR template, issue template e `pr-title.yml`; Codex inbox lasciata in backlog | `git diff --check`, YAML parse, `npm test`, `npm run build`, PR title check, workflow manuale `26369906474` verde con output commit `4b9d151` | Non committare segreti/email; rispettare `robots.txt`; non salvare HTML completo; preservare output applicativi tracciabili |
@@ -1515,7 +1515,7 @@ Regole comuni per ogni intervento:
 | Test/verifiche | Alta | Deve restare proporzionato ma prevedibile |
 | Handoff/context | Media/alta | Fondamentale per lavori lunghi |
 | ADR lifecycle | Media | Utile soprattutto su progetti in evoluzione |
-| React Doctor | Alta per app React | Obbligatorio dopo ogni release minor `X.Y.Z` |
+| React Doctor | Alta per app React | Obbligatorio dopo ogni release major/minor `X.Y.Z` |
 | Manutenzione periodica | Media | Mensile e obbligatoria prima di publish/deploy/release |
 | Brand/glossario | Media | Importante ma repo-specifico |
 | Produzione/health/rollback | Alta solo per runtime attivi | Non applicabile a docs-first |
