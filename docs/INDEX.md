@@ -37,6 +37,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/decisions/0001-atlas-meta-progetto-leggero.md`: identità e perimetro di Atlas.
 - `docs/decisions/0002-struttura-canonica-root-docs.md`: struttura canonica root/docs.
 - `docs/decisions/0003-repository-github-privata.md`: pubblicazione GitHub privata.
+- `docs/decisions/0004-basename-markdown-univoci.md`: regola sui basename Markdown univoci.
 
 Le decisioni fondative restanti sono raccolte nel piano principale. Quando una decisione deve diventare autonoma, crearla in `docs/decisions/` e collegarla qui.
 
@@ -44,8 +45,8 @@ Le decisioni fondative restanti sono raccolte nel piano principale. Quando una d
 
 - Repository privata: `https://github.com/max23468/Atlas`
 - Branch principale: `main`
-- Baseline: PR template, issue template minima, PR title check; Codex inbox da
-  riallineare.
+- Baseline: PR template, issue template minima, PR title check e Codex
+  feedback inbox nella issue GitHub `#10`.
 
 ## Template riusabili
 

@@ -36,7 +36,7 @@
 
 Atlas nasce dalla ricognizione trasversale dei progetti locali e dal piano approvato in `piano-coordinamento-progetti.md`.
 
-Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel, la prima matrice health e il completamento del punto 1/24 `AGENTS.md`, proponendo solo lavoro Atlas-first quando non esistono repo target e scope operativo espliciti.
+Obiettivo corrente: usare Atlas come cabina di regia dopo il primo giro GLM/TRAM/SyncBay/SendChimp, la seconda ondata Pratix/DocMolder/FiscalBay, il consolidamento Sentinel, la prima matrice health e il completamento dei punti 1/24 `AGENTS.md` e 2/24 `Catalogo documentazione`, proponendo solo lavoro Atlas-first quando non esistono repo target e scope operativo espliciti.
 
 Il registro vivo dei progetti coordinati è `docs/PROJECTS.md`; lo snapshot
 health sintetico è `docs/HEALTH.md`.
@@ -71,6 +71,11 @@ health sintetico è `docs/HEALTH.md`.
   incollato. PR pubblicate: Atlas `#19` e `#20`, Pratix `#171`, DocMolder `#190`,
   FiscalBay `#89`, GLM `#20`, SendChimp `#33`, TRAM `#22`, Sentinel `#20`.
   SyncBay è stata verificata conforme senza diff necessario.
+- Punto 2/24 `Catalogo documentazione`: completato e pubblicato con correzioni
+  granulari su root/docs, indice canonico, anti-duplicati, anti-perdita ed
+  eccezioni operative. PR pubblicate: Pratix `#174`, DocMolder `#192`,
+  FiscalBay `#91`, GLM `#22`, SendChimp `#36`, SyncBay `#64`, TRAM `#25`,
+  Sentinel `#23`; Atlas registra lo stato nel proprio catalogo.
 - Semantic compliance Atlas: checklist chiusa a livello governance. Tutte le
   repo coordinate hanno basename Markdown tracciati univoci, `docs/DECISIONS.md`,
   `docs/DECISIONS_PENDING.md`, backlog wording comune e context aggiornato; GLM
