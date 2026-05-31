@@ -29,7 +29,7 @@ standard trasversale.
 | Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | SendChimp, SyncBay | Ammesso per docs-only o lavori pre-release; quando esiste una release prodotto reale, la repo deve avere policy tag/GitHub Release con source of truth dichiarata |
 | Release prodotto reale con tag/GitHub Release separata dal deploy | Promosso | DocMolder, GLM, TRAM, Sentinel | Source of truth versione, formato tag, changelog e deploy restano repo-specifici; FiscalBay resta su release esplicita via script locale/VPS |
 | Allegati, benchmark o fonti esterne fuori dal flusso Git ordinario | Repo-specifico con principio comune | GLM, TRAM, FiscalBay, DocMolder | Preservare LFS, fixture o archivi solo secondo policy locale e senza dati sensibili |
-| Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze o manifest compatibili | Standard pieno Atlas; la pausa temporanea non ne declassa il livello |
+| Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze, manifest compatibili o workflow GitHub Actions | Standard pieno Atlas; la pausa temporanea non ne declassa il livello |
 | Runtime operativo su GitHub Actions | Repo-specifico e riallineato | Sentinel | Non generalizzare; il runtime è operativo con monitoraggio post-riavvio |
 
 ## Standard già promossi
@@ -46,8 +46,8 @@ standard trasversale.
   indice documentale e `docs/DECISIONS.md` come indice decisionale.
 - Lifecycle decisionale completo: registro stabile, pending separato e ADR
   puntuali.
-- Dependabot come standard pieno nelle repo con dipendenze o manifest
-  compatibili.
+- Dependabot come standard pieno nelle repo con dipendenze, manifest
+  compatibili o workflow GitHub Actions.
 
 ## Candidati da rivalutare
 

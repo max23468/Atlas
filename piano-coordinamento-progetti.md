@@ -77,7 +77,7 @@ Prima di aprire interventi sulle singole repo sono fissate queste scelte:
 2. posizione canonica dell’indice documentale: `docs/INDEX.md`;
 3. posizione canonica del backlog: `docs/BACKLOG.md`;
 4. formato ADR minimo: cartella, naming, stati e template;
-5. livello minimo GitHub per tutte le repo: PR template, issue template, branch protection, title check;
+5. livello minimo GitHub per tutte le repo: PR template, issue template, title check e automazioni proporzionate;
 6. regola comune per commenti Codex: inbox obbligatoria prima di PR/pubblicazione;
 7. definizione condivisa di “pubblica”, “deploya” e “rilascia”;
 8. frequenza della manutenzione periodica;
@@ -106,13 +106,13 @@ Questo piano nasce come snapshot del 2026-05-23. Prima di applicarlo a una repo,
 
 Novità recepite:
 
-- Atlas è ora un progetto Git/GitHub dedicato, repository privata `https://github.com/max23468/Atlas`.
+- Atlas è ora un progetto Git/GitHub dedicato, repository pubblica `https://github.com/max23468/Atlas`.
 - SendChimp non è più solo documentazione: ha scaffold runtime Next.js/React con Vercel, Neon Free/Postgres 17 e Neon Auth. Resta però MVP manuale, senza invii WhatsApp automatici produttivi e con vincolo free-tier.
 - DocMolder usa Python `>=3.11` nel manifest, testa anche Python `3.13` in CI e documenta Python `3.13` come runtime preferito per sviluppo operativo/VPS. Non trattarlo come progetto `>=3.10`.
 - FiscalBay è stato riallineato a Python `3.13` come baseline unica per
   manifest, lint/typecheck, CI, package build e VPS. Le vecchie note sullo
   stato misto `3.10` sono storiche e non vanno usate come policy corrente.
-- Sentinel non è più descrivibile come sola cache locale: al ricontrollo del 2026-05-24 esiste `/Users/Matteo/Progetti/Sentinel`, repo GitHub privata `max23468/Sentinel` su `main`, con CLI Node.js/TypeScript, workflow schedulato/dispatch e output applicativi committabili.
+- Sentinel non è più descrivibile come sola cache locale: al ricontrollo del 2026-05-24 esiste `/Users/Matteo/Progetti/Sentinel`, repo GitHub pubblica `max23468/Sentinel` su `main`, con CLI Node.js/TypeScript, workflow schedulato/dispatch e output applicativi committabili.
 
 Conseguenza: l'ordine operativo va rivalutato prima di ogni applicazione repo-per-repo. In particolare, SendChimp non va più trattato come docs-only. GLM e TRAM sono stati usati come primi pilot di allineamento su repo esistenti; Sentinel va invece trattata come baseline runtime separata, non più come repo senza remote.
 
@@ -125,7 +125,7 @@ Tabella decisionale approvata:
 | Backlog | Usare `docs/BACKLOG.md` come backlog unico separato dalla roadmap | Approvato |
 | ADR | Usare `docs/DECISIONS.md` come indice decisionale e `docs/decisions/` come standard per nuove ADR puntuali | Approvato |
 | Basename Markdown | Non creare due file Markdown con lo stesso basename nella stessa repo | Approvato |
-| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot come standard pieno nelle repo con dipendenze o manifest compatibili; branch protection solo per repo operative/condivise | Approvato |
+| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot come standard pieno nelle repo con dipendenze, manifest compatibili o workflow GitHub Actions; branch protection solo dove è esplicitamente decisa | Approvato |
 | Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
 | Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
 | Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
@@ -418,8 +418,8 @@ Adattatori repo-specifici:
 | SendChimp | PR/merge GitHub | release locale se prevista | Vercel solo quando previsto e protetto da Neon Auth; nessun invio automatico |
 | SyncBay | PR/merge GitHub | `npm run release` locale quando previsto | Vercel production pilota; Shopify App Store production non attiva |
 | TRAM | PR/merge GitHub | SemVer `0.x` secondo ADR `0003`; tag/GitHub Release solo quando richiesto | non applicabile finché manca target deploy approvato |
-| Atlas | push/PR verso repository privata GitHub | non applicabile | non applicabile |
-| Sentinel | GitHub privata `max23468/Sentinel`, commit su `main` | tag/GitHub Release solo per tool/dashboard | GitHub Actions schedulata/dispatch per runtime; dashboard Vercel/Blob separata |
+| Atlas | push/PR verso repository pubblica GitHub | non applicabile | non applicabile |
+| Sentinel | GitHub pubblica `max23468/Sentinel`, commit su `main` | tag/GitHub Release solo per tool/dashboard | GitHub Actions schedulata/dispatch per runtime; dashboard Vercel/Blob separata |
 
 Regola: il protocollo è comune; cambiano solo comandi, provider e target.
 
@@ -458,8 +458,8 @@ Baseline approvata:
 - workflow `Codex PR comments`;
 - workflow `pr-title.yml` o controllo equivalente del titolo PR;
 - workflow quality/CI proporzionato alla repo;
-- `dependabot.yml` solo dove ci sono dipendenze runtime reali;
-- branch protection solo quando il progetto è operativo, condiviso o ha release/deploy sensibili;
+- `dependabot.yml` dove ci sono dipendenze runtime, manifest compatibili o workflow GitHub Actions;
+- branch protection solo quando è esplicitamente decisa per il progetto;
 - `CODEOWNERS` solo dove aggiunge reale controllo, non come burocrazia;
 - squash merge con Conventional Commit quando collegato a changelog/release;
 - cleanup branch dopo merge.
@@ -743,9 +743,9 @@ La baseline di avvio deve chiarire subito:
 | GLM | Web app Cloudflare Pages | Allineata ad Atlas con documenti canonici | `npm run release`, package version | Cloudflare Pages solo su richiesta | CI + Codex inbox, PR template, issue template, PR title | Test, build, smoke, deploy doctor | Completata prima passata: resta scelta debito reale |
 | SendChimp | Runtime Next.js iniziale / MVP manuale con primo allineamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog e toolchain; `docs/context.md` resta handoff | SemVer locale previsto; release runtime da governare prima di uso produttivo | Pubblicazione GitHub e Vercel automatico completati; nessun invio WhatsApp automatico | Inbox, docs hygiene, PR title; PR `max23468/SendChimp#20` mergiata | `npm run verify`, `git diff --check`, `npm run release:dry-run`; React Doctor dopo release minor applicabile | Scegliere prossimo debito reale: import campagna Mailchimp, UI anteprima/copia o hardening multi-tenant/Auth |
 | SyncBay | Scaffold runtime / MVP Shopify con primo allineamento Atlas completato e release locale 0.6.0 pubblicata | Canonica in `docs/` con roadmap, index, backlog, context e toolchain | `npm run release`, `app/lib/version.ts`; `APP_VERSION=0.6.0` | Pubblicazione GitHub e Vercel automatico completati; no tag/GitHub Release/App Store production | Inbox, template, Dependabot; CI minima; PR `max23468/SyncBay#27`, `#28` e `#29` mergiate | typecheck, lint, build, smoke UI, Prisma validate, audit, React Doctor 100/100 | Scegliere prossimo debito reale: keyset/OAuth eBay o import listing live |
-| TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | SemVer `0.x` con `package.json` come fonte; tag/GitHub Release `v0.2.0` già esistente | GitHub privata; release distinta da deploy; nessun target deploy approvato | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
-| Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub privata, no deploy | PR template, issue template minima, PR title check; Codex inbox `#10` marcata `codex-feedback-inbox` | controllo documenti/link, `git status --short` | Bassa: workflow GitHub riavviati; prossimo solo manutenzione governance |
-| Sentinel | Monitor operativo Ortix e San Carlo Sviluppo, consolidamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog, context, toolchain e ADR | `package.json` indica `0.1.0`; tag/GitHub Release solo per release reale del tool/dashboard | GitHub privata; PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde e output commit `4b9d151` | Workflow `Sentinel`, PR template, issue template, PR title check; Codex inbox `#4` marcata `codex-feedback-inbox` | `npm test`, `npm run build`, YAML parse, workflow Actions con report e output committati | Completata: prossimo solo osservazione run schedulato o debito reale |
+| TRAM | MVP iniziale interno | Documenti governanti consolidati e allineati ad Atlas | SemVer `0.x` con `package.json` come fonte; tag/GitHub Release `v0.2.0` già esistente | GitHub pubblica; release distinta da deploy; nessun target deploy approvato | Inbox, PR title, quality, repo hygiene | `npm run verify`, test/build/lint | Completata prima passata: resta scelta debito reale |
+| Atlas | Docs-first / coordinamento operativo | Canonica in `docs/`, ADR e template | Non applicabile | Repository GitHub pubblica, no deploy | PR template, issue template minima, PR title check; Codex inbox `#10` marcata `codex-feedback-inbox`; Dependabot GitHub Actions | controllo documenti/link, `git status --short` | Bassa: workflow GitHub riavviati; prossimo solo manutenzione governance |
+| Sentinel | Monitor operativo Ortix e San Carlo Sviluppo, consolidamento Atlas completato | Canonica in `docs/` con roadmap, index, backlog, context, toolchain e ADR | `package.json` indica `0.1.0`; tag/GitHub Release solo per release reale del tool/dashboard | GitHub pubblica; PR `max23468/Sentinel#1` mergiata; workflow manuale `26369906474` verde e output commit `4b9d151` | Workflow `Sentinel`, PR template, issue template, PR title check; Codex inbox `#4` marcata `codex-feedback-inbox` | `npm test`, `npm run build`, YAML parse, workflow Actions con report e output committati | Completata: prossimo solo osservazione run schedulato o debito reale |
 
 ## Source of truth per repo
 
@@ -760,7 +760,7 @@ Questa tabella serve a sapere dove guardare per orientarsi in ogni progetto. Le 
 | SendChimp | `docs/ROADMAP.md`; `ROADMAP.md` resta rinvio | `docs/INDEX.md`; `docs/README.md` resta rinvio | `docs/BACKLOG.md` | `docs/context.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/TOOLCHAIN.md`, `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md` |
 | SyncBay | `docs/ROADMAP.md`; `ROADMAP.md` resta rinvio | `docs/INDEX.md`; `docs/README.md` resta rinvio | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/`, `docs/decisions-pending.md` | `docs/TOOLCHAIN.md`, `docs/guides/git-e-pubblicazione.md`, `docs/guides/versioning-e-release.md`, `docs/guides/provisioning-runtime.md` |
 | TRAM | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/DECISIONS.md` come registro; `docs/decisions/` per ADR puntuali | `docs/TOOLCHAIN.md`, `docs/OPERATIONS.md`; release policy da definire |
-| Atlas | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | GitHub privata; release/deploy non applicabili |
+| Atlas | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | GitHub pubblica; release/deploy non applicabili |
 | Sentinel | `docs/ROADMAP.md` | `docs/INDEX.md` | `docs/BACKLOG.md` | `docs/CONTEXT.md` | `docs/decisions/` | `docs/TOOLCHAIN.md`, `.github/workflows/sentinel.yml`, `package.json` |
 
 Regole:
@@ -967,8 +967,8 @@ Per una nuova repo, il livello minimo approvato è:
 - issue o inbox per commenti Codex;
 - workflow `Codex PR comments`;
 - workflow `pr-title.yml` o controllo equivalente del titolo PR;
-- Dependabot come standard pieno quando ci sono dipendenze o manifest compatibili;
-- branch protection solo quando il progetto diventa operativo o condiviso.
+- Dependabot come standard pieno quando ci sono dipendenze, manifest compatibili o workflow GitHub Actions;
+- branch protection solo quando viene decisa esplicitamente.
 
 ### Baseline verifiche
 
@@ -1212,7 +1212,7 @@ I vincoli repo-specifici non mettono una repo fuori standard. Servono a dichiara
 | SendChimp | Runtime Next.js/Vercel/Neon per MVP manuale | Perimetro operativo ancora manuale e vincolo free-tier | non introdurre invii reali, non usare Supabase nel primo scaffold, non creare risorse a pagamento |
 | SyncBay | Shopify app con eBay come sorgente catalogo | Perimetro prodotto specifico | non allargarla a marketplace generico bidirezionale |
 | TRAM | Evidence-first e AI governata/free-first | Documenti gara e output sensibili | non anticipare V2/V3 o inviare dati a provider senza policy |
-| Atlas | Meta-progetto docs-first su GitHub privata | Coordinamento, non prodotto applicativo | non trasformarlo in runtime o dashboard senza decisione |
+| Atlas | Meta-progetto docs-first su GitHub pubblica | Coordinamento, non prodotto applicativo | non trasformarlo in runtime o dashboard senza decisione |
 | Sentinel | Monitor siti pubblici con primo profilo Ortix | Output applicativi committabili dal workflow; credenziali email via secret; HTML completo vietato | non trattare output `data/`, `snapshots/`, `reports/` come rumore da ignorare o segreti da copiare |
 
 ## Vincoli specifici per repo
@@ -1296,7 +1296,7 @@ Non trasformarlo in prodotto applicativo senza decisione esplicita.
 Standard specifico:
 
 - meta-progetto docs-first;
-- repository GitHub privata;
+- repository GitHub pubblica;
 - nessun runtime;
 - nessuna release o deploy;
 - baseline GitHub leggera.
@@ -1305,7 +1305,7 @@ Standard specifico:
 
 Standard specifico:
 
-- repo GitHub privata `max23468/Sentinel` su `main`;
+- repo GitHub pubblica `max23468/Sentinel` su `main`;
 - runtime Node.js/TypeScript tracciato;
 - CLI `sentinel`, configurazione YAML e test Vitest;
 - monitor Ortix e San Carlo Sviluppo;

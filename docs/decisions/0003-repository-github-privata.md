@@ -2,7 +2,9 @@
 
 Data: 2026-05-24
 
-Stato: Accettata
+Stato: Superata
+
+Superata da: [0005 - Repository GitHub pubbliche nel perimetro Atlas](0005-repository-github-pubbliche.md)
 
 ## Contesto
 
@@ -13,6 +15,8 @@ Atlas contiene governance, template, roadmap e riferimenti ai progetti locali. A
 ## Decisione
 
 Creare una repository GitHub privata per Atlas.
+
+Questa decisione è storica: lo stato corrente approvato è pubblico.
 
 La repository remota canonica è `https://github.com/max23468/Atlas`.
 
@@ -27,8 +31,8 @@ Atlas resta docs-first: non ha runtime, release o deploy. La pubblicazione su Gi
 ## Impatti
 
 - Prodotto: Atlas resta meta-progetto interno.
-- Tecnico: `origin` punta alla repository GitHub privata.
-- Dati/privacy: nessun segreto deve essere committato; la repository resta privata.
+- Tecnico storico: `origin` puntava alla repository GitHub privata al momento della decisione.
+- Dati/privacy: nessun segreto deve essere committato; la decisione corrente sulla visibilità è in `0005`.
 - Deploy/release: non applicabili.
 - Documentazione: README, contesto, toolchain, roadmap e indice decisioni dichiarano il nuovo stato GitHub.
 
@@ -51,5 +55,5 @@ Atlas resta docs-first: non ha runtime, release o deploy. La pubblicazione su Gi
 
 - Roadmap: `../ROADMAP.md`
 - Backlog: `../BACKLOG.md`
-- PR/issue: repository GitHub privata
+- PR/issue: repository GitHub privata al momento della decisione storica
 - Documenti collegati: `../../README.md`, `../../AGENTS.md`, `../CONTEXT.md`, `../TOOLCHAIN.md`

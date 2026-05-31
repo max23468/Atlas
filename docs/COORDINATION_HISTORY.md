@@ -94,11 +94,11 @@ Questo snapshot descriveva direzione, priorità e prossimi passi di Atlas. Le id
 - Creati template e checklist per AGENTS, documentazione, roadmap, backlog, toolchain, contesto, decisioni, implementazione e manutenzione.
 - Creati i documenti canonici reali di Atlas: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`, `docs/BACKLOG.md`, `docs/CONTEXT.md`, `docs/TOOLCHAIN.md` e `docs/DECISIONS.md`.
 - Inizializzato Git locale su branch `main`.
-- Estratte tre ADR fondative: identità/perimetro di Atlas, struttura canonica root/docs e repository GitHub privata.
-- Creata repository GitHub privata `https://github.com/max23468/Atlas`.
+- Estratte tre ADR fondative: identità/perimetro di Atlas, struttura canonica root/docs e repository GitHub inizialmente privata, poi superata dalla decisione di repository pubbliche.
+- Creata repository GitHub `https://github.com/max23468/Atlas`; lo stato corrente è pubblico.
 - Aggiunta baseline GitHub leggera: PR template, issue template minima e PR title check.
 - Verificato che SendChimp ha runtime Next.js/Vercel/Neon e non va più trattato come docs-only.
-- Verificato che Sentinel è ora una repo GitHub privata operativa `max23468/Sentinel`, con `main`, workflow schedulato/dispatch e output applicativi committabili.
+- Verificato che Sentinel è ora una repo GitHub pubblica operativa `max23468/Sentinel`, con `main`, workflow schedulato/dispatch e output applicativi committabili.
 - Creato `docs/PROJECTS.md` come registro vivo dei progetti coordinati.
 - Rivalutato l'ordine iniziale: GLM e TRAM sono stati completati come primi pilot; Sentinel va trattata come baseline runtime separata.
 - Completato il primo allineamento GLM: documenti canonici, baseline GitHub e roadmap/backlog più maturi, con merge della PR `max23468/GLM#7`.

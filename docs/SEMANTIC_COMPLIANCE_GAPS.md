@@ -131,7 +131,7 @@ Nota metodologica:
   - Repo interessate: GLM, Sentinel e, come stato remoto da monitorare,
     DocMolder, Pratix, FiscalBay, SendChimp, SyncBay e TRAM.
 - Decisione: Dependabot resta standard Atlas pieno in tutte le repo con
-    dipendenze o manifest compatibili. La sospensione globale non cambia lo
+    dipendenze, manifest compatibili o workflow GitHub Actions. La sospensione globale non cambia lo
     standard e non impedisce la riattivazione verificata dove previsto.
   - Evidenza aggiornata audit `2026-05-26`: GLM e Sentinel risultano ancora
     senza `dependabot.yml`; in parallelo GitHub mostra ancora run

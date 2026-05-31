@@ -23,7 +23,7 @@ Atlas è un meta-progetto docs-first. Non ha runtime applicativo, package manage
 | --- | --- | --- |
 | `git` | locale | stato repository e branch |
 | `rg` | locale | ricerca e inventario file |
-| `gh` | locale | gestione repository GitHub privata |
+| `gh` | locale | gestione repository GitHub pubblica |
 
 ## Comandi
 
