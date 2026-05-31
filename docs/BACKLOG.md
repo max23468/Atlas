@@ -11,9 +11,9 @@ Una voce nel backlog non è scope approvato.
 
 ## Backlog tecnico
 
-- Valutare se affiancare alla issue `Codex feedback inbox`
-  `#3` un handler/workflow Atlas, se serve davvero e se le Actions non sono più
-  sospese.
+- Valutare se migliorare il workflow Atlas collegato alla issue
+  `Codex feedback inbox` `#10`, se emergono limiti reali nella gestione dei
+  commenti PR.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
 - Riattivazione workflow `Codex PR comments` verificata post-riavvio.
