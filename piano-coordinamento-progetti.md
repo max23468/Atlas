@@ -462,7 +462,7 @@ Baseline approvata:
 - branch protection solo quando è esplicitamente decisa per il progetto;
 - squash merge come unico metodo consentito su GitHub;
 - cancellazione automatica della branch dopo merge;
-- `CODEOWNERS` solo dove aggiunge reale controllo, non come burocrazia;
+- `CODEOWNERS` non è baseline Atlas: non introdurlo e rimuoverlo dove non aggiunge controllo reale;
 - cleanup branch dopo merge.
 
 Regole:
@@ -1443,7 +1443,7 @@ Azioni:
 
 1. introdurre matrice di conformità periodica;
 2. applicare `pr-title.yml` o controllo equivalente dove manca;
-3. applicare `CODEOWNERS` solo dove aggiunge controllo reale;
+3. non introdurre `CODEOWNERS` e rimuoverlo dove non aggiunge controllo reale;
 4. introdurre React Doctor come gate nelle app React prima della prima release minor applicabile;
 5. creare check periodico “project health” per tutte le repo.
 
