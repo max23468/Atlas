@@ -125,7 +125,7 @@ Tabella decisionale approvata:
 | Backlog | Usare `docs/BACKLOG.md` come backlog unico separato dalla roadmap | Approvato |
 | ADR | Usare `docs/DECISIONS.md` come indice decisionale e `docs/decisions/` come standard per nuove ADR puntuali | Approvato |
 | Basename Markdown | Non creare due file Markdown con lo stesso basename nella stessa repo | Approvato |
-| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; Dependabot come standard pieno nelle repo con dipendenze, manifest compatibili o workflow GitHub Actions; branch protection solo dove è esplicitamente decisa | Approvato |
+| GitHub baseline | PR template, issue template minima, PR title check, Codex inbox, workflow Codex PR comments; squash-only e delete branch after merge; Dependabot come standard pieno nelle repo con dipendenze, manifest compatibili o workflow GitHub Actions; branch protection solo dove è esplicitamente decisa | Approvato |
 | Commenti Codex | Controllo obbligatorio della `Codex feedback inbox` prima di PR ready, merge, pubblicazione, deploy o release | Approvato |
 | Publish/deploy/release | Usare una semantica e un protocollo comuni per `pubblica`, `deploya` e `rilascia`; ogni repo dichiara solo target e comandi tecnici | Approvato |
 | Manutenzione | Check leggero mensile più controllo obbligatorio prima di publish, deploy o release | Approvato |
@@ -460,8 +460,9 @@ Baseline approvata:
 - workflow quality/CI proporzionato alla repo;
 - `dependabot.yml` dove ci sono dipendenze runtime, manifest compatibili o workflow GitHub Actions;
 - branch protection solo quando è esplicitamente decisa per il progetto;
-- `CODEOWNERS` solo dove aggiunge reale controllo, non come burocrazia;
-- squash merge con Conventional Commit quando collegato a changelog/release;
+- squash merge come unico metodo consentito su GitHub;
+- cancellazione automatica della branch dopo merge;
+- `CODEOWNERS` non è baseline Atlas: non introdurlo e rimuoverlo dove non aggiunge controllo reale;
 - cleanup branch dopo merge.
 
 Regole:
@@ -1442,7 +1443,7 @@ Azioni:
 
 1. introdurre matrice di conformità periodica;
 2. applicare `pr-title.yml` o controllo equivalente dove manca;
-3. applicare `CODEOWNERS` solo dove aggiunge controllo reale;
+3. non introdurre `CODEOWNERS` e rimuoverlo dove non aggiunge controllo reale;
 4. introdurre React Doctor come gate nelle app React prima della prima release minor applicabile;
 5. creare check periodico “project health” per tutte le repo.
 
