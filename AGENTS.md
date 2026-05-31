@@ -208,7 +208,7 @@ Baseline leggera:
 - Dependabot come standard pieno quando esistono dipendenze o manifest
   compatibili; Atlas lo applica a sé stesso solo se introdurrà dipendenze reali.
 
-La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nelle repo che la usano già.
+La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nelle repo che la usano già. La issue canonica `Codex feedback inbox` deve essere marcata con la label `codex-feedback-inbox` quando il workflow dedicato è attivo.
 
 ## Test e verifiche
 
