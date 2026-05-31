@@ -23,7 +23,7 @@ standard trasversale.
 | Separazione esplicita tra publish, release e deploy | Promosso | Tutte le repo coordinate | Fonte sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Runbook deploy con target, comando e verifica | Promosso come principio | Pratix, DocMolder, FiscalBay, GLM, SyncBay, SendChimp | I dettagli restano repo-specifici; Atlas richiede solo che esistano quando si deploya |
 | Codex feedback inbox | Promosso con condizione | Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM, Sentinel | Da usare dove ci sono PR operative ricorrenti; il workflow mantiene la issue canonica marcata `codex-feedback-inbox` |
-| React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM | Obbligatorio per app React dopo release minor o modifiche React trasversali |
+| React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM, Sentinel | Obbligatorio per app React dopo release major/minor o modifiche React trasversali, con `npx react-doctor@latest` |
 | Basename Markdown univoci | Promosso | TRAM, decisione Atlas 0004 | Regola trasversale: niente due file Markdown con lo stesso basename nella stessa repo |
 | Decision register separato dagli ADR puntuali | Promosso | TRAM, DocMolder, decisione utente Atlas | Standard pieno: registro stabile, pending separato e ADR puntuali con basename univoci |
 | Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | SendChimp, SyncBay | Ammesso solo per docs-only, lavori pre-release o stati non ancora rilasciati come prodotto reale |
