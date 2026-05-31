@@ -67,7 +67,7 @@ Risultati principali dello snapshot iniziale, da non riusare senza verifica live
 - non risultano PR aperte su GitHub;
 - tutte le repo hanno una `Codex feedback inbox`;
 - tutte le inbox Codex risultavano senza thread actionable al momento della ricognizione;
-- il workflow `Codex PR comments` è comune; lo script `.github/scripts/handle-codex-pr-comments.mjs` è coerente nel comportamento e mantiene la label `codex-feedback-inbox`, preservando varianti motivate come fallback API o checkout PR-head.
+- il workflow `Codex PR comments` è comune; lo script `.github/scripts/handle-codex-pr-comments.mjs` è coerente nel comportamento e mantiene la label `codex-feedback-inbox`.
 
 ## Decisioni approvate prima dell’esecuzione
 
