@@ -26,8 +26,8 @@ standard trasversale.
 | React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM | Obbligatorio per app React dopo release minor o modifiche React trasversali |
 | Basename Markdown univoci | Promosso | TRAM, decisione Atlas 0004 | Regola trasversale: niente due file Markdown con lo stesso basename nella stessa repo |
 | Decision register separato dagli ADR puntuali | Promosso | TRAM, DocMolder, decisione utente Atlas | Standard pieno: registro stabile, pending separato e ADR puntuali con basename univoci |
-| Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | SendChimp, SyncBay | Ammesso per docs-only o lavori pre-release; quando esiste una release prodotto reale, la repo deve avere policy tag/GitHub Release con source of truth dichiarata |
-| Release prodotto reale con tag/GitHub Release separata dal deploy | Promosso | DocMolder, GLM, TRAM, Sentinel | Source of truth versione, formato tag, changelog e deploy restano repo-specifici; FiscalBay resta su release esplicita via script locale/VPS |
+| Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | SendChimp, SyncBay | Ammesso solo per docs-only, lavori pre-release o stati non ancora rilasciati come prodotto reale |
+| Release prodotto reale con tag/GitHub Release separata dal deploy | Promosso | Tutte le repo coordinate con release prodotto reale | Ogni release prodotto reale deve creare sempre tag Git e GitHub Release `vX.Y.Z`; source of truth versione, changelog, comando e rapporto con deploy restano repo-specifici |
 | Allegati, benchmark o fonti esterne fuori dal flusso Git ordinario | Repo-specifico con principio comune | GLM, TRAM, FiscalBay, DocMolder | Preservare LFS, fixture o archivi solo secondo policy locale e senza dati sensibili |
 | Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze, manifest compatibili o workflow GitHub Actions | Standard pieno Atlas; la pausa temporanea non ne declassa il livello |
 | Runtime operativo su GitHub Actions | Repo-specifico e riallineato | Sentinel | Non generalizzare; il runtime è operativo con monitoraggio post-riavvio |
@@ -61,8 +61,9 @@ standard trasversale.
 
 ## Pattern respinti come stato stabile
 
-- Changelog/versioning locale senza tag o GitHub Release: ammesso solo come
-  fase transitoria dove non esiste ancora release reale.
+- Changelog/versioning locale senza tag o GitHub Release: ammesso solo per
+  docs-only, lavori pre-release o stati dove non esiste ancora release prodotto
+  reale.
 
 ## Criterio di promozione
 

@@ -157,7 +157,7 @@ Nota metodologica:
     rilascio prodotto.
   - Decisione applicata: ADR SyncBay `0008-tag-e-github-release.md`,
     `docs/CONTEXT.md`, `docs/DECISIONS_PENDING.md` e la guida versioning
-    dichiarano che tag/GitHub Release valgono solo per release prodotto reale,
+    dichiarano che tag/GitHub Release sono obbligatori per release prodotto reale,
     mentre App Store production resta decisione separata dal deploy Vercel.
 
 - [x] Riallineare DocMolder a una pubblicazione proporzionata standard Atlas.
@@ -215,14 +215,15 @@ Nota metodologica:
     senza GitHub Release; questo può essere transitorio, ma non deve restare
     pattern stabile quando esiste una release reale.
   - Decisione: il changelog frontend/locale senza tag o GitHub Release va
-    riallineato. Dove una repo dichiara versioning/release, deve definire source
-    of truth, tag, GitHub Release, changelog e rapporto con deploy/runtime.
+    riallineato. Dove una repo dichiara una release prodotto reale, deve creare
+    sempre tag Git e GitHub Release `vX.Y.Z`, definendo source of truth,
+    changelog e rapporto con deploy/runtime.
   - Output atteso: valutare repo per repo una policy release completa,
     distinguendo release prodotto, deploy hosting, App Store o runtime live; non
     creare tag/GitHub Release retroattivi senza una decisione di migrazione.
-  - Decisione applicata: GLM, SendChimp, SyncBay e Sentinel dichiarano source of
-    truth e policy tag/GitHub Release. Nessun tag retroattivo creato; Sentinel
-    limita tag e GitHub Release a release tool/dashboard, non a scan/report.
+  - Decisione applicata: Atlas richiede tag Git e GitHub Release `vX.Y.Z` per
+    ogni release prodotto reale. Nessun tag retroattivo creato; Sentinel limita
+    l'obbligo a release tool/dashboard, non a scan/report.
 
 - [x] Riallineare i `docs/CONTEXT.md` che dichiarano una versione statica non aggiornata.
   - Repo interessata: GLM.

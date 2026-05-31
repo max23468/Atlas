@@ -31,10 +31,9 @@ Nota:
 I gap Atlas su Codex inbox, versioning, basename Markdown, lifecycle
 decisionale, publish proporzionata o toolchain sono stati riallineati a livello
 governance/documentazione. Stato: workflow verificati e sospensione globale
-Actions rimossa. Le decisioni su tag/GitHub Release per GLM, SendChimp,
-SyncBay e Sentinel
-sono formalizzate come policy documentali: non richiedono tag finché non esiste
-una release prodotto reale.
+Actions rimossa. La policy Atlas ora richiede tag Git e GitHub Release
+`vX.Y.Z` per ogni release prodotto reale; docs-only, deploy, scan/report e
+pre-release locali non richiedono tag.
 
 ## Matrice
 
