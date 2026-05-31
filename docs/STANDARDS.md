@@ -47,7 +47,7 @@ diversa ma accettata.
 | Verifiche | Gate proporzionati al rischio, senza test inventati | `OK pieno`: run remote storiche sono contesto e non sostituiscono verifiche locali dichiarate |
 | React Doctor | Obbligatorio per app React dopo release minor o modifiche React trasversali | `OK pieno`: applicato in Pratix, GLM, SendChimp, SyncBay e TRAM |
 | Dependabot | Standard pieno in tutte le repo con dipendenze o manifest compatibili | `OK pieno`: GLM e Sentinel hanno `dependabot.yml`; le cancellazioni Actions storiche non declassano lo standard |
-| Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `OK equivalente`: FiscalBay mantiene Python `>=3.10` come compatibilità repo-specifica motivata, con VPS `3.13` come runtime controllato |
+| Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `OK pieno`: FiscalBay è riallineata a Python `3.13` come baseline unica; Node/npm e Python restano dichiarati repo per repo |
 | Privacy/sicurezza | No segreti, no dati reali non necessari, provider/API variabili verificati | `OK pieno`: policy comune presente; i dettagli restano repo-specifici |
 | Artefatti generati | `.DS_Store`, cache, build output e file temporanei non sono contenuto progettuale | `OK equivalente`: regola comune rispettata; Sentinel mantiene output applicativi previsti dal proprio runtime |
 | Handoff | `docs/CONTEXT.md` o path dichiarato per riprendere il lavoro | `OK pieno`: handoff presente; SendChimp riallineato a `docs/CONTEXT.md` |
@@ -59,12 +59,12 @@ diversa ma accettata.
 | Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#10`; stato workflow aggiornato dopo riavvio |
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#34`; `Dependabot Updates` cancellato il `2026-05-25` |
 | DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | PR title controllato nella CI/policy locale; branch residua rimossa; release manuale documentata, con check VPS del runbook |
-| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; inbox `#69`; Python `>=3.10` è compatibilità repo-specifica motivata, non mismatch da forzare |
+| FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Nessuna PR aperta; Python `3.13` è baseline unica per manifest, CI, toolchain e VPS |
 | GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
 | SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release definiti per release prodotto reale |
-| SyncBay | OK pieno | OK equivalente | OK equivalente | OK equivalente | OK pieno | OK pieno | Vercel production `READY`; tag/GitHub Release definiti per release prodotto reale; App Store production resta separata |
-| TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Branch locale residua rimossa; `Repo Hygiene` fallita senza log su `main`, ma `npm run verify` passa localmente |
-| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | N/A | OK pieno | Dependabot aggiunto; tag/GitHub Release definiti solo per release tool/dashboard; runtime post-Actions resta in `docs/DECISIONS_PENDING.md` |
+| SyncBay | OK pieno | OK equivalente | OK equivalente | OK equivalente | OK pieno | OK pieno | Vercel production pilota distinta da Shopify App Store production; tag/GitHub Release solo per release prodotto reale |
+| TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | SemVer `0.x`, tag/GitHub Release `v0.2.0` già esistenti; nessun target deploy approvato |
+| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Runtime GitHub Actions e dashboard Vercel/Blob sono canali distinti; tag/GitHub Release solo per tool/dashboard |
 
 ## Interventi del ciclo correttivo
 
@@ -82,8 +82,8 @@ diversa ma accettata.
 - GLM: Dependabot resta standard Atlas pieno; i failure storici nella finestra globale GitHub Actions non cambiano la regola.
 - TRAM: definita la policy SemVer/release con commit `783b783` `[skip ci]`;
   nessun deploy eseguito perché non esiste target deploy approvato.
-- FiscalBay: la policy Python `>=3.10` è classificata come compatibilità
-  repo-specifica motivata, con VPS `3.13` come runtime controllato.
+- FiscalBay: Python `3.13` è baseline unica dopo il riallineamento di manifest,
+  CI, toolchain e VPS.
 - Atlas semantic compliance: aggiunta `docs/SEMANTIC_CHECKLIST.md`; riallineati
   basename Markdown, registri `DECISIONS`/`DECISIONS_PENDING`, backlog wording,
   context, publication docs-only, Dependabot GLM/Sentinel e versioning pending

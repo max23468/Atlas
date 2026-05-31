@@ -18,7 +18,6 @@ Una voce nel backlog non è scope approvato.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
 - Riallineare Dependabot nelle repo dove oggi è sospeso, senza trattarlo come
   standard facoltativo.
-- Valutare un upgrade Python completo di FiscalBay oltre `3.10` solo con decisione repo-specifica su manifest, CI, toolchain e policy.
 
 ## Documentazione
 

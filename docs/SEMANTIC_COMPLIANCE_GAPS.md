@@ -102,15 +102,15 @@ Nota metodologica:
   - Decisione applicata: GLM, DocMolder, FiscalBay, TRAM e Sentinel marcano le
     eccezioni nei rispettivi context o registri pending.
 
-- [x] Riclassificare FiscalBay come compatibilità Python repo-specifica.
+- [x] Riallineare FiscalBay alla baseline Python `3.13`.
   - Repo interessata: FiscalBay.
-  - Verdetto: eccezione motivata, non gap da forzare.
-  - Problema precedente: il supporto Python `>=3.10` era stato letto come
-    mismatch rispetto al runtime VPS `3.13`.
-  - Decisione aggiornata: mantenere `>=3.10` come compatibilità dichiarata dalla
-    repo, con VPS `3.13` come runtime operativo controllato.
-  - Output atteso: nessun riallineamento forzato a `3.13`; eventuali upgrade
-    Python richiedono scope FiscalBay esplicito e decisione repo-specifica.
+  - Verdetto: gap chiuso.
+  - Problema precedente: manifest/CI e runtime VPS erano descritti come stato
+    misto tra Python `3.10` e `3.13`.
+  - Decisione aggiornata: Python `3.13` è baseline unica per manifest,
+    lint/typecheck, CI, package build e VPS.
+  - Output atteso: non abbassare il supporto a minor version precedenti senza
+    decisione esplicita e aggiornamento coerente della policy.
 
 - [x] Riallineare Atlas alla Codex feedback inbox.
   - Repo interessata: Atlas.
@@ -312,9 +312,9 @@ Nota metodologica:
   eccezione motivata ma temporanea: non inventare deploy ora, ma prevedere una
   decisione deploy futura.
 - DocMolder: PR title validato nella policy/CI locale è equivalente accettato.
-- FiscalBay: il supporto Python `>=3.10` è compatibilità repo-specifica motivata
-  da preservare; la VPS usa Python `3.13` come runtime operativo controllato.
-  Non forzare un riallineamento a `3.13` senza decisione FiscalBay esplicita.
+- FiscalBay: Python `3.13` è baseline unica; preservare invece le eccezioni
+  repo-specifiche su dati fiscali eBay, VPS corretta e deploy/release via script
+  locali fuori da GitHub Actions.
 - GLM: Cloudflare Pages e Git LFS/allegati gara sono eccezioni motivate da
   preservare; non riallineare a Vercel/Supabase e non trattare gli allegati come
   cache.
