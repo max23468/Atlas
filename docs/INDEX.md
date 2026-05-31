@@ -40,6 +40,7 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/decisions/0003-repository-github-privata.md`: decisione storica superata sulla pubblicazione GitHub privata.
 - `docs/decisions/0004-basename-markdown-univoci.md`: regola sui basename Markdown univoci.
 - `docs/decisions/0005-repository-github-pubbliche.md`: repository GitHub pubbliche nel perimetro Atlas.
+- `docs/decisions/0006-codeowners-non-baseline.md`: `CODEOWNERS` non adottato come baseline Atlas.
 
 Le decisioni fondative restanti sono raccolte nel piano principale. Quando una decisione deve diventare autonoma, crearla in `docs/decisions/` e collegarla qui.
 
