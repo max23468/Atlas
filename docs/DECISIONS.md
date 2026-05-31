@@ -8,6 +8,7 @@ Questo indice raccoglie le decisioni stabili di Atlas.
 - [0002 - Struttura canonica root e docs](decisions/0002-struttura-canonica-root-docs.md): Accettata.
 - [0004 - Basename Markdown univoci](decisions/0004-basename-markdown-univoci.md): Accettata.
 - [0005 - Repository GitHub pubbliche nel perimetro Atlas](decisions/0005-repository-github-pubbliche.md): Accettata.
+- [0006 - CODEOWNERS non adottato come baseline](decisions/0006-codeowners-non-baseline.md): Accettata.
 
 ## Decisioni da valutare come ADR
 
