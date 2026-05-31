@@ -227,6 +227,18 @@ Usare verifiche proporzionate: corsia `veloce` per docs/governance, corsia
 corsia `completa` solo se una modifica Atlas abilita automazioni, workflow o
 pubblicazioni trasversali.
 
+Mappa rischio minima:
+
+- nessuna modifica o sola analisi: nessun test applicativo, dichiarare solo le
+  fonti controllate;
+- docs-only: rilettura, coerenza documentale e `git diff --check`;
+- documenti operativi critici, policy, workflow o template condivisi: corsia
+  `standard`, con controllo dei link/riferimenti e self-review del diff;
+- automazioni, workflow GitHub o pubblicazioni trasversali: corsia `completa`,
+  con verifica del workflow o dry-run quando disponibile;
+- release, deploy, runtime, database, UI e provider/API: non applicabili ad
+  Atlas salvo decisione esplicita che introduca quei perimetri.
+
 Comandi minimi:
 
 - install/setup: non applicabile;
