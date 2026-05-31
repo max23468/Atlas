@@ -289,6 +289,8 @@ Chiudere ogni intervento con:
 - file principali;
 - verifiche eseguite;
 - contenuti migrati o rimossi;
+- stato publish, release e deploy quando applicabile o `N/A`;
+- branch, worktree e cleanup quando coinvolti;
 - rischi residui;
 - prossimo passo operativo.
 
