@@ -205,6 +205,8 @@ Baseline leggera:
 - PR template;
 - issue template minima;
 - PR title check;
+- squash merge come unico metodo di merge GitHub;
+- cancellazione automatica della branch dopo merge;
 - Dependabot come standard pieno quando esistono dipendenze, manifest
   compatibili o workflow GitHub Actions da mantenere; Atlas lo applica a sé
   stesso per GitHub Actions.
