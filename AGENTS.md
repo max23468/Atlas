@@ -256,7 +256,7 @@ Non dichiarare verifiche non eseguite.
 
 Non applicabile ad Atlas.
 
-React Doctor resta obbligatorio solo per app React dopo ogni release minor `X.Y.Z`, cioè quando cambia `Y`, secondo il piano approvato. SendChimp oggi ha runtime React/Next.js, quindi rientra nel criterio quando avrà una release minor applicabile.
+React Doctor resta obbligatorio solo per app React dopo ogni release major/minor `X.Y.Z`, cioè quando cambia `X` o `Y`, e dopo modifiche React trasversali o rischiose. Il comando standard nelle repo React è `npm run quality:react-doctor` basato su `npx react-doctor@latest`.
 
 ## Sicurezza, privacy e dati
 

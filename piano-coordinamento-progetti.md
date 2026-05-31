@@ -507,20 +507,22 @@ Regola comune:
 
 Standard approvato:
 
-- React Doctor è obbligatorio nelle app React dopo ogni release minor dello schema `X.Y.Z`, cioè quando cambia `Y`;
+- React Doctor è obbligatorio nelle app React dopo ogni release major/minor dello schema `X.Y.Z`, cioè quando cambia `X` o `Y`;
 - non è obbligatorio dopo ogni patch `X.Y.Z` quando cambia solo `Z`, salvo modifiche React trasversali o rischiose;
-- è obbligatorio prima di considerare chiusa una release minor React;
-- se il comando React Doctor manca, va aggiunto prima della prima release minor a cui si applica;
+- è obbligatorio prima di considerare chiusa una release major/minor React;
+- il comando standard è `npm run quality:react-doctor`, basato su `npx react-doctor@latest` per seguire sempre l'ultima diagnostica disponibile;
+- se il comando React Doctor manca, va aggiunto prima della prima release major/minor a cui si applica;
 - il risultato va citato nel riepilogo di release o nella verifica finale;
 - eventuali failure vanno risolte o dichiarate come blocker.
 
 Applicabilità:
 
-- Pratix: obbligatorio, già presente come `quality:react-doctor`;
-- GLM: obbligatorio quando consolidato come app React con release minor;
-- TRAM: obbligatorio quando consolidato come app React con release minor;
-- SyncBay: obbligatorio quando consolidato come app React con release minor;
-- SendChimp: obbligatorio perché ha runtime React/Next.js quando avrà una release minor applicabile;
+- Pratix: obbligatorio, presente come `quality:react-doctor`;
+- GLM: obbligatorio perché è app React/Vite con release major/minor applicabili;
+- TRAM: obbligatorio perché è app React/Next.js con release major/minor applicabili;
+- SyncBay: obbligatorio perché è app React con release major/minor applicabili;
+- SendChimp: obbligatorio perché ha runtime React/Next.js quando avrà una release major/minor applicabile;
+- Sentinel: obbligatorio perché ha dashboard Next.js/React quando avrà una release tool/dashboard major/minor applicabile;
 - DocMolder e FiscalBay: non applicabile finché restano repo Python/Telegram-first senza app React.
 
 ### 13. Stile, tono e lingua
