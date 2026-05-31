@@ -1,6 +1,6 @@
 # Pattern candidati a standard Atlas
 
-Data ultimo aggiornamento: 2026-05-26.
+Data ultimo aggiornamento: 2026-05-31.
 
 Questo registro serve a non perdere i pattern maturi emersi nelle repo
 coordinate e, allo stesso tempo, a non trasformare ogni scelta locale in uno
@@ -26,7 +26,8 @@ standard trasversale.
 | React Doctor | Promosso con condizione | Pratix, GLM, SendChimp, SyncBay, TRAM | Obbligatorio per app React dopo release minor o modifiche React trasversali |
 | Basename Markdown univoci | Promosso | TRAM, decisione Atlas 0004 | Regola trasversale: niente due file Markdown con lo stesso basename nella stessa repo |
 | Decision register separato dagli ADR puntuali | Promosso | TRAM, DocMolder, decisione utente Atlas | Standard pieno: registro stabile, pending separato e ADR puntuali con basename univoci |
-| Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | GLM, SendChimp, SyncBay, Sentinel | Ammesso per docs-only o lavori pre-release; quando esiste una release prodotto reale, la repo deve avere policy tag/GitHub Release con source of truth dichiarata |
+| Changelog/frontend versioning locale senza GitHub Release | Promosso come fase transitoria limitata | SendChimp, SyncBay | Ammesso per docs-only o lavori pre-release; quando esiste una release prodotto reale, la repo deve avere policy tag/GitHub Release con source of truth dichiarata |
+| Release prodotto reale con tag/GitHub Release separata dal deploy | Promosso | DocMolder, FiscalBay, GLM, TRAM, Sentinel | Source of truth versione, formato tag, changelog e deploy restano repo-specifici |
 | Allegati, benchmark o fonti esterne fuori dal flusso Git ordinario | Repo-specifico con principio comune | GLM, TRAM, FiscalBay, DocMolder | Preservare LFS, fixture o archivi solo secondo policy locale e senza dati sensibili |
 | Dependabot come baseline universale | Promosso | Tutte le repo coordinate con dipendenze o manifest compatibili | Standard pieno Atlas; la pausa temporanea non ne declassa il livello |
 | Runtime operativo su GitHub Actions | Repo-specifico e riallineato | Sentinel | Non generalizzare; il runtime è operativo con monitoraggio post-riavvio |
@@ -54,8 +55,8 @@ standard trasversale.
 - Sentinel come runtime schedulato GitHub Actions.
 - GLM con Cloudflare Pages e allegati gara gestiti come fonti specifiche.
 - DocMolder con flusso Telegram-first, release manuale e runbook VPS.
-- FiscalBay con compatibilità Python `>=3.10` e VPS `3.13` come runtime
-  operativo controllato.
+- FiscalBay con Python `3.13` come baseline unica e deploy/release via script
+  locali/VPS fuori da GitHub Actions.
 
 ## Pattern respinti come stato stabile
 

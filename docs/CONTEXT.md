@@ -63,19 +63,25 @@ SyncBay, TRAM e Sentinel.
   webhook privato; contesto da mantenere sintetico.
 - FiscalBay: servizio Telegram-first pubblico con accesso approvato, VPS
   `fiscalbay-bot`, release/deploy tramite script locali/VPS.
-- GLM: app React/Vite su Cloudflare Pages; repository reale
-  `max23468/Gare-Lotti-Milanesi`; deploy con Wrangler quando richiesto.
+- GLM: app React/Vite su Cloudflare Pages; repository reale `max23468/GLM`;
+  progetto Pages `gare-lotti-milanesi`; deploy con Wrangler quando richiesto.
 - SendChimp: MVP manuale Next.js/Vercel con vincolo free-tier e ultimo miglio
   WhatsApp manuale.
-- SyncBay: Shopify app su Vercel/Supabase; Vercel production distinta da
+- SyncBay: Shopify app su Vercel/Supabase; Vercel production pilota distinta da
   release pubblica Shopify App Store.
-- TRAM: MVP iniziale Next.js/docs-governance; nessun target deploy approvato;
-  ADR template canonico `docs/decisions/template.md`.
-- Sentinel: runtime MVP con GitHub Actions e dashboard Next.js/Vercel/Blob;
-  React Doctor usa il comando di toolchain, non copie vendorizzate.
+- TRAM: MVP iniziale Next.js/docs-governance; release SemVer `0.x` attiva con
+  `v0.2.0`; nessun target deploy approvato.
+- Sentinel: runtime MVP con GitHub Actions e dashboard Next.js/Vercel/Blob come
+  canali distinti; React Doctor usa il comando di toolchain.
 
 Per dettagli vivi leggere sempre i documenti della repo target, non questo
 snapshot.
+
+Prima di proporre o avviare lavoro prodotto nelle repo coordinate, controllare
+sempre `docs/HEALTH.md` e `docs/PROJECTS.md`: Pratix, DocMolder, FiscalBay,
+SyncBay, TRAM e Sentinel hanno stati `Attenzione` o gate P0/P1/P2 da rispettare
+prima di nuove aperture funzionali, deploy, release o integrazioni operative.
+Questa sintesi non sostituisce quei gate.
 
 ## Vincoli specifici
 

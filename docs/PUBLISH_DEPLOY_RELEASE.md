@@ -4,6 +4,7 @@ Data ultimo aggiornamento: 2026-05-31.
 
 Questa matrice evita ambiguità operative tra `pubblica`, `deploya` e
 `rilascia`. Le policy delle singole repo prevalgono sempre su questa sintesi.
+Il protocollo è comune; gli effetti concreti non sono identici in tutte le repo.
 
 Legenda:
 
@@ -22,6 +23,10 @@ Legenda:
 - `Pubblica` include release o deploy solo quando sono necessari per rendere
   effettivo il lavoro secondo richiesta, diff o policy repo-specifica. Quando non
   servono, vanno dichiarati `N/A` o fuori scope con motivo.
+- Quindi `pubblica` non è un comando identico repo per repo: in tutte richiede
+  canale canonico, verifiche proporzionate, inbox e cleanup; release, deploy,
+  App Store, VPS, Vercel, Cloudflare o runtime Actions dipendono invece dalla
+  repo e dal diff.
 - `Rilascia` richiede una policy versioning/release della repo.
 - Dove esiste una release reale, la policy deve chiarire source of truth,
   formato tag, GitHub Release e changelog; il solo versioning locale è
@@ -42,12 +47,12 @@ Legenda:
 | Atlas | Push/PR su GitHub privata | N/A | N/A | `git push origin main` o PR se non banale | Docs-first; nessun runtime |
 | Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor secondo guide repo | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
 | DocMolder | PR/merge GitHub | Sì, policy release manuale repo-specifica | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
-| FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
-| GLM | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; non retro-taggare lo storico |
+| FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | Python `3.13` è baseline unica; VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
+| GLM | PR/merge GitHub su `max23468/GLM` | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; progetto Pages `gare-lotti-milanesi`; non retro-taggare lo storico |
 | SendChimp | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
-| SyncBay | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale; App Store production separato | Vercel automatico; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico |
-| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Il lavoro viene considerato pubblicato solo a PR/merge completato (o commit doc-only previsto dalla policy); pulizia branch/worktree locali e remoti inclusa |
-| Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì, runtime GitHub Actions schedulato | Workflow `Sentinel` attivo dopo riavvio; ADR tag/GitHub Release | Workflow runtime ora attivo |
+| SyncBay | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale; App Store production separato | Vercel production pilota; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico; Vercel production non equivale a Shopify App Store |
+| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte; `v0.2.0` esiste già | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release distinta da deploy; nessun hosting/provider abilitato dalla release |
+| Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì: runtime GitHub Actions schedulato; dashboard Vercel/Blob separata | Workflow `Sentinel`, `npm run sentinel -- publish-dashboard`, ADR tag/GitHub Release | Runtime scan e dashboard online sono canali distinti |
 
 ## Quando fare deploy diretto
 
