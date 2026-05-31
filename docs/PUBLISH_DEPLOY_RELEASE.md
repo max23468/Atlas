@@ -44,7 +44,7 @@ Legenda:
 
 | Repo | Publish | Release | Deploy | Canale/comando canonico | Note |
 | --- | --- | --- | --- | --- | --- |
-| Atlas | Push/PR su GitHub privata | N/A | N/A | `git push origin main` o PR se non banale | Docs-first; nessun runtime |
+| Atlas | Push/PR su GitHub pubblica | N/A | N/A | `git push origin main` o PR se non banale | Docs-first; nessun runtime |
 | Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor secondo guide repo | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
 | DocMolder | PR/merge GitHub | Sì, policy release manuale repo-specifica | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
 | FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | Python `3.13` è baseline unica; VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |

@@ -198,15 +198,16 @@ Non interpretare richieste su Atlas come autorizzazione a pubblicare, rilasciare
 
 ## GitHub e Codex
 
-Atlas è inizializzato come repository Git locale su branch `main` e pubblicato nella repository privata `https://github.com/max23468/Atlas`.
+Atlas è inizializzato come repository Git locale su branch `main` e pubblicato nella repository pubblica `https://github.com/max23468/Atlas`.
 
 Baseline leggera:
 
 - PR template;
 - issue template minima;
 - PR title check;
-- Dependabot come standard pieno quando esistono dipendenze o manifest
-  compatibili; Atlas lo applica a sé stesso solo se introdurrà dipendenze reali.
+- Dependabot come standard pieno quando esistono dipendenze, manifest
+  compatibili o workflow GitHub Actions da mantenere; Atlas lo applica a sé
+  stesso per GitHub Actions.
 
 La Codex inbox resta obbligatoria prima di publish, merge, deploy o release nelle repo che la usano già. La issue canonica `Codex feedback inbox` deve essere marcata con la label `codex-feedback-inbox` quando il workflow dedicato è attivo.
 

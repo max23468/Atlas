@@ -37,14 +37,15 @@ Atlas usa la root per ingresso, istruzioni operative, template e checklist. Usa 
 - `docs/decisions/template.md`: template ADR da copiare per nuove decisioni.
 - `docs/decisions/0001-atlas-meta-progetto-leggero.md`: identità e perimetro di Atlas.
 - `docs/decisions/0002-struttura-canonica-root-docs.md`: struttura canonica root/docs.
-- `docs/decisions/0003-repository-github-privata.md`: pubblicazione GitHub privata.
+- `docs/decisions/0003-repository-github-privata.md`: decisione storica superata sulla pubblicazione GitHub privata.
 - `docs/decisions/0004-basename-markdown-univoci.md`: regola sui basename Markdown univoci.
+- `docs/decisions/0005-repository-github-pubbliche.md`: repository GitHub pubbliche nel perimetro Atlas.
 
 Le decisioni fondative restanti sono raccolte nel piano principale. Quando una decisione deve diventare autonoma, crearla in `docs/decisions/` e collegarla qui.
 
 ## GitHub
 
-- Repository privata: `https://github.com/max23468/Atlas`
+- Repository pubblica: `https://github.com/max23468/Atlas`
 - Branch principale: `main`
 - Baseline: PR template, issue template minima, PR title check e Codex
   feedback inbox nella issue GitHub `#10`.
@@ -83,7 +84,7 @@ Atlas coordina, senza modificare automaticamente:
 - SendChimp
 - SyncBay
 - TRAM
-- Sentinel: monitor operativo in `/Users/Matteo/Progetti/Sentinel`, repo GitHub privata `max23468/Sentinel`, workflow schedulato/dispatch, documenti canonici Atlas e output applicativi tracciati.
+- Sentinel: monitor operativo in `/Users/Matteo/Progetti/Sentinel`, repo GitHub pubblica `max23468/Sentinel`, workflow schedulato/dispatch, documenti canonici Atlas e output applicativi tracciati.
 
 Prima di intervenire su una di queste repo, leggere il suo `AGENTS.md`, controllare `git status --short` e applicare le regole specifiche della repo.
 

@@ -46,7 +46,7 @@ diversa ma accettata.
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `OK pieno`: principio dichiarato nei context/policy repo o già presente in policy locale |
 | Verifiche | Gate proporzionati al rischio, senza test inventati | `OK pieno`: run remote storiche sono contesto e non sostituiscono verifiche locali dichiarate |
 | React Doctor | Obbligatorio per app React dopo release minor o modifiche React trasversali | `OK pieno`: applicato in Pratix, GLM, SendChimp, SyncBay e TRAM |
-| Dependabot | Standard pieno in tutte le repo con dipendenze o manifest compatibili | `OK pieno`: GLM e Sentinel hanno `dependabot.yml`; le cancellazioni Actions storiche non declassano lo standard |
+| Dependabot | Standard pieno in tutte le repo con dipendenze o manifest compatibili, incluse GitHub Actions dove non esistono manifest runtime | `OK pieno`: Atlas copre GitHub Actions; le repo con manifest runtime hanno `dependabot.yml` |
 | Toolchain/versioni | Runtime, package manager, lockfile e versioni minime dichiarati | `OK pieno`: FiscalBay è riallineata a Python `3.13` come baseline unica; Node/npm e Python restano dichiarati repo per repo |
 | Privacy/sicurezza | No segreti, no dati reali non necessari, provider/API variabili verificati | `OK pieno`: policy comune presente; i dettagli restano repo-specifici |
 | Artefatti generati | `.DS_Store`, cache, build output e file temporanei non sono contenuto progettuale | `OK equivalente`: regola comune rispettata; Sentinel mantiene output applicativi previsti dal proprio runtime |
@@ -56,7 +56,7 @@ diversa ma accettata.
 
 | Repo | Docs | GitHub/PR title | Codex inbox | Versioning/release | React Doctor | Dependabot | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | N/A | Inbox Codex issue `#10`; stato workflow aggiornato dopo riavvio |
+| Atlas | OK pieno | OK pieno | OK pieno | N/A | N/A | OK pieno | Inbox Codex issue `#10`; Dependabot copre GitHub Actions |
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#163`; `Dependabot Updates` cancellato il `2026-05-25` |
 | DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | Inbox `#149`; PR title controllato nella CI/policy locale; release manuale documentata, con check VPS del runbook |
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Inbox `#86`; Python `3.13` è baseline unica per manifest, CI, toolchain e VPS |

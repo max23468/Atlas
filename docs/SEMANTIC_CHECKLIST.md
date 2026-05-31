@@ -83,7 +83,7 @@ Contenuto minimo:
 - tool esterni, provider e target operativi;
 - stato GitHub Actions quando è sospeso o non deve essere usato come gate;
 - React Doctor quando applicabile;
-- Dependabot quando la repo ha manifest compatibili.
+- Dependabot quando la repo ha manifest compatibili o workflow GitHub Actions.
 
 ## `docs/ROADMAP.md`
 

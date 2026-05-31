@@ -6,8 +6,8 @@ Questo indice raccoglie le decisioni stabili di Atlas.
 
 - [0001 - Atlas come meta-progetto leggero](decisions/0001-atlas-meta-progetto-leggero.md): Accettata.
 - [0002 - Struttura canonica root e docs](decisions/0002-struttura-canonica-root-docs.md): Accettata.
-- [0003 - Repository GitHub privata per Atlas](decisions/0003-repository-github-privata.md): Accettata.
 - [0004 - Basename Markdown univoci](decisions/0004-basename-markdown-univoci.md): Accettata.
+- [0005 - Repository GitHub pubbliche nel perimetro Atlas](decisions/0005-repository-github-pubbliche.md): Accettata.
 
 ## Decisioni da valutare come ADR
 
@@ -16,7 +16,7 @@ Questo indice raccoglie le decisioni stabili di Atlas.
 
 ## Decisioni sostituite o superate
 
-- Nessuna decisione superata registrata.
+- [0003 - Repository GitHub privata per Atlas](decisions/0003-repository-github-privata.md): Superata da `0005`.
 
 ## Regole
 

@@ -6,7 +6,7 @@
 - Ultima versione/release: non applicabile.
 - Ultimo deploy: non applicabile.
 - Git: repository locale su branch `main`.
-- GitHub: repository privata `https://github.com/max23468/Atlas`.
+- GitHub: repository pubblica `https://github.com/max23468/Atlas`.
 
 Atlas è la cabina di regia dei progetti locali. Coordina standard,
 governance, template, matrici, publish/deploy/release, verifiche,

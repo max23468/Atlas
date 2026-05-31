@@ -40,7 +40,7 @@ sta in `docs/COORDINATION_HISTORY.md`.
 
 ## Fatto recente
 
-- Creato Atlas come meta-progetto separato con repository GitHub privata,
+- Creato Atlas come meta-progetto separato con repository GitHub pubblica,
   baseline GitHub leggera e documenti canonici.
 - Completato il primo allineamento trasversale di governance, documentazione,
   GitHub, publish/deploy/release e standard candidati.
