@@ -66,7 +66,13 @@ Prima di lavorare in Atlas:
 3. verificare che il task non stia applicando modifiche alle altre repo senza richiesta esplicita;
 4. identificare verifiche proporzionate, di solito documentali;
 5. non toccare modifiche non proprie;
-6. dichiarare se publish, deploy o release sono fuori scope.
+6. non usare comandi distruttivi e non sovrascrivere modifiche non tue senza
+   conferma esplicita;
+7. dichiarare se publish, deploy o release sono fuori scope.
+
+Per modifiche Atlas non banali usa una branch dedicata `codex/<tema>` e PR verso `main`;
+il commit diretto su `main` resta solo per micro-modifiche docs-only a basso
+rischio quando non toccano policy condivise, release, deploy o workflow.
 
 Prima di lavorare su una repo coordinata da Atlas:
 
