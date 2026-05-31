@@ -96,6 +96,8 @@ Esito aggiornato:
   controllo.
 - Il modello operativo è normalizzato sulla label `codex-feedback-inbox`.
   Anche DocMolder usa lo stesso percorso handler delle altre repo.
+- La policy merge GitHub è normalizzata su squash-only e cancellazione
+  automatica della branch dopo merge.
 - GLM resta con checkout principale sporco per lavoro utente separato; gli
   interventi Atlas vanno fatti da worktree dedicato fino a cleanup completato.
 - Nessun deploy o release Atlas eseguito in questo audit.
