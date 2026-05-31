@@ -8,9 +8,9 @@ sta in `docs/COORDINATION_HISTORY.md`.
 
 ## Ora
 
-- Completare l'allineamento delle roadmap nelle repo coordinate: roadmap
-  canonica in `docs/ROADMAP.md`, contenuti storici o operativi spostati in
-  documenti dedicati e regole locali aggiornate senza template incollati.
+- Proseguire l'allineamento dei documenti canonici nelle repo coordinate,
+  mantenendo separati roadmap, backlog, storico, decisioni e regole operative
+  senza template incollati.
 - Usare `docs/STANDARDS.md`, `docs/PUBLISH_DEPLOY_RELEASE.md`,
   `docs/APPLYING_ATLAS.md`, `docs/PROJECTS.md` e `docs/HEALTH.md` come fonti
   operative prima di ogni intervento repo-per-repo.

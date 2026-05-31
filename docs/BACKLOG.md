@@ -16,10 +16,6 @@ Una voce nel backlog non è scope approvato.
   commenti PR.
 - Valutare un controllo scriptabile per file canonici mancanti nelle repo coordinate.
 - Valutare un controllo scriptabile per duplicati documentali e riferimenti a roadmap/backlog non canonici.
-- Riattivazione workflow `Codex PR comments` verificata post-riavvio.
-  su Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel.
-- Riattivazione del workflow runtime verificata post-riavvio.
-  `Sentinel` o la scelta di un runtime alternativo.
 - Riallineare Dependabot nelle repo dove oggi è sospeso, senza trattarlo come
   standard facoltativo.
 - Valutare un upgrade Python completo di FiscalBay oltre `3.10` solo con decisione repo-specifica su manifest, CI, toolchain e policy.
