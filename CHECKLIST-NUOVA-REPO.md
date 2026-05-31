@@ -81,6 +81,8 @@ gate.
 - Dichiarare se esiste una release versionata e quale file contiene la versione.
 - Dichiarare se esiste deploy, target, comando, ambiente e verifica post-deploy.
 - Separare sempre publish, release e deploy.
+- Se esiste una release prodotto reale, dichiarare tag Git e GitHub Release
+  obbligatori nel formato `vX.Y.Z`.
 - Non introdurre tag, GitHub Release, flussi di release non documentati o runtime esterni se
   la repo non li ha decisi.
 - Aggiornare `docs/PUBLISH_DEPLOY_RELEASE.md` in Atlas se la repo entra nel

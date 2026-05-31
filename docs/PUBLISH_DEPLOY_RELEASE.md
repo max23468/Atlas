@@ -28,9 +28,13 @@ Legenda:
   App Store, VPS, Vercel, Cloudflare o runtime Actions dipendono invece dalla
   repo e dal diff.
 - `Rilascia` richiede una policy versioning/release della repo.
-- Dove esiste una release reale, la policy deve chiarire source of truth,
-  formato tag, GitHub Release e changelog; il solo versioning locale è
-  transitorio.
+- Ogni release prodotto reale deve creare sempre tag Git e GitHub Release nel
+  formato `vX.Y.Z`, con source of truth e changelog dichiarati dalla repo.
+  Il solo versioning locale è ammesso solo per docs-only, lavori pre-release o
+  stati non ancora rilasciati come prodotto reale.
+- Deploy, scan/report runtime, output operativi e App Store/billing non sono
+  automaticamente release prodotto reale: diventano release solo se la policy
+  della repo lo dichiara.
 - `Deploya` richiede target, comando e verifica post-deploy dichiarati.
 - Release e deploy vanno valutati insieme quando entrambi sono applicabili: non
   chiudere una release senza dichiarare il deploy, e non chiudere un deploy senza
@@ -45,14 +49,14 @@ Legenda:
 | Repo | Publish | Release | Deploy | Canale/comando canonico | Note |
 | --- | --- | --- | --- | --- | --- |
 | Atlas | Push/PR su GitHub pubblica | N/A | N/A | `git push origin main` o PR se non banale | Docs-first; nessun runtime |
-| Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor secondo guide repo | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
-| DocMolder | PR/merge GitHub | Sì, policy release manuale repo-specifica | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
-| FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | Python `3.13` è baseline unica; VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
-| GLM | PR/merge GitHub su `max23468/GLM` | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; progetto Pages `gare-lotti-milanesi`; non retro-taggare lo storico |
-| SendChimp | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
-| SyncBay | PR/merge GitHub | Locale dichiarata; tag/GitHub Release `vX.Y.Z` solo per release prodotto reale; App Store production separato | Vercel production pilota; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico; Vercel production non equivale a Shopify App Store |
-| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte; `v0.2.0` esiste già | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release distinta da deploy; nessun hosting/provider abilitato dalla release |
-| Sentinel | PR/merge GitHub | Tag/GitHub Release solo per release tool/dashboard, non per scan/report | Sì: runtime GitHub Actions schedulato; dashboard Vercel/Blob separata | Workflow `Sentinel`, `npm run sentinel -- publish-dashboard`, ADR tag/GitHub Release | Runtime scan e dashboard online sono canali distinti |
+| Pratix | PR/merge GitHub secondo policy repo | Sì, patch/minor con tag Git e GitHub Release `vX.Y.Z` per release prodotto reale | Sì, Vercel/Supabase quando il diff lo richiede | Guide Pratix `versioning-e-release` e `deploy`, `publish:finish` quando previsto | React Doctor dopo release minor |
+| DocMolder | PR/merge GitHub | Sì, policy manuale repo-specifica con tag Git e GitHub Release `vX.Y.Z` per release prodotto reale | Sì, VPS solo quando richiesto dal runbook | `AGENTS.md`, `docs/RELEASE_PROCESS.md`, `docs/VERSIONING.md`, `docs/VPS_RUNBOOK.md` | Telegram-first; documenti sensibili |
+| FiscalBay | PR/merge GitHub o commit diretto naturale su `main` | Sì, esplicita via script locale/VPS; release prodotto reale con tag Git e GitHub Release `vX.Y.Z` | Sì, VPS fuori da GitHub Actions | `scripts/release_now.sh`, `scripts/deploy_now.sh` | Python `3.13` è baseline unica; VPS corretta solo `opc@79.72.45.89`; Actions non sono canale deploy |
+| GLM | PR/merge GitHub su `max23468/GLM` | Locale dichiarata; ogni release prodotto reale crea tag Git e GitHub Release `vX.Y.Z` | Sì, Cloudflare Pages quando richiesto | Guide GLM `versioning-e-release` e `cloudflare-pages`, ADR tag/GitHub Release | Non usare Vercel/Supabase; progetto Pages `gare-lotti-milanesi`; non retro-taggare lo storico |
+| SendChimp | PR/merge GitHub | Locale dichiarata; ogni release prodotto reale crea tag Git e GitHub Release `vX.Y.Z` | Vercel production esiste; deploy separato da release e invii reali | `npm run release`, Vercel CLI solo se policy lo richiede, ADR tag/GitHub Release | MVP manuale; niente invii reali o provider nuovi |
+| SyncBay | PR/merge GitHub | Locale dichiarata; ogni release prodotto reale crea tag Git e GitHub Release `vX.Y.Z`; App Store production separato | Vercel production pilota; App Store production non attivo | Guide SyncBay `git-e-pubblicazione`, `versioning-e-release`, `provisioning-runtime`, ADR tag/GitHub Release | Shopify/eBay, no marketplace generico; Vercel production non equivale a Shopify App Store |
+| TRAM | PR/merge GitHub o commit diretto docs-only sicuro | Sì, SemVer `0.x` con `package.json` come fonte; release prodotto reale con tag Git e GitHub Release `vX.Y.Z` | No target approvato | `docs/decisions/0003-versioning-release-policy.md` | Release distinta da deploy; nessun hosting/provider abilitato dalla release |
+| Sentinel | PR/merge GitHub | Tag Git e GitHub Release `vX.Y.Z` obbligatori per release tool/dashboard; non per scan/report | Sì: runtime GitHub Actions schedulato; dashboard Vercel/Blob separata | Workflow `Sentinel`, `npm run sentinel -- publish-dashboard`, ADR tag/GitHub Release | Runtime scan e dashboard online sono canali distinti |
 
 ## Quando fare deploy diretto
 
@@ -75,6 +79,8 @@ Non fare release quando:
 - la repo non ha policy release;
 - il changelog contiene solo voci non versionate;
 - la release creerebbe tag/GitHub Release non previsti;
+- il lavoro non è una release prodotto reale, ma solo deploy, docs-only,
+  scan/report runtime, output operativo o pre-release locale;
 - mancano verifiche locali sufficienti.
 
 ## Stato Actions post-riavvio

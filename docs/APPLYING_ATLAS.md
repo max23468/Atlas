@@ -124,7 +124,9 @@ Seguire `docs/PUBLISH_DEPLOY_RELEASE.md` e la policy della repo:
 
 Quando una repo ha versioning o release reale, non lasciare come stato stabile un
 solo changelog/versioning locale: la policy deve chiarire source of truth,
-formato tag, GitHub Release, changelog e rapporto con deploy/runtime.
+formato tag, GitHub Release, changelog e rapporto con deploy/runtime. Ogni
+release prodotto reale deve creare sempre tag Git e GitHub Release nel formato
+`vX.Y.Z`.
 
 Quando la policy repo prevede una pubblicazione documentale rapida, usare commit
 `[skip ci]` solo se la repo lo accetta e il diff è compatibile.

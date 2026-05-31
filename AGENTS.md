@@ -173,6 +173,11 @@ Atlas non ha ancora package, changelog o release policy. Finché resta docs-firs
 Release Please non è adottato in Atlas: non delegare changelog, versioni, tag o
 GitHub Release a bot automatici senza una decisione esplicita.
 
+Regola trasversale per le repo coordinate: ogni release prodotto reale deve
+creare sempre tag Git e GitHub Release nel formato `vX.Y.Z`. Docs-only,
+pre-release locali, deploy, scan/report runtime o output operativi non sono
+release prodotto reale salvo policy esplicita della repo.
+
 Se Atlas viene inizializzato come repo GitHub con release proprie, creare prima una decisione in `docs/decisions/` o aggiornare la roadmap/backlog.
 
 ## Publish, deploy e release

@@ -42,7 +42,7 @@ diversa ma accettata.
 | GitHub baseline | PR template, issue template, PR title check o equivalente, policy PR/merge | `OK equivalente`: baseline presente; alcune repo usano `pr-title.yml`, altre controlli equivalenti nella CI/policy locale |
 | Merge GitHub | Squash merge come unico metodo consentito e cancellazione automatica branch dopo merge | `OK pieno`: Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel sono configurate su squash-only + delete branch |
 | Codex feedback inbox | Issue `Codex feedback inbox`, label canonica `codex-feedback-inbox` e, quando le Actions sono attive, handler/workflow coerente dove ci sono PR operative ricorrenti | `OK pieno`: Atlas e repo coordinate allineate al modello con label canonica; workflow operativi attivi |
-| Versioning | Semantica comune; source of truth dichiarata; tag e GitHub Release quando esiste release reale | `OK equivalente`: GLM, SendChimp, SyncBay e Sentinel dichiarano source of truth e policy tag/GitHub Release proporzionata alla release reale |
+| Versioning | Semantica comune; source of truth dichiarata; tag Git e GitHub Release `vX.Y.Z` obbligatori per ogni release prodotto reale | `Policy aggiornata`: da recepire nei prossimi interventi repo-specifici dove la policy locale non è ancora allineata |
 | Publish/deploy/release | Parole chiave comuni, target e comandi repo-specifici, niente deploy/release inventati | `OK pieno`: matrice sintetica in `docs/PUBLISH_DEPLOY_RELEASE.md` |
 | Pubblicazione proporzionata | Ogni repo deve dichiarare un percorso proporzionato al diff: docs-only/governance-only senza smoke, deploy, release o gate runtime non pertinenti | `OK pieno`: principio dichiarato nei context/policy repo o già presente in policy locale |
 | Verifiche | Gate proporzionati al rischio, senza test inventati | `OK pieno`: run remote storiche sono contesto e non sostituiscono verifiche locali dichiarate |
@@ -61,11 +61,11 @@ diversa ma accettata.
 | Pratix | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | OK pieno | Nessuna PR aperta; inbox `#163`; `Dependabot Updates` cancellato il `2026-05-25` |
 | DocMolder | OK pieno | OK equivalente | OK pieno | OK pieno | N/A | OK pieno | Inbox `#149`; PR title controllato nella CI/policy locale; release manuale documentata, con check VPS del runbook |
 | FiscalBay | OK pieno | OK pieno | OK pieno | OK pieno | N/A | OK pieno | Inbox `#86`; Python `3.13` è baseline unica per manifest, CI, toolchain e VPS |
-| GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#14`; Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag/GitHub Release definiti per release prodotto reale |
-| SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag/GitHub Release definiti per release prodotto reale |
-| SyncBay | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#2`; Vercel production pilota distinta da Shopify App Store production; tag/GitHub Release solo per release prodotto reale |
+| GLM | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#14`; Dependabot aggiunto; `docs/CONTEXT.md` punta a `package.json` come source of truth versione; tag Git e GitHub Release `vX.Y.Z` obbligatori per release prodotto reale |
+| SendChimp | OK pieno | OK pieno | OK pieno | OK equivalente | OK pieno | OK pieno | Nessuna PR aperta; inbox `#2`; tag Git e GitHub Release `vX.Y.Z` obbligatori per release prodotto reale |
+| SyncBay | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#2`; Vercel production pilota distinta da Shopify App Store production; tag Git e GitHub Release `vX.Y.Z` obbligatori per release prodotto reale |
 | TRAM | OK pieno | OK equivalente | OK pieno | OK pieno | OK pieno | OK pieno | Inbox `#2`; SemVer `0.x`, tag/GitHub Release `v0.2.0` già esistenti; nessun target deploy approvato |
-| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#4` marcata `codex-feedback-inbox`; runtime GitHub Actions e dashboard Vercel/Blob sono canali distinti; tag/GitHub Release solo per tool/dashboard |
+| Sentinel | OK pieno | OK equivalente | OK pieno | OK equivalente | OK pieno | OK pieno | Inbox `#4` marcata `codex-feedback-inbox`; runtime GitHub Actions e dashboard Vercel/Blob sono canali distinti; tag Git e GitHub Release `vX.Y.Z` obbligatori per release tool/dashboard |
 
 ## Interventi del ciclo correttivo
 
