@@ -119,6 +119,7 @@ La roadmap descrive direzione, priorità e prossimi passi di Atlas. Le idee non 
 - Riavviato manualmente il workflow runtime `Sentinel` dopo verifica iniziale.
 - Creata `CHECKLIST-NUOVA-REPO.md` per inserire una nuova repository nel perimetro Atlas senza applicare template in modo meccanico.
 - Completato e pubblicato il punto 1/24 `AGENTS.md`: contenuti sostanziali integrati granularmente nelle repo, senza blocco comune Atlas incollato; PR pubblicate Atlas `#19` e `#20`, Pratix `#171`, DocMolder `#190`, FiscalBay `#89`, GLM `#20`, SendChimp `#33`, TRAM `#22` e Sentinel `#20`; SyncBay verificata già conforme senza diff necessario.
+- Completato e pubblicato il punto 2/24 `Catalogo documentazione`: chiariti root/docs, indici canonici, anti-duplicati, riferimenti errati ed eccezioni operative in Atlas, Pratix, DocMolder, FiscalBay, GLM, SendChimp, SyncBay, TRAM e Sentinel.
 - Creata `docs/PUBLISH_DEPLOY_RELEASE.md` per separare publish, release e deploy repo per repo.
 - Creata `docs/APPLYING_ATLAS.md` per chiarire come applicare Atlas senza trasformarlo in sviluppo prodotto delle repo coordinate.
 - Creato `docs/STANDARD_CANDIDATES.md` per classificare i pattern emersi da GLM, TRAM, SyncBay, SendChimp e dalle altre repo coordinate.

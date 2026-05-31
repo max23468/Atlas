@@ -148,6 +148,10 @@ Documenti canonici di Atlas:
 - checklist manutenzione: `CHECKLIST-MANUTENZIONE.md`
 - checklist nuova repo: `CHECKLIST-NUOVA-REPO.md`
 
+La root resta il punto di ingresso operativo: `README.md`, `AGENTS.md`, il
+piano principale, template e checklist. `docs/` contiene governance,
+roadmap, backlog, contesto, toolchain, standard, decisioni, matrici e guide.
+
 I file `*.template.md` sono template riusabili, non documenti canonici di stato di Atlas.
 
 Non creare documenti doppi con stesso titolo, stesso scopo o stesso basename Markdown. Se un documento viene migrato o trasformato, preservare i contenuti utili e aggiornare `docs/INDEX.md`.
